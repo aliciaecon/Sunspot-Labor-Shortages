@@ -34,29 +34,30 @@ function probWork(u, j, w, χ, sgrid)
         num      = exp(u(w) - (χ * sgrid[j]))
     end
     denom        = sum(exp.(u(w) .- (χ .* sgrid))) + 1
-    return(num/denom)
+    return num/denom
 end
 
 """
 Get all under/over-staffed combinations of a market of size J,
 with heterogenous firms (so which firms in the market
-are under-staffed would matter for non-employment).
+are under-staffed would matter for total employment).
 1 = under-staffed, 0 = over-staffed 
 """
 function staffCombosDiff(J)
-    return(reverse.(digits.(0:2^J - 1, base = 2, pad = J)))
+    return reverse.(digits.(0:2^J - 1, base = 2, pad = J))
 end
 
 """
 Get under/over-staffed combinations of a market of size J,
-for markets with identifcal firms (since markets
+for markets with identical firms (since markets
 with the same number of under-staffed firms will have
-identical non-employment shares).
+identical employment shares).
 1 = under-staffed, 0 = over-staffed.
 """
 function staffCombosIdent(J)
-    c = LowerTriangular(ones(Bool, J,J))
-    x = [zeros(Bool, 1,J); c]
+    # match staffCombosDiff's output structure
+    c = LowerTriangular(ones(Bool, J, J))
+    x = [zeros(Bool, 1, J); c]
     s = [x[j,:] for j = 1:J+1]
     return s
 end
@@ -67,7 +68,6 @@ compute the choice probabilities p(i -> j) for firm j in each mkt,
 where j == 0 denotes non-employment. Each mkt is a row.
 """
 function choiceProbs(m::Mkt; ident = true)
-
     @unpack J, w, χ, Lbar = m
 
     if ident == true
@@ -98,18 +98,17 @@ compute non-employment shares and then check
 whether the over/under-staffed assignments agree with Lbar.
 """
 function checkProbs(m)
-
     @unpack J, w, χ, Lbar = m
     pgrid, sgrid          = choiceProbs(m)
 
     s      = [sum(sgrid[i]) for i = 1:length(sgrid)]./J
 
-    # check that our under/over-staffed assignments makes sense
+    # Check that our under/over-staffed assignments makes sense
     nonemp = pgrid[:, 1]
     pu     = Vector{Any}(undef, J+1)
     po     = Vector{Any}(undef, J+1)
 
-    #= Here, check that P(i -> j | understaffed) < L andP(i -> j | overstaffed) >= L.
+    #= Check P(i -> j | understaffed) < Lbar & P(i -> j | overstaffed) >= Lbar.
     If this does not hold, then we don't compute nonemp shares for that combination.
     Should we be instead checking as we move from n -> n+1, as in the Dropbox note? =#
     for j  = 1:J+1
@@ -120,6 +119,7 @@ function checkProbs(m)
         pu[j] = isempty(pj[sj.==1]) ? missing : first( pj[sj.==1]) 
         po[j] = isempty(pj[sj.==0]) ? missing : first( pj[sj.==0])
 
+        # ismissing if all are understaffed or all are overstaffed
         if (!ismissing(po[j]) && po[j] < m.Lbar) || (!ismissing(pu[j]) && pu[j] >=  m.Lbar)
            nonemp[j]= NaN 
         end
@@ -127,7 +127,6 @@ function checkProbs(m)
     end
 
     return nonemp, pgrid, sgrid, s
-
 end
 
 ## Preliminary results
@@ -139,13 +138,21 @@ p, s    = choiceProbs(m)
 
 nonemp, pgrid, sgrid, shares = checkProbs(m)
 
-# Plot non-employment for different J
+# Plot employment for different J
 p1 = plot(legend=:topright, nrows=2)
 xlabel!("Share of Firms Understaffed")
-ylabel!("Share of Non-employment")
-@inbounds for j = 2:4:J
+ylabel!("Employment")
+@inbounds for j = 2:3:J
     local m = Mkt(j, w, χ)
     local nonemp, pnew, sgrid, shares     = checkProbs(m)
-    plot!(p1, shares, nonemp, label = string(j)*" Firms")
+    plot!(p1, shares, 1 .-nonemp, label = string(j)*" Firms")
 end
 p1
+
+# Plot employment for different A(=w)
+
+# Plot employment for different Lbar
+
+# Plot employment for different χ
+
+# Plot employment for different u
