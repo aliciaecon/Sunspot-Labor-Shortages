@@ -109,6 +109,9 @@ function checkProbs(m)
     pu     = Vector{Any}(undef, J+1)
     po     = Vector{Any}(undef, J+1)
 
+    #= Here, check that P(i -> j | understaffed) < L andP(i -> j | overstaffed) >= L.
+    If this does not hold, then we don't compute nonemp shares for that combination.
+    Should we be instead checking as we move from n -> n+1, as in the Dropbox note? =#
     for j  = 1:J+1
         
         sj = sgrid[j]
