@@ -20,10 +20,10 @@ end
 """
 Some potential utility functions
 """
-u1(w) = w 
-u2(w) = w^0.5
-u3(w) = log(w)
-u4(w) = -exp(-w)
+u1(w)           = w 
+u2(w; σ = 0.5)  = (w^(1-σ) - 1)/(1-σ)
+u3(w)           = log(max(w,eps()))
+u4(w)           = -exp(-w)
 
 # Define a constructor for default Lbar, u settings
 Mkt(J, w, χ)                 = Mkt(J, w, 0.7/(J+1), χ, u1)
@@ -37,11 +37,11 @@ Note: j = 0 denotes non-employment (w = 0, s = 0)
 """
 function probWork(u, j, w, χ, sgrid)
     if j == 0 # non-employment
-        num      = 1
+        num      = exp(u(0))
     else
         num      = exp(u(w) - (χ * sgrid[j]))
     end
-    denom        = sum(exp.(u(w) .- (χ .* sgrid))) + 1
+    denom        = sum(exp.(u(w) .- (χ .* sgrid))) + exp(u(0))
     return num/denom
 end
 
@@ -195,8 +195,7 @@ end
 p4
 
 # Plot employment for different u
-# need to fix value of unemployment
-#=
+# might want to fix some value of unemployment?
 p5 = plot(legend=:topright, nrows=2)
 xlabel!("Share of Firms Understaffed")
 ylabel!("Employment")
@@ -207,4 +206,3 @@ ylabel!("Employment")
         label = "Utility: "*string(u))
 end
 p5
-=#
