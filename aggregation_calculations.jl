@@ -19,8 +19,12 @@ end
 # Constructor for default Lbar setting
 Mkt(J, w, χ) = Mkt(J, w, 0.7/(J+1), χ)
 
-# Utility for type i working at firm j with wage w
-u(w) = w 
+"""
+Some potential utility functions
+"""
+u1(w) = w 
+u2(w) = w^0.5
+u3(w) = log(w)
 
 """
 Calculate the choice probability of working at firm j,
@@ -67,7 +71,7 @@ For every combination of under/over-staffed firms in a mkt,
 compute the choice probabilities p(i -> j) for firm j in each mkt,
 where j == 0 denotes non-employment. Each mkt is a row.
 """
-function choiceProbs(m::Mkt; ident = true)
+function choiceProbs(u, m::Mkt; ident = true)
     @unpack J, w, χ, Lbar = m
 
     if ident == true
@@ -97,9 +101,9 @@ For the simplest case, where all firms are identical,
 compute non-employment shares and then check
 whether the over/under-staffed assignments agree with Lbar.
 """
-function checkProbs(m)
+function checkProbs(u, m)
     @unpack J, w, χ, Lbar = m
-    pgrid, sgrid          = choiceProbs(m)
+    pgrid, sgrid          = choiceProbs(u, m)
 
     s      = [sum(sgrid[i]) for i = 1:length(sgrid)]./J
 
@@ -134,9 +138,9 @@ J       = 20
 χ       = 0.9
 w       = 1
 m       = Mkt(J, w, χ)
-p, s    = choiceProbs(m)
+p, s    = choiceProbs(u1, m)
 
-nonemp, pgrid, sgrid, shares = checkProbs(m)
+nonemp, pgrid, sgrid, shares = checkProbs(u1, m)
 
 # Plot employment for different J
 p1 = plot(legend=:topright, nrows=2)
@@ -144,7 +148,7 @@ xlabel!("Share of Firms Understaffed")
 ylabel!("Employment")
 @inbounds for j = 2:3:J
     local m = Mkt(j, w, χ)
-    local nonemp, pnew, sgrid, shares     = checkProbs(m)
+    local nonemp, pnew, sgrid, shares     = checkProbs(u1, m)
     plot!(p1, shares, 1 .-nonemp, label = string(j)*" Firms")
 end
 p1
@@ -152,7 +156,37 @@ p1
 # Plot employment for different A(=w)
 
 # Plot employment for different Lbar
+p3 = plot(legend=:topright, nrows=2)
+xlabel!("Share of Firms Understaffed")
+ylabel!("Employment")
+@inbounds for i in 0.5:0.1:1
+    local lbar = i/(J+1)
+    local m = Mkt(J, w, lbar, χ)
+    local nonemp, pnew, sgrid, shares   = checkProbs(u1, m)
+    plot!(p3, shares, 1 .-nonemp, 
+        label = "Lbar="*string(round(lbar, digits = 3)))
+end
+p3
 
 # Plot employment for different χ
+p4 = plot(legend=:topright, nrows=2)
+xlabel!("Share of Firms Understaffed")
+ylabel!("Employment")
+@inbounds for chi in 0.8:0.05:1
+    local m = Mkt(J, w, chi)
+    local nonemp, pnew, sgrid, shares   = checkProbs(u1, m)
+    plot!(p4, shares, 1 .-nonemp, label = "χ="*string(chi))
+end
+p4
 
 # Plot employment for different u
+p5 = plot(legend=:topright, nrows=2)
+xlabel!("Share of Firms Understaffed")
+ylabel!("Employment")
+@inbounds for u in [u1, u2, u3]
+    local m = Mkt(J, w, χ)
+    local nonemp, pnew, sgrid, shares   = checkProbs(u, m)
+    plot!(p5, shares, 1 .-nonemp, 
+        label = "Utility: "*string(u))
+end
+p5
