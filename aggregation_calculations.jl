@@ -147,7 +147,7 @@ p, s    = choiceProbs(m)
 nonemp, pgrid, sgrid, shares = checkProbs(m)
 
 # Plot employment for different J
-#  nested probit for under-staffed/over-staffed (independence of irrelvant alternatives)
+#  nested probit for under-staffed/over-staffed (independence of irrelvant alternatives)?
 p1 = plot(legend=:topright)
 xlabel!("Share of Firms Understaffed")
 ylabel!("Employment")
