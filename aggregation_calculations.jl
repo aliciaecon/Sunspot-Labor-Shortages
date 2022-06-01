@@ -17,12 +17,10 @@ struct Mkt
     u       ::Function
 end
 
-"""
-Some potential utility functions
-"""
+# Some potential utility functions
 u1(w)           = w 
 u2(w; σ = 0.5)  = (w^(1-σ) - 1)/(1-σ)
-u3(w)           = log(max(w,eps()))
+u3(w)           = log(w)
 u4(w)           = -exp(-w)
 
 # Define a constructor for default Lbar, u settings
@@ -33,15 +31,16 @@ Mkt(J, w, χ, u::Function)    = Mkt(J, w, 0.7/(J+1), χ, u)
 """
 Calculate the choice probability of working at firm j,
 given other firms' employment status and wages. 
-Note: j = 0 denotes non-employment (w = 0, s = 0)
+Note: j = 0 denotes non-employment (w = 0, s = 0),
+and b denotes unemployment benefit.
 """
-function probWork(u, j, w, χ, sgrid)
+function probWork(u, j, w, χ, sgrid; b = 0.4)
     if j == 0 # non-employment
-        num      = exp(u(0))
+        num      = exp(u(b))
     else
         num      = exp(u(w) - (χ * sgrid[j]))
     end
-    denom        = sum(exp.(u(w) .- (χ .* sgrid))) + exp(u(0))
+    denom        = sum(exp.(u(w) .- (χ .* sgrid))) + exp(u(b))
     return num/denom
 end
 
@@ -117,15 +116,14 @@ function checkProbs(m)
     po     = Vector{Any}(undef, J+1)
 
     #= Check P(i -> j | understaffed) < Lbar & P(i -> j | overstaffed) >= Lbar.
-    If this does not hold, then we don't compute nonemp shares for that combination.
-    Should we be instead checking as we move from n -> n+1, as in the Dropbox note? =#
+    If this does not hold, then we don't compute nonemp shares for that combination.=#
     for j  = 1:J+1
         
         sj = sgrid[j]
         pj = pgrid[j, 2:end]
         
-        pu[j] = isempty(pj[sj.==1]) ? missing : first( pj[sj.==1]) 
-        po[j] = isempty(pj[sj.==0]) ? missing : first( pj[sj.==0])
+        pu[j] = isempty(pj[sj.==1]) ? missing : first(pj[sj.==1]) 
+        po[j] = isempty(pj[sj.==0]) ? missing : first(pj[sj.==0])
 
         # ismissing if all are understaffed or all are overstaffed
         if (!ismissing(po[j]) && po[j] < m.Lbar) || (!ismissing(pu[j]) && pu[j] >=  m.Lbar)
@@ -138,7 +136,7 @@ function checkProbs(m)
 end
 
 ## Preliminary results
-J       = 20
+J       = 100
 χ       = 0.9
 w       = 1
 m       = Mkt(J, w, χ)
@@ -147,16 +145,18 @@ p, s    = choiceProbs(m)
 nonemp, pgrid, sgrid, shares = checkProbs(m)
 
 # Plot employment for different J
-#  nested probit for under-staffed/over-staffed (independence of irrelvant alternatives)?
-p1 = plot(legend=:topright)
+# Nested probit for under-staffed/over-staffed (independence of irrelvant alternatives)?
+# for now, add normalization for share of firms under-staffed = 0
+p1 = plot(legend=:topleft)
 xlabel!("Share of Firms Understaffed")
 ylabel!("Employment")
-@inbounds for j = 2:3:J
+@inbounds for j = 20:10:J
     local m = Mkt(j, w, χ)
     local nonemp, pnew, sgrid, shares = checkProbs(m)
     plot!(p1, shares, 1 .-nonemp, label = string(j)*" Firms")
 end
 p1
+savefig("plots/vary_J.pdf")
 
 # Plot employment for different A(=w)
 p2 = plot(legend=:topright)
@@ -168,6 +168,7 @@ ylabel!("Employment")
     plot!(p2, shares, 1 .-nonemp, label ="w = "*string(w))
 end
 p2
+savefig("plots/vary_w.pdf")
 
 # Plot employment for different Lbar
 # not super interesting 
@@ -182,17 +183,19 @@ ylabel!("Employment")
         label = "Lbar="*string(round(lbar, digits = 3)))
 end
 p3
+savefig("plots/vary_lbar.pdf")
 
 # Plot employment for different χ
 p4 = plot(legend=:topright)
 xlabel!("Share of Firms Understaffed")
 ylabel!("Employment")
-@inbounds for chi in 0.8:0.05:1
+@inbounds for chi in 0.5:0.1:1
     local m = Mkt(J, w, chi)
     local nonemp, pnew, sgrid, shares   = checkProbs(m)
     plot!(p4, shares, 1 .-nonemp, label = "χ="*string(chi))
 end
 p4
+savefig("plots/vary_chi.pdf")
 
 # Plot employment for different u
 # might want to fix some value of unemployment?
@@ -206,3 +209,4 @@ ylabel!("Employment")
         label = "Utility: "*string(u))
 end
 p5
+savefig("plots/vary_u.pdf")
