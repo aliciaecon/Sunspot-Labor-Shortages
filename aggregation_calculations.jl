@@ -8,7 +8,7 @@ using Plots; gr(border = :box, grid = true, minorgrid = true, gridalpha = 0.2,
 xguidefontsize = 15, yguidefontsize = 15, xtickfontsize = 13, ytickfontsize=13,
 linewidth = 2, gridstyle = :dash, gridlinewidth = 1.2, margin = 10* Plots.px,legendfontsize =12)
 
-## Structure that holds all details about market 
+## Structure that holds all details about the labor market 
 struct Mkt
     J       ::Int64
     w       ::Float64
@@ -55,12 +55,12 @@ end
 
 """
 Calculate the value of the unemployment benefit b such that
-the unemployment rate is normalized to 5% when there are 
+nonemployment is normalized to 5% when there are 
 no understaffed firms.
-(Matches with the US natural rate of unemployment of 4.4%)
+(Matches the US natural rate of unemployment of 4.4%)
 """
-function findub(u, w, J; unemp = 0.05)
-    denom_sum = exp(u(w)) * J
+function findUB(u, w, J; unemp = 0.05)
+    denom_sum = exp(u(w))*J
     ub        = (unemp * denom_sum)/(1 - unemp)
     return ub
 end
@@ -98,7 +98,7 @@ function choiceProbs(m::Mkt, normalization; ident = true, b = 0.4)
     end
     
     if normalization == true
-        ub = findub(u, w, J) # Find the normalized value of b
+        ub = findUB(u, w, J) # Find the normalized value of b
     else
         ub = exp(u(b))
     end
@@ -122,11 +122,11 @@ For the simplest case, where all firms are identical,
 compute non-employment shares and then check
 whether the over/under-staffed assignments agree with Lbar.
 """
-function checkProbs(m; normalization = false)
+function checkProbs(m; normalization = true)
     @unpack J, w, χ, Lbar, u = m
-    pgrid, sgrid             = choiceProbs(m, normalization)
 
-    shares     = [sum(sgrid[i]) for i = 1:length(sgrid)]./J
+    pgrid, sgrid = choiceProbs(m, normalization)
+    shares       = [sum(sgrid[i]) for i = 1:length(sgrid)]./J
 
     # Check that our under/over-staffed assignments makes sense
     nonemp = pgrid[:, 1]
@@ -165,19 +165,19 @@ nonemp, pgrid, sgrid, shares = checkProbs(m)
 
 # Plot employment for different J
 # Nested probit for under-staffed/over-staffed (independence of irrelvant alternatives)?
-# for now, add normalization for share of firms under-staffed = 0
+# Temporary fix: add normalization for share of firms under-staffed = 0
 p1 = plot(legend=:outertopright)
 xlabel!("Share of Firms Understaffed")
 ylabel!("Employment")
 @inbounds for j = J:-10:20
     local m = Mkt(j, w, χ)
-    local nonemp, pnew, sgrid, shares = checkProbs(m)
+    local nonemp, pnew, sgrid, shares = checkProbs(m, normalization = false)
     plot!(p1, shares, 1 .-nonemp, label = string(j)*" Firms")
 end
 p1
 savefig("plots/vary_J.pdf")
 
-# Plot for different J 
+# Plot employment for different J
 # With normalization of unemployment rate at 0 understaffed firms = 0.05
 p1_normalized = plot(legend=:outertopright)
 xlabel!("Share of Firms Understaffed")
@@ -203,7 +203,6 @@ p2
 savefig("plots/vary_w.pdf")
 
 # Plot employment for different Lbar
-# not super interesting 
 p3 = plot(legend=:outertopright)
 xlabel!("Share of Firms Understaffed")
 ylabel!("Employment")
@@ -230,8 +229,7 @@ p4
 savefig("plots/vary_chi.pdf")
 
 # Plot employment for different u
-# might want to fix some value of unemployment?
-p5 = plot(legend=:topright, nrows=2)
+p5 = plot(legend=:topright)
 xlabel!("Share of Firms Understaffed")
 ylabel!("Employment")
 @inbounds for u in [u1, u2, u3, u4]
