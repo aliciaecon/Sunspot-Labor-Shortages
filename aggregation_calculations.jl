@@ -61,7 +61,7 @@ no understaffed firms.
 """
 function findub(u, w, J; unemp = 0.05)
     denom_sum = exp(u(w)) * J
-    ub = (unemp * denom_sum)/(1 - unemp)
+    ub        = (unemp * denom_sum)/(1 - unemp)
     return ub
 end
 
@@ -126,7 +126,7 @@ function checkProbs(m; normalization = false)
     @unpack J, w, χ, Lbar, u = m
     pgrid, sgrid             = choiceProbs(m, normalization)
 
-    s      = [sum(sgrid[i]) for i = 1:length(sgrid)]./J
+    shares     = [sum(sgrid[i]) for i = 1:length(sgrid)]./J
 
     # Check that our under/over-staffed assignments makes sense
     nonemp = pgrid[:, 1]
@@ -145,12 +145,13 @@ function checkProbs(m; normalization = false)
 
         # ismissing if all are understaffed or all are overstaffed
         if (!ismissing(po[j]) && po[j] < m.Lbar) || (!ismissing(pu[j]) && pu[j] >=  m.Lbar)
-           nonemp[j]= NaN 
+           nonemp[j] = NaN 
+           shares[j] = NaN
         end
 
     end
 
-    return nonemp, pgrid, sgrid, s
+    return nonemp, pgrid, sgrid, shares
 end
 
 ## Preliminary results
@@ -190,7 +191,7 @@ p1_normalized
 savefig("plots/vary_J_normalized.pdf")
 
 # Plot employment for different A(=w)
-p2 = plot(legend=:topright)
+p2 = plot(legend=:outertopright)
 xlabel!("Share of Firms Understaffed")
 ylabel!("Employment")
 @inbounds for w = 0.5:0.1:1
@@ -203,7 +204,7 @@ savefig("plots/vary_w.pdf")
 
 # Plot employment for different Lbar
 # not super interesting 
-p3 = plot(legend=:topright)
+p3 = plot(legend=:outertopright)
 xlabel!("Share of Firms Understaffed")
 ylabel!("Employment")
 @inbounds for l = 1.0:-0.1:0.5
