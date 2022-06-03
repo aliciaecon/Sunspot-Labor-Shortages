@@ -29,22 +29,6 @@ Mkt(J, w, χ, Lbar::Float64)  = Mkt(J, w, Lbar, χ, u1)
 Mkt(J, w, χ, u::Function)    = Mkt(J, w, 0.7/(J+1), χ, u)
 
 """
-Calculate the choice probability of working at firm j,
-given other firms' employment status and wages. 
-Note: j = 0 denotes non-employment (w = 0, s = 0),
-and b denotes unemployment benefit.
-"""
-function probWork(u, j, w, χ, sgrid; b = 0.4)
-    if j == 0 # non-employment
-        num      = exp(u(b))
-    else
-        num      = exp(u(w) - (χ * sgrid[j]))
-    end
-    denom        = sum(exp.(u(w) .- (χ .* sgrid))) + exp(u(b))
-    return num/denom
-end
-
-"""
 Get all under/over-staffed combinations of a market of size J,
 with heterogenous firms (so which firms in the market
 are under-staffed would matter for total employment).
@@ -70,11 +54,39 @@ function staffCombosIdent(J)
 end
 
 """
+Calculate the value of the unemployment benefit b such that
+the unemployment rate is normalized to 5% when there are 
+no understaffed firms.
+(Matches with the US natural rate of unemployment of 4.4%)
+"""
+function findub(u, w, J; unemp = 0.05)
+    denom_sum = exp(u(w)) * J
+    ub = (unemp * denom_sum)/(1 - unemp)
+    return ub
+end
+
+"""
+Calculate the choice probability of working at firm j,
+given other firms' employment status and wages. 
+Note: j = 0 denotes non-employment (w = 0, s = 0),
+and b denotes unemployment benefit.
+"""
+function probWork(u, j, w, χ, sgrid, ub)
+    if j == 0 # non-employment
+        num      = ub
+    else
+        num      = exp(u(w) - (χ * sgrid[j]))
+    end
+    denom        = sum(exp.(u(w) .- (χ .* sgrid))) + ub
+    return num/denom
+end
+
+"""
 For every combination of under/over-staffed firms in a mkt,
 compute the choice probabilities p(i -> j) for firm j in each mkt,
 where j == 0 denotes non-employment. Each mkt is a row.
 """
-function choiceProbs(m::Mkt; ident = true)
+function choiceProbs(m::Mkt, normalization; ident = true, b = 0.4)
     @unpack J, w, χ, Lbar, u = m
 
     if ident == true
@@ -84,13 +96,19 @@ function choiceProbs(m::Mkt; ident = true)
         sgrid = staffCombosDiff(J)
         probs = zeros(2^J, J+1)
     end
+    
+    if normalization == true
+        ub = findub(u, w, J) # Find the normalized value of b
+    else
+        ub = exp(u(b))
+    end
 
     @inbounds for combo = 1:length(sgrid) # combo refers to a version of our market
 
-        probs[combo, 1] = probWork(u, 0, w, χ, sgrid[combo]) # non-employment
+        probs[combo, 1] = probWork(u, 0, w, χ, sgrid[combo], ub) # non-employment
         
         @inbounds for firm = 1:J
-            probs[combo, firm + 1] = probWork(u, firm, w, χ, sgrid[combo]) # firm j
+            probs[combo, firm + 1] = probWork(u, firm, w, χ, sgrid[combo], ub) # firm j
         end
     end
 
@@ -104,9 +122,9 @@ For the simplest case, where all firms are identical,
 compute non-employment shares and then check
 whether the over/under-staffed assignments agree with Lbar.
 """
-function checkProbs(m)
+function checkProbs(m; normalization = false)
     @unpack J, w, χ, Lbar, u = m
-    pgrid, sgrid             = choiceProbs(m)
+    pgrid, sgrid             = choiceProbs(m, normalization)
 
     s      = [sum(sgrid[i]) for i = 1:length(sgrid)]./J
 
@@ -140,23 +158,36 @@ J       = 100
 χ       = 0.9
 w       = 1
 m       = Mkt(J, w, χ)
-p, s    = choiceProbs(m)
+p, s    = choiceProbs(m, false)
 
 nonemp, pgrid, sgrid, shares = checkProbs(m)
 
 # Plot employment for different J
 # Nested probit for under-staffed/over-staffed (independence of irrelvant alternatives)?
 # for now, add normalization for share of firms under-staffed = 0
-p1 = plot(legend=:topleft)
+p1 = plot(legend=:outertopright)
 xlabel!("Share of Firms Understaffed")
 ylabel!("Employment")
-@inbounds for j = 20:10:J
+@inbounds for j = J:-10:20
     local m = Mkt(j, w, χ)
     local nonemp, pnew, sgrid, shares = checkProbs(m)
     plot!(p1, shares, 1 .-nonemp, label = string(j)*" Firms")
 end
 p1
 savefig("plots/vary_J.pdf")
+
+# Plot for different J 
+# With normalization of unemployment rate at 0 understaffed firms = 0.05
+p1_normalized = plot(legend=:outertopright)
+xlabel!("Share of Firms Understaffed")
+ylabel!("Employment")
+@inbounds for j = J:-10:20
+    local m = Mkt(j, w, χ)
+    local nonemp, pnew, sgrid, shares = checkProbs(m, normalization = true)
+    plot!(p1_normalized, shares, 1 .-nonemp, label = string(j)*" Firms")
+end
+p1_normalized
+savefig("plots/vary_J_normalized.pdf")
 
 # Plot employment for different A(=w)
 p2 = plot(legend=:topright)
