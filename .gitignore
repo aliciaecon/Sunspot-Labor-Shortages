@@ -25,6 +25,6 @@ docs/site/
 Manifest.toml
 
 # Non-Julia
-data_misc/
+misc/
 
 .DS_Store
