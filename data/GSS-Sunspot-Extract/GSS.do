@@ -1,4 +1,3 @@
-* import delimited GSS.dat, clear
  
 #delimit ;
 
@@ -9,26 +8,26 @@ WRKSTAT    12 - 20
 HRS2    21 - 29
 WRKSLF    30 - 38
 COMMUTE    39 - 47
-OCC80    48 - 56
-OCC10    57 - 65
-INDUS10    66 - 74
-MARITAL    75 - 83
-CHILDS    84 - 92
-AGE    93 - 101
-EDUC    102 - 110
-INCOME    111 - 119
-RINCOME    120 - 128
-JOBLOSE    129 - 137
-JOBFIND    138 - 146
-SATJOB    147 - 155
-JOBKEEP    156 - 164
-SATFIN    165 - 173
-YEARSJOB    174 - 182
-MUSTWORK    183 - 191
-PROUDEMP    192 - 200
-TOOFEWWK    201 - 209
-JOBFIND1    210 - 218
-TRYNEWJB    219 - 227
+OCC10    48 - 56
+INDUS10    57 - 65
+MARITAL    66 - 74
+CHILDS    75 - 83
+AGE    84 - 92
+EDUC    93 - 101
+INCOME    102 - 110
+RINCOME    111 - 119
+JOBLOSE    120 - 128
+JOBFIND    129 - 137
+SATJOB    138 - 146
+JOBKEEP    147 - 155
+SATFIN    156 - 164
+YEARSJOB    165 - 173
+MUSTWORK    174 - 182
+PROUDEMP    183 - 191
+TOOFEWWK    192 - 200
+JOBFIND1    201 - 209
+TRYNEWJB    210 - 218
+SATJOB1    219 - 227
 using GSS.dat;
 
 
@@ -37,7 +36,6 @@ label variable WRKSTAT   "Labor force status";
 label variable HRS2   "Number of hours usually work a week";
 label variable WRKSLF   "R self-emp or works for somebody";
 label variable COMMUTE   "Travel time to work";
-label variable OCC80   "R's census occupation code (1980)";
 label variable OCC10   "R's census occupation code (2010)";
 label variable INDUS10   "R's industry code (NAICS 2007)";
 label variable MARITAL   "Marital status";
@@ -58,6 +56,7 @@ label variable TOOFEWWK   "How often not enough staff";
 label variable JOBFIND1   "How easy for R to find a same job";
 label variable TRYNEWJB   "How likely R make effort for new job next year";
 label variable SATJOB1   "Job satisfaction in general";
+label variable LOCALNUM   "Number of employees: R's work site";
 label variable YEAR   "GSS year for this respondent";
 label variable ID_   "Respondent id number";
 
@@ -97,516 +96,6 @@ label define  GSP004X
 -98      ".d:  Do not Know/Cannot Choose"
  ;
 label define  GSP005X
-889      "Laborers, Except Construction"
-888      "Hand Packers and Packagers"
-887      "Vehicle Washers and Equipment Cleaners"
-885      "Garage and Service Station Related Occupations"
-883      "Freight, Stock, and Material Handlers, n.e.c."
-878      "Machine Feeders and Offbearers"
-877      "Stock Handlers and Baggers"
-876      "Stevedores"
-875      "Garbage Collectors"
-873      "Production Helpers"
-869      "Construction Laborers"
-867      "Helpers, Extractive Occupations"
-866      "Helpers, Surveyor"
-865      "Helpers, Construction Trades"
-864      "Helpers, Mechanics and Repairers"
-863      "Handlers, Equipment Cleaners, Helpers, and Laborers, n.e.c."
-859      "Miscellaneous Material Moving Equipment Operators"
-856      "Industrial Truck and Tractor Equipment Operators"
-855      "Grader, Dozer, and Scraper Operators"
-853      "Excavating and Loading Machine Operators"
-849      "Crane and Tower Operators"
-848      "Hoist and Winch Operators"
-845      "Longshore Equipment Operators"
-844      "Operating Engineers"
-843      "Supervisors, Material Moving Equipment Operators"
-834      "Bridge, Lock and Lighthouse Tenders"
-833      "Marine Engineers"
-829      "Sailors and Deckhands"
-828      "Ship Captains and Mates, Except Fishing Boats"
-826      "Rail Vehicle Operators, n.e.c."
-825      "Railroad Brake, Signal, and Switch Operators"
-824      "Locomotive Operating Occupations"
-823      "Railroad Conductors and Yardmasters"
-814      "Motor Transportation Occupations, n.e.c."
-813      "Parking Lot Attendants"
-809      "Taxicab Drivers and Chauffeurs"
-808      "Bus Drivers"
-806      "Driver-Sales Workers"
-805      "Truck Drivers, Light"
-804      "Truck Drivers, Heavy"
-803      "Supervisors, Motor Vehicle Operators"
-799      "Graders and Sorters, Except Agricultural"
-798      "Production Samplers and Weighers"
-797      "Production Testers"
-796      "Production Inspectors, Checkers, and Examiners"
-795      "Miscellaneous Hand Working Occupations"
-794      "Hand Grinding and Polishing Occupations"
-793      "Hand Engraving and Printing Occupations"
-789      "Hand Painting,Coating, and Decorating Occupations"
-787      "Hand Molding, Casting, and Forming Occupations"
-786      "Hand Cutting and Trimming Occupations"
-785      "Assemblers"
-784      "Solderers and Blazers"
-783      "Welders and Cutters"
-779      "Machine Operators, Not Specified"
-777      "Miscellaneous and Not Specified Machine Operators, n.e.c."
-774      "Photographic Process Machine Operators"
-773      "Motion Picture Projectionists"
-769      "Slicing and Cutting Machine Operators"
-768      "Crushing and Grinding Machine Operators"
-766      "Furnace, Kiln, and Oven Operators, Except Food"
-765      "Folding Machine Operators"
-764      "Washing, Cleaning, and Pickling Machine Operators"
-763      "Roasting and Baking Machine Operators, Food"
-759      "Painting and Paint Spraying Machine Operators"
-758      "Compressing and Compacting Machine Operators"
-757      "Separating, Filtering, and Clarifying Machine Operators"
-756      "Mixing and Blending Machine Operators"
-755      "Extruding and Forming Machine Operators"
-754      "Packaging and Filling Machine Operators"
-753      "Cementing and Gluing Machine Operators"
-749      "Miscellaneous Textile Machine Operators"
-748      "Laundering and Dry Cleaning Machine Operators"
-747      "Pressing Machine Operators"
-745      "Shoe Machine Operators"
-744      "Textile Sewing Machine Operators"
-743      "Textile Cutting Machine Operators"
-739      "Knitting, Looping, Taping, and Weaving Machine Operators"
-738      "Winding and Twisting Machine Operators"
-737      "Miscellaneous Printing Machine Operators"
-736      "Typesetters and Compositors"
-735      "Photoengravers and Lithographers"
-734      "Printing Machine Operators"
-733      "Miscellaneous Woodworking Machine Operators"
-729      "Nailing and Tacking Machine Operators"
-728      "Shaping and Joining Machine Operators"
-727      "Sawing Machine Operators"
-726      "Wood Lathe, Routing and Planing Machine Operators"
-725      "Miscellaneous Metal and Plastic Processing Machine Operators"
-724      "Heat Treating Equipment Operators"
-723      "Metal Plating Machine Operators"
-719      "Molding and Casting Machine Operators"
-717      "Fabricating Machine Operators, n.e.c."
-715      "Miscellaneous Metal, Plastic, Stone, and Glass Working Machine Operators"
-714      "Numerical control machine operators"
-713      "Forging Machine Operators"
-709      "Grinding, Abrading, Buffing, and Polishing Machine Operators"
-708      "Drilling and Boring Machine Operators"
-707      "Rolling Machine Operators"
-706      "Punching and Stamping Press Machine Operators"
-705      "Milling and Planing Machine Operators"
-704      "Lathe and Turning Machine Operators"
-703      "Lathe and Turning Machine Set-Up Operators"
-699      "Miscellaneous Plant and System Operators"
-696      "Stationary Engineers"
-695      "Power Plant Operators"
-694      "Water and Sewage Treatment Plant Operators"
-693      "Adjusters and Calibrators"
-689      "Inspectors, Testers, and Graders"
-688      "Food Batchmakers"
-687      "Bakers"
-686      "Butchers and Meat Cutters"
-684      "Miscellaneous Precision Workers, n.e.c."
-683      "Electrical and Electronic Equipment Assemblers"
-679      "Bookbinders"
-678      "Dental Laboratory and Medical Appliance Technicians"
-677      "Optical Goods Workers"
-676      "Patternmakers, Lay-Out Workers, and Cutters"
-675      "Hand Molders and Shapers, Except Jewelers"
-674      "Miscellaneous Precision Apparel and Fabric Workers"
-673      "Apparel and Fabric Patternmakers"
-669      "Shoe Repairers"
-668      "Upholsterers"
-667      "Tailors"
-666      "Dressmakers"
-659      "Miscellaneous Precision Woodworkers"
-658      "Furniture and Wood Finishers"
-657      "Cabinet Makers and Bench Carpenters"
-656      "Patternmakers and Model Makers, Wood"
-655      "Miscellaneous Precision Metal Workers"
-654      "Sheet Metal Worker, Apprentices"
-653      "Sheet Metal Workers, Except Apprentices"
-649      "Engravers, Metal"
-647      "Precious Stones and Metals Workers"
-646      "Lay-Out Workers"
-645      "Patternmakers and Model Makers, Metal"
-644      "Precision Grinders, Fitters, and Tool Sharpeners"
-643      "Boilermakers"
-639      "Machinist Apprentices"
-637      "Machinists, Except Apprentices"
-636      "Precision Assemblers, Metal"
-635      "Tool and Die Maker Apprentices"
-634      "Tool and Die Makers, Except Apprentices"
-633      "Supervisors, Production Occupations"
-617      "Mining Occupations, n.e.c."
-616      "Mining Machine Operators"
-615      "Explosives Workers"
-614      "Drillers, Oil Well"
-613      "Supervisors, Extractive Occupations"
-599      "Construction Trades, n.e.c."
-598      "Drillers, Earth"
-597      "Structural Metal Workers"
-596      "Sheetmetal Duct Installers"
-595      "Roofers"
-594      "Paving, Surfacing, and Tamping Equipment Operators"
-593      "Insulation Workers"
-589      "Glaziers"
-588      "Concrete and Terrazzo Finishers"
-587      "Plumber, Pipefitter, and Steamfitter Apprentices"
-585      "Plumbers, Pipefitters, and Steamfitters, Except Apprentices"
-584      "Plasterers"
-583      "Paperhangers"
-579      "Painters, Construction and Maintenance"
-577      "Electrical Power Installers and Repairers"
-576      "Electrician Apprentices"
-575      "Electricians, Except Apprentices"
-573      "Drywall Installers"
-569      "Carpenter Apprentices"
-567      "Carpenters, Except Apprentices"
-566      "Carpet Installers"
-565      "Tile Setters, Hard and Soft"
-564      "Brickmasons and Stonemasons Apprentices"
-563      "Brickmasons and Stonemasons, Except Apprentices"
-558      "Supervisors, n.e.c."
-557      "Supervisors, Plumbers, Pipefitters, and Steamfitters"
-556      "Supervisors, Painters, Paperhangers, and Plasterers"
-555      "Supervisors, Electricians and Power Transmission Installers"
-554      "Supervisors, Carpenters and Related Work"
-553      "Supervisors, Brickmasons, Stonemasons, and Title Setters"
-549      "Not Specified Mechanics and Repairers"
-547      "Specified Mechanics and Repairers, n.e.c."
-544      "Millwrights"
-543      "Elevator Installers and Repairers"
-539      "Mechanical Controls and Valve Repairers"
-538      "Office Machine Repairers"
-536      "Locksmiths and Safe Repairers"
-535      "Camera, Watch, and Musical Instrument Repairers"
-534      "Heating, Air Conditioning, and Refrigeration Mechanics"
-533      "Misc. Electrical and Electronic Equipment Repairers"
-529      "Telephone Installers and Repairers"
-527      "Telephone Line Installers and Repairers"
-526      "Household Appliance and Power Tool Repairers"
-525      "Data Processing Equipment Repairers"
-523      "Electronic Repairers, Communications and Industrial Equipment"
-519      "Machinery Maintenance Occupations"
-518      "Industrial Machinery Repairers"
-517      "Farm Equipment Mechanics"
-516      "Heavy Equipment Mechanics"
-515      "Aircraft Mechanics, Excluding Engine"
-514      "Automobile Body and Related Repairers"
-509      "Small Engine Repairers"
-508      "Aircraft Engine Mechanics"
-507      "Bus, Truck, and Stationary Engine Mechanics"
-506      "Automobile Mechanic Apprentices"
-505      "Automobile Mechanics, Except Apprentices"
-503      "Supervisors, Mechanics and Repairers"
-499      "Hunters and Trappers"
-498      "Fishers"
-497      "Captains and Other Officers, Fishing Vessels"
-496      "Timber Cutting and Logging Occupations"
-495      "Forestry Workers, Except Logging"
-494      "Supervisors, Forestry and Logging Workers"
-489      "Inspectors, Agricultural Products"
-488      "Graders and Sorters, Agricultural Products"
-487      "Animal Caretakers, Except Farm"
-486      "Groundskeepers and Gardeners, Except Farm"
-485      "Supervisors, Related Agricultural Occupations"
-484      "Nursery Workers"
-483      "Marine Life Cultivation Workers"
-479      "Farm Workers"
-477      "Supervisors, Farm Workers"
-476      "Managers, Horticultural Specialty Farms"
-475      "Managers, Farms, Except Horticultural"
-474      "Horticultural Specialty Farmers"
-473      "Farmers, Except Horticultural"
-469      "Personal Service Occupations, n.e.c."
-468      "Child Care Workers, Except Private Household"
-467      "Welfare Service Aides"
-466      "Baggage Porters and Bellhops"
-465      "Public Transportation Attendants"
-464      "Ushers"
-463      "Guides"
-459      "Attendants, Amusement and Recreation Facilities"
-458      "Hairdressers and Cosmetologists"
-457      "Barbers"
-456      "Supervisors, Personal Service Occupations"
-455      "Pest Control Occupations"
-454      "Elevator Operators"
-453      "Janitors and Cleaners"
-449      "Maids and Housemen"
-448      "Supervisors, Cleaning and Building Service Workers"
-447      "Nursing Aides, Orderlies and Attendants"
-446      "Health Aids, Except Nursing"
-445      "Dental Assistants"
-444      "Miscellaneous Food Preparation Occupations"
-443      "Waiters'/Waitresses' Assistants"
-439      "Kitchen Workers, Food Preparation"
-438      "Food Counter, Fountain and Related Occupations"
-437      "Short-Order Cooks"
-436      "Cooks, Except Short Order"
-435      "Waiters and Waitresses"
-434      "Bartenders"
-433      "Supervisors, Food Preparation and Service Occupations"
-431      "Current Member of the Armed Forces"
-430      "Former Member of the Armed Forces"
-427      "Protective Service Occupations"
-426      "Guards and Police, Excluding Public Service"
-425      "Crossing Guards"
-424      "Correctional Institution Officers"
-423      "Sheriffs, Bailiffs, and Other Law Enforcement Officers"
-418      "Police and Detectives, Public Service"
-417      "Firefighting Occupations"
-416      "Fire Inspection and Fire Prevention Occupations"
-415      "Supervisors, Guards"
-414      "Supervisors, Police and Detectives"
-413      "Supervisors, Firefighting and Fire Prevention Occupations"
-407      "Private Household Cleaners and Servants"
-406      "Child Care Workers, Private Household"
-405      "Housekeepers and Butlers"
-404      "Cooks, Private Household"
-403      "Launderers and Ironers"
-389      "Administrative Support Occupations, n.e.c."
-387      "Teachers' Aides"
-386      "Statistical Clerks"
-385      "Data-Entry Keyers"
-384      "Proofreaders"
-383      "Bank Tellers"
-379      "General Office Clerks"
-378      "Bill and Account Collectors"
-377      "Eligibility Clerks, Social Welfare"
-376      "Investigators and Adjusters, Except Insurance"
-375      "Insurance Adjusters, Examiners, and Investigators"
-374      "Material Recording, Scheduling and Distributing Clerks, n.e.c."
-373      "Expediters"
-369      "Samplers"
-368      "Weighers, Measurers, and Checkers"
-366      "Meter Readers"
-365      "Stock and Inventory Clerks"
-364      "Traffic, Shipping and Receiving Clerks"
-363      "Production Coordinators"
-359      "Dispatchers"
-357      "Messengers"
-356      "Mail Clerks, Excluding Postal Service"
-355      "Mail Carriers, Postal Service"
-354      "Postal Clerks, Excluding Mail Carriers"
-353      "Communications Equipment Operators, n.e.c."
-349      "Telegraphers"
-348      "Telephone Operators"
-347      "Office Machine Operators, n.e.c."
-346      "Mail Preparing and Paper Handling Machine Operators"
-345      "Duplicating Machine Operators"
-344      "Billing, Posting, and Calculating Machine Operators"
-343      "Cost and Rate Clerks"
-339      "Billing Clerks"
-338      "Payroll and Timekeeping Clerks"
-337      "Bookkeepers, Accounting and Auditing Clerks"
-336      "Records Clerks"
-335      "File Clerks"
-329      "Library Clerks"
-328      "Personnel Clerks, Except Payroll and Timekeeping"
-327      "Order Clerks"
-326      "Correspondence Clerks"
-325      "Classified-Ad Clerks"
-323      "Information Clerks, n.e.c."
-319      "Receptionists"
-318      "Transportation Ticket and Reservation Agents"
-317      "Hotel Clerks"
-316      "Interviewers"
-315      "Typists"
-314      "Stenographers"
-313      "Secretaries"
-309      "Peripheral Equipment Operators"
-308      "Computer Operators"
-307      "Supervisors, Distribution, Scheduling, and Adjusting Clerks"
-306      "Chief Communications Operators"
-305      "Supervisors, Financial Records Processing"
-304      "Supervisors, Computer Equipment Operators"
-303      "Supervisors, General Office"
-285      "Sales Support Occupations, n.e.c."
-284      "Auctioneers"
-283      "Demonstrators, Promoters and Models, Sales"
-278      "News Vendors"
-277      "Street and Door-To-Door Sales Workers"
-276      "Cashiers"
-275      "Sales Counter Clerks"
-274      "Sales Workers, Other Commodities"
-269      "Sales Workers, Parts"
-268      "Sales Workers, Hardware and Building Supplies"
-267      "Sales Workers, Radio, TV, Hi-Fi, and Appliances"
-266      "Sales Workers, Furniture and Home Furnishings"
-265      "Sales Workers, Shoes"
-264      "Sales Workers, Apparel"
-263      "Sales Workers, Motor Vehicles and Boats"
-259      "Sales Rep., Mining, Manufacturing, and Wholesale"
-258      "Sales Engineers"
-257      "Sales Occupations, Other Business Services"
-256      "Advertising and Related Sales Occupations"
-255      "Securities and Financial Services Sales Occupations"
-254      "Real Estate Sales Occupations"
-253      "Insurance Sales Occupations"
-243      "Supervisors and Proprietors, Sales Occupations"
-235      "Technicians, n.e.c."
-234      "Legal Assistants"
-233      "Tool Programmers, Numerical Control"
-229      "Computer Programmers"
-228      "Broadcast Equipment Operators"
-227      "Air Traffic Controllers"
-226      "Airplane Pilots and Navigators"
-225      "Science Technicians, n.e.c."
-224      "Chemical Technicians"
-223      "Biological Technicians"
-218      "Surveying and Mapping Technicians"
-217      "Drafting Occupations"
-216      "Engineering Technicians, n.e.c."
-215      "Mechanical Engineering Technicians"
-214      "Industrial Engineering Technicians"
-213      "Electrical and Electronic Technicians"
-208      "Health Technologists and Technicians, n.e.c."
-207      "Licensed Practical Nurses"
-206      "Radiologic Technicians"
-205      "Health Record Technologists and Technicians"
-204      "Dental Hygienists"
-203      "Clinical Laboratory Technologists and Technicians"
-199      "Athletes"
-198      "Announcers"
-197      "Public Relations Specialists"
-195      "Editors and Reporters"
-194      "Artists, Performers, and Related Workers, n.e.c."
-193      "Dancers"
-189      "Photographers"
-188      "Painters, Sculptors, Craft-Artists, and Printmakers"
-187      "Actors and Directors"
-186      "Musicians and Composers"
-185      "Designers"
-184      "Technical Writers"
-183      "Authors"
-179      "Judges"
-178      "Lawyers"
-177      "Religious Workers, n.e.c."
-176      "Clergy"
-175      "Recreation Workers"
-174      "Social Workers"
-173      "Urban Planners"
-169      "Social Scientists, n.e.c."
-168      "Sociologists"
-167      "Psychologists"
-166      "Economists"
-165      "Archivists and Curators"
-164      "Librarians"
-163      "Counselors, Educational and Vocational"
-159      "Teachers, n.e.c."
-158      "Teachers, Special Education"
-157      "Teachers, Secondary School"
-156      "Teachers, Elementary School"
-155      "Teachers, Prekindergarten and Kindergarten"
-154      "Postsecondary Teachers, Subject Not Specified"
-153      "Teachers, Postsecondary, n.e.c."
-149      "Home Economics Teachers"
-148      "Trade and Industrial Teachers"
-147      "Theology Teachers"
-146      "Social Work Teachers"
-145      "Law Teachers"
-144      "Foreign Language Teachers"
-143      "English Teachers"
-139      "Education Teachers"
-138      "Physical Education Teachers"
-137      "Art, Drama, and Music Teachers"
-136      "Agriculture and Forestry Teachers"
-135      "Business, Commerce, and Marketing Teachers"
-134      "Health Specialties Teachers"
-133      "Medical Science Teachers"
-129      "Computer Science Teachers"
-128      "Mathematical Science Teachers"
-127      "Engineering Teachers"
-126      "Social Science Teachers, n.e.c."
-125      "Sociology Teachers"
-124      "Political Science Teachers"
-123      "History Teachers"
-119      "Economics Teachers"
-118      "Psychology Teachers"
-117      "Natural Science Teachers, n.e.c."
-116      "Physics Teachers"
-115      "Chemistry Teachers"
-114      "Biological Science Teachers"
-113      "Earth, Environmental, and Marine Science Teachers"
-106      "Physicians' Assistants"
-105      "Therapists, n.e.c."
-104      "Speech Therapists"
-103      "Physical Therapists"
-99      "Occupational Therapists"
-98      "Inhalation Therapists"
-97      "Dietitians"
-96      "Pharmacists"
-95      "Registered Nurses"
-89      "Health Diagnosing Practitioners, n.e.c."
-88      "Podiatrists"
-87      "Optometrists"
-86      "Veterinarians"
-85      "Dentists"
-84      "Physicians"
-83      "Medical Scientists"
-79      "Forestry and Conservation Scientists"
-78      "Biological and Life Scientists"
-77      "Agricultural and Food Scientists"
-76      "Physical Scientists, n.e.c."
-75      "Geologists and Geodesists"
-74      "Atmospheric and Space Scientists"
-73      "Chemists, Except Biochemists"
-69      "Physicists and Astronomers"
-68      "Mathematical Scientists, n.e.c."
-67      "Statisticians"
-66      "Actuaries"
-65      "Operations and Systems Researchers and Analysts"
-64      "Computer Systems Analysts and Scientists"
-63      "Surveyors and Mapping Scientists"
-59      "Engineers, n.e.c."
-58      "Marine and Naval Architects"
-57      "Mechanical Engineers"
-56      "Industrial Engineers"
-55      "Electrical and Electronic Engineers"
-54      "Agricultural Engineers"
-53      "Civil Engineers"
-49      "Nuclear Engineers"
-48      "Chemical Engineers"
-47      "Petroleum Engineers"
-46      "Mining Engineers"
-45      "Metallurgical and Materials Engineers"
-44      "Aerospace Engineers"
-43      "Architects"
-37      "Management Related Occupations, n.e.c."
-36      "Inspectors/Compliance Officers, Except Construction"
-35      "Construction Inspectors"
-34      "Business and Promotion Agents"
-33      "Purchasing Agents and Buyers"
-29      "Buyers, Wholesale and Retail Trade Except Farm  Products"
-28      "Purchasing Agents and Buyers, Farm Products"
-27      "Personnel, Training, and Labor Relations Specialists"
-26      "Management Analysts"
-25      "Other Financial Officers"
-24      "Underwriters"
-23      "Accountants and Auditors"
-19      "Managers and Administrators, n.e.c."
-18      "Funeral Directors"
-17      "Postmasters and Mail Superintendents"
-16      "Managers, Properties and Real Estate"
-15      "Managers, Medicine and Health"
-14      "Administrators, Education and Related Fields"
-13      "Managers, Marketing, Advertising, and Public Relations"
-9      "Purchasing Managers"
-8      "Personnel and Labor Relations Managers"
-7      "Financial Managers"
-6      "Administrators, Protective Service"
-5      "Administrators and Officials, Public Administration"
-4      "Chief Executives and General Admin., Public Admin"
-3      "Legislators"
--100      ".i:  Inapplicable"
--99      ".n:  No answer"
--98      ".d:  Do not Know/Cannot Choose"
- ;
-label define  GSP006X
 9997      "Uncodeable"
 9830      "Military, rank not specified"
 9820      "Military enlisted tactical operations and air/weapons specialists and crew members"
@@ -1152,7 +641,7 @@ label define  GSP006X
 -80      ".x:  Not available in this release"
 -95      ".u:  Uncodable"
  ;
-label define  GSP007X
+label define  GSP006X
 9997      "Uncodeable"
 9870      "Active duty military personnel, all other"
 9790      "U.S. Armed Forces/n.s."
@@ -1428,7 +917,7 @@ label define  GSP007X
 -80      ".x:  Not available in this release"
 -95      ".u:  Uncodable"
  ;
-label define  GSP008X
+label define  GSP007X
 1      "Married"
 2      "Widowed"
 3      "Divorced"
@@ -1438,23 +927,23 @@ label define  GSP008X
 -98      ".d:  Do not Know/Cannot Choose"
 -97      ".s:  Skipped on Web"
  ;
-label define  GSP009X
+label define  GSP008X
 8      "8 or more"
 -98      ".d:  Do not Know/Cannot Choose"
 -80      ".x:  Not available in this release"
  ;
-label define  GSP010X
+label define  GSP009X
 89      "89 or older"
 -100      ".i:  Inapplicable"
 -99      ".n:  No answer"
 -98      ".d:  Do not Know/Cannot Choose"
  ;
-label define  GSP011X
+label define  GSP010X
 0      "No formal schooling"
 -99      ".n:  No answer"
 -98      ".d:  Do not Know/Cannot Choose"
  ;
-label define  GSP012X
+label define  GSP011X
 1      "Under $1,000"
 2      "$1,000 to $2,999"
 3      "$3,000 to $3,999"
@@ -1474,7 +963,7 @@ label define  GSP012X
 -98      ".d:  Do not Know/Cannot Choose"
 -90      ".r:  Refused"
  ;
-label define  GSP013X
+label define  GSP012X
 98      "DK"
 12      "$25000 OR MORE"
 11      "$20000 - 24999"
@@ -1494,7 +983,7 @@ label define  GSP013X
 -98      ".d:  Do not Know/Cannot Choose"
 -90      ".r:  Refused"
  ;
-label define  GSP014X
+label define  GSP013X
 1      "Very likely"
 2      "Fairly likely"
 3      "Not too likely"
@@ -1506,7 +995,7 @@ label define  GSP014X
 -97      ".s:  Skipped on Web"
 -80      ".x:  Not available in this release"
  ;
-label define  GSP015X
+label define  GSP014X
 1      "Very easy"
 2      "Somewhat easy"
 3      "Not easy"
@@ -1516,7 +1005,7 @@ label define  GSP015X
 -97      ".s:  Skipped on Web"
 -80      ".x:  Not available in this release"
  ;
-label define  GSP016X
+label define  GSP015X
 1      "Very satisfied"
 2      "Moderately satisfied"
 3      "A little dissatisfied"
@@ -1527,14 +1016,14 @@ label define  GSP016X
 -97      ".s:  Skipped on Web"
 -80      ".x:  Not available in this release"
  ;
-label define  GSP017X
+label define  GSP016X
 7      "VERY IMPORTANT"
 1      "UNIMPORTANT"
 -100      ".i:  Inapplicable"
 -99      ".n:  No answer"
 -98      ".d:  Do not Know/Cannot Choose"
  ;
-label define  GSP018X
+label define  GSP017X
 1      "Pretty well satisfied"
 2      "More or less satisfied"
 3      "Not satisfied at all"
@@ -1543,21 +1032,21 @@ label define  GSP018X
 -98      ".d:  Do not Know/Cannot Choose"
 -97      ".s:  Skipped on Web"
  ;
-label define  GSP019X
+label define  GSP018X
 99      "No answer"
 98      "Dont know"
 0.75      "6-11.9 months"
 0.25      "Less than 6 months"
 -1      "Not applicable"
  ;
-label define  GSP020X
+label define  GSP019X
 2      "NO"
 1      "YES"
 -100      ".i:  Inapplicable"
 -99      ".n:  No answer"
 -98      ".d:  Do not Know/Cannot Choose"
  ;
-label define  GSP021X
+label define  GSP020X
 4      "Strongly Disagree"
 3      "Disagree"
 2      "Agree"
@@ -1566,7 +1055,7 @@ label define  GSP021X
 -99      ".n:  No answer"
 -98      ".d:  Do not Know/Cannot Choose"
  ;
-label define  GSP022X
+label define  GSP021X
 4      "Never"
 3      "Rarely"
 2      "Sometimes"
@@ -1575,7 +1064,7 @@ label define  GSP022X
 -99      ".n:  No answer"
 -98      ".d:  Do not Know/Cannot Choose"
  ;
-label define  GSP023X
+label define  GSP022X
 3      "Not easy at all to find similar job"
 2      "Somewhat easy to find similar job"
 1      "Very easy to find similar job"
@@ -1583,7 +1072,7 @@ label define  GSP023X
 -99      ".n:  No answer"
 -98      ".d:  Do not Know/Cannot Choose"
  ;
-label define  GSP024X
+label define  GSP023X
 1      "Very likely"
 2      "Somewhat likely"
 3      "Not at all likely"
@@ -1591,7 +1080,7 @@ label define  GSP024X
 -99      ".n:  No answer"
 -98      ".d:  Do not Know/Cannot Choose"
  ;
-label define  GSP025X
+label define  GSP024X
 4      "Not at all satisfied"
 3      "Not too satisfied"
 2      "Somewhat satisfied"
@@ -1599,6 +1088,19 @@ label define  GSP025X
 -100      ".i:  Inapplicable"
 -99      ".n:  No answer"
 -98      ".d:  Do not Know/Cannot Choose"
+ ;
+label define  GSP025X
+1      "1-9"
+2      "10-49"
+3      "50-99"
+4      "100-499"
+5      "500-999"
+6      "1,000-1,999"
+7      "2,000+"
+-100      ".i:  Inapplicable"
+-99      ".n:  No answer"
+-98      ".d:  Do not Know/Cannot Choose"
+-80      ".x:  Not available in this release"
  ;
 label define  GSP026X
 1      "Ballot a"
@@ -1613,26 +1115,26 @@ label values WRKSTAT   GSP001X;
 label values HRS2   GSP002X;
 label values WRKSLF   GSP003X;
 label values COMMUTE   GSP004X;
-label values OCC80   GSP005X;
-label values OCC10   GSP006X;
-label values INDUS10   GSP007X;
-label values MARITAL   GSP008X;
-label values CHILDS   GSP009X;
-label values AGE   GSP010X;
-label values EDUC   GSP011X;
-label values INCOME   GSP012X;
-label values RINCOME   GSP013X;
-label values JOBLOSE   GSP014X;
-label values JOBFIND   GSP015X;
-label values SATJOB   GSP016X;
-label values JOBKEEP   GSP017X;
-label values SATFIN   GSP018X;
-label values YEARSJOB   GSP019X;
-label values MUSTWORK   GSP020X;
-label values PROUDEMP   GSP021X;
-label values TOOFEWWK   GSP022X;
-label values JOBFIND1   GSP023X;
-label values TRYNEWJB   GSP024X;
-label values SATJOB1   GSP025X;
+label values OCC10   GSP005X;
+label values INDUS10   GSP006X;
+label values MARITAL   GSP007X;
+label values CHILDS   GSP008X;
+label values AGE   GSP009X;
+label values EDUC   GSP010X;
+label values INCOME   GSP011X;
+label values RINCOME   GSP012X;
+label values JOBLOSE   GSP013X;
+label values JOBFIND   GSP014X;
+label values SATJOB   GSP015X;
+label values JOBKEEP   GSP016X;
+label values SATFIN   GSP017X;
+label values YEARSJOB   GSP018X;
+label values MUSTWORK   GSP019X;
+label values PROUDEMP   GSP020X;
+label values TOOFEWWK   GSP021X;
+label values JOBFIND1   GSP022X;
+label values TRYNEWJB   GSP023X;
+label values SATJOB1   GSP024X;
+label values LOCALNUM   GSP025X;
 label values BALLOT   GSP026X;
 

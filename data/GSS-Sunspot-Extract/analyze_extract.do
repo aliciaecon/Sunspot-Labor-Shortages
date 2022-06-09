@@ -1,43 +1,30 @@
-
 import excel GSS.xlsx, firstrow clear
 
-* Group the relevant variables
-egen understaff   = group(toofewwk)
-egen jobsatis     = group(satjob)
-egen jobsatis2    = group(satjob1)
-
-
-*net install gr0034.pkg
-* https://stats.oarc.ucla.edu/stata/faq/how-do-i-assign-the-values-of-one-variable-as-the-value-labels-for-another-variable/
-
-labmask jobsatis, values(satjob)
-labmask jobsatis2, values(satjob1)
-labmask understaff, values(toofewwk)
+* Encode the main variables
+encode satjob, gen(satis)         // Work satisfaction, NOT INCREASING
+encode satjob1, gen(satis1)       // Job satisfaction in general, INCREASING
+encode toofewwk, gen(understaff)  // how often are you understaffed, NOT INCREASING
+encode trynewjb, gen(tryjob)	  // How likely R make effort for new job next year
+encode localnum, gen(numemp)      // Number of employees: R's work site
 
 label list
 
-* Keep data for which we have understaffed and job/work satisfaction 
-replace jobsatis    = . if inlist(jobsatis, 1,2,3,4)
-replace understaff  = . if inlist(understaff, 1,2,3)
-replace jobsatis2   = . if inlist(jobsatis2, 1,2,3)
+* Replace missings
+replace satis       = . if inlist(satis,1,2,3,4)
+replace understaff  = . if inlist(understaff,1,2,3)
+replace satis1      = . if inlist(satis1,1,2,3)
+replace tryjob      = . if inlist(satis1,1,2,3)
+replace numemp      = . if inlist(numemp,1,2,3,4)
 
 * Check how much data is available
-count if !missing(jobsatis)
-count if !missing(jobsatis2)
-count if !missing(understaff)
-
-tab year if !missing(understaff) & !missing(jobsatis2)
-tab year if !missing(understaff) & !missing(jobsatis)
-
-* Check the correlations
-pwcorr jobsatis understaff
-pwcorr jobsatis2 understaff
-pwcorr jobsatis*
+tab year if !missing(understaff) & !missing(satis)
+tab year if !missing(understaff) & !missing(satis1)
 
 *** JRG Explorations on 6/9 call
+
 * See how many obs have different variables non-missing
 tab trynewjb understaff
-tab educ understaff, mi
+tab educ understaff, mi  
 tab occ10, mi
 tab indus10, mi
 
@@ -45,24 +32,20 @@ tab indus10, mi
 keep if !mi(understaff)
 
 * Make string variables numeric
-encode trynewjb, gen(tryjob)
-replace tryjob = . if inlist(tryjob,1,2)
+encode educ, gen(educ_num)   // Highest year of school completed
+encode indus10, gen(indnum)  // R's industry code (NAICS 2007)
+encode occ10, gen(occnum)    // R's census occupation code (2010)
 
-encode educ, gen(educ_num)
-encode indus10, gen(indnum)
-encode occ10, gen(occnum)
-
-encode satjob1, gen(satis)
-replace satis = . if inlist(satis,1,2)
-
-gen byte unsatisfied = inlist(satis,3,4) if !mi(satis)
-gen byte verysatisfied = inlist(satis,6) if !mi(satis)
+* Generate binary variables
+gen byte unsatisfied   = inlist(satis,5,7) // A little or very dissatisfied
+gen byte verysatisfied = inlist(satis,8)   // very satisfied
 
 destring age, replace force
 gen age2 = age^2
 
-gen byte verylikelytryjob = tryjob == 5 if !mi(tryjob)
-gen byte likelytryjob = tryjob >= 4 if !mi(tryjob)
+* Generate binary variables
+gen byte verylikelytryjob = tryjob == 6 if !mi(tryjob)
+gen byte likelytryjob     = tryjob >= 5 if !mi(tryjob)
 
 destring yearsjob, gen(tenure) force
 replace tenure = 0.5 if yearsjob == "6-11.9 months"
@@ -71,7 +54,7 @@ replace tenure = . if tenure < 0
 
 * Run regressions testing correlation of understaffing with job satisfaction and 
 * probability of looking for a new job
-foreach var in satis unsatisfied verysatisfied tryjob likelytryjob verylikelytryjob {
+foreach var in satis1 unsatisfied verysatisfied tryjob likelytryjob verylikelytryjob {
 	summ `var'
 	reg `var' i.understaff, vce(cluster indnum)
 	reg `var' i.understaff i.educ_num, vce(cluster indnum)
