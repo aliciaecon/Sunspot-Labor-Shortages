@@ -228,7 +228,7 @@ end
 p4
 savefig("plots/vary_chi.pdf")
 
-# Plot employment for different u
+# Plot employment for different utility functions
 # No difference in employment for different u with normalization
 p5 = plot(legend=:topright)
 xlabel!("Share of Firms Understaffed")
@@ -242,6 +242,7 @@ end
 p5
 savefig("plots/vary_u.pdf")
 
+# Plot employment for different non-emp rates
 p6 = plot(legend=:outertopright)
 xlabel!("Share of Firms Understaffed")
 ylabel!("Employment")
@@ -254,10 +255,11 @@ end
 p6
 savefig("plots/vary_ub.pdf")
 
+# Plot employment for different non-emp rates
 p7 = plot(legend=:bottomleft)
 xlabel!("Share of Firms Understaffed")
 ylabel!("Employment")
-@inbounds for unrate in [0.05, 0.4]
+@inbounds for unrate in [0.05 0.4]
     local m = Mkt(J = J, w = w, χ = χ, unrate = unrate)
     local nonemp, pgrid, sgrid, shares   = checkProbs(m, normalization = true)
     plot!(p7, shares, 1 .-nonemp, 
@@ -265,3 +267,5 @@ ylabel!("Employment")
 end
 p7
 savefig("plots/ub_industry_firm.pdf")
+
+
