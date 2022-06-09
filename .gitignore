@@ -27,3 +27,4 @@ Manifest.toml
 # Non-Julia
 data_old/
 
+.DS_Store
