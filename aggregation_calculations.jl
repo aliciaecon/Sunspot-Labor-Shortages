@@ -1,8 +1,6 @@
-"""
-Simplest case: w = A, Lbar, χ identical across firms
-"""
+# Simplest case: w = A, Lbar, χ identical across firms
+
 using Parameters, LinearAlgebra
-import Parameters.with_kw
 
 using Plots; gr(border = :box, grid = true, minorgrid = true, gridalpha = 0.2,
 xguidefontsize = 15, yguidefontsize = 15, xtickfontsize = 13, ytickfontsize=13,
@@ -10,12 +8,12 @@ linewidth = 2, gridstyle = :dash, gridlinewidth = 1.2, margin = 10* Plots.px,leg
 
 ## Structure that holds all details about the labor market 
 @with_kw struct Mkt
-    J       ::Int64
-    w       ::Float64
-    Lbar    ::Float64 = 0.7/(J+1)
-    χ       ::Float64
-    u       ::Function = u(w) = w
-    unrate  :: Float64 = 0.4
+    J             ::Int64
+    w             ::Float64
+    Lbar          ::Float64 = 0.7/(J+1)
+    χ             ::Float64
+    u             ::Function = u(w) = w
+    unrate        ::Float64 = 0.4
 end
 
 # Some potential utility functions
@@ -193,7 +191,7 @@ savefig("plots/vary_J_normalized.pdf")
 p2 = plot(legend=:outertopright)
 xlabel!("Share of Firms Understaffed")
 ylabel!("Employment")
-@inbounds for w = 0.5:0.1:2
+@inbounds for w = 0.5:0.1:1
     local m = Mkt(J = J, w = w, χ = χ)
     local nonemp, pgrid, sgrid, shares = checkProbs(m, normalization = false)
     plot!(p2, shares, 1 .-nonemp, label ="w = "*string(w))
@@ -210,7 +208,7 @@ ylabel!("Employment")
 @inbounds for l = 1.0:-0.1:0.5
     local lbar  = l/(J+1)
     local m     = Mkt(J = J, w = w, χ = χ, Lbar = lbar)
-    local nonemp, pgrid, sgrid, shares = checkProbs(m, normalization = true)
+    local nonemp, pgrid, sgrid, shares = checkProbs(m, normalization = false)
     plot!(p3, shares, 1 .-nonemp, 
         label = "Lbar = "*string(round(lbar, digits = 3)))
 end

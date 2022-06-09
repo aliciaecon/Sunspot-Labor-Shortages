@@ -1,3 +1,5 @@
+* MOST RECENT FILES/CHANGES WILL BE ON GITHUB!
+
 import excel GSS.xlsx, firstrow clear
 
 * Encode the main variables
