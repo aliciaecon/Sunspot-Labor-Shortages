@@ -2,18 +2,20 @@
 Simplest case: w = A, Lbar, χ identical across firms
 """
 using Parameters, LinearAlgebra
+import Parameters.with_kw
 
 using Plots; gr(border = :box, grid = true, minorgrid = true, gridalpha = 0.2,
 xguidefontsize = 15, yguidefontsize = 15, xtickfontsize = 13, ytickfontsize=13,
 linewidth = 2, gridstyle = :dash, gridlinewidth = 1.2, margin = 10* Plots.px,legendfontsize =12)
 
 ## Structure that holds all details about the labor market 
-struct Mkt
+@with_kw struct Mkt
     J       ::Int64
     w       ::Float64
-    Lbar    ::Float64
+    Lbar    ::Float64 = 0.7/(J+1)
     χ       ::Float64
-    u       ::Function
+    u       ::Function = u(w) = w
+    unrate  :: Float64 = 0.4
 end
 
 # Some potential utility functions
@@ -21,11 +23,6 @@ u1(w)           = w
 u2(w; σ = 0.5)  = (w^(1-σ) - 1)/(1-σ)
 u3(w)           = log(w)
 u4(w)           = -exp(-w)
-
-# Define a constructor for default Lbar, u settings
-Mkt(J, w, χ)                 = Mkt(J, w, 0.7/(J+1), χ, u1)
-Mkt(J, w, χ, Lbar::Float64)  = Mkt(J, w, Lbar, χ, u1)
-Mkt(J, w, χ, u::Function)    = Mkt(J, w, 0.7/(J+1), χ, u)
 
 """
 Get all under/over-staffed combinations of a market of size J,
@@ -53,12 +50,13 @@ function staffCombosIdent(J)
 end
 
 """
-Calculate the value of the unemployment benefit b such that
-nonemployment is normalized to 5% when there are 
-no understaffed firms.
-(Matches the US natural rate of unemployment of 4.4%)
+Calculate the value of the unemployment benefit b 
+based on the unemployment rate with no understaffed firms.
+(Default constructor normalizes unemployment to 40% when there are 
+no understaffed firms, which matches the 
+US Employment-Population ratio of ~60%)
 """
-function findUB(u, w, J; unemp = 0.05)
+function findUB(u, w, J, unemp)
     denom_sum = exp(u(w))*J
     ub        = (unemp * denom_sum)/(1 - unemp)
     return ub
@@ -86,7 +84,7 @@ compute the choice probabilities p(i -> j) for firm j in each mkt,
 where j == 0 denotes non-employment. Each mkt is a row.
 """
 function choiceProbs(m::Mkt, normalization; ident = true, b = 0.4)
-    @unpack J, w, χ, Lbar, u = m
+    @unpack J, w, χ, Lbar, u, unrate = m
 
     if ident == true
         sgrid = staffCombosIdent(J)
@@ -97,7 +95,7 @@ function choiceProbs(m::Mkt, normalization; ident = true, b = 0.4)
     end
     
     if normalization == true
-        ub = findUB(u, w, J) # Find the normalized value of b
+        ub = findUB(u, w, J, unrate) # Find the normalized value of b
     else
         ub = exp(u(b))
     end
@@ -122,7 +120,7 @@ compute non-employment shares and then check
 whether the over/under-staffed assignments agree with Lbar.
 """
 function checkProbs(m; normalization = true)
-    @unpack J, w, χ, Lbar, u = m
+    @unpack J, w, χ, Lbar, u, unrate = m
 
     pgrid, sgrid = choiceProbs(m, normalization)
     shares       = [sum(sgrid[i]) for i = 1:length(sgrid)]./J
@@ -157,7 +155,7 @@ end
 J       = 100
 χ       = 0.9
 w       = 1
-m       = Mkt(J, w, χ)
+m       = Mkt(J = J, w = w, χ = χ)
 p, s    = choiceProbs(m, false)
 
 nonemp, pgrid, sgrid, shares = checkProbs(m)
@@ -169,7 +167,7 @@ p1 = plot(legend=:outertopright)
 xlabel!("Share of Firms Understaffed")
 ylabel!("Employment")
 @inbounds for j = J:-10:20
-    local m = Mkt(j, w, χ)
+    local m = Mkt(J = j, w = w, χ = χ)
     local nonemp, pgrid, sgrid, shares = checkProbs(m, normalization = false)
     plot!(p1, shares, 1 .-nonemp, label = string(j)*" Firms")
 end
@@ -183,7 +181,7 @@ p1_normalized = plot(legend=:outertopright)
 xlabel!("Share of Firms Understaffed")
 ylabel!("Employment")
 @inbounds for j = J:-10:20
-    local m = Mkt(j, w, χ)
+    local m =Mkt(J = j, w = w, χ = χ)
     local nonemp, pgrid, sgrid, shares = checkProbs(m, normalization = true)
     plot!(p1_normalized, shares, 1 .-nonemp, label = string(j)*" Firms")
 end
@@ -196,7 +194,7 @@ p2 = plot(legend=:outertopright)
 xlabel!("Share of Firms Understaffed")
 ylabel!("Employment")
 @inbounds for w = 0.5:0.1:2
-    local m = Mkt(J, w, χ)
+    local m = Mkt(J = J, w = w, χ = χ)
     local nonemp, pgrid, sgrid, shares = checkProbs(m, normalization = false)
     plot!(p2, shares, 1 .-nonemp, label ="w = "*string(w))
 end
@@ -211,7 +209,7 @@ xlabel!("Share of Firms Understaffed")
 ylabel!("Employment")
 @inbounds for l = 1.0:-0.1:0.5
     local lbar  = l/(J+1)
-    local m     = Mkt(J, w, χ, lbar)
+    local m     = Mkt(J = J, w = w, χ = χ, Lbar = lbar)
     local nonemp, pgrid, sgrid, shares = checkProbs(m, normalization = true)
     plot!(p3, shares, 1 .-nonemp, 
         label = "Lbar = "*string(round(lbar, digits = 3)))
@@ -225,7 +223,7 @@ p4 = plot(legend=:topright)
 xlabel!("Share of Firms Understaffed")
 ylabel!("Employment")
 @inbounds for chi in 0.5:0.1:1
-    local m = Mkt(J, w, chi)
+    local m = Mkt(J = J, w = w, χ = chi)
     local nonemp, pgrid, sgrid, shares   = checkProbs(m, normalization = true)
     plot!(p4, shares, 1 .-nonemp, label = "χ="*string(chi))
 end
@@ -238,10 +236,34 @@ p5 = plot(legend=:topright)
 xlabel!("Share of Firms Understaffed")
 ylabel!("Employment")
 @inbounds for u in [u1, u2, u3, u4]
-    local m = Mkt(J, w, χ, u)
+    local m = Mkt(J = J, w = w, χ = χ, u = u)
     local nonemp, pgrid, sgrid, shares   = checkProbs(m, normalization = false)
     plot!(p5, shares, 1 .-nonemp, 
         label = "Utility: "*string(u))
 end
 p5
 savefig("plots/vary_u.pdf")
+
+p6 = plot(legend=:outertopright)
+xlabel!("Share of Firms Understaffed")
+ylabel!("Employment")
+@inbounds for unrate in -0.030:0.01:0.03
+    local m = Mkt(J = J, w = w, χ = χ, unrate = (0.4 + unrate))
+    local nonemp, pgrid, sgrid, shares   = checkProbs(m, normalization = true)
+    plot!(p6, shares, 1 .-nonemp, 
+        label = "UB diff from 60%: "*string(-unrate))
+end
+p6
+savefig("plots/vary_ub.pdf")
+
+p7 = plot(legend=:bottomleft)
+xlabel!("Share of Firms Understaffed")
+ylabel!("Employment")
+@inbounds for unrate in [0.05, 0.4]
+    local m = Mkt(J = J, w = w, χ = χ, unrate = unrate)
+    local nonemp, pgrid, sgrid, shares   = checkProbs(m, normalization = true)
+    plot!(p7, shares, 1 .-nonemp, 
+        label = "Unemployment:  "*string(unrate))
+end
+p7
+savefig("plots/ub_industry_firm.pdf")
