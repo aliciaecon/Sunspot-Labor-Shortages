@@ -1,6 +1,7 @@
 #=
 Compute choice probabilities and non-employment shares
 for the simplest static model: w = A, Lbar, χ identical across firms.
+Eventually can set up as package.
 =#
 
 using Parameters, LinearAlgebra
@@ -14,12 +15,6 @@ using Parameters, LinearAlgebra
     u             ::Function = u(w) = w
     unrate        ::Float64 = 0.4
 end
-
-# Some potential utility functions
-u1(w)           = w 
-u2(w; σ = 0.5)  = (w^(1-σ) - 1)/(1-σ)
-u3(w)           = log(w)
-u4(w)           = -exp(-w)
 
 """
 Get all under/over-staffed combinations of a market of size J,

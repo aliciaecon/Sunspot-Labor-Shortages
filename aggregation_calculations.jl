@@ -1,8 +1,15 @@
-include("static_model.jl")
-
 using Plots; gr(border = :box, grid = true, minorgrid = true, gridalpha = 0.2,
 xguidefontsize = 15, yguidefontsize = 15, xtickfontsize = 13, ytickfontsize=13,
 linewidth = 2, gridstyle = :dash, gridlinewidth = 1.2, margin = 10* Plots.px,legendfontsize =12)
+
+include("static_model.jl")
+
+# Some potential utility functions
+u1(w)           = w 
+u2(w; σ = 0.5)  = (w^(1-σ) - 1)/(1-σ)
+u3(w)           = log(w)
+u4(w)           = -exp(-w)
+
 
 ## Preliminary results
 J       = 100
