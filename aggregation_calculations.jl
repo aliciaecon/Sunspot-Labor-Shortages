@@ -233,6 +233,7 @@ p4
 savefig("plots/vary_chi.pdf")
 
 # Plot employment for different u
+# No difference in employment for different u with normalization
 p5 = plot(legend=:topright)
 xlabel!("Share of Firms Understaffed")
 ylabel!("Employment")
