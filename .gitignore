@@ -25,4 +25,5 @@ docs/site/
 Manifest.toml
 
 # Non-Julia
-data/
+data_old/
+

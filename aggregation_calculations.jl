@@ -163,7 +163,7 @@ p, s    = choiceProbs(m, false)
 nonemp, pgrid, sgrid, shares = checkProbs(m)
 
 # Plot employment for different J
-# Nested probit for under-staffed/over-staffed (independence of irrelvant alternatives)?
+# Nested logit for under-staffed/over-staffed (independence of irrelvant alternatives)?
 # Temporary fix: add normalization for share of firms under-staffed = 0
 p1 = plot(legend=:outertopright)
 xlabel!("Share of Firms Understaffed")
@@ -197,7 +197,7 @@ xlabel!("Share of Firms Understaffed")
 ylabel!("Employment")
 @inbounds for w = 0.5:0.1:2
     local m = Mkt(J, w, χ)
-    local nonemp, pgrid, sgrid, shares = checkProbs(m, normalization = true)
+    local nonemp, pgrid, sgrid, shares = checkProbs(m, normalization = false)
     plot!(p2, shares, 1 .-nonemp, label ="w = "*string(w))
 end
 p2
@@ -239,7 +239,7 @@ xlabel!("Share of Firms Understaffed")
 ylabel!("Employment")
 @inbounds for u in [u1, u2, u3, u4]
     local m = Mkt(J, w, χ, u)
-    local nonemp, pgrid, sgrid, shares   = checkProbs(m, normalization = true)
+    local nonemp, pgrid, sgrid, shares   = checkProbs(m, normalization = false)
     plot!(p5, shares, 1 .-nonemp, 
         label = "Utility: "*string(u))
 end
