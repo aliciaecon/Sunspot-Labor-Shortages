@@ -1,7 +1,6 @@
 """
 Simplest case: w = A, Lbar, χ identical across firms
 """
-
 using Parameters, LinearAlgebra
 
 using Plots; gr(border = :box, grid = true, minorgrid = true, gridalpha = 0.2,
@@ -171,58 +170,63 @@ xlabel!("Share of Firms Understaffed")
 ylabel!("Employment")
 @inbounds for j = J:-10:20
     local m = Mkt(j, w, χ)
-    local nonemp, pnew, sgrid, shares = checkProbs(m, normalization = false)
+    local nonemp, pgrid, sgrid, shares = checkProbs(m, normalization = false)
     plot!(p1, shares, 1 .-nonemp, label = string(j)*" Firms")
 end
 p1
 savefig("plots/vary_J.pdf")
 
 # Plot employment for different J
-# With normalization of unemployment rate at 0 understaffed firms = 0.05
+# With normalization of unemployment rate at 0 understaffed firms = 0.05.
+# Note: normalization gets rid of J differences in slope
 p1_normalized = plot(legend=:outertopright)
 xlabel!("Share of Firms Understaffed")
 ylabel!("Employment")
 @inbounds for j = J:-10:20
     local m = Mkt(j, w, χ)
-    local nonemp, pnew, sgrid, shares = checkProbs(m, normalization = true)
+    local nonemp, pgrid, sgrid, shares = checkProbs(m, normalization = true)
     plot!(p1_normalized, shares, 1 .-nonemp, label = string(j)*" Firms")
 end
 p1_normalized
 savefig("plots/vary_J_normalized.pdf")
 
 # Plot employment for different A(=w)
+# Note: Normalization gets rid of wage differences in slope.
 p2 = plot(legend=:outertopright)
 xlabel!("Share of Firms Understaffed")
 ylabel!("Employment")
-@inbounds for w = 0.5:0.1:1
+@inbounds for w = 0.5:0.1:2
     local m = Mkt(J, w, χ)
-    local nonemp, pnew, sgrid, shares = checkProbs(m)
+    local nonemp, pgrid, sgrid, shares = checkProbs(m, normalization = true)
     plot!(p2, shares, 1 .-nonemp, label ="w = "*string(w))
 end
 p2
 savefig("plots/vary_w.pdf")
 
 # Plot employment for different Lbar
+# Normalization just changes value of unemployment -- affects slope.
+# Shows how result is sensitive to value of unempoyment.
 p3 = plot(legend=:outertopright)
 xlabel!("Share of Firms Understaffed")
 ylabel!("Employment")
 @inbounds for l = 1.0:-0.1:0.5
     local lbar  = l/(J+1)
     local m     = Mkt(J, w, χ, lbar)
-    local nonemp, pnew, sgrid, shares = checkProbs(m)
+    local nonemp, pgrid, sgrid, shares = checkProbs(m, normalization = true)
     plot!(p3, shares, 1 .-nonemp, 
-        label = "Lbar="*string(round(lbar, digits = 3)))
+        label = "Lbar = "*string(round(lbar, digits = 3)))
 end
 p3
 savefig("plots/vary_lbar.pdf")
 
 # Plot employment for different χ
+# Here, χ differences will still matter.
 p4 = plot(legend=:topright)
 xlabel!("Share of Firms Understaffed")
 ylabel!("Employment")
 @inbounds for chi in 0.5:0.1:1
     local m = Mkt(J, w, chi)
-    local nonemp, pnew, sgrid, shares   = checkProbs(m)
+    local nonemp, pgrid, sgrid, shares   = checkProbs(m, normalization = true)
     plot!(p4, shares, 1 .-nonemp, label = "χ="*string(chi))
 end
 p4
@@ -234,7 +238,7 @@ xlabel!("Share of Firms Understaffed")
 ylabel!("Employment")
 @inbounds for u in [u1, u2, u3, u4]
     local m = Mkt(J, w, χ, u)
-    local nonemp, pnew, sgrid, shares   = checkProbs(m)
+    local nonemp, pgrid, sgrid, shares   = checkProbs(m, normalization = true)
     plot!(p5, shares, 1 .-nonemp, 
         label = "Utility: "*string(u))
 end
