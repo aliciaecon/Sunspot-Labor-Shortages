@@ -1,6 +1,7 @@
 * MOST RECENT FILES/CHANGES WILL BE ON GITHUB!
+global data = "../Data/GSS"
 
-import excel GSS.xlsx, firstrow clear
+import excel ${data}/GSS_extract.xlsx, firstrow clear
 
 * Encode the main variables
 encode satjob, gen(satiswork)     // Work satisfaction, NOT INCREASING
@@ -53,6 +54,8 @@ destring yearsjob, gen(tenure) force
 replace tenure = 0.5 if yearsjob == "6-11.9 months"
 replace tenure = 0 if yearsjob == "Less than 6 months"
 replace tenure = . if tenure < 0
+
+save ${data}/GSS_extract, replace
 
 * Run regressions testing correlation of understaffing with job satisfaction and 
 * probability of looking for a new job

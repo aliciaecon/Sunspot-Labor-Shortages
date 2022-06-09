@@ -1,7 +1,7 @@
 #=
 Compute choice probabilities and non-employment shares
 for the simplest static model: w = A, Lbar, χ identical across firms.
-Eventually can set up as package.
+Eventually can set up as a package.
 =#
 
 using Parameters, LinearAlgebra
