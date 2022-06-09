@@ -1,8 +1,8 @@
 import excel GSS.xlsx, firstrow clear
 
 * Encode the main variables
-encode satjob, gen(satis)         // Work satisfaction, NOT INCREASING
-encode satjob1, gen(satis1)       // Job satisfaction in general, INCREASING
+encode satjob, gen(satiswork)     // Work satisfaction, NOT INCREASING
+encode satjob1, gen(satis)        // Job satisfaction in general, INCREASING
 encode toofewwk, gen(understaff)  // how often are you understaffed, NOT INCREASING
 encode trynewjb, gen(tryjob)	  // How likely R make effort for new job next year
 encode localnum, gen(numemp)      // Number of employees: R's work site
@@ -10,15 +10,15 @@ encode localnum, gen(numemp)      // Number of employees: R's work site
 label list
 
 * Replace missings
-replace satis       = . if inlist(satis,1,2,3,4)
+replace satiswork   = . if inlist(satiswork,1,2,3,4)
+replace satis       = . if inlist(satis,1,2,3)
 replace understaff  = . if inlist(understaff,1,2,3)
-replace satis1      = . if inlist(satis1,1,2,3)
-replace tryjob      = . if inlist(satis1,1,2,3)
+replace tryjob      = . if inlist(tryjob,1,2,3)
 replace numemp      = . if inlist(numemp,1,2,3,4)
 
 * Check how much data is available
 tab year if !missing(understaff) & !missing(satis)
-tab year if !missing(understaff) & !missing(satis1)
+tab year if !missing(understaff) & !missing(satiswork)
 
 *** JRG Explorations on 6/9 call
 
@@ -37,8 +37,8 @@ encode indus10, gen(indnum)  // R's industry code (NAICS 2007)
 encode occ10, gen(occnum)    // R's census occupation code (2010)
 
 * Generate binary variables
-gen byte unsatisfied   = inlist(satis,5,7) // A little or very dissatisfied
-gen byte verysatisfied = inlist(satis,8)   // very satisfied
+gen byte unsatisfied   = inlist(satis,4,5) // A little or very dissatisfied
+gen byte verysatisfied = inlist(satis,7)   // very satisfied
 
 destring age, replace force
 gen age2 = age^2
@@ -54,7 +54,7 @@ replace tenure = . if tenure < 0
 
 * Run regressions testing correlation of understaffing with job satisfaction and 
 * probability of looking for a new job
-foreach var in satis1 unsatisfied verysatisfied tryjob likelytryjob verylikelytryjob {
+foreach var in satis unsatisfied verysatisfied tryjob likelytryjob verylikelytryjob {
 	summ `var'
 	reg `var' i.understaff, vce(cluster indnum)
 	reg `var' i.understaff i.educ_num, vce(cluster indnum)
