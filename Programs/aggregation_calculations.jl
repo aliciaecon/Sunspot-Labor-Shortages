@@ -130,4 +130,28 @@ end
 p7
 savefig("plots/ub_industry_firm.pdf")
 
+# Elasticity calculations
+e_len = 1000 # Market size (large)
+elasticityMkt = Mkt(J = e_len, w = 1, χ = 0.9) # Define market
+e_nonemp, e_pgrid, e_sgrid, e_shares = checkProbs(elasticityMkt)
+
+# For each entry where the understaffed share leads to defined employment,
+# Calculate the elasticity by subtracting the employment of the
+# Last understaffed firm from the first fully staffed firm
+first_defined = findmax(findall(isnan, e_shares))[1] + 1
+elasticity = zeros(e_len - first_defined + 1)
+for f = first_defined:e_len
+    understaffed_emp = e_pgrid[f, f]
+    staffed_emp = e_pgrid[f+1, f+1]
+    elasticity[f - first_defined + 1] = 
+        (staffed_emp - understaffed_emp)/understaffed_emp * 100
+end
+
+e_plot = plot(legend=:bottomright)
+xlabel!("Share of Firms Understaffed")
+ylabel!("Elasticity (% ↑ Employment)")
+plot!(e_plot, e_shares[first_defined:e_len], elasticity, 
+    label = string(e_len)*" Firms")
+savefig("plots/elasticity.pdf")
+
 
