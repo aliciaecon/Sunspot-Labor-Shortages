@@ -112,7 +112,7 @@ ylabel!("Employment")
     local m = Mkt(J = J, w = w, χ = χ, unrate = (0.4 + unrate))
     local nonemp, pgrid, sgrid, shares   = checkProbs(m, normalization = true)
     plot!(p6, shares, 1 .-nonemp, 
-        label = "UB diff from 60%: "*string(-unrate))
+        label = "UB: 60% + "*string(-unrate))
 end
 p6
 savefig("plots/vary_ub.pdf")
