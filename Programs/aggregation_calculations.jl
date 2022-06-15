@@ -90,7 +90,7 @@ p4
 savefig("plots/vary_chi.pdf")
 
 # Plot employment for different utility functions
-# No difference in employment for different u with normalization
+# Note: no difference in employment for different u with normalization.
 p5 = plot(legend=:topright)
 xlabel!("Share of Firms Understaffed")
 ylabel!("Employment")
@@ -103,7 +103,7 @@ end
 p5
 savefig("plots/vary_u.pdf")
 
-# Plot employment for different non-emp rates (EPOP = 0.6)
+# Plot employment for different non-emp rates (default, EPOP = 0.6)
 p6 = plot(legend=:outertopright)
 xlabel!("Share of Firms Understaffed")
 ylabel!("Employment")
@@ -116,8 +116,9 @@ p6
 savefig("plots/vary_ub.pdf")
 
 #= Plot employment for different non-emp rates. 
-These correspond to industry (vs aggregate) calculations.
-So we make the value of the outside option very high. 
+These correspond to a single industry (vs aggregate) calculations.
+In practice, we make the value of the outside option very high, so the employment
+share corresponds 0.04 (similar to construction industry).
 Adjust Lbar to to reflect this. =#
 m = Mkt(J = J, w = w, χ = χ, unrate = 0.96, Lbar = 0.7*(1 - 0.96)/J)
 nonemp, pgrid, sgrid, shares = checkProbs(m, normalization = true)
