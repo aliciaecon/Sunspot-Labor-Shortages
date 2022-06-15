@@ -1,5 +1,5 @@
-using Plots; gr(border = :box, grid = true, minorgrid = true, gridalpha = 0.2,
-xguidefontsize = 15, yguidefontsize = 15, xtickfontsize = 13, ytickfontsize=13,
+using Plots, LaTeXStrings; gr(border = :box, grid = true, minorgrid = true, gridalpha = 0.2,
+xguidefontsize = 13, yguidefontsize = 13, xtickfontsize = 13, ytickfontsize=13,
 linewidth = 2, gridstyle = :dash, gridlinewidth = 1.2, margin = 10* Plots.px,legendfontsize =12)
 
 include("static_model.jl")
@@ -16,9 +16,8 @@ J       = 100
 χ       = 0.9
 w       = 1
 m       = Mkt(J = J, w = w, χ = χ)
-p, s    = choiceProbs(m, false)
 
-nonemp, pgrid, sgrid, shares = checkProbs(m)
+nonemp, pgrid, sgrid, shares = checkProbs(m, normalization = true)
 
 # Plot employment for different J
 # Nested logit for under-staffed/over-staffed (independence of irrelvant alternatives)?
@@ -130,28 +129,112 @@ end
 p7
 savefig("plots/ub_industry_firm.pdf")
 
-# Elasticity calculations
-e_len = 1000 # Market size (large)
+# Now, we compute some different "elasticity" measures.
+e_len         = 1000 # Market size (large)
 elasticityMkt = Mkt(J = e_len, w = 1, χ = 0.9) # Define market
 e_nonemp, e_pgrid, e_sgrid, e_shares = checkProbs(elasticityMkt)
 
-# For each entry where the understaffed share leads to defined employment,
-# Calculate the elasticity by subtracting the employment of the
-# Last understaffed firm from the first fully staffed firm
+#= For each entry where the understaffed share leads to a defined eq,
+Calculate the % change in the employment of an understaffed firm as 
+the share of understaffed firms increases in the economy. =#
 first_defined = findmax(findall(isnan, e_shares))[1] + 1
-elasticity = zeros(e_len - first_defined + 1)
+pchange       = zeros(e_len - first_defined + 1)
 for f = first_defined:e_len
-    understaffed_emp = e_pgrid[f, f]
-    staffed_emp = e_pgrid[f+1, f+1]
-    elasticity[f - first_defined + 1] = 
-        (staffed_emp - understaffed_emp)/understaffed_emp * 100
+    emp1      = e_pgrid[f, f]
+    emp2      = e_pgrid[f+1, f+1]
+    pchange[f - first_defined + 1] = (emp2 - emp2)/emp1 * 100
 end
 
 e_plot = plot(legend=:bottomright)
 xlabel!("Share of Firms Understaffed")
-ylabel!("Elasticity (% ↑ Employment)")
-plot!(e_plot, e_shares[first_defined:e_len], elasticity, 
+ylabel!("% ↑ in Understaffed Employment)")
+plot!(e_plot, e_shares[first_defined:e_len], pchange, 
     label = string(e_len)*" Firms")
-savefig("plots/elasticity.pdf")
+savefig("plots/pchange_under.pdf")
 
+#=
+Now compute an elasticity with respect to this share.
+Use forward differences for now.
+=#
+first_defined = findmax(findall(isnan, e_shares))[1] + 1
+pchange       = zeros(e_len - first_defined + 1)
+for f = first_defined:e_len
+    emp1    = e_pgrid[f, f]
+    emp2    = e_pgrid[f+1, f+1]
+    pchange[f - first_defined + 1] = 
+    ((emp2 - emp1)/(e_shares[f+1] - e_shares[f]))*e_shares[f]/emp1
+end
 
+e_plot = plot(legend=:bottomright)
+xlabel!("Share of Firms Understaffed")
+ylabel!("Elasticity: Overstaffed Employment")
+plot!(e_plot, e_shares[first_defined:e_len], pchange, 
+    label = string(e_len)*" Firms")
+savefig("plots/elasticity_under.pdf")
+
+#= For each entry where the understaffed share leads to a defined eq,
+Calculate the % change in the employment of an overstaffed firm as 
+the share of understaffed firms increases in the economy. =#
+first_defined = findmax(findall(isnan, e_shares))[1] + 1
+pchange       = zeros(e_len - first_defined)
+for f = first_defined:e_len-1
+    emp1  = e_pgrid[f, f+1]
+    emp2  = e_pgrid[f+1, f+2]
+    pchange[f - first_defined + 1] = (emp2 - emp1)/emp1 * 100
+end
+
+e_plot = plot(legend=:bottomright)
+xlabel!("Share of Firms Understaffed")
+ylabel!("% ↑ in Overstaffed Employment")
+plot!(e_plot, e_shares[first_defined:e_len-1], pchange, 
+    label = string(e_len)*" Firms")
+savefig("plots/pchange_over.pdf")
+
+# Now compute an elasticity with respect to this share.
+first_defined = findmax(findall(isnan, e_shares))[1] + 1
+elasticity    = zeros(e_len - first_defined)
+for f = first_defined:e_len-1
+    emp1  = e_pgrid[f, f+1]
+    emp2       = e_pgrid[f+1, f+2]
+    elasticity[f - first_defined + 1] = 
+        ((emp2 - emp1)/(e_shares[f+1] - e_shares[f]))*e_shares[f]/emp1
+end
+
+e_plot = plot(legend=:bottomright)
+xlabel!("Share of Firms Understaffed")
+ylabel!("Elasticity: Overstaffed Employment")
+plot!(e_plot, e_shares[first_defined:e_len-1], elasticity, 
+    label = string(e_len)*" Firms")
+savefig("plots/elasticity_over.pdf")
+
+#= 
+Say you are in a market with a given level of understaffing. 
+What is the difference in employment between being understaffed/overstaffed?
+=#
+
+first_defined = findmax(findall(isnan, e_shares))[1] + 1
+change        = zeros(e_len - first_defined+1)
+for f = first_defined:e_len
+    understaffed_emp  = e_pgrid[f, f]
+    staffed_emp       = e_pgrid[f, f+1]
+    change[f - first_defined + 1] =  (staffed_emp - understaffed_emp)
+end
+
+e_plot = plot(legend=:bottomright)
+xlabel!("Share of Firms Understaffed")
+ylabel!("Pr((Over) - Pr(Under)")
+plot!(e_plot, e_shares[first_defined:e_len], change, 
+    label = string(e_len)*" Firms")
+savefig("plots/change_over_under.pdf")
+
+# What is the elasticity?
+shares     = e_shares[first_defined:e_len]
+elasticity = (change[2:end] - change[1:end-1])./(shares[2:end]-shares[1:end-1])
+elasticity = elasticity.*shares[1:end-1]./change[1:end-1]
+
+e_plot = plot(legend=:bottomright)
+xlabel!("Share of Firms Understaffed")
+ylabel!("Elasticity: Pr(Over) - Pr(Under)")
+plot!(e_plot, shares[1:end-1], elasticity, 
+    label = string(e_len)*" Firms")
+savefig("plots/elasticity_over_under.pdf")

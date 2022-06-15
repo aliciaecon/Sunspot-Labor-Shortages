@@ -13,7 +13,8 @@ using Parameters, LinearAlgebra
     Lbar          ::Float64 = 0.7/(J+1)
     χ             ::Float64
     u             ::Function = u(w) = w
-    unrate        ::Float64 = 0.4
+    unrate        ::Float64 = 0.4 # Non-employment rate if normalized
+    b             ::Float64 = 0.4 # Value of non-employment if not normalized
 end
 
 """
@@ -75,8 +76,8 @@ For every combination of under/over-staffed firms in a mkt,
 compute the choice probabilities p(i -> j) for firm j in each mkt,
 where j == 0 denotes non-employment. Each mkt is a row.
 """
-function choiceProbs(m::Mkt, normalization; ident = true, b = 0.4)
-    @unpack J, w, χ, Lbar, u, unrate = m
+function choiceProbs(m::Mkt, normalization; ident = true)
+    @unpack J, w, χ, Lbar, u, unrate, b = m
 
     if ident == true
         sgrid = staffCombosIdent(J)
