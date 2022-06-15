@@ -6,7 +6,7 @@ Eventually can set up as a package.
 
 using Parameters, LinearAlgebra
 
-## Structure that holds all details about the labor market 
+## Structure that holds underlying details about the labor market 
 @with_kw struct Mkt
     J             ::Int64
     w             ::Float64
@@ -21,7 +21,9 @@ end
 Get all under/over-staffed combinations of a market of size J,
 with heterogenous firms (so which firms in the market
 are under-staffed would matter for total employment).
-1 = under-staffed, 0 = over-staffed 
+1 = under-staffed, 0 = over-staffed.
+Matrix is J^2 x J. Each row corresponds to a market.
+Row 1: no firms understaffed. Row J^2: All firms understaffed. 
 """
 function staffCombosDiff(J)
     return reverse.(digits.(0:2^J - 1, base = 2, pad = J))
@@ -33,6 +35,8 @@ for markets with identical firms (since markets
 with the same number of under-staffed firms will have
 identical employment shares).
 1 = under-staffed, 0 = over-staffed.
+Matrix is J + 1 x J. Each row corresponds to a market.
+Row 1: no firms understaffed. Row J^2: All firms understaffed. 
 """
 function staffCombosIdent(J)
     # match staffCombosDiff's output structure
@@ -73,8 +77,10 @@ end
 
 """
 For every combination of under/over-staffed firms in a mkt,
-compute the choice probabilities p(i -> j) for firm j in each mkt,
+compute the choice probabilities Pr(i -> j) for firm j in each mkt,
 where j == 0 denotes non-employment. Each mkt is a row.
+Pgrid has J + 1 columns, and J^2 or J+1 rows.
+Rows are markets. Column 0 = nonemp, column j+1 = firm j.
 """
 function choiceProbs(m::Mkt, normalization; ident = true)
     @unpack J, w, χ, Lbar, u, unrate, b = m
@@ -111,6 +117,9 @@ end
 For the simplest case, where all firms are identical,
 compute non-employment shares and then check
 whether the over/under-staffed assignments agree with Lbar.
+Only define nonemp when the above is satisifed.
+Pgrid has J + 1 columns, and J^2 or J+1 rows.
+Rows are markets. Column 0 = nonemp, column j+1 = firm j.
 """
 function checkProbs(m; normalization = true)
     @unpack J, w, χ, Lbar, u, unrate = m
