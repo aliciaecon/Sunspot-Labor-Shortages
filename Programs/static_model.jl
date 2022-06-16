@@ -10,10 +10,10 @@ using Parameters, LinearAlgebra
 @with_kw struct Mkt
     J             ::Int64
     w             ::Float64
-    Lbar          ::Float64 = 0.7/(J+1)
     χ             ::Float64
     u             ::Function = u(w) = w
     unrate        ::Float64 = 0.4 # Non-employment rate if normalized
+    Lbar          ::Float64 = 0.7*(1-0.4)/(J+1)
     b             ::Float64 = 0.4 # Value of non-employment if not normalized
 end
 

@@ -12,7 +12,7 @@ u4(w)           = -exp(-w)
 
 
 ## Preliminary results
-J       = 100
+J       = 1000
 χ       = 0.9
 w       = 1
 m       = Mkt(J = J, w = w, χ = χ)
@@ -120,7 +120,8 @@ These correspond to a single industry (vs aggregate) calculations.
 In practice, we make the value of the outside option very high, so the employment
 share corresponds 0.04 (similar to construction industry).
 Adjust Lbar to to reflect this. =#
-m = Mkt(J = J, w = w, χ = χ, unrate = 0.96, Lbar = 0.7*(1 - 0.96)/J)
+nonrate = 0.96
+m = Mkt(J = J, w = w, χ = χ, unrate = nonrate, Lbar = 0.7*(1 - nonrate)/J)
 nonemp, pgrid, sgrid, shares = checkProbs(m, normalization = true)
 plot(shares, 1 .-nonemp, legend =:false)
 xlabel!("Share of Firms Understaffed")
@@ -131,7 +132,7 @@ savefig("plots/ub_industry_firm.pdf")
 # Define the Market.
 e_len   = 1000 # Market size (large)
 e_Mkt   = Mkt(J = e_len, w = 1, χ = 0.9) # Aggregate
-#e_Mkt   = Mkt(J = e_len, w = w, χ = χ, unrate = 0.96, Lbar = 0.7*(1 - 0.96)/e_len) # Industry
+e_Mkt   = Mkt(J = e_len, w = w, χ = χ, unrate = 0.96, Lbar = 0.7*(1 - 0.96)/e_len) # Industry
 e_nonemp, e_pgrid, e_sgrid, e_shares = checkProbs(e_Mkt)
 
 #= For each entry where the understaffed share leads to a defined eq,
@@ -141,8 +142,8 @@ the share of understaffed firms increases in the economy. =#
 first_defined = isempty(findall(isnan, e_shares)) ? 2 : findmax(findall(isnan, e_shares))[1] + 1
 pchange       = zeros(e_len - first_defined + 1)
 for f = first_defined:e_len
-    emp1      = e_pgrid[f, f]
-    emp2      = e_pgrid[f+1, f+1]
+    emp1      = e_pgrid[f, f]       # less understaffed economy
+    emp2      = e_pgrid[f+1, f+1]   # more understaffed economy
     pchange[f - first_defined + 1] = (emp2 - emp1)/emp1 * 100
 end
 
@@ -220,11 +221,14 @@ ylabel!("Pr((Over) - Pr(Under)")
 plot!(e_plot, e_shares[first_defined:e_len], change, 
     label = string(e_len)*" Firms")
 savefig("plots/change_over_under.pdf")
+#(exp(w) - exp(w-χ))/(ub + n*exp(w-χ) + (J-n)*exp(w))
 
 # What is the elasticity?
 shares     = e_shares[first_defined:e_len]
 elasticity = (change[2:end] - change[1:end-1])./(shares[2:end]-shares[1:end-1])
 elasticity = elasticity.*shares[1:end-1]./change[1:end-1]
+#dlog delta share (u -> o)/ dlog share understaffed
+# there are now less overstaffed firms, and these are desirable
 
 e_plot = plot(legend=:bottomright)
 xlabel!("Share of Firms Understaffed")
@@ -232,3 +236,4 @@ ylabel!("Elasticity: Pr(Over) - Pr(Under)")
 plot!(e_plot, shares[1:end-1], elasticity, 
     label = string(e_len)*" Firms")
 savefig("plots/elasticity_over_under.pdf")
+
