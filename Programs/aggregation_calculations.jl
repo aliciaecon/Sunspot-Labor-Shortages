@@ -12,7 +12,7 @@ u4(w)           = -exp(-w)
 
 
 ## Preliminary results
-J       = 1000
+J       = 100
 χ       = 0.9
 w       = 1
 m       = Mkt(J = J, w = w, χ = χ)
@@ -132,7 +132,7 @@ savefig("plots/ub_industry_firm.pdf")
 # Define the Market.
 e_len   = 1000 # Market size (large)
 e_Mkt   = Mkt(J = e_len, w = 1, χ = 0.9) # Aggregate
-e_Mkt   = Mkt(J = e_len, w = w, χ = χ, unrate = 0.96, Lbar = 0.7*(1 - 0.96)/e_len) # Industry
+#e_Mkt   = Mkt(J = e_len, w = w, χ = χ, unrate = 0.96, Lbar = 0.7*(1 - 0.96)/e_len) # Industry
 e_nonemp, e_pgrid, e_sgrid, e_shares = checkProbs(e_Mkt)
 
 #= For each entry where the understaffed share leads to a defined eq,
@@ -237,3 +237,21 @@ plot!(e_plot, shares[1:end-1], elasticity,
     label = string(e_len)*" Firms")
 savefig("plots/elasticity_over_under.pdf")
 
+## Basic Checks on employment growth, since everything appears to be growing
+non_g    = e_pgrid[2:end,1] - e_pgrid[1:end-1,1]
+under_g  = e_pgrid[2:end,2] - e_pgrid[1:end-1,2]       # always understaffed except for share = 0
+over_g   = e_pgrid[2:end,end] - e_pgrid[1:end-1,end]   # always overstaffed except share = 1
+
+# check levels
+plot(non_g, label="nonemp growth", legend=:bottomleft)
+plot!(under_g, label="understaffed emp growth")
+plot!(over_g, label="overstaffed emp growht")
+# employment growth
+
+# compare over-under comparison, exclude all or none understaffed for scale
+plot(under_g[2:end-1], label="understaffed emp growth", legend=:topleft)
+plot!(over_g[2:end-1], label="overstaffed emp growth")
+# employment for both types of firms is growing
+
+# should equal 1
+e_pgrid[:,1] + e_pgrid[:,2].*e_shares*e_len + e_pgrid[:,end].*(1 .- e_shares)*e_len
