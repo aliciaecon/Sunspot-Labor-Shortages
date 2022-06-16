@@ -1,5 +1,5 @@
 * MOST RECENT FILES/CHANGES WILL BE ON GITHUB!
-global data = "../Data/GSS"
+global data    = "../Data/GSS"
 
 import excel ${data}/GSS_extract.xlsx, firstrow clear
 
@@ -67,4 +67,4 @@ foreach var in satis unsatisfied verysatisfied tryjob likelytryjob verylikelytry
 	reg `var' i.understaff i.educ_num age age2 tenure, vce(cluster indnum)
 	reghdfe `var' i.understaff i.educ_num age age2 tenure, vce(cluster indnum) absorb(occnum)
 	reghdfe `var' i.understaff i.educ_num age age2 tenure, vce(cluster indnum) absorb(occnum indnum)
-	}
+}
