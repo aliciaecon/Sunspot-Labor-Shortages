@@ -209,15 +209,17 @@ savefig("plots/elasticity_over.pdf")
 #= Say you are in a market with a given level of understaffing. 
 What is the difference in employment between being understaffed/overstaffed? =#
 change        = zeros(e_len - first_defined+1)
+change_pct    = zeros(e_len - first_defined+1)
 for f = first_defined:e_len
     understaffed_emp  = e_pgrid[f, f]
     staffed_emp       = e_pgrid[f, f+1]
     change[f - first_defined + 1] =  (staffed_emp - understaffed_emp)
+    change_pct[f - first_defined + 1] =  (staffed_emp - understaffed_emp)/understaffed_emp * 100
 end
 
 e_plot = plot(legend=:bottomright)
 xlabel!("Share of Firms Understaffed")
-ylabel!("Pr((Over) - Pr(Under)")
+ylabel!("Pr(Over) - Pr(Under)")
 plot!(e_plot, e_shares[first_defined:e_len], change, 
     label = string(e_len)*" Firms")
 savefig("plots/change_over_under.pdf")
@@ -245,7 +247,7 @@ over_g   = e_pgrid[2:end,end] - e_pgrid[1:end-1,end]   # always overstaffed exce
 # check levels
 plot(non_g, label="nonemp growth", legend=:bottomleft)
 plot!(under_g, label="understaffed emp growth")
-plot!(over_g, label="overstaffed emp growht")
+plot!(over_g, label="overstaffed emp growth")
 # employment growth
 
 # compare over-under comparison, exclude all or none understaffed for scale
