@@ -26,7 +26,8 @@ p1 = plot(legend=:outertopright)
 xlabel!("Share of Firms Understaffed")
 ylabel!("Employment")
 @inbounds for j = J:-10:20
-    local m = Mkt(J = j, w = w, χ = χ)
+    local m = Mkt(J = j, w = w, χ = χ, Lbar = 0.7/(j+1))
+    println(m.Lbar)
     local nonemp, pgrid, sgrid, shares = checkProbs(m, normalization = false)
     plot!(p1, shares, 1 .-nonemp, label = string(j)*" Firms")
 end
@@ -53,7 +54,7 @@ p2 = plot(legend=:outertopright)
 xlabel!("Share of Firms Understaffed")
 ylabel!("Employment")
 @inbounds for w = 0.5:0.1:1
-    local m = Mkt(J = J, w = w, χ = χ)
+    local m = Mkt(J = J, w = w, χ = χ, Lbar = 0.7/(J+1))
     local nonemp, pgrid, sgrid, shares = checkProbs(m, normalization = false)
     plot!(p2, shares, 1 .-nonemp, label ="w = "*string(w))
 end
@@ -95,10 +96,10 @@ p5 = plot(legend=:topright)
 xlabel!("Share of Firms Understaffed")
 ylabel!("Employment")
 @inbounds for util in [u1, u2, u3, u4]
-    local m = Mkt(J = J, w = w, χ = χ, u = util)
+    local m = Mkt(J = J, w = w, χ = χ, u = util, Lbar = 0.7/(J+1))
     local nonemp, pgrid, sgrid, shares   = checkProbs(m, normalization = false)
     plot!(p5, shares, 1 .-nonemp, 
-        label = "Utility: "*string(u))
+        label = "Utility: "*string(util))
 end
 p5
 savefig("plots/vary_u.pdf")
