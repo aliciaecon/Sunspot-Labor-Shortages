@@ -1,0 +1,20 @@
+\begin{tikzpicture}
+
+% Axes
+\draw[thick,->] (0,0)--(0,5.5) node[above]{$\Omega(z,n)$};
+\draw[thick,->] (0,1.5) node[left]{$0$} --(6,1.5) node[right]{$n$};
+
+% Omega
+\draw[dashed,red] (0.7,0.25) ..controls (2,3) and (4,4) .. (5,4.2) node[above,yshift=-35pt]{$\pmb{\Omega(z^L,n)-\vartheta}$};
+
+% U n
+\draw[dashed,blue](0,1.5)--(5,4.7) node[right]{$U \times n\hskip7.5mm \ $};
+
+%\draw[thick,red] (2.5,3.5)--(5,5.12) node[above,yshift=6pt]{$\pmb{\Omega(z^M,n)}$};
+%\draw[line width = 0.5mm,red](0,1.5)--(5,4.7) node[above,yshift=-50pt]{$\pmb{\Omega(z^L,n)-\vartheta}$};
+
+% Braces
+\draw[decorate, decoration = {brace, amplitude = 6pt,mirror}, xshift = 0pt, yshift = -4pt] (0, 0) -- (5.5, 0);
+\draw (2.75,-0.75) node{\textbf{\alertroyalblue{Exit}}};
+
+\end{tikzpicture} 

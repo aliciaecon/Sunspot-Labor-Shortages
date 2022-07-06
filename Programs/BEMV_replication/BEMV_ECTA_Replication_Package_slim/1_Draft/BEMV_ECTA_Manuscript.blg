@@ -1,0 +1,47 @@
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: BEMV_ECTA_Manuscript.aux
+The style file: econometrica.bst
+Database file #1: MV_bibtex_update.bib
+Done.
+You've used 66 entries,
+            2327 wiz_defined-function locations,
+            906 strings with 12670 characters,
+and the built_in function-call counts, 31770 in all, are:
+= -- 3160
+> -- 1742
+< -- 10
++ -- 568
+- -- 502
+* -- 2866
+:= -- 6187
+add.period$ -- 70
+call.type$ -- 66
+change.case$ -- 401
+chr.to.int$ -- 66
+cite$ -- 66
+duplicate$ -- 1102
+empty$ -- 1949
+format.name$ -- 610
+if$ -- 6155
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 52
+newline$ -- 210
+num.names$ -- 397
+pop$ -- 302
+preamble$ -- 1
+purify$ -- 390
+quote$ -- 0
+skip$ -- 1045
+stack$ -- 0
+substring$ -- 1751
+swap$ -- 208
+text.length$ -- 10
+text.prefix$ -- 0
+top$ -- 1
+type$ -- 717
+warning$ -- 0
+while$ -- 365
+width$ -- 0
+write$ -- 800

@@ -1,0 +1,2124 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.26)  21 JAN 2022 09:50
+entering extended mode
+**./BEMV_ECTA_Manuscript.tex
+(BEMV_ECTA_Manuscript.tex
+LaTeX2e <2018-12-01>
+(BEMV_ECTA_preamble.tex
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\articl
+e.cls"
+Document Class: article 2018/09/03 v1.4i Standard LaTeX document class
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\size11
+.clo"
+File: size11.clo 2018/09/03 v1.4i Standard LaTeX file (size option)
+)
+\c@part=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\ams
+math.sty"
+Package: amsmath 2018/12/01 v2.17b AMS math features
+\@mathmargin=\skip43
+
+For additional information on amsmath, use the `?' option.
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\ams
+text.sty"
+Package: amstext 2000/06/29 v2.01 AMS text
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\ams
+gen.sty"
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks14
+\ex@=\dimen103
+))
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\ams
+bsy.sty"
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen104
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\ams
+opn.sty"
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count88
+LaTeX Info: Redefining \frac on input line 223.
+\uproot@=\count89
+\leftroot@=\count90
+LaTeX Info: Redefining \overline on input line 385.
+\classnum@=\count91
+\DOTSCASE@=\count92
+LaTeX Info: Redefining \ldots on input line 482.
+LaTeX Info: Redefining \dots on input line 485.
+LaTeX Info: Redefining \cdots on input line 606.
+\Mathstrutbox@=\box27
+\strutbox@=\box28
+\big@size=\dimen105
+LaTeX Font Info:    Redeclaring font encoding OML on input line 729.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 730.
+\macc@depth=\count93
+\c@MaxMatrixCols=\count94
+\dotsspace@=\muskip10
+\c@parentequation=\count95
+\dspbrk@lvl=\count96
+\tag@help=\toks15
+\row@=\count97
+\column@=\count98
+\maxfields@=\count99
+\andhelp@=\toks16
+\eqnshift@=\dimen106
+\alignsep@=\dimen107
+\tagshift@=\dimen108
+\tagwidth@=\dimen109
+\totwidth@=\dimen110
+\lineht@=\dimen111
+\@envbody=\toks17
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks18
+LaTeX Info: Redefining \[ on input line 2844.
+LaTeX Info: Redefining \] on input line 2845.
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/etex-pkg\et
+ex.sty"
+Package: etex 2016/08/01 v2.7 eTeX basic definition package (PEB,DPC)
+\et@xins=\count100
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/natbib\natb
+ib.sty"
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip46
+\bibsep=\skip47
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count101
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\am
+sfonts.sty"
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\math
+pazo.sty"
+Package: mathpazo 2005/04/12 PSNFSS-v9.2a Palatino w/ Pazo Math (D.Puga, WaS) 
+\symupright=\mathgroup6
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\hy
+perref.sty"
+Package: hyperref 2018/11/30 v6.88e Hypertext links for LaTeX
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\
+hobsub-hyperref.sty"
+Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
+
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\
+hobsub-generic.sty"
+Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+Package: intcalc 2016/05/16 v1.2 Expandable calculations with integers (HO)
+Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+Package: pdftexcmds 2018/09/10 v0.29 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+Package: pdfescape 2016/05/16 v1.14 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2016/05/16 v1.4 Expandable calculations on big integers (HO
+)
+Package: bitset 2016/05/16 v1.2 Handle bit-vector datatype (HO)
+Package: uniquecounter 2016/05/16 v1.3 Provide unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2016/05/16 v1.5 Let assignment for LaTeX macros (HO)
+Package: hopatch 2016/05/16 v1.3 Wrapper for package hooks (HO)
+Package: xcolor-patch 2016/05/16 xcolor patch
+Package: atveryend 2016/05/16 v1.9 Hooks at the very end of document (HO)
+Package atveryend Info: \enddocument detected (standard20110627).
+Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
+Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
+Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\ke
+yval.sty"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks19
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/ifxetex\i
+fxetex.sty"
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\au
+xhook.sty"
+Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\kv
+options.sty"
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+)
+\@linkdim=\dimen112
+\Hy@linkcounter=\count102
+\Hy@pagecounter=\count103
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\pd
+1enc.def"
+File: pd1enc.def 2018/11/30 v6.88e Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+\Hy@SavedSpaceFactor=\count104
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/00miktex\hy
+perref.cfg"
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Hyper figures OFF on input line 4519.
+Package hyperref Info: Link nesting OFF on input line 4524.
+Package hyperref Info: Hyper index ON on input line 4527.
+Package hyperref Info: Plain pages OFF on input line 4534.
+Package hyperref Info: Backreferencing OFF on input line 4539.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4772.
+\c@Hy@tempcnt=\count105
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/url\url.sty
+"
+\Urlmuskip=\muskip11
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 5125.
+\XeTeXLinkMargin=\dimen113
+\Fld@menulength=\count106
+\Field@Width=\dimen114
+\Fld@charsize=\dimen115
+Package hyperref Info: Hyper figures OFF on input line 6380.
+Package hyperref Info: Link nesting OFF on input line 6385.
+Package hyperref Info: Hyper index ON on input line 6388.
+Package hyperref Info: backreferencing OFF on input line 6395.
+Package hyperref Info: Link coloring OFF on input line 6400.
+Package hyperref Info: Link coloring with OCG OFF on input line 6405.
+Package hyperref Info: PDF/A mode OFF on input line 6410.
+LaTeX Info: Redefining \ref on input line 6450.
+LaTeX Info: Redefining \pageref on input line 6454.
+\Hy@abspage=\count107
+\c@Item=\count108
+\c@Hfootnote=\count109
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\hp
+dftex.def"
+File: hpdftex.def 2018/11/30 v6.88e Hyperref driver for pdfTeX
+\Fld@listcount=\count110
+\c@bookmark@seq@number=\count111
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\re
+runfilecheck.sty"
+Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+82.
+)
+\Hy@SectionHShift=\skip48
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/beamer\mult
+imedia.sty"
+Package: multimedia 2012/05/02 ver 0.02
+\mm@movie=\count112
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\gr
+aphicx.sty"
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\gr
+aphics.sty"
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\tr
+ig.sty"
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-cf
+g\graphics.cfg"
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-de
+f\pdftex.def"
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen116
+\Gin@req@width=\dimen117
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\co
+lor.sty"
+Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-cf
+g\color.cfg"
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 147.
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\ep
+sfig.sty"
+Package: epsfig 2017/06/25 v1.7b (e)psfig emulation (SPQR)
+\epsfxsize=\dimen118
+\epsfysize=\dimen119
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amscls\amst
+hm.sty"
+Package: amsthm 2017/10/31 v2.20.4
+\thm@style=\toks20
+\thm@bodyfont=\toks21
+\thm@headfont=\toks22
+\thm@notefont=\toks23
+\thm@headpunct=\toks24
+\thm@preskip=\skip49
+\thm@postskip=\skip50
+\thm@headsep=\skip51
+\dth@everypar=\toks25
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/mathtools\m
+athtools.sty"
+Package: mathtools 2018/01/08 v1.21 mathematical typesetting tools
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\calc.
+sty"
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count113
+\calc@Bcount=\count114
+\calc@Adimen=\dimen120
+\calc@Bdimen=\dimen121
+\calc@Askip=\skip52
+\calc@Bskip=\skip53
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count115
+\calc@Cskip=\skip54
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/mathtools\m
+hsetup.sty"
+Package: mhsetup 2017/03/31 v1.3 programming setup (MH)
+)
+LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
+\g_MT_multlinerow_int=\count116
+\l_MT_multwidth_dim=\dimen122
+\origjot=\skip55
+\l_MT_shortvdotswithinadjustabove_dim=\dimen123
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen124
+\l_MT_above_intertext_sep=\dimen125
+\l_MT_below_intertext_sep=\dimen126
+\l_MT_above_shortintertext_sep=\dimen127
+\l_MT_below_shortintertext_sep=\dimen128
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/esint\esint
+.sty"
+Package: esint 
+\symlargesymbolsA=\mathgroup7
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\am
+ssymb.sty"
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/relsize\rel
+size.sty"
+Package: relsize 2013/03/29 ver 4.1
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\bm.st
+y"
+Package: bm 2017/01/16 v1.2c Bold Symbol Support (DPC/FMi)
+\symboldoperators=\mathgroup8
+\symboldletters=\mathgroup9
+\symboldsymbols=\mathgroup10
+\symboldupright=\mathgroup11
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 141.
+LaTeX Info: Redefining \bm on input line 207.
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/fancyhdr\fa
+ncyheadings.sty"
+Package: fancyheadings 2017/06/30 v3.9a Legacy package to call fancyhdr
+
+
+Package fancyheadings Warning: Please stop using fancyheadings!
+(fancyheadings)                Use fancyhdr instead.
+(fancyheadings)                We will call fancyhdr with the very same
+(fancyheadings)                options you passed to fancyheadings.
+(fancyheadings)                
+(fancyheadings)                fancyhdr is 99 percent compatible with
+(fancyheadings)                fancyheadings. The only incompatibility is
+(fancyheadings)                that \headrulewidth and \footrulewidth and
+(fancyheadings)                their \plain... versions are no longer length
+(fancyheadings)                parameters, but normal macros (to be changed
+(fancyheadings)                with \renewcommand rather than \setlength)..
+
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/fancyhdr\fa
+ncyhdr.sty"
+Package: fancyhdr 2017/06/30 v3.9a Extensive control of page headers and footer
+s
+\f@nch@headwidth=\skip56
+\f@nch@O@elh=\skip57
+\f@nch@O@erh=\skip58
+\f@nch@O@olh=\skip59
+\f@nch@O@orh=\skip60
+\f@nch@O@elf=\skip61
+\f@nch@O@erf=\skip62
+\f@nch@O@olf=\skip63
+\f@nch@O@orf=\skip64
+))
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/float\float
+.sty"
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count117
+\float@exts=\toks26
+\float@box=\box29
+\@float@everytoks=\toks27
+\@floatcapt=\box30
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/jknappen\ma
+thrsfs.sty"
+Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
+\symrsfs=\mathgroup12
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/setspace\se
+tspace.sty"
+Package: setspace 2011/12/19 v6.7a set line spacing
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\eu
+script.sty"
+Package: euscript 2009/06/22 v3.00 Euler Script fonts
+LaTeX Font Info:    Overwriting math alphabet `\EuScript' in version `bold'
+(Font)                  U/eus/m/n --> U/eus/b/n on input line 33.
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/caption\cap
+tion.sty"
+Package: caption 2018/10/06 v3.3-154 Customizing captions (AR)
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/caption\cap
+tion3.sty"
+Package: caption3 2018/09/12 v1.8c caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 64.
+\captionmargin=\dimen129
+\captionmargin@=\dimen130
+\captionwidth=\dimen131
+\caption@tempdima=\dimen132
+\caption@indent=\dimen133
+\caption@parindent=\dimen134
+\caption@hangindent=\dimen135
+)
+\c@caption@flags=\count118
+\c@ContinuedFloat=\count119
+Package caption Info: float package is loaded.
+Package caption Info: hyperref package is loaded.
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/caption\sub
+caption.sty"
+Package: subcaption 2018/05/01 v1.1-162 Sub-captions (AR)
+\c@subfigure=\count120
+\c@subtable=\count121
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\pd
+flscape.sty"
+Package: pdflscape 2016/05/14 v0.11 Display of landscape pages in PDF (HO)
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\ls
+cape.sty"
+Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/booktabs\bo
+oktabs.sty"
+Package: booktabs 2005/04/14 v1.61803 publication quality tables
+\heavyrulewidth=\dimen136
+\lightrulewidth=\dimen137
+\cmidrulewidth=\dimen138
+\belowrulesep=\dimen139
+\belowbottomsep=\dimen140
+\aboverulesep=\dimen141
+\abovetopsep=\dimen142
+\cmidrulesep=\dimen143
+\cmidrulekern=\dimen144
+\defaultaddspace=\dimen145
+\@cmidla=\count122
+\@cmidlb=\count123
+\@aboverulesep=\dimen146
+\@belowrulesep=\dimen147
+\@thisruleclass=\count124
+\@lastruleclass=\count125
+\@thisrulewidth=\dimen148
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\inpute
+nc.sty"
+Package: inputenc 2018/08/11 v1.3c Input encoding file
+\inpenc@prehook=\toks28
+\inpenc@posthook=\toks29
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\fonten
+c.sty"
+Package: fontenc 2018/08/11 v2.0j Standard LaTeX package
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\t1enc.
+def"
+File: t1enc.def 2018/08/11 v2.0j Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
+))
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/geometry\ge
+ometry.sty"
+Package: geometry 2018/04/16 v5.8 Page Geometry
+\Gm@cnth=\count126
+\Gm@cntv=\count127
+\c@Gm@tempcnt=\count128
+\Gm@bindingoffset=\dimen149
+\Gm@wd@mp=\dimen150
+\Gm@odd@mp=\dimen151
+\Gm@even@mp=\dimen152
+\Gm@layoutwidth=\dimen153
+\Gm@layoutheight=\dimen154
+\Gm@layouthoffset=\dimen155
+\Gm@layoutvoffset=\dimen156
+\Gm@dimlist=\toks30
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/geometry\ge
+ometry.cfg"))
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/xcolor\xcol
+or.sty"
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-cf
+g\color.cfg"
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+LaTeX Info: Redefining \color on input line 709.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\dv
+ipsnam.def"
+File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
+))
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/fronten
+dlayer\tikz.sty"
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/basicla
+yer\pgf.sty"
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/utiliti
+es\pgfrcs.sty"
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utili
+ties\pgfutil-common.tex"
+\pgfutil@everybye=\toks31
+\pgfutil@tempdima=\dimen157
+\pgfutil@tempdimb=\dimen158
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utili
+ties\pgfutil-common-lists.tex"))
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utili
+ties\pgfutil-latex.def"
+\pgfutil@abb=\box31
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/ms\everyshi
+.sty"
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+))
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utili
+ties\pgfrcs.code.tex"
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf\pgf.r
+evision.tex")
+Package: pgfrcs 2019/01/05 v3.1 (3.1)
+))
+Package: pgf 2019/01/05 v3.1 (3.1)
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/basicla
+yer\pgfcore.sty"
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/systeml
+ayer\pgfsys.sty"
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/syste
+mlayer\pgfsys.code.tex"
+Package: pgfsys 2019/01/05 v3.1 (3.1)
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utili
+ties\pgfkeys.code.tex"
+\pgfkeys@pathtoks=\toks32
+\pgfkeys@temptoks=\toks33
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utili
+ties\pgfkeysfiltered.code.tex"
+\pgfkeys@tmptoks=\toks34
+))
+\pgf@x=\dimen159
+\pgf@y=\dimen160
+\pgf@xa=\dimen161
+\pgf@ya=\dimen162
+\pgf@xb=\dimen163
+\pgf@yb=\dimen164
+\pgf@xc=\dimen165
+\pgf@yc=\dimen166
+\w@pgf@writea=\write3
+\r@pgf@reada=\read1
+\c@pgf@counta=\count129
+\c@pgf@countb=\count130
+\c@pgf@countc=\count131
+\c@pgf@countd=\count132
+\t@pgf@toka=\toks35
+\t@pgf@tokb=\toks36
+\t@pgf@tokc=\toks37
+\pgf@sys@id@count=\count133
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/syste
+mlayer\pgf.cfg"
+File: pgf.cfg 2019/01/05 v3.1 (3.1)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/syste
+mlayer\pgfsys-pdftex.def"
+File: pgfsys-pdftex.def 2019/01/05 v3.1 (3.1)
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/syste
+mlayer\pgfsys-common-pdf.def"
+File: pgfsys-common-pdf.def 2019/01/05 v3.1 (3.1)
+)))
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/syste
+mlayer\pgfsyssoftpath.code.tex"
+File: pgfsyssoftpath.code.tex 2019/01/05 v3.1 (3.1)
+\pgfsyssoftpath@smallbuffer@items=\count134
+\pgfsyssoftpath@bigbuffer@items=\count135
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/syste
+mlayer\pgfsysprotocol.code.tex"
+File: pgfsysprotocol.code.tex 2019/01/05 v3.1 (3.1)
+))
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basic
+layer\pgfcore.code.tex"
+Package: pgfcore 2019/01/05 v3.1 (3.1)
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\
+pgfmath.code.tex"
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\
+pgfmathcalc.code.tex"
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\
+pgfmathutil.code.tex")
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\
+pgfmathparser.code.tex"
+\pgfmath@dimen=\dimen167
+\pgfmath@count=\count136
+\pgfmath@box=\box32
+\pgfmath@toks=\toks38
+\pgfmath@stack@operand=\toks39
+\pgfmath@stack@operation=\toks40
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\
+pgfmathfunctions.code.tex"
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\
+pgfmathfunctions.basic.code.tex")
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\
+pgfmathfunctions.trigonometric.code.tex")
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\
+pgfmathfunctions.random.code.tex")
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\
+pgfmathfunctions.comparison.code.tex")
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\
+pgfmathfunctions.base.code.tex")
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\
+pgfmathfunctions.round.code.tex")
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\
+pgfmathfunctions.misc.code.tex")
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\
+pgfmathfunctions.integerarithmetics.code.tex")))
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\
+pgfmathfloat.code.tex"
+\c@pgfmathroundto@lastzeros=\count137
+))
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basic
+layer\pgfcorepoints.code.tex"
+File: pgfcorepoints.code.tex 2019/01/05 v3.1 (3.1)
+\pgf@picminx=\dimen168
+\pgf@picmaxx=\dimen169
+\pgf@picminy=\dimen170
+\pgf@picmaxy=\dimen171
+\pgf@pathminx=\dimen172
+\pgf@pathmaxx=\dimen173
+\pgf@pathminy=\dimen174
+\pgf@pathmaxy=\dimen175
+\pgf@xx=\dimen176
+\pgf@xy=\dimen177
+\pgf@yx=\dimen178
+\pgf@yy=\dimen179
+\pgf@zx=\dimen180
+\pgf@zy=\dimen181
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basic
+layer\pgfcorepathconstruct.code.tex"
+File: pgfcorepathconstruct.code.tex 2019/01/05 v3.1 (3.1)
+\pgf@path@lastx=\dimen182
+\pgf@path@lasty=\dimen183
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basic
+layer\pgfcorepathusage.code.tex"
+File: pgfcorepathusage.code.tex 2019/01/05 v3.1 (3.1)
+\pgf@shorten@end@additional=\dimen184
+\pgf@shorten@start@additional=\dimen185
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basic
+layer\pgfcorescopes.code.tex"
+File: pgfcorescopes.code.tex 2019/01/05 v3.1 (3.1)
+\pgfpic=\box33
+\pgf@hbox=\box34
+\pgf@layerbox@main=\box35
+\pgf@picture@serial@count=\count138
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basic
+layer\pgfcoregraphicstate.code.tex"
+File: pgfcoregraphicstate.code.tex 2019/01/05 v3.1 (3.1)
+\pgflinewidth=\dimen186
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basic
+layer\pgfcoretransformations.code.tex"
+File: pgfcoretransformations.code.tex 2019/01/05 v3.1 (3.1)
+\pgf@pt@x=\dimen187
+\pgf@pt@y=\dimen188
+\pgf@pt@temp=\dimen189
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basic
+layer\pgfcorequick.code.tex"
+File: pgfcorequick.code.tex 2019/01/05 v3.1 (3.1)
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basic
+layer\pgfcoreobjects.code.tex"
+File: pgfcoreobjects.code.tex 2019/01/05 v3.1 (3.1)
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basic
+layer\pgfcorepathprocessing.code.tex"
+File: pgfcorepathprocessing.code.tex 2019/01/05 v3.1 (3.1)
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basic
+layer\pgfcorearrows.code.tex"
+File: pgfcorearrows.code.tex 2019/01/05 v3.1 (3.1)
+\pgfarrowsep=\dimen190
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basic
+layer\pgfcoreshade.code.tex"
+File: pgfcoreshade.code.tex 2019/01/05 v3.1 (3.1)
+\pgf@max=\dimen191
+\pgf@sys@shading@range@num=\count139
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basic
+layer\pgfcoreimage.code.tex"
+File: pgfcoreimage.code.tex 2019/01/05 v3.1 (3.1)
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basic
+layer\pgfcoreexternal.code.tex"
+File: pgfcoreexternal.code.tex 2019/01/05 v3.1 (3.1)
+\pgfexternal@startupbox=\box36
+))
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basic
+layer\pgfcorelayers.code.tex"
+File: pgfcorelayers.code.tex 2019/01/05 v3.1 (3.1)
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basic
+layer\pgfcoretransparency.code.tex"
+File: pgfcoretransparency.code.tex 2019/01/05 v3.1 (3.1)
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basic
+layer\pgfcorepatterns.code.tex"
+File: pgfcorepatterns.code.tex 2019/01/05 v3.1 (3.1)
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basic
+layer\pgfcorerdf.code.tex"
+File: pgfcorerdf.code.tex 2019/01/05 v3.1 (3.1)
+)))
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/modul
+es\pgfmoduleshapes.code.tex"
+File: pgfmoduleshapes.code.tex 2019/01/05 v3.1 (3.1)
+\pgfnodeparttextbox=\box37
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/modul
+es\pgfmoduleplot.code.tex"
+File: pgfmoduleplot.code.tex 2019/01/05 v3.1 (3.1)
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/compati
+bility\pgfcomp-version-0-65.sty"
+Package: pgfcomp-version-0-65 2019/01/05 v3.1 (3.1)
+\pgf@nodesepstart=\dimen192
+\pgf@nodesepend=\dimen193
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/compati
+bility\pgfcomp-version-1-18.sty"
+Package: pgfcomp-version-1-18 2019/01/05 v3.1 (3.1)
+))
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/utiliti
+es\pgffor.sty"
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/utiliti
+es\pgfkeys.sty"
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utili
+ties\pgfkeys.code.tex"))
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/math\pg
+fmath.sty"
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\
+pgfmath.code.tex"))
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utili
+ties\pgffor.code.tex"
+Package: pgffor 2019/01/05 v3.1 (3.1)
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\
+pgfmath.code.tex")
+\pgffor@iter=\dimen194
+\pgffor@skip=\dimen195
+\pgffor@stack=\toks41
+\pgffor@toks=\toks42
+))
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/front
+endlayer/tikz\tikz.code.tex"
+Package: tikz 2019/01/05 v3.1 (3.1)
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/libra
+ries\pgflibraryplothandlers.code.tex"
+File: pgflibraryplothandlers.code.tex 2019/01/05 v3.1 (3.1)
+\pgf@plot@mark@count=\count140
+\pgfplotmarksize=\dimen196
+)
+\tikz@lastx=\dimen197
+\tikz@lasty=\dimen198
+\tikz@lastxsaved=\dimen199
+Normal \dimen register pool exhausted, switching to extended pool.
+\tikz@lastysaved=\dimen256
+\tikzleveldistance=\dimen257
+\tikzsiblingdistance=\dimen258
+\tikz@figbox=\box38
+\tikz@figbox@bg=\box39
+\tikz@tempbox=\box40
+\tikz@tempbox@bg=\box41
+\tikztreelevel=\count141
+\tikznumberofchildren=\count142
+\tikznumberofcurrentchild=\count143
+\tikz@fig@count=\count144
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/modul
+es\pgfmodulematrix.code.tex"
+File: pgfmodulematrix.code.tex 2019/01/05 v3.1 (3.1)
+\pgfmatrixcurrentrow=\count145
+\pgfmatrixcurrentcolumn=\count146
+\pgf@matrix@numberofcolumns=\count147
+)
+\tikz@expandcount=\count148
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/front
+endlayer/tikz/libraries\tikzlibrarytopaths.code.tex"
+File: tikzlibrarytopaths.code.tex 2019/01/05 v3.1 (3.1)
+)))
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/footmisc\fo
+otmisc.sty"
+Package: footmisc 2011/06/06 v5.5b a miscellany of footnote facilities
+\FN@temptoken=\toks43
+\footnotemargin=\dimen259
+\c@pp@next@reset=\count149
+Package footmisc Info: Declaring symbol style bringhurst on input line 855.
+Package footmisc Info: Declaring symbol style chicago on input line 863.
+Package footmisc Info: Declaring symbol style wiley on input line 872.
+Package footmisc Info: Declaring symbol style lamport-robust on input line 883.
+
+Package footmisc Info: Declaring symbol style lamport* on input line 903.
+Package footmisc Info: Declaring symbol style lamport*-robust on input line 924
+.
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/comment\com
+ment.sty"
+\CommentStream=\write4
+ Excluding comment 'comment')
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\xr.st
+y"
+Package: xr 2019/01/05 v5.04 eXternal References (DPC)
+)
+
+Package xr Warning: 
+No file BEMV_Princeton_AB_v13.aux
+LABELS NOT IMPORTED.
+ on input line 43.
+
+
+Package xr Warning: 
+No file BEMV_Appendix_AB_v13.aux
+LABELS NOT IMPORTED.
+ on input line 44.
+
+
+Package xr Warning: 
+No file BEMV_WageDetNote_AB_v13.aux
+LABELS NOT IMPORTED.
+ on input line 45.
+
+Package hyperref Info: Option `colorlinks' set `true' on input line 53.
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/front
+endlayer/tikz/libraries\tikzlibrarydecorations.pathreplacing.code.tex"
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/front
+endlayer/tikz/libraries\tikzlibrarydecorations.code.tex"
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/modul
+es\pgfmoduledecorations.code.tex"
+\pgfdecoratedcompleteddistance=\dimen260
+\pgfdecoratedremainingdistance=\dimen261
+\pgfdecoratedinputsegmentcompleteddistance=\dimen262
+\pgfdecoratedinputsegmentremainingdistance=\dimen263
+\pgf@decorate@distancetomove=\dimen264
+\pgf@decorate@repeatstate=\count150
+\pgfdecorationsegmentamplitude=\dimen265
+\pgfdecorationsegmentlength=\dimen266
+)
+\tikz@lib@dec@box=\box42
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/libra
+ries/decorations\pgflibrarydecorations.pathreplacing.code.tex"))
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/front
+endlayer/tikz/libraries\tikzlibraryshapes.code.tex"
+File: tikzlibraryshapes.code.tex 2019/01/05 v3.1 (3.1)
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/front
+endlayer/tikz/libraries\tikzlibraryshapes.geometric.code.tex"
+File: tikzlibraryshapes.geometric.code.tex 2019/01/05 v3.1 (3.1)
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/libra
+ries/shapes\pgflibraryshapes.geometric.code.tex"
+File: pgflibraryshapes.geometric.code.tex 2019/01/05 v3.1 (3.1)
+))
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/front
+endlayer/tikz/libraries\tikzlibraryshapes.misc.code.tex"
+File: tikzlibraryshapes.misc.code.tex 2019/01/05 v3.1 (3.1)
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/libra
+ries/shapes\pgflibraryshapes.misc.code.tex"
+File: pgflibraryshapes.misc.code.tex 2019/01/05 v3.1 (3.1)
+))
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/front
+endlayer/tikz/libraries\tikzlibraryshapes.symbols.code.tex"
+File: tikzlibraryshapes.symbols.code.tex 2019/01/05 v3.1 (3.1)
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/libra
+ries/shapes\pgflibraryshapes.symbols.code.tex"
+File: pgflibraryshapes.symbols.code.tex 2019/01/05 v3.1 (3.1)
+))
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/front
+endlayer/tikz/libraries\tikzlibraryshapes.arrows.code.tex"
+File: tikzlibraryshapes.arrows.code.tex 2019/01/05 v3.1 (3.1)
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/libra
+ries/shapes\pgflibraryshapes.arrows.code.tex"
+File: pgflibraryshapes.arrows.code.tex 2019/01/05 v3.1 (3.1)
+))
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/front
+endlayer/tikz/libraries\tikzlibraryshapes.callouts.code.tex"
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/libra
+ries/shapes\pgflibraryshapes.callouts.code.tex"))
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/front
+endlayer/tikz/libraries\tikzlibraryshapes.multipart.code.tex"
+File: tikzlibraryshapes.multipart.code.tex 2019/01/05 v3.1 (3.1)
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/libra
+ries/shapes\pgflibraryshapes.multipart.code.tex"
+File: pgflibraryshapes.multipart.code.tex 2019/01/05 v3.1 (3.1)
+\pgfnodepartlowerbox=\box43
+\pgfnodeparttwobox=\box44
+\pgfnodepartthreebox=\box45
+\pgfnodepartfourbox=\box46
+\pgfnodeparttwentybox=\box47
+\pgfnodepartnineteenbox=\box48
+\pgfnodeparteighteenbox=\box49
+\pgfnodepartseventeenbox=\box50
+\pgfnodepartsixteenbox=\box51
+\pgfnodepartfifteenbox=\box52
+\pgfnodepartfourteenbox=\box53
+\pgfnodepartthirteenbox=\box54
+\pgfnodeparttwelvebox=\box55
+\pgfnodepartelevenbox=\box56
+\pgfnodeparttenbox=\box57
+\pgfnodepartninebox=\box58
+\pgfnodeparteightbox=\box59
+\pgfnodepartsevenbox=\box60
+\pgfnodepartsixbox=\box61
+\pgfnodepartfivebox=\box62
+)))
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/libra
+ries\pgflibraryarrows.meta.code.tex"
+File: pgflibraryarrows.meta.code.tex 2019/01/05 v3.1 (3.1)
+\pgfarrowinset=\dimen267
+\pgfarrowlength=\dimen268
+\pgfarrowwidth=\dimen269
+\pgfarrowlinewidth=\dimen270
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/front
+endlayer/tikz/libraries\tikzlibraryarrows.code.tex"
+File: tikzlibraryarrows.code.tex 2019/01/05 v3.1 (3.1)
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/libra
+ries\pgflibraryarrows.code.tex"
+File: pgflibraryarrows.code.tex 2019/01/05 v3.1 (3.1)
+\arrowsize=\dimen271
+))
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/front
+endlayer/tikz/libraries\tikzlibraryfit.code.tex"
+File: tikzlibraryfit.code.tex 2019/01/05 v3.1 (3.1)
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/front
+endlayer/tikz/libraries\tikzlibrarypositioning.code.tex"
+File: tikzlibrarypositioning.code.tex 2019/01/05 v3.1 (3.1)
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/units\nicef
+rac.sty"
+Package: nicefrac 1998/08/04 v0.9b Nice fractions
+\L@UnitsRaiseDisplaystyle=\skip65
+\L@UnitsRaiseTextstyle=\skip66
+\L@UnitsRaiseScriptstyle=\skip67
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\ifthen
+.sty"
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+))) (BEMV_ECTA_Manuscript.aux)
+\openout1 = `BEMV_ECTA_Manuscript.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Try loading font information for T1+ppl on input line 3.
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\t1pp
+l.fd"
+File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
+)
+\AtBeginShipoutBox=\box63
+Package hyperref Info: Link coloring ON on input line 3.
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\na
+meref.sty"
+Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\
+gettitlestring.sty"
+Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
+)
+\c@section@level=\count151
+)
+LaTeX Info: Redefining \ref on input line 3.
+LaTeX Info: Redefining \pageref on input line 3.
+LaTeX Info: Redefining \nameref on input line 3.
+ (BEMV_ECTA_Manuscript.out) (BEMV_ECTA_Manuscript.out)
+\@outlinefile=\write5
+\openout5 = `BEMV_ECTA_Manuscript.out'.
+
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/context/base\supp
+-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count152
+\scratchdimen=\dimen272
+\scratchbox=\box64
+\nofMPsegments=\count153
+\nofMParguments=\count154
+\everyMPshowfont=\toks44
+\MPscratchCnt=\count155
+\MPscratchDim=\dimen273
+\MPnumerator=\count156
+\makeMPintoPDFobject=\count157
+\everyMPtoPDFconversion=\toks45
+)
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\ep
+stopdf-base.sty"
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\gr
+fext.sty"
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+)
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: letterpaper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(92.14519pt, 430.00462pt, 92.14519pt)
+* v-part:(T,H,B)=(95.39737pt, 556.47656pt, 143.09605pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=500.83057pt
+* \textheight=639.58994pt
+* \oddsidemargin=-14.45377pt
+* \evensidemargin=0.0pt
+* \topmargin=-28.90755pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=11.0pt
+* \footskip=30.0pt
+* \marginparwidth=59.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+ABD: EveryShipout initializing macros
+LaTeX Font Info:    Try loading font information for OT1+ppl on input line 21.
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\ot1p
+pl.fd"
+File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
+)
+LaTeX Font Info:    Try loading font information for OML+zplm on input line 21.
+
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\omlz
+plm.fd"
+File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
+)
+LaTeX Font Info:    Try loading font information for OMS+zplm on input line 21.
+
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\omsz
+plm.fd"
+File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
+)
+LaTeX Font Info:    Try loading font information for OMX+zplm on input line 21.
+
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\omxz
+plm.fd"
+File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
+)
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 18.00587pt on input line 21.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 12.50409pt on input line 21.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 10.42007pt on input line 21.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 18.00587pt on input line 21.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 12.50409pt on input line 21.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 10.42007pt on input line 21.
+LaTeX Font Info:    Try loading font information for OT1+zplm on input line 21.
+
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\ot1z
+plm.fd"
+File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
+)
+LaTeX Font Info:    Try loading font information for U+esint on input line 21.
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/esint\uesin
+t.fd"
+File: uesint.fd 
+)
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 21.
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/jknappen\ur
+sfs.fd"
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
+)
+LaTeX Font Info:    Try loading font information for OMS+ppl on input line 21.
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\omsp
+pl.fd"
+File: omsppl.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 21.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 9.37807pt on input line 21.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 7.29405pt on input line 21.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 9.37807pt on input line 21.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 7.29405pt on input line 21.
+LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <9> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 21.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 5.21004pt on input line 21.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 5.21004pt on input line 21.
+LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <7> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 21.
+LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 23.
+ [1
+
+{C:/Users/Simon Mongey/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 40.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 11.40997pt on input line 58.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 8.33606pt on input line 58.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 6.25204pt on input line 58.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 11.40997pt on input line 58.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 8.33606pt on input line 58.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 6.25204pt on input line 58.
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.70 O
+      ur first contribution is to set out a parsimonious set of assumptions ...
+[1] [2] [3] [4] [5] [6]
+LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <12> not available
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 222.
+ [7] [8] (Figures_without_data/Timeline1.tex
+LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <8> not available
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 18.
+LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <8> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 24.
+)
+(Figures_without_data/Timeline2.tex) [9]
+LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 328.
+ [10] [11]
+LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <9> not available
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 371.
+ [12] [13] [14] [15] [16]pdfTeX warning (ext4): destination with the same ident
+ifier (name{equation.3.7}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.538 \vspace*{-.3cm}\begin{equation}
+                                     \label{eq:CostFunction}pdfTeX warning (ext
+4): destination with the same identifier (name{equation.3.7}) has been already 
+used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.538 \vspace*{-.3cm}\begin{equation}
+                                     \label{eq:CostFunction}pdfTeX warning (ext
+4): destination with the same identifier (name{equation.3.7}) has been already 
+used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.538 \vspace*{-.3cm}\begin{equation}
+                                     \label{eq:CostFunction}pdfTeX warning (ext
+4): destination with the same identifier (name{equation.3.7}) has been already 
+used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.538 \vspace*{-.3cm}\begin{equation}
+                                     \label{eq:CostFunction} [17]
+(Figures_without_data/Illustration_zh.tex)
+Overfull \hbox (17.90677pt too wide) in paragraph at lines 568--569
+[][] 
+ []
+
+(Figures_without_data/Illustration_zm.tex)
+Overfull \hbox (17.90677pt too wide) in paragraph at lines 572--573
+[][] 
+ []
+
+(Figures_without_data/Illustration_zl.tex)
+Overfull \hbox (19.51219pt too wide) in paragraph at lines 576--577
+[][] 
+ []
+
+[18] (Figures_without_data/GrossFlows_Q.tex
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 7.91925pt on input line 85.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 7.91925pt on input line 85.
+) [19]
+LaTeX Font Info:    Try loading font information for U+fplmbb on input line 677
+.
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\ufpl
+mbb.fd"
+File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
+)
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 691.
+
+[20] (Figures_without_data/DynamicsWithoutExitWithDots.tex)
+Overfull \hbox (6.58148pt too wide) in paragraph at lines 715--716
+[][] 
+ []
+
+(Figures_without_data/DynamicsWithExitWithDots.tex)
+Overfull \hbox (40.87636pt too wide) in paragraph at lines 720--721
+[][] 
+ []
+
+[21]
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 753.
+
+
+("C:\Users\Simon Mongey\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\t1cmtt
+.fd"
+File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+) [22]
+Overfull \hbox (8.02235pt too wide) detected at line 778
+\OML/zplm/m/it/10 S\OT1/zplm/m/n/10 (\OML/zplm/m/it/10 z\OT1/ppl/m/n/10 , \OML
+/zplm/m/it/10 n\OT1/zplm/m/n/10 ) = \OML/zplm/m/it/10 S[]\OT1/zplm/m/n/10 (\OML
+/zplm/m/it/10 z\OT1/zplm/m/n/10 ) + \OML/zplm/m/it/10 n \OMS/zplm/m/n/10  \OML
+/zplm/m/it/10 []\OT1/zplm/m/n/10 (\OML/zplm/m/it/10 z\OT1/zplm/m/n/10 ) []  []
+
+ []
+
+[23] [24] (../2_MATLAB_code/Created_table_files/Table1_ParametersMoments.tex)
+[25] [26]
+Package epstopdf Info: Source file: <../2_MATLAB_code/Created_figure_files/Fig6
+_VacancyRatesYields_eps.eps>
+(epstopdf)                    date: 2022-01-14 15:20:59
+(epstopdf)                    size: 174324 bytes
+(epstopdf)             Output file: <../2_MATLAB_code/Created_figure_files/Fig6
+_VacancyRatesYields_eps-eps-converted-to.pdf>
+(epstopdf)                    date: 2022-01-20 13:50:06
+(epstopdf)                    size: 103112 bytes
+(epstopdf)             Command: <epstopdf --outfile=../2_MATLAB_code/Created_fi
+gure_files/Fig6_VacancyRatesYields_eps-eps-converted-to.pdf ../2_MATLAB_code/Cr
+eated_figure_files/Fig6_VacancyRatesYields_eps.eps>
+(epstopdf)             \includegraphics on input line 909.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex.exe (file ../2_MATLAB_code/Created_figure_files/Fig6_V
+acancyRatesYields_eps-eps-converted-to.pdf): PDF inclusion: found PDF version <
+1.7>, but at most version <1.4> allowed
+<../2_MATLAB_code/Created_figure_files/Fig6_VacancyRatesYields_eps-eps-converte
+d-to.pdf, id=703, 893.3375pt x 407.5225pt>
+File: ../2_MATLAB_code/Created_figure_files/Fig6_VacancyRatesYields_eps-eps-con
+verted-to.pdf Graphic file (type pdf)
+<use ../2_MATLAB_code/Created_figure_files/Fig6_VacancyRatesYields_eps-eps-conv
+erted-to.pdf>
+Package pdftex.def Info: ../2_MATLAB_code/Created_figure_files/Fig6_VacancyRate
+sYields_eps-eps-converted-to.pdf  used on input line 909.
+(pdftex.def)             Requested size: 426.79134pt x 194.69449pt.
+[27 <../2_MATLAB_code/Created_figure_files/Fig6_VacancyRatesYields_eps-eps-conv
+erted-to.pdf>]
+Package epstopdf Info: Source file: <../2_MATLAB_code/Created_figure_files/Fig7
+_DistributionSizeAge_eps.eps>
+(epstopdf)                    date: 2022-01-21 09:22:27
+(epstopdf)                    size: 201575 bytes
+(epstopdf)             Output file: <../2_MATLAB_code/Created_figure_files/Fig7
+_DistributionSizeAge_eps-eps-converted-to.pdf>
+(epstopdf)                    date: 2022-01-21 09:23:39
+(epstopdf)                    size: 120601 bytes
+(epstopdf)             Command: <epstopdf --outfile=../2_MATLAB_code/Created_fi
+gure_files/Fig7_DistributionSizeAge_eps-eps-converted-to.pdf ../2_MATLAB_code/C
+reated_figure_files/Fig7_DistributionSizeAge_eps.eps>
+(epstopdf)             \includegraphics on input line 962.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex.exe (file ../2_MATLAB_code/Created_figure_files/Fig7_D
+istributionSizeAge_eps-eps-converted-to.pdf): PDF inclusion: found PDF version 
+<1.7>, but at most version <1.4> allowed
+<../2_MATLAB_code/Created_figure_files/Fig7_DistributionSizeAge_eps-eps-convert
+ed-to.pdf, id=732, 755.82375pt x 310.15875pt>
+File: ../2_MATLAB_code/Created_figure_files/Fig7_DistributionSizeAge_eps-eps-co
+nverted-to.pdf Graphic file (type pdf)
+<use ../2_MATLAB_code/Created_figure_files/Fig7_DistributionSizeAge_eps-eps-con
+verted-to.pdf>
+Package pdftex.def Info: ../2_MATLAB_code/Created_figure_files/Fig7_Distributio
+nSizeAge_eps-eps-converted-to.pdf  used on input line 962.
+(pdftex.def)             Requested size: 455.24408pt x 186.81131pt.
+Package epstopdf Info: Source file: <../2_MATLAB_code/Created_figure_files/Fig8
+A_ReallocationAge_eps.eps>
+(epstopdf)                    date: 2022-01-21 09:22:34
+(epstopdf)                    size: 256770 bytes
+(epstopdf)             Output file: <../2_MATLAB_code/Created_figure_files/Fig8
+A_ReallocationAge_eps-eps-converted-to.pdf>
+(epstopdf)                    date: 2022-01-21 09:23:40
+(epstopdf)                    size: 153215 bytes
+(epstopdf)             Command: <epstopdf --outfile=../2_MATLAB_code/Created_fi
+gure_files/Fig8A_ReallocationAge_eps-eps-converted-to.pdf ../2_MATLAB_code/Crea
+ted_figure_files/Fig8A_ReallocationAge_eps.eps>
+(epstopdf)             \includegraphics on input line 982.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex.exe (file ../2_MATLAB_code/Created_figure_files/Fig8A_
+ReallocationAge_eps-eps-converted-to.pdf): PDF inclusion: found PDF version <1.
+7>, but at most version <1.4> allowed
+<../2_MATLAB_code/Created_figure_files/Fig8A_ReallocationAge_eps-eps-converted-
+to.pdf, id=734, 894.34125pt x 311.1625pt>
+File: ../2_MATLAB_code/Created_figure_files/Fig8A_ReallocationAge_eps-eps-conve
+rted-to.pdf Graphic file (type pdf)
+<use ../2_MATLAB_code/Created_figure_files/Fig8A_ReallocationAge_eps-eps-conver
+ted-to.pdf>
+Package pdftex.def Info: ../2_MATLAB_code/Created_figure_files/Fig8A_Reallocati
+onAge_eps-eps-converted-to.pdf  used on input line 982.
+(pdftex.def)             Requested size: 455.24408pt x 158.39165pt.
+Package epstopdf Info: Source file: <../2_MATLAB_code/Created_figure_files/Fig8
+B_ReallocationSize_eps.eps>
+(epstopdf)                    date: 2022-01-21 09:22:41
+(epstopdf)                    size: 273287 bytes
+(epstopdf)             Output file: <../2_MATLAB_code/Created_figure_files/Fig8
+B_ReallocationSize_eps-eps-converted-to.pdf>
+(epstopdf)                    date: 2022-01-21 09:23:41
+(epstopdf)                    size: 171599 bytes
+(epstopdf)             Command: <epstopdf --outfile=../2_MATLAB_code/Created_fi
+gure_files/Fig8B_ReallocationSize_eps-eps-converted-to.pdf ../2_MATLAB_code/Cre
+ated_figure_files/Fig8B_ReallocationSize_eps.eps>
+(epstopdf)             \includegraphics on input line 985.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex.exe (file ../2_MATLAB_code/Created_figure_files/Fig8B_
+ReallocationSize_eps-eps-converted-to.pdf): PDF inclusion: found PDF version <1
+.7>, but at most version <1.4> allowed
+<../2_MATLAB_code/Created_figure_files/Fig8B_ReallocationSize_eps-eps-converted
+-to.pdf, id=735, 894.34125pt x 311.1625pt>
+File: ../2_MATLAB_code/Created_figure_files/Fig8B_ReallocationSize_eps-eps-conv
+erted-to.pdf Graphic file (type pdf)
+<use ../2_MATLAB_code/Created_figure_files/Fig8B_ReallocationSize_eps-eps-conve
+rted-to.pdf>
+Package pdftex.def Info: ../2_MATLAB_code/Created_figure_files/Fig8B_Reallocati
+onSize_eps-eps-converted-to.pdf  used on input line 985.
+(pdftex.def)             Requested size: 455.24408pt x 158.39165pt.
+[28]
+Package epstopdf Info: Source file: <../2_MATLAB_code/Created_figure_files/Fig9
+_PoachingSurplusDistribution_eps.eps>
+(epstopdf)                    date: 2022-01-14 15:21:09
+(epstopdf)                    size: 199754 bytes
+(epstopdf)             Output file: <../2_MATLAB_code/Created_figure_files/Fig9
+_PoachingSurplusDistribution_eps-eps-converted-to.pdf>
+(epstopdf)                    date: 2022-01-20 13:50:10
+(epstopdf)                    size: 119506 bytes
+(epstopdf)             Command: <epstopdf --outfile=../2_MATLAB_code/Created_fi
+gure_files/Fig9_PoachingSurplusDistribution_eps-eps-converted-to.pdf ../2_MATLA
+B_code/Created_figure_files/Fig9_PoachingSurplusDistribution_eps.eps>
+(epstopdf)             \includegraphics on input line 1020.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex.exe (file ../2_MATLAB_code/Created_figure_files/Fig9_P
+oachingSurplusDistribution_eps-eps-converted-to.pdf): PDF inclusion: found PDF 
+version <1.7>, but at most version <1.4> allowed
+<../2_MATLAB_code/Created_figure_files/Fig9_PoachingSurplusDistribution_eps-eps
+-converted-to.pdf, id=750, 1129.21875pt x 384.43625pt>
+File: ../2_MATLAB_code/Created_figure_files/Fig9_PoachingSurplusDistribution_ep
+s-eps-converted-to.pdf Graphic file (type pdf)
+<use ../2_MATLAB_code/Created_figure_files/Fig9_PoachingSurplusDistribution_eps
+-eps-converted-to.pdf>
+Package pdftex.def Info: ../2_MATLAB_code/Created_figure_files/Fig9_PoachingSur
+plusDistribution_eps-eps-converted-to.pdf  used on input line 1020.
+(pdftex.def)             Requested size: 512.1496pt x 174.36148pt.
+[29 <../2_MATLAB_code/Created_figure_files/Fig7_DistributionSizeAge_eps-eps-con
+verted-to.pdf>] [30 <../2_MATLAB_code/Created_figure_files/Fig8A_ReallocationAg
+e_eps-eps-converted-to.pdf> <../2_MATLAB_code/Created_figure_files/Fig8B_Reallo
+cationSize_eps-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <../2_MATLAB_code/Created_figure_files/Fig1
+0_PoachingByCharacteristics_eps.eps>
+(epstopdf)                    date: 2022-01-21 09:22:47
+(epstopdf)                    size: 400333 bytes
+(epstopdf)             Output file: <../2_MATLAB_code/Created_figure_files/Fig1
+0_PoachingByCharacteristics_eps-eps-converted-to.pdf>
+(epstopdf)                    date: 2022-01-21 09:23:43
+(epstopdf)                    size: 242221 bytes
+(epstopdf)             Command: <epstopdf --outfile=../2_MATLAB_code/Created_fi
+gure_files/Fig10_PoachingByCharacteristics_eps-eps-converted-to.pdf ../2_MATLAB
+_code/Created_figure_files/Fig10_PoachingByCharacteristics_eps.eps>
+(epstopdf)             \includegraphics on input line 1073.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex.exe (file ../2_MATLAB_code/Created_figure_files/Fig10_
+PoachingByCharacteristics_eps-eps-converted-to.pdf): PDF inclusion: found PDF v
+ersion <1.7>, but at most version <1.4> allowed
+<../2_MATLAB_code/Created_figure_files/Fig10_PoachingByCharacteristics_eps-eps-
+converted-to.pdf, id=779, 855.195pt x 455.7025pt>
+File: ../2_MATLAB_code/Created_figure_files/Fig10_PoachingByCharacteristics_eps
+-eps-converted-to.pdf Graphic file (type pdf)
+<use ../2_MATLAB_code/Created_figure_files/Fig10_PoachingByCharacteristics_eps-
+eps-converted-to.pdf>
+Package pdftex.def Info: ../2_MATLAB_code/Created_figure_files/Fig10_PoachingBy
+Characteristics_eps-eps-converted-to.pdf  used on input line 1073.
+(pdftex.def)             Requested size: 455.24408pt x 242.5781pt.
+[31 <../2_MATLAB_code/Created_figure_files/Fig9_PoachingSurplusDistribution_eps
+-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <../2_MATLAB_code/Created_figure_files/Fig1
+1_FrictionlessLimit_eps.eps>
+(epstopdf)                    date: 2022-01-14 15:21:15
+(epstopdf)                    size: 196819 bytes
+(epstopdf)             Output file: <../2_MATLAB_code/Created_figure_files/Fig1
+1_FrictionlessLimit_eps-eps-converted-to.pdf>
+(epstopdf)                    date: 2022-01-20 13:50:12
+(epstopdf)                    size: 158864 bytes
+(epstopdf)             Command: <epstopdf --outfile=../2_MATLAB_code/Created_fi
+gure_files/Fig11_FrictionlessLimit_eps-eps-converted-to.pdf ../2_MATLAB_code/Cr
+eated_figure_files/Fig11_FrictionlessLimit_eps.eps>
+(epstopdf)             \includegraphics on input line 1093.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex.exe (file ../2_MATLAB_code/Created_figure_files/Fig11_
+FrictionlessLimit_eps-eps-converted-to.pdf): PDF inclusion: found PDF version <
+1.7>, but at most version <1.4> allowed
+<../2_MATLAB_code/Created_figure_files/Fig11_FrictionlessLimit_eps-eps-converte
+d-to.pdf, id=792, 843.15pt x 745.78625pt>
+File: ../2_MATLAB_code/Created_figure_files/Fig11_FrictionlessLimit_eps-eps-con
+verted-to.pdf Graphic file (type pdf)
+<use ../2_MATLAB_code/Created_figure_files/Fig11_FrictionlessLimit_eps-eps-conv
+erted-to.pdf>
+Package pdftex.def Info: ../2_MATLAB_code/Created_figure_files/Fig11_Frictionle
+ssLimit_eps-eps-converted-to.pdf  used on input line 1093.
+(pdftex.def)             Requested size: 284.52756pt x 251.67493pt.
+[32 <../2_MATLAB_code/Created_figure_files/Fig10_PoachingByCharacteristics_eps-
+eps-converted-to.pdf>] [33 <../2_MATLAB_code/Created_figure_files/Fig11_Frictio
+nlessLimit_eps-eps-converted-to.pdf>] [34]
+Package epstopdf Info: Source file: <../2_MATLAB_code/Created_figure_files/Fig1
+2_FirmLifecycleSuperstars_eps.eps>
+(epstopdf)                    date: 2022-01-14 15:21:19
+(epstopdf)                    size: 335036 bytes
+(epstopdf)             Output file: <../2_MATLAB_code/Created_figure_files/Fig1
+2_FirmLifecycleSuperstars_eps-eps-converted-to.pdf>
+(epstopdf)                    date: 2022-01-20 13:50:13
+(epstopdf)                    size: 171715 bytes
+(epstopdf)             Command: <epstopdf --outfile=../2_MATLAB_code/Created_fi
+gure_files/Fig12_FirmLifecycleSuperstars_eps-eps-converted-to.pdf ../2_MATLAB_c
+ode/Created_figure_files/Fig12_FirmLifecycleSuperstars_eps.eps>
+(epstopdf)             \includegraphics on input line 1155.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex.exe (file ../2_MATLAB_code/Created_figure_files/Fig12_
+FirmLifecycleSuperstars_eps-eps-converted-to.pdf): PDF inclusion: found PDF ver
+sion <1.7>, but at most version <1.4> allowed
+<../2_MATLAB_code/Created_figure_files/Fig12_FirmLifecycleSuperstars_eps-eps-co
+nverted-to.pdf, id=830, 1166.3575pt x 406.51875pt>
+File: ../2_MATLAB_code/Created_figure_files/Fig12_FirmLifecycleSuperstars_eps-e
+ps-converted-to.pdf Graphic file (type pdf)
+<use ../2_MATLAB_code/Created_figure_files/Fig12_FirmLifecycleSuperstars_eps-ep
+s-converted-to.pdf>
+Package pdftex.def Info: ../2_MATLAB_code/Created_figure_files/Fig12_FirmLifecy
+cleSuperstars_eps-eps-converted-to.pdf  used on input line 1155.
+(pdftex.def)             Requested size: 512.1496pt x 178.50902pt.
+[35 <../2_MATLAB_code/Created_figure_files/Fig12_FirmLifecycleSuperstars_eps-ep
+s-converted-to.pdf>]
+Package epstopdf Info: Source file: <../2_MATLAB_code/Created_figure_files/Fig1
+3_HiringRatesGreatRecession_eps.eps>
+(epstopdf)                    date: 2022-01-14 15:21:21
+(epstopdf)                    size: 322427 bytes
+(epstopdf)             Output file: <../2_MATLAB_code/Created_figure_files/Fig1
+3_HiringRatesGreatRecession_eps-eps-converted-to.pdf>
+(epstopdf)                    date: 2022-01-20 13:50:14
+(epstopdf)                    size: 169779 bytes
+(epstopdf)             Command: <epstopdf --outfile=../2_MATLAB_code/Created_fi
+gure_files/Fig13_HiringRatesGreatRecession_eps-eps-converted-to.pdf ../2_MATLAB
+_code/Created_figure_files/Fig13_HiringRatesGreatRecession_eps.eps>
+(epstopdf)             \includegraphics on input line 1192.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex.exe (file ../2_MATLAB_code/Created_figure_files/Fig13_
+HiringRatesGreatRecession_eps-eps-converted-to.pdf): PDF inclusion: found PDF v
+ersion <1.7>, but at most version <1.4> allowed
+<../2_MATLAB_code/Created_figure_files/Fig13_HiringRatesGreatRecession_eps-eps-
+converted-to.pdf, id=853, 1153.30875pt x 421.575pt>
+File: ../2_MATLAB_code/Created_figure_files/Fig13_HiringRatesGreatRecession_eps
+-eps-converted-to.pdf Graphic file (type pdf)
+<use ../2_MATLAB_code/Created_figure_files/Fig13_HiringRatesGreatRecession_eps-
+eps-converted-to.pdf>
+Package pdftex.def Info: ../2_MATLAB_code/Created_figure_files/Fig13_HiringRate
+sGreatRecession_eps-eps-converted-to.pdf  used on input line 1192.
+(pdftex.def)             Requested size: 455.24408pt x 166.40771pt.
+[36 <../2_MATLAB_code/Created_figure_files/Fig13_HiringRatesGreatRecession_eps-
+eps-converted-to.pdf>] [37]
+Package epstopdf Info: Source file: <../2_MATLAB_code/Created_figure_files/Fig1
+4_DiscountRateIRF_eps.eps>
+(epstopdf)                    date: 2022-01-14 15:21:24
+(epstopdf)                    size: 329931 bytes
+(epstopdf)             Output file: <../2_MATLAB_code/Created_figure_files/Fig1
+4_DiscountRateIRF_eps-eps-converted-to.pdf>
+(epstopdf)                    date: 2022-01-20 13:50:15
+(epstopdf)                    size: 234771 bytes
+(epstopdf)             Command: <epstopdf --outfile=../2_MATLAB_code/Created_fi
+gure_files/Fig14_DiscountRateIRF_eps-eps-converted-to.pdf ../2_MATLAB_code/Crea
+ted_figure_files/Fig14_DiscountRateIRF_eps.eps>
+(epstopdf)             \includegraphics on input line 1252.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex.exe (file ../2_MATLAB_code/Created_figure_files/Fig14_
+DiscountRateIRF_eps-eps-converted-to.pdf): PDF inclusion: found PDF version <1.
+7>, but at most version <1.4> allowed
+<../2_MATLAB_code/Created_figure_files/Fig14_DiscountRateIRF_eps-eps-converted-
+to.pdf, id=903, 903.375pt x 532.99126pt>
+File: ../2_MATLAB_code/Created_figure_files/Fig14_DiscountRateIRF_eps-eps-conve
+rted-to.pdf Graphic file (type pdf)
+<use ../2_MATLAB_code/Created_figure_files/Fig14_DiscountRateIRF_eps-eps-conver
+ted-to.pdf>
+Package pdftex.def Info: ../2_MATLAB_code/Created_figure_files/Fig14_DiscountRa
+teIRF_eps-eps-converted-to.pdf  used on input line 1252.
+(pdftex.def)             Requested size: 483.69684pt x 285.38742pt.
+[38 <../2_MATLAB_code/Created_figure_files/Fig14_DiscountRateIRF_eps-eps-conver
+ted-to.pdf>] [39] [40] (BEMV_ECTA_Manuscript.bbl [41] [42] [43]) [44]
+(BEMV_ECTA_Appendix.tex
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 24.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 24.
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.44 \vspace{-.3cm}\end{equation*}
+                                  % [1
+
+]pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.83 
+      [2]pdfTeX warning (ext4): destination with the same identifier (name{page
+.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.123 W
+       e now generalize the $UE$ hire case analyzed in the main text to a fi...
+[3]
+LaTeX Font Info:    Font shape `T1/ppl/bx/it' in size <12> not available
+(Font)              Font shape `T1/ppl/b/it' tried instead on input line 125.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 125.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 125.
+
+
+Overfull \hbox (11.49133pt too wide) detected at line 152
+[] \OT1/ppl/m/n/10.95 ,  [] .
+ []
+
+
+Overfull \hbox (12.33667pt too wide) detected at line 164
+[] \OT1/ppl/m/n/10.95 ,  [] .
+ []
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.172 
+       [4]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 177.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 177.
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.5}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.206 
+       [5]pdfTeX warning (ext4): destination with the same identifier (name{pag
+e.6}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.241 
+       [6]
+Overfull \vbox (1.661pt too high) has occurred while \output is active []
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.7}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.268 
+       [7]pdfTeX warning (ext4): destination with the same identifier (name{pag
+e.8}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.309 
+       [8]pdfTeX warning (ext4): destination with the same identifier (name{pag
+e.9}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.334 
+       [9]pdfTeX warning (ext4): destination with the same identifier (name{pag
+e.10}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.369 \begin{eqnarray}
+                      \label{eq:AppHJBVI} [10]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 388.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 388.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 388.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 388.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 393.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 393.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 393.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 393.
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.11}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.401 \end{eqnarray*}
+                      [11]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 438.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 438.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 438.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 438.
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.12}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.448 \end{eqnarray*}
+                      [12]
+Overfull \hbox (18.20462pt too wide) in alignment at lines 477--484
+ [][][] []
+ []
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.13}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.499 \end{eqnarray*}
+                      [13]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 514.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 514.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 514.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\mathop' on input line 514.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\mathgroup' on input line 514.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\symoperators' on input line 514.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@ifnextchar' on input line 514.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 514.
+
+
+Overfull \hbox (18.5729pt too wide) in alignment at lines 544--551
+ [][][] []
+ []
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.14}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.551 \end{eqnarray*}
+                     } [14]pdfTeX warning (ext4): destination with the same ide
+ntifier (name{page.15}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.595 \section
+              {Alternative CRS limit} [15]pdfTeX warning (ext4): destination wi
+th the same identifier (name{page.16}) has been already used, duplicate ignored
+
+<to be read again> 
+                   \relax 
+l.633 \end{eqnarray}
+                     [16]pdfTeX warning (ext4): destination with the same ident
+ifier (name{page.17}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.673 \end{eqnarray}
+                     [17]pdfTeX warning (ext4): destination with the same ident
+ifier (name{page.18}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.712 
+       [18]pdfTeX warning (ext4): destination with the same identifier (name{pa
+ge.19}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.757 
+       [19]pdfTeX warning (ext4): destination with the same identifier (name{pa
+ge.20}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.795 \end{equation}
+                     [20]
+Overfull \hbox (15.04735pt too wide) detected at line 824
+[]
+ []
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.21}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.829 \end{align}
+                  [21]
+Overfull \hbox (4.0818pt too wide) detected at line 854
+[]
+ []
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.22}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.858 
+       [22]pdfTeX warning (ext4): destination with the same identifier (name{pa
+ge.23}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.889 \end{eqnarray*}
+                      [23]
+<../2_MATLAB_code/Created_figure_files/FigE1_MinimumDistance_png.png, id=1203, 
+1357.2306pt x 645.612pt>
+File: ../2_MATLAB_code/Created_figure_files/FigE1_MinimumDistance_png.png Graph
+ic file (type png)
+<use ../2_MATLAB_code/Created_figure_files/FigE1_MinimumDistance_png.png>
+Package pdftex.def Info: ../2_MATLAB_code/Created_figure_files/FigE1_MinimumDis
+tance_png.png  used on input line 913.
+(pdftex.def)             Requested size: 1357.22731pt x 645.61043pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<../2_MATLAB_code/Created_figure_files/FigE2_TargetMomentsParameters_png.png, i
+d=1205, 1204.5pt x 602.25pt>
+File: ../2_MATLAB_code/Created_figure_files/FigE2_TargetMomentsParameters_png.p
+ng Graphic file (type png)
+<use ../2_MATLAB_code/Created_figure_files/FigE2_TargetMomentsParameters_png.pn
+g>
+Package pdftex.def Info: ../2_MATLAB_code/Created_figure_files/FigE2_TargetMome
+ntsParameters_png.png  used on input line 927.
+(pdftex.def)             Requested size: 1204.49707pt x 602.24852pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+)pdfTeX warning (ext4): destination with the same identifier (name{page.24}) ha
+s been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1313 \end{document}
+                      [24]
+
+LaTeX Warning: Text page 25 contains only floats.
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.25}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1313 \end{document}
+                      [25 <../2_MATLAB_code/Created_figure_files/FigE1_MinimumD
+istance_png.png (PNG copy)> <../2_MATLAB_code/Created_figure_files/FigE2_Target
+MomentsParameters_png.png (PNG copy)>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1313.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1313.
+ (BEMV_ECTA_Manuscript.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1313.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1313.
+
+Package rerunfilecheck Info: File `BEMV_ECTA_Manuscript.out' has not changed.
+(rerunfilecheck)             Checksum: C55E9C1AA6226B8E36D6A67FE93A14A3;3239.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1313.
+ ) 
+Here is how much of TeX's memory you used:
+ 24370 strings out of 492946
+ 495020 string characters out of 3123156
+ 654867 words of memory out of 3000000
+ 27300 multiletter control sequences out of 15000+200000
+ 112915 words of font info for 288 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 57i,18n,81p,1176b,1812s stack positions out of 5000i,500n,10000p,200000b,50000s
+pdfTeX warning (dest): name{Hfootnote.52} has been referenced but does not ex
+ist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.51} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.50} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.49} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.48} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.47} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.46} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.45} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.44} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.43} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.42} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.41} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.40} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.39} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.38} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.37} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.36} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.35} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.34} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.33} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.32} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.31} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.30} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.29} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.28} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.27} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.26} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.25} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.24} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.23} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.22} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.21} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.20} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.19} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.18} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.17} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.16} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.15} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.14} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.13} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.12} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.11} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.10} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.9} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.8} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.7} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.6} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.5} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.4} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.3} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
+, replaced by a fixed one
+
+{C:/Users/Simon Mongey/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8
+r.enc} <C:\Users\Simon Mongey\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen
+/ec/dpi600\ectt1095.pk><C:/Users/Simon Mongey/AppData/Local/Programs/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Simon Mongey/AppData/Local
+/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Simon 
+Mongey/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.
+pfb><C:/Users/Simon Mongey/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmr10.pfb><C:/Users/Simon Mongey/AppData/Local/Programs/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Simon Mongey/AppData/Local
+/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Simon M
+ongey/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pf
+b><C:/Users/Simon Mongey/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmsy9.pfb><C:/Users/Simon Mongey/AppData/Local/Programs/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/Simon Mongey/AppData/Local/P
+rograms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt9.pfb><C:/Users/Simon Mon
+gey/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/esint/esint10.pfb><C:/
+Users/Simon Mongey/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/mathpaz
+o/fplmb.pfb><C:/Users/Simon Mongey/AppData/Local/Programs/MiKTeX 2.9/fonts/type
+1/public/mathpazo/fplmbb.pfb><C:/Users/Simon Mongey/AppData/Local/Programs/MiKT
+eX 2.9/fonts/type1/public/mathpazo/fplmbi.pfb><C:/Users/Simon Mongey/AppData/Lo
+cal/Programs/MiKTeX 2.9/fonts/type1/public/mathpazo/fplmr.pfb><C:/Users/Simon M
+ongey/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/mathpazo/fplmri.pfb>
+<C:/Users/Simon Mongey/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palati
+no/uplb8a.pfb><C:/Users/Simon Mongey/AppData/Local/Programs/MiKTeX 2.9/fonts/ty
+pe1/urw/palatino/uplbi8a.pfb><C:/Users/Simon Mongey/AppData/Local/Programs/MiKT
+eX 2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Users/Simon Mongey/AppData/Local
+/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on BEMV_ECTA_Manuscript.pdf (70 pages, 2505868 bytes).
+PDF statistics:
+ 1354 PDF objects out of 1440 (max. 8388607)
+ 316 named destinations out of 1000 (max. 500000)
+ 429 words of extra memory for PDF output out of 10000 (max. 10000000)
+

@@ -1,0 +1,94 @@
+%\documentclass[letterpaper,11pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{amsmath}
+%\usepackage{etex}
+%\usepackage{natbib}
+%\usepackage{amsfonts}
+%\usepackage{mathpazo}
+%\usepackage{hyperref}
+%\usepackage{multimedia}
+%\usepackage{graphicx, color}
+%\usepackage{epsfig}
+%\usepackage{amsthm}
+%\usepackage{mathtools}
+%\usepackage{esint}
+%\usepackage{amssymb}
+%\usepackage{url}
+%\usepackage{graphicx}
+%\usepackage{relsize}
+%\usepackage{amsfonts}
+%\usepackage{fancyheadings}
+%\usepackage{float}
+%\usepackage{color}
+%\usepackage{mathrsfs}
+%\usepackage{setspace}
+%\usepackage[mathscr]{euscript}
+%\usepackage{caption}
+%\usepackage{subcaption}
+%\usepackage{pdflscape}
+%\usepackage{booktabs}
+%\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+%\usepackage{geometry}
+%\usepackage[dvipsnames]{xcolor}
+%\usepackage{tikz}
+%\usepackage{caption}
+%\usepackage{subcaption}
+%\usetikzlibrary{decorations.pathreplacing}
+%\usetikzlibrary{shapes}
+%\usetikzlibrary{arrows.meta,arrows}
+%\usetikzlibrary{fit,positioning}
+%\tikzset{>=latex}
+%\definecolor{redSM}{RGB}{226,20,61}
+%\definecolor{greenSM}{RGB}{0,125,0}
+%\definecolor{blueSM}{RGB}{0,0,178}
+%\definecolor{hotpinkSM}{RGB}{191,0,127}
+%\newcommand{\alertblue}{\textcolor{blue}}
+%\newcommand{\alertroyalblue}{\textcolor{RoyalBlue}}
+%\newcommand{\purple}{\textcolor{purple}}
+%\newcommand{\hyperlinkblue}{\textcolor{hyperlinkblue}}
+%\newcommand{\lightblue}{\textcolor{lightblue}}
+%\newcommand{\alert}{\textcolor{red}}
+%
+%\begin{document}
+
+\begin{tikzpicture}
+
+% Axes
+\draw[thick,->] (-0.2,0)--(-0.2,6.5) node[left, yshift=0.5pt]{Gross flow rates};
+\draw[thick,->] (-0.2,0)--(7,0) node[right]{$n$};
+
+% Lines
+\draw[ultra thick, greenSM] (0.8,5.5) ..controls (1.5,3.8) and (4,1.5) .. (5.5,0);
+\draw[ultra thick, redSM] (0, 1) ..controls (2, 1.1) and (3, 1.2) .. (4, 3);
+\draw[ultra thick, redSM] (4, 3) ..controls (4.5, 4.2) and (5, 4.45) .. (5.5, 4.5);
+\draw[ultra thick, dashed, greenSM] (0.3, 2.4) ..controls (2, 2.1) and (4, 1.6).. (5.5, 0);
+
+% Vertical Lines
+\draw[very thick, blue, dotted] (1, 0)--(1, 5.5) node[above]{$S_n >0$};
+\draw (1, -0.3) node{$n_E^*(z)$};
+\draw[very thick, black, dotted] (3.4, 0)--(3.4, 5.5) node[above]{$\frac{dn}{n}=0$};
+\draw (3.4, -0.3) node{$n_{ZG}^*(z)$};
+\draw[very thick, blue, dotted] (5.5, 0)--(5.5,5.5) node[above]{$S_n=0$};
+\draw (5.5, -0.3) node{$n_L^*(z)$};
+
+% Horizontal Lines
+\draw[very thick, dashed, red] (-0.2, 1)--(5.9, 1);
+\draw (6.1, 1.1) node{\textcolor{redSM}{$\delta$}};
+%\draw[very thick, dashed, red] (-0.2, 4.5)--(5.9, 4.5);
+\draw (6.6, 4.5) node{\textcolor{redSM}{$\delta+\lambda^{E}(\theta)$}};
+\draw (-1.5, 2.5) node{\textcolor{greenSM}{$q(\theta)v(z,n^{\ast}_E)\phi$}};
+\draw (-3.5, 5) node{\textcolor{greenSM}{$q(\theta)v(z,n^{\ast}_E)\left[\phi + (1-\phi)G(S_n(z,n^{\ast}_E))\right]$}};
+
+% Braces
+\draw[decorate, decoration = {brace, amplitude = 6pt,mirror}, thick, greenSM, xshift = -1pt] (1,5.0) -- (1, 2.3);
+\draw (0.3,3.7) [font=\small]node{{\textcolor{greenSM}{$EE^{+}$}}};
+\draw[decorate, decoration = {brace, amplitude = 6pt,mirror}, thick, greenSM, xshift = -1pt] (1,2.1) -- (1, 0.1);
+\draw (0.3,1.5) [font=\small]node{{\textcolor{greenSM}{$UE$}}};
+\draw[decorate, decoration = {brace, amplitude = 6pt}, thick, redSM, xshift = 1pt] (5.6,4.4) -- (5.6, 1.1);
+\draw (6.4,2.7) [font=\small]node{{\textcolor{redSM}{$EE^{-}$}}};
+\draw[decorate, decoration = {brace, amplitude = 6pt}, thick, redSM, xshift = 1pt] (5.6,0.9) -- (5.6, 0.1);
+\draw (6.4,0.5) [font=\small]node{{\textcolor{redSM}{$EU$}}};
+
+\end{tikzpicture}
+%\end{document} 

@@ -1,0 +1,59 @@
+
+\begin{tikzpicture}
+
+% Axes
+\draw[thick,->] (0,0)--(0,6.5) node[above]{$z$};
+\draw[thick,->] (0,0) node[left]{$0$} --(7,0) node[right]{$n$};
+
+% Frontiers
+\draw[blue,thick] (0,0) ..controls (2,3.5) and (4,4.5) .. (6.5,5) node[above]{Hire} node[below,yshift=-4pt]{Layoff};
+
+% HP - Included Shrink/Expand line
+\draw[black,thick] (0,0) ..controls (2,4) and (3,5.5) .. (4.3,6) node[above, yshift=2pt]{$dn=0$};
+
+% Regions
+%\draw (4,6) node{\alert{\textbf{Stay and hire}}};
+\draw (4,3) node{\alert{\textbf{Stay \& Layoff}}};
+%\draw (4,0.5) node{\alert{\textbf{Exit}}};
+
+% Actions
+\draw[fill] (5.5,4) circle [radius=0.06];
+\draw[->] (5.35,4)--(3.8,4);
+\draw[fill] (3.65,4) circle [radius=0.06];
+
+\draw[fill] (2.75,2.25) circle [radius=0.06];
+\draw[->] (2.6,2.25)--(1.7,2.25);
+\draw[fill] (1.575,2.25) circle [radius=0.06];
+
+\draw[fill] (4,1.25) circle [radius=0.06];
+\draw[->] (3.85,1.25)--(0.9,1.25);
+\draw[fill] (0.775,1.25) circle [radius=0.06];
+
+% Hiring & growing
+\draw[fill] (0.5,4) circle [radius=0.06];
+\draw[->] (0.55,4.1)..controls (0.75,4.5) ..(0.95,4.1);
+
+\draw[fill] (1,4) circle [radius=0.06];
+\draw[->] (1.05,4.1)..controls (1.25,4.5) ..(1.45,4.1);
+
+\draw[fill] (1.5,4) circle [radius=0.06];
+\draw[->] (1.55,4.1)..controls (1.75,4.5) ..(1.95,4.1);
+
+\draw[fill] (2,4) circle [radius=0.06];
+%\draw[->] (3.05,4.1)..controls (3.325,4.5) ..(3.6,4.1);
+
+% Hiring & shrinking
+
+\draw[fill] (4.8,5) circle [radius=0.06];
+\draw[->] (4.75,5.1)..controls (4.55,5.5) ..(4.35,5.1);
+
+\draw[fill] (4.3,5) circle [radius=0.06];
+\draw[->] (4.25,5.1)..controls (4.05,5.5) ..(3.85,5.1);
+
+\draw[fill] (3.8,5) circle [radius=0.06];
+\draw[->] (3.75,5.1)..controls (3.55,5.5) ..(3.35,5.1);
+
+\draw[fill] (3.3,5) circle [radius=0.06];
+
+
+\end{tikzpicture}

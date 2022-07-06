@@ -1,0 +1,346 @@
+\ifx\undefined\BySame
+\newcommand{\BySame}{\leavevmode\rule[.5ex]{3em}{.5pt}\ }
+\fi
+\ifx\undefined\textsc
+\newcommand{\textsc}[1]{{\sc #1}}
+\newcommand{\emph}[1]{{\em #1\/}}
+\let\tmpsmall\small
+\renewcommand{\small}{\tmpsmall\sc}
+\fi
+\begin{thebibliography}{}
+
+\harvarditem[Acemoglu]{Acemoglu}{2001}{acemoglu2001good}
+\textsc{Acemoglu, D.}  (2001): ``Good Jobs versus Bad Jobs,'' \emph{Journal of
+  Labor Economics}, 19(1), 1--21.
+
+\harvarditem[Acemoglu and Hawkins]{Acemoglu and Hawkins}{2014}{acemogluhawkins}
+\textsc{Acemoglu, D.,  {\small and} W.~B. Hawkins}  (2014): ``Search with
+  Multi-Worker Firms,'' \emph{Theoretical Economics}, 9(3), 583--628.
+
+\harvarditem[Aghion and Howitt]{Aghion and Howitt}{1994}{aghion1994growth}
+\textsc{Aghion, P.,  {\small and} P.~Howitt}  (1994): ``Growth and
+  Unemployment,'' \emph{The Review of Economic Studies}, 61(3), 477--494.
+
+\harvarditem[Arellano, Bai, and Kehoe]{Arellano, Bai, and
+  Kehoe}{2019}{arellanobaikehoe2019}
+\textsc{Arellano, C., Y.~Bai,  {\small and} P.~Kehoe}  (2019): ``Financial
+  Frictions and Fluctuations in Volatility,'' \emph{Journal of Political
+  Economy}, 127(22990), 2049--2103.
+
+\harvarditem[Audoly]{Audoly}{2019}{audoly2019firmdynamics}
+\textsc{Audoly, R.}  (2019): ``Firm Dynamics and Random Search over the
+  Business Cycle,'' Discussion paper, University College London.
+
+\harvarditem[Bansal and Yaron]{Bansal and Yaron}{2004}{bansal2004risks}
+\textsc{Bansal, R.,  {\small and} A.~Yaron}  (2004): ``Risks for the Long Run:
+  A Potential Resolution of Asset Pricing Puzzles,'' \emph{The Journal of
+  Finance}, 59(4), 1481--1509.
+
+\harvarditem[Bertola and Caballero]{Bertola and
+  Caballero}{1994}{BertolaCaballero1994}
+\textsc{Bertola, G.,  {\small and} R.~J. Caballero}  (1994): ``{Cross-Sectional
+  Efficiency and Labour Hoarding in a Matching Model of Unemployment},''
+  \emph{Review of Economic Studies}, 61(3), 435--56.
+
+\harvarditem[Bilal, Engbom, Mongey, and Violante]{Bilal, Engbom, Mongey, and
+  Violante}{2019}{BEMVworkingpaper}
+\textsc{Bilal, A., N.~Engbom, S.~Mongey,  {\small and} G.~L. Violante}  (2019):
+  ``Firm and Worker Dynamics in a Frictional Labor Market,'' NBER Working Paper
+  26547, National Bureau of Economic Research.
+
+\harvarditem[Bilal, Engbom, Mongey, and Violante]{Bilal, Engbom, Mongey, and
+  Violante}{2021}{BEMV2021growth}
+\textsc{\BySame{}}  (2021): ``Labor Market Dynamics When Ideas are Getting
+  Harder to Find,'' NBER Working Paper 29479, National Bureau of Economic
+  Research.
+
+\harvarditem[Bilal and Lhuillier]{Bilal and Lhuillier}{2021}{BilalOutsource}
+\textsc{Bilal, A.,  {\small and} H.~Lhuillier}  (2021): ``Outsourcing,
+  Inequality and Aggregate Output,'' Discussion paper, Harvard University.
+
+\harvarditem[Boppart, Krusell, and Mitman]{Boppart, Krusell, and
+  Mitman}{2018}{boppart2018exploiting}
+\textsc{Boppart, T., P.~Krusell,  {\small and} K.~Mitman}  (2018): ``Exploiting
+  MIT Shocks in Heterogeneous-agent Economies: the Impulse Response as a
+  Numerical Derivative,'' \emph{Journal of Economic Dynamics and Control}, 89,
+  68--92.
+
+\harvarditem[Borovickov{\'a}]{Borovickov{\'a}}{2016}{borovickova2016job}
+\textsc{Borovickov{\'a}, K.}  (2016): ``Job flows, Worker Flows and Labor
+  Market Policies,'' Discussion paper, New York University.
+
+\harvarditem[Brekke and Oksendal]{Brekke and
+  Oksendal}{1990}{brekkeoksendal1990}
+\textsc{Brekke,  {\small and} Oksendal}  (1990): ``The High Contact Principle
+  as a Sufficiency Condition for Optimal Stopping,'' \emph{Preprint series:
+  Pure mathematics}.
+
+\harvarditem[Br{\"u}gemann, Gautier, and Menzio]{Br{\"u}gemann, Gautier, and
+  Menzio}{2018}{brugemann2018intra}
+\textsc{Br{\"u}gemann, B., P.~Gautier,  {\small and} G.~Menzio}  (2018):
+  ``Intra Firm Bargaining and Shapley Values,'' \emph{The Review of Economic
+  Studies}, 86(2), 564--592.
+
+\harvarditem[Burdett and Mortensen]{Burdett and
+  Mortensen}{1998}{burdettmortensen1998}
+\textsc{Burdett, K.,  {\small and} D.~Mortensen}  (1998): ``Wage Differentials,
+  Employer Size, and Unemployment,'' \emph{International Economic Review},
+  39(2), 257--273.
+
+\harvarditem[Clementi and Palazzo]{Clementi and
+  Palazzo}{2010}{ClementiPalazzoWP}
+\textsc{Clementi, G.,  {\small and} D.~Palazzo}  (2010): ``Entry, Exit, Firm
+  Dynamics, and Aggregate Fluctuations,'' Discussion paper, New York
+  University.
+
+\harvarditem[Coles and Mortensen]{Coles and Mortensen}{2016}{colemortensen2016}
+\textsc{Coles, M.,  {\small and} D.~Mortensen}  (2016): ``Equilibrium Labor
+  Turnover, Firm Growth, and Unemployment,'' \emph{Econometrica}, 84, 347--363.
+
+\harvarditem[Constantinides and Ghosh]{Constantinides and
+  Ghosh}{2017}{constantinides2017asset}
+\textsc{Constantinides, G.~M.,  {\small and} A.~Ghosh}  (2017): ``Asset Pricing
+  with Countercyclical Household Consumption Risk,'' \emph{The Journal of
+  Finance}, 72(1), 415--460.
+
+\harvarditem[Davis, Faberman, and Haltiwanger]{Davis, Faberman, and
+  Haltiwanger}{2013}{DFH}
+\textsc{Davis, S.~J., R.~J. Faberman,  {\small and} J.~C. Haltiwanger}  (2013):
+  ``The Establishment-Level Behavior of Vacancies and Hiring,'' \emph{Quarterly
+  Journal of Economics}, 128(2), 581--622.
+
+\harvarditem[Decker, Haltiwanger, Jarmin, and Miranda]{Decker, Haltiwanger,
+  Jarmin, and Miranda}{2020}{decker2020}
+\textsc{Decker, R.~A., J.~C. Haltiwanger, R.~S. Jarmin,  {\small and}
+  J.~Miranda}  (2020): ``Changing Business Dynamism and Productivity: Shocks vs
+  Responsiveness,'' \emph{American Economic Review}, 110(24236), 3952--3990.
+
+\harvarditem[Diamond and Maskin]{Diamond and
+  Maskin}{1979}{diamond1979equilibrium}
+\textsc{Diamond, P.~A.,  {\small and} E.~Maskin}  (1979): ``An Equilibrium
+  Analysis of Search and Breach of Contract, I: Steady States,'' \emph{Bell
+  Journal of Economics}, 10(1), 282--316.
+
+\harvarditem[Elsby and Gottfries]{Elsby and
+  Gottfries}{2021}{elsbygottfries2021}
+\textsc{Elsby, M.,  {\small and} A.~Gottfries}  (2021): ``Firm Dynamics,
+  On-the-Job Search and Labor Market Fluctuations,'' \emph{Review of Economic
+  Studies (forthcoming)}.
+
+\harvarditem[Elsby and Michaels]{Elsby and Michaels}{2013}{ElsbyMichaelsAEJ}
+\textsc{Elsby, M. W.~L.,  {\small and} R.~Michaels}  (2013): ``Marginal Jobs,
+  Heterogeneous Firms, and Unemployment Flows,'' \emph{American Economic
+  Journal: Macroeconomics}, 5(1), 1--48.
+
+\harvarditem[Elsby, Michaels, and Ratner]{Elsby, Michaels, and
+  Ratner}{2019}{ElsbyMichaelsRatner}
+\textsc{Elsby, M. W.~L., R.~Michaels,  {\small and} D.~Ratner}  (2019): ``{The
+  Aggregate Effects of Labor Market Frictions},'' \emph{Quantitative
+  Economics}, 10(3), 803--852.
+
+\harvarditem[Engbom]{Engbom}{2017}{engbom2017firm}
+\textsc{Engbom, N.}  (2017): ``Firm and Worker Dynamics in an Aging Labor
+  Market,'' Discussion paper, New York University.
+
+\harvarditem[Fernald]{Fernald}{2014}{fernald_NBERannual}
+\textsc{Fernald, J.~G.}  (2014): ``{Productivity and Potential Output before,
+  during, and after the Great Recession},'' in \emph{NBER Macroeconomics
+  Annual}, ed. by J.~A. Parker,  {\small and} M.~Woodford, vol.~29, pp. 1--51.
+  Chicago, IL: University of Chicago Press.
+
+\harvarditem[Fujita, Moscarini, and Postel-Vinay]{Fujita, Moscarini, and
+  Postel-Vinay}{2019}{fujitameasuring2019}
+\textsc{Fujita, S., G.~Moscarini,  {\small and} F.~Postel-Vinay}  (2019):
+  ``Measuring Employer-to-Employer Reallocation,'' Discussion paper, Yale
+  University.
+
+\harvarditem[Fujita and Nakajima]{Fujita and
+  Nakajima}{2016}{fujitanakajimaworker2016}
+\textsc{Fujita, S.,  {\small and} M.~Nakajima}  (2016): ``Worker Flows and Job
+  Flows: A Quantitative Investigation,'' \emph{Review of Economic Dynamics},
+  22, 1--20.
+
+\harvarditem[Gavazza, Mongey, and Violante]{Gavazza, Mongey, and
+  Violante}{2018}{Gavazza2018}
+\textsc{Gavazza, A., S.~Mongey,  {\small and} G.~L. Violante}  (2018):
+  ``Aggregate Recruiting Intensity,'' \emph{American Economic Review}, 108(8),
+  2088--2127.
+
+\harvarditem[Gouin-Bonenfant]{Gouin-Bonenfant}{2018}{gouin2018productivity}
+\textsc{Gouin-Bonenfant, E.}  (2018): ``Productivity Dispersion, Between-Firm
+  Competition, and the Labor Share,'' Discussion paper, University of
+  California San Diego.
+
+\harvarditem[Hall]{Hall}{2017}{hall2017high}
+\textsc{Hall, R.~E.}  (2017): ``High Discounts and High Unemployment,''
+  \emph{American Economic Review}, 107(2), 305--30.
+
+\harvarditem[Haltiwanger, McEntarfer, and Staiger]{Haltiwanger, McEntarfer, and
+  Staiger}{2021}{haltiwanger2021}
+\textsc{Haltiwanger, John ang~Hyatt, H.~R., E.~McEntarfer,  {\small and}
+  M.~Staiger}  (2021): ``Cyclical Worker Flows: Cleansing vs. Sullying,'' NBER
+  Working Paper 28802, National Bureau of Economic Research.
+
+\harvarditem[Haltiwanger, Hyatt, Kahn, and McEntarfer]{Haltiwanger, Hyatt,
+  Kahn, and McEntarfer}{2018}{HHKM2018}
+\textsc{Haltiwanger, J.~C., H.~R. Hyatt, L.~B. Kahn,  {\small and}
+  E.~McEntarfer}  (2018): ``{Cyclical Job Ladders by Firm Size and Firm
+  Wage},'' \emph{American Economic Journal: Macroeconomics}, 10(2), 52--85.
+
+\harvarditem[Hawkins]{Hawkins}{2015}{hawkins2015bargaining}
+\textsc{Hawkins, W.~B.}  (2015): ``Bargaining with Commitment Between Workers
+  and Large Firms,'' \emph{Review of Economic Dynamics}, 18(2), 350--364.
+
+\harvarditem[Hopenhayn and Rogerson]{Hopenhayn and
+  Rogerson}{1993}{HopenhaynRogersonJPE}
+\textsc{Hopenhayn, H.,  {\small and} R.~Rogerson}  (1993): ``Job Turnover and
+  Policy Evaluation: A General Equilibrium Analysis,'' \emph{Journal of
+  Political Economy}, 101(5), 915--938.
+
+\harvarditem[Hopenhayn]{Hopenhayn}{1992}{HopenhaynEMET}
+\textsc{Hopenhayn, H.~A.}  (1992): ``Entry, Exit, and Firm Dynamics in Long Run
+  Equilibrium,'' \emph{Econometrica}, 60(5), 1127--50.
+
+\harvarditem[Jarosch]{Jarosch}{2021}{Jaroschnber}
+\textsc{Jarosch, G.}  (2021): ``Searching for Job Security and the Consequences
+  of Job Loss,'' Discussion paper, National Bureau of Economic Research.
+
+\harvarditem[Kaas]{Kaas}{2020}{kaas2020block}
+\textsc{Kaas, L.}  (2020): ``Block-Recursive Equilibria in Heterogenous-Agent
+  Models,'' Discussion Paper 8737, CESifo Working Paper.
+
+\harvarditem[Kaas and Kircher]{Kaas and Kircher}{2015}{KassKircher}
+\textsc{Kaas, L.,  {\small and} P.~Kircher}  (2015): ``{Efficient Firm Dynamics
+  in a Frictional Labor Market},'' \emph{American Economic Review}, 105(10),
+  3030--60.
+
+\harvarditem[Kiyotaki and Lagos]{Kiyotaki and Lagos}{2007}{kiyotaki2007model}
+\textsc{Kiyotaki, N.,  {\small and} R.~Lagos}  (2007): ``A Model of Job and
+  Worker Flows,'' \emph{Journal of Political Economy}, 115(5), 770--819.
+
+\harvarditem[Klette and Kortum]{Klette and Kortum}{2004}{klettekortum2004}
+\textsc{Klette, T.,  {\small and} S.~Kortum}  (2004): ``Innovating Firms and
+  Aggregate Innovation,'' \emph{Journal of Political Economy}, vol. 112, no.
+  5](5), 986--1018.
+
+\harvarditem[Lentz]{Lentz}{2015}{Lentz2015}
+\textsc{Lentz, R.}  (2015): ``Optimal Employment Contracts with Hidden
+  Search,'' Discussion paper, University of Wisconsin-Madison.
+
+\harvarditem[Lentz and Mortensen]{Lentz and Mortensen}{2012}{LentzMortensenWP}
+\textsc{Lentz, R.,  {\small and} D.~Mortensen}  (2012): ``Labor Market
+  Friction, Firm Heterogeneity, and Aggregate Employment and Productivity,''
+  Discussion paper, University of Wisconsin.
+
+\harvarditem[Lindenlaub and Postel-Vinay]{Lindenlaub and
+  Postel-Vinay}{2016}{lindenlaub2016multidimensional}
+\textsc{Lindenlaub, I.,  {\small and} F.~Postel-Vinay}  (2016):
+  ``Multidimensional Sorting Under Random Search,'' Discussion paper, Yale
+  University.
+
+\harvarditem[Lise and Robin]{Lise and Robin}{2017}{LiseRobinAER}
+\textsc{Lise, J.,  {\small and} J.-M. Robin}  (2017): ``{The Macrodynamics of
+  Sorting between Workers and Firms},'' \emph{American Economic Review},
+  107(4), 1104--1135.
+
+\harvarditem[Lucas]{Lucas}{1978}{Lucas1978}
+\textsc{Lucas, R.~E.}  (1978): ``On the Size Distribution of Business Firms,''
+  \emph{The Bell Journal of Economics}, 9(2), 508.
+
+\harvarditem[Luttmer]{Luttmer}{2010}{luttmer2010}
+\textsc{Luttmer, E.~G.}  (2010): ``{Models of Growth and Firm Heterogeneity},''
+  \emph{Annual Review of Economics}, 2(1), 547--576.
+
+\harvarditem[Luttmer]{Luttmer}{2011}{luttmer2011}
+\textsc{Luttmer, E. G.~J.}  (2011): ``{On the Mechanics of Firm Growth},''
+  \emph{Review of Economic Studies}, 78(3), 1042--1068.
+
+\harvarditem[MacLeod and Malcomson]{MacLeod and
+  Malcomson}{1989}{macleod1989implicit}
+\textsc{MacLeod, W.~B.,  {\small and} J.~M. Malcomson}  (1989): ``Implicit
+  Contracts, Incentive Compatibility, and Involuntary Unemployment,''
+  \emph{Econometrica: Journal of the Econometric Society}, pp. 447--480.
+
+\harvarditem[Menzio and Shi]{Menzio and Shi}{2011}{menzio2011efficient}
+\textsc{Menzio, G.,  {\small and} S.~Shi}  (2011): ``Efficient Search On the
+  Job and the Business Cycle,'' \emph{Journal of Political Economy}, 119(3),
+  468--510.
+
+\harvarditem[Mongey and Violante]{Mongey and Violante}{2019}{MongeyViolante}
+\textsc{Mongey, S.,  {\small and} G.~L. Violante}  (2019): ``{Macro Recruiting
+  Intensity from Micro Data},'' NBER Working Papers 26231, National Bureau of
+  Economic Research, Inc.
+
+\harvarditem[Moscarini and Postel-Vinay]{Moscarini and
+  Postel-Vinay}{2013}{moscarini2013stochastic}
+\textsc{Moscarini, G.,  {\small and} F.~Postel-Vinay}  (2013): ``Stochastic
+  Search Equilibrium,'' \emph{Review of Economic Studies}, 80(4), 1545--1581.
+
+\harvarditem[Moscarini and Postel-Vinay]{Moscarini and
+  Postel-Vinay}{2016}{moscapv}
+\textsc{\BySame{}}  (2016): ``Did the Job Ladder Fail after the Great
+  Recession?,'' \emph{Journal of Labor Economics}, 34(S1), S55--S93.
+
+\harvarditem[Peskir and Shiryaev]{Peskir and
+  Shiryaev}{2006}{peskirshiryaev2006}
+\textsc{Peskir,  {\small and} Shiryaev}  (2006): \emph{Optimal Stopping and
+  Free Boundary Problems}. Basel: Birkhauser.
+
+\harvarditem[Petrongolo and Pissarides]{Petrongolo and
+  Pissarides}{2001}{Petrongolo2001}
+\textsc{Petrongolo, B.,  {\small and} C.~A. Pissarides}  (2001): ``Looking into
+  the black box: A survey of the matching function,'' \emph{Journal of Economic
+  literature}, pp. 390--431.
+
+\harvarditem[Pham]{Pham}{2009}{pham2009}
+\textsc{Pham}  (2009): \emph{Continuous-Time Stochastic Control and
+  Optimization with Financial Applications}. Berlin, Heidelberg: Springer.
+
+\harvarditem[Postel-Vinay and Robin]{Postel-Vinay and
+  Robin}{2002}{postelvinayrobin2002}
+\textsc{Postel-Vinay, F.,  {\small and} J.-M. Robin}  (2002): ``{Equilibrium
+  Wage Dispersion with Worker and Employer Heterogeneity},''
+  \emph{Econometrica}, 70(6), 2295--2350.
+
+\harvarditem[Postel-Vinay and Turon]{Postel-Vinay and
+  Turon}{2010}{pvtearnings2010}
+\textsc{Postel-Vinay, F.,  {\small and} H.~Turon}  (2010): ``On-the-job Search,
+  Productivity Shocks, and the Individual Earnings Process,''
+  \emph{International Economic Review}, 51(3), 599--629.
+
+\harvarditem[Pugsley and Sahin]{Pugsley and Sahin}{2019}{pugsley2019grown}
+\textsc{Pugsley, B.~W.,  {\small and} A.~Sahin}  (2019): ``Grown-up Business
+  Cycles,'' \emph{The Review of Financial Studies}, 32(3), 1102--1147.
+
+\harvarditem[Schaal]{Schaal}{2017}{schaal2017uncertainty}
+\textsc{Schaal, E.}  (2017): ``Uncertainty and Unemployment,''
+  \emph{Econometrica}, 85(6), 1675--721.
+
+\harvarditem[Sedl{\'a}{\v c}ek]{Sedl{\'a}{\v c}ek}{2020}{sedlacek2020}
+\textsc{Sedl{\'a}{\v c}ek, P.}  (2020): ``Lost Generations of Firms and
+  Aggregate Labor Market Dynamics,'' \emph{Journal of Monetary Economics}, 111,
+  16--31.
+
+\harvarditem[Shimer]{Shimer}{2005}{ShimerAER}
+\textsc{Shimer, R.}  (2005): ``The Cyclical Behavior of Equilibrium
+  Unemployment and Vacancies,'' \emph{American Economic Review}, 95(1), 25--49.
+
+\harvarditem[Siemer]{Siemer}{2014}{Siemer}
+\textsc{Siemer, M.}  (2014): ``{Firm Entry and Employment Dynamics in the Great
+  Recession},'' Finance and Economics Discussion Series 2014-56, Board of
+  Governors of the Federal Reserve System.
+
+\harvarditem[Sorkin]{Sorkin}{2018}{sorkin2018ranking}
+\textsc{Sorkin, I.}  (2018): ``Ranking Firms Using Revealed Preference,''
+  \emph{The Quarterly Journal of Economics}, 133(3), 1331--1393.
+
+\harvarditem[Stokey]{Stokey}{2009}{stokey2009}
+\textsc{Stokey}  (2009): \emph{The Economics of Inaction : Stochastic Control
+  Models with Fixed Costs}. Princeton, NJ: Princeton University Press.
+
+\harvarditem[Stole and Zwiebel]{Stole and Zwiebel}{1996}{StoleZwiebelRESTUD}
+\textsc{Stole, L.~A.,  {\small and} J.~Zwiebel}  (1996): ``Intrafirm Bargaining
+  under Non-Binding Contracts,'' \emph{Review of Economic Studies}, 63(3),
+  375--410.
+
+\end{thebibliography}

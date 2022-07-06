@@ -1,0 +1,5 @@
+--- Open 0_Run_all_INPUT_USER_PATH_HERE.do in Stata and follow instructions. 
+--- Takes ~5 seconds to run
+--- Data in raw_data_BDS and raw_data_J2J downloaded from Census:
+	--- J2J: https://lehd.ces.census.gov/data/
+	--- BDS: https://www.census.gov/programs-surveys/bds/data.html

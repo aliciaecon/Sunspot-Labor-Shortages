@@ -1,0 +1,44 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Model}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Physical environment}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Information and contractual environment}{section.2}% 4
+\BOOKMARK [1][-]{section.3}{Joint value representation}{}% 5
+\BOOKMARK [2][-]{subsection.3.1}{Properties of the joint value representation}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.2}{Surplus formulation}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.3}{Vacancy policy}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.4}{Hire and separation policies}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.5}{The gross worker flow composition of net employment growth}{section.3}% 10
+\BOOKMARK [1][-]{section.4}{Equilibrium}{}% 11
+\BOOKMARK [2][-]{subsection.4.1}{Equilibrium}{section.4}% 12
+\BOOKMARK [2][-]{subsection.4.2}{Firm dynamics, job reallocation and worker turnover: a phase diagram}{section.4}% 13
+\BOOKMARK [2][-]{subsection.4.3}{Limiting economies}{section.4}% 14
+\BOOKMARK [3][-]{subsubsection.4.3.1}{Vanishing decreasing returns in production}{subsection.4.3}% 15
+\BOOKMARK [3][-]{subsubsection.4.3.2}{Vanishing frictions}{subsection.4.3}% 16
+\BOOKMARK [1][-]{section.5}{Estimation}{}% 17
+\BOOKMARK [2][-]{subsection.5.1}{Methodology}{section.5}% 18
+\BOOKMARK [2][-]{subsection.5.2}{Model fit}{section.5}% 19
+\BOOKMARK [1][-]{section.6}{Search frictions and labor misallocation}{}% 20
+\BOOKMARK [2][-]{subsection.6.1}{Misallocation cost of labor market frictions}{section.6}% 21
+\BOOKMARK [2][-]{subsection.6.2}{Frictional misallocation and the life cycle of superstar firms}{section.6}% 22
+\BOOKMARK [2][-]{subsection.6.3}{Frictional misallocation in the Great Recession}{section.6}% 23
+\BOOKMARK [1][-]{section.7}{Conclusion}{}% 24
+\BOOKMARK [1][-]{appendix.A}{Static Example}{}% 25
+\BOOKMARK [2][-]{subsection.A.1}{UE hire}{appendix.A}% 26
+\BOOKMARK [2][-]{subsection.A.2}{UE hire when the internal renegotiation involves multiple workers}{appendix.A}% 27
+\BOOKMARK [2][-]{subsection.A.3}{EE hire}{appendix.A}% 28
+\BOOKMARK [2][-]{subsection.A.4}{Vacancy posting }{appendix.A}% 29
+\BOOKMARK [2][-]{subsection.A.5}{Layoffs, quits, exit, entry}{appendix.A}% 30
+\BOOKMARK [2][-]{subsection.A.6}{From static to dynamic}{appendix.A}% 31
+\BOOKMARK [1][-]{appendix.B}{Characterization of surplus function}{}% 32
+\BOOKMARK [2][-]{subsection.B.1}{Hamilton Jacobi Bellman Variational Inequality for Total Value }{appendix.B}% 33
+\BOOKMARK [2][-]{subsection.B.2}{S is increasing in n}{appendix.B}% 34
+\BOOKMARK [2][-]{subsection.B.3}{S is increasing in z}{appendix.B}% 35
+\BOOKMARK [2][-]{subsection.B.4}{S is concave in n}{appendix.B}% 36
+\BOOKMARK [2][-]{subsection.B.5}{S is supermodular in \(logz, n\)}{appendix.B}% 37
+\BOOKMARK [2][-]{subsection.B.6}{Net employment growth}{appendix.B}% 38
+\BOOKMARK [1][-]{appendix.C}{Alternative CRS limit}{}% 39
+\BOOKMARK [1][-]{appendix.D}{Frictionless limits }{}% 40
+\BOOKMARK [2][-]{subsection.D.1}{Setup}{appendix.D}% 41
+\BOOKMARK [2][-]{subsection.D.2}{No on-the-job search}{appendix.D}% 42
+\BOOKMARK [2][-]{subsection.D.3}{On-the-job search }{appendix.D}% 43
+\BOOKMARK [1][-]{appendix.E}{Identification}{}% 44

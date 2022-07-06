@@ -1,0 +1,80 @@
+\begin{tikzpicture}[
+    grow=right,
+    level 1/.style={sibling distance=1cm,level distance=3.2cm},
+    level 2/.style={sibling distance=1cm, level distance=2.7cm},
+    level 3/.style={sibling distance=1cm, level distance=2.7cm},
+    level 4/.style={sibling distance=1cm, level distance=3cm},
+    edge from parent/.style={draw, -latex},
+    edge from parent path={(\tikzparentnode.east) -- (\tikzchildnode.west)},
+    kant/.style={text width=1cm, text centered, sloped},
+    every node/.style={text ragged, inner sep=2mm},
+    punkt/.style={rectangle, rounded corners, %shade, top color=white,
+    %bottom color=blue!50!black!20
+    , draw=BlueViolet, very thick
+    , font=\scriptsize}
+    ]
+\node[punkt] [rectangle split, rectangle split, rectangle split parts=2, text width=2.3cm,
+         text ragged, fill=white] {
+            \alert{\textbf{Beginning of}} \hskip2cm
+            \alert{\textbf{period} $[t,t+dt]$}
+            \nodepart{two}
+            \setlength{\leftmargini}{1em}
+            \vspace*{-.3cm}
+            \begin{itemize}
+            \item State \alert{$\pmb{x_t}$}:
+            \item  Productivity \alert{$\pmb{z_t}$}
+            \item  Workers \alert{$\pmb{n_t}$}
+            \item  Wages \alert{$\pmb{\{ w_{it} \}_{i=1}^{n_t}}$}
+            \item  ...
+            \end{itemize}
+            }
+    %Lower part lv1
+    child {
+        node[punkt] [rectangle split, rectangle split, rectangle split parts=2, text width=2.2cm,
+         text ragged, fill=white] {
+           \textbf{\alert{Separations}}
+            \nodepart{two}
+            \setlength{\leftmargini}{1em}
+            \vspace*{-.3cm}
+            \begin{itemize}
+            \item Workers quit
+            \item Firms fire
+            \item Renegotiation
+            \end{itemize}
+        }
+        child {
+        node[punkt] [rectangle split, rectangle split, rectangle split parts=1, text width=1.3cm,
+         text ragged, fill=white] {
+           \textbf{\alert{Stay/Exit}}
+        }
+        child {
+        node[punkt] [rectangle split, rectangle split, rectangle split parts=2, text width=2.1cm,
+         text ragged, fill=white] {
+         \textbf{\alert{Operation}}
+         \nodepart{two}
+         \setlength{\leftmargini}{1em}
+         \vspace*{-.3cm}
+         \begin{itemize}
+         \item Produce
+         \item Pay wages
+         \item Post vacancies
+         \end{itemize}
+        }
+        child {
+        node[punkt] [rectangle split, rectangle split, rectangle split parts=1, text width=2cm,
+         text ragged, fill=white] {
+         \textbf{\alert{Labor Market Opens}}
+%         \nodepart{two}
+%         %\vskip-3mm
+%	\textbf{\alert{Productivity shocks}}
+         }
+        edge from parent
+            node[kant, below, pos=.2] {}}
+        edge from parent
+            node[kant, below, pos=.2] {}}
+        edge from parent
+            node[kant, below, pos=.2] {}}
+        edge from parent
+            node[kant, below, pos=.2] {}
+    };
+\end{tikzpicture}

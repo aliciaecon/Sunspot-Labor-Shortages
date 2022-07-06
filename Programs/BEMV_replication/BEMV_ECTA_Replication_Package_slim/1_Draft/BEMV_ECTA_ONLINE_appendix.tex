@@ -1,0 +1,2009 @@
+\input{BEMV_ECTA_preamble.tex}
+
+
+\setlength{\topmargin}{-0.6in}
+\setlength{\textheight}{9.05in}
+\setlength{\oddsidemargin}{-0.3in}
+\setlength{\evensidemargin}{-0.2in}
+\setlength{\textwidth}{7.23in}
+
+\begin{document}
+
+\appendix
+\begin{center}
+\textsc{\huge Appendix II - Not for Publication}\vspace*{.5cm} \\
+\textbf{\Large Firm and Worker Dynamics in a Frictional Labor Market}\vspace*{.5cm} \\
+\emph{\Large Adrien Bilal, Niklas Engbom, Simon Mongey, Gianluca Violante}\vspace*{.5cm} \\
+\end{center}
+
+\small
+\setstretch{1.1}
+
+\noindent This Appendix contains the proof of the joint surplus representation in the fully dynamic model, the main result of Section 3 in the main text, and computational details.
+Section \ref{appx:dynamicmodel} lays out the notation for the fully dynamic model.
+Section \ref{appx:jointvalue_derivation} develops the proof.
+Section \ref{appx:computation} contains details on the computation of the stationary equilibrium of the model.
+
+\section{Notation for dynamic model}\label{appx:dynamicmodel}
+
+We first specify the value function of an
+individual worker $i$ in a firm with arbitrary state $x$: $V(x,i)$. We then
+specify the value function of the firm: $J(x)$. Combining all workers' value
+functions with that of the firm we define the joint value: $\Omega(x)$. We
+then apply the assumptions from Section 2 which allow us
+to reduce $(x)$ to only the number of workers and productivity of the firm, $%
+(z,n)$. Finally we take the continuous work force limit to derive a
+Hamilton-Jacobi-Bellman (HJB) equation for $\Omega(z,n)$ Applying the
+definition of total surplus used above, we obtain a HJB equation in $S(z,n)$
+which we use to construct the equilibrium.
+
+\subsection{Worker value function: $V$}
+
+Let $U$ be the value of unemployment. Define separately worker $i$'s value when employed at firm $x$
+\emph{before} the quit, layoff and exit decisions, $\bm{V}%
+\left(x,i\right) $, and their value \emph{after} these decisions, $V\left(
+x,i\right)$.
+
+\paragraph{Value of unemployment.}
+
+Let $h_{U}\left( x\right)$ denote how the state of firm $x$ is updated when
+it hires an unemployed worker.\footnote{%
+For example, size would be update from $n$ to $n+1$ and possibly some of the
+incumbent wages would be bargained down.} Let $\mathcal{A}$ denote the set
+of firms making job offers that an unemployed worker would accept. The value of
+unemployment $U$ therefore satisfies
+\begin{equation*}
+\rho U=b+\lambda^U(\theta)\int_{x\in \mathcal{A}}\left[ \bm{V}\left(
+h_{U}\left( x\right) ,i\right) -U\right] dH_v\left(x\right)
+\end{equation*}%
+where $H_v$ is the vacancy-weighted distribution of firms. If $x\notin $ $%
+\mathcal{A}$, then the worker remains unemployed.
+
+\paragraph{Stage I.}
+
+To relate the value of the worker pre separation, $\bm{V}(x,i)$, to that
+post separation, $V(x,i)$, we require the following notation regarding firm
+and co-worker actions. Since workers do not form `unions' within the firm,
+all of these actions are taken as given by worker $i$.
+
+\begin{itemize}
+\item[-] Let $\epsilon(x)\in \left\{ 0,1\right\}$ denote the exit decision
+of firm, and $\mathcal{E=}\left\{ x:\epsilon (x)=1\right\}$ the set of $x$'s
+for which the firm exits.
+
+\item[-] Let $\ell(x)\in\{0,1\}^{n(x)}$ be a vector of zeros and ones of length $n(x)$, with generic entry
+$\ell_{i}(x)$, that characterizes the
+firm's decision to lay off incumbent worker $i\in\{1,\dots,n(x)\}$, and $\mathcal{L=}%
+\left\{\left( x,i\right) :\ell _{i}(x)=1\right\}$ the set of $(x,i)$ such
+that worker $(x,i)$ is laid off.
+
+\item[-] Let $q^U\left( x\right) \in\{0,1\}^{n(x)}$ be a vector of length $%
+n(x)$, with generic entry $q^U_i(x)$ that characterizes an incumbent
+workers' decisions to quit, and $\mathcal{Q}^{U}=\left\{ \left(
+x,i\right):q^U_i(x)=1\right\} $ the set of $(x,i)$ such that worker $(x,i)$
+quits into unemployment.
+
+\item[-] Let $\kappa\left( x\right) =\left( 1-\bm{\ell}\left( x\right)
+\right) \circ \left( 1-q_{U}\left( x\right) \right)$ be an element-wise
+product vector that identifies workers that are kept in the firm, and $%
+\mathcal{S}=\mathcal{L}\cup\mathcal{Q}^{U}=\left\{\left(x,i\right):%
+\kappa_{i}\left( x\right) =0\right\}$, the set of $(x,i)$ such that worker $%
+(x,i)$ separates into unemployment.
+
+\item[-] Let $s(x,\kappa(x))$ denote how the state of firm $x$ is updated
+when workers identified by $\kappa(x)$ are kept. This includes any renegotiation.
+\end{itemize}
+
+\noindent Given these sets and functions, the pre separation value $\bm{V}\left(
+x,i\right) $ satisfies:
+\begin{equation*}
+\bm{V}\left( x,i\right) =\underbrace{\Big.\epsilon(x)U\Big.}_{\text{Exit}%
+} + (1-\epsilon(x))\Big[\underbrace{\Big.\mathbb{I}_{\{(x,i)\notin \mathcal{S}%
+\}} V(s(x,\kappa(x)),i)\Big.}_{\text{Continuing employment}} + \underbrace{%
+\Big.\mathbb{I}_{\{(x,i)\in \mathcal{S}\}}U\Big.}_{\text{Separations and
+Quits}}\Big]
+\end{equation*}
+
+\paragraph{Stage II.}
+
+It is helpful to characterize the continuation value of employment post separation
+decisions, $V(x,i)$, in terms of the three distinct types of events
+described in Figure . First, the value changes due to
+\emph{`Direct'} labor markets shocks to worker $i$, $V_{D}(x,i)$. These
+include her match being destroyed exogenously or meeting a new potential
+employer. Second, the value changes due to labor market shocks hitting
+other workers in the firm, $V_{I}(x,i)$, including their matches being
+exogenously destroyed or them meeting new potential employers. These events
+have an \emph{`Indirect'} impact on worker $i$. Third, the value changes due to
+events on the \emph{`Firm'} side, $V_{F}(x,i)$, including the firm
+contacting new workers and receiving productivity shocks. Combining
+events and exploiting the fact that in continuous time they are mutually
+exclusive, we obtain the following, where  $w\left( x,i\right)$ is the wage paid to worker $i$:
+\begin{equation*}
+\rho V\left( x,i\right) =w\left( x,i\right) +\rho V_{D}\left( x,i\right)
++\rho V_{I}\left( x,i\right) +\rho V_{F}\left( x,i\right).
+\end{equation*}
+
+The wage function $w(x,i)$ includes the transfers between worker $i$ and the firm that may occur at the stage of vacancy posting (after separations and before the labor market opens), as discussed in the Appendix Section A in the context of the static example. These transfers can depend on the entire wage distribution inside the firm which is subsumed in the state vector $x$.
+
+\paragraph{Direct events.}
+
+We first characterize changes in value due to labor market shocks directly to worker $i$ in firm $x$, $V_{D}(x,i)$. Exogenous separation shocks arrive at rate $\delta $ and draws of outside offers arrive at rate $\lambda^E(\theta)$ from the vacancy-weighted distribution of firms $H_v$. If worker $i$ receives a sufficiently good outside offer from $x^{\prime }$, she quits to the new firm. We denote by $\mathcal{Q}^{E}(x,i)$ the set of such quit-firms $x^{\prime}$
+for $i$. Otherwise, the worker remains with the current firm but with an updated contract. Therefore $V_D(x,i)$ satisfies
+\vspace{-0.1in}
+
+{\small
+\begin{eqnarray*}
+\rho V_{D}\left( x,i\right) = \underbrace{\Bigg.\delta \left[ U-V\left(
+x,i\right)\right]}_{\text{Exogenous separation}} &+& \lambda^E(\theta)
+\underbrace{\Bigg.\int_{x^{\prime }\in \mathcal{Q}^{E}\left(x,i\right) }%
+\left[ \bm{V}\left( h_{E}\left( x,i,x^{\prime }\right),i\right) -V\left(
+x,i\right) \right] dH_v\left( x^{\prime }\right)}_{EE \text{ $\mathcal{Q}$uit}}
+\\
+&+& \lambda^E(\theta) \underbrace{\Bigg.\int_{x^{\prime }\notin \mathcal{Q}%
+^{E}\left( x,i\right) }\left[ \bm{V}\left( r\left( x,i,x^{\prime
+}\right) ,i\right) -V\left( x,i\right) \right] dH_v\left( x^{\prime }\right)}_{%
+\text{Retention}},
+\end{eqnarray*}%
+}\noindent where $h_{E}\left( x,i,x^{\prime }\right) $ describes how the
+state of a poaching firm $x^{\prime}$ gets updated when it hires worker $i$
+from firm $x$. Similarly, $r\left( x,i,x^{\prime}\right)$ updates $x$ when---after meeting firm $x^\prime$---worker $i$ in firm $x$ is
+retained and renegotiates its value.
+In all functions with three arguments $\left( x,i,x^{\prime}\right)$, the
+first argument denotes the origin firm, the second identifies the worker,
+and the third the potential destination firm.
+
+\paragraph{Indirect events.}
+
+We next characterize changes in value due to the same labor market shocks hitting other workers in firm $x$, $V_{I}(x,i)$. The value $V_{I}(x,i)$ satisfies
+\vspace{-0.1in}
+
+{\small
+\begin{eqnarray*}
+\rho V_{I}\left( x,i\right) = \sum_{j\neq i}^{n\left( x\right)} \Bigg\{
+\underbrace{\delta \left[ \bm{\ V}\left( d(x,j),i\right) -V\left(
+x,i\right) \right]\Bigg.}_{\text{Exogenous separation}} &+& \lambda^E(\theta)%
+\underbrace{\Bigg.\int_{x^{\prime }\in \mathcal{Q}^{E}\left( x,j\right) } %
+\left[\bm{V} \left( q_{E}\left( x,j,x^{\prime }\right) ,i\right)
+-V\left(x,i\right)\right] dH_v\left( x^{\prime }\right)}_{\text{$EE$ Quit}} \\
+&+& \lambda^E(\theta)\underbrace{\Bigg.\int_{x^{\prime }\notin \mathcal{Q}%
+^{E}\left( x,j\right) }\left[ \bm{V}\left( r\left( x,j,x^{\prime
+}\right) ,i\right) -V\left( x,i\right) \right] dH_v\left( x^{\prime }\right)}_{%
+\text{Retention}} \Bigg\},
+\end{eqnarray*}%
+}where $d(x,j)$ updates $x$ when worker $j$ exogenously separates, and $%
+q_{E}\left( x,j,x^{\prime }\right) $ when worker $j$ quits to firm $%
+x^{\prime}$.
+
+\paragraph{Firm events.}
+Finally, we characterize changes in value due to events that directly impact the firm and hence
+indirectly its workers, $V_F(x,i)$.
+Taking as given the firm's vacancy posting policy $v(x)$ and
+other actions, $V_F(x,i)$ satisfies
+\begin{eqnarray*}
+\rho V_{F}\left( x,i\right) &=& \\
+\text{$UE$ Hire} &&\phi q(\theta)v\left( x\right) \left[ \bm{V}\left(
+h_{U}\left( x\right) ,i\right) -V\left( x,i\right) \right] \cdot \mathbb{I}%
+_{\left\{ x\in \mathcal{A}\right\} } \\
+\text{$UE$ Threat} &&+\phi q(\theta)v\left( x\right) \left[ \bm{V}\left(
+t_{U}\left( x\right) ,i\right) -V\left( x,i\right) \right] \cdot \mathbb{I}%
+_{\left\{ x\notin \mathcal{A}\right\} } \\
+\text{$EE$ Hire} &&+\left( 1-\phi \right)q(\theta)v\left( x\right)
+\int_{x\in \mathcal{Q}^{E}\left( x^{\prime },i^{\prime }\right) }\left[
+\bm{V}\left( h_{E}\left( x^{\prime },i^{\prime },x\right) ,i\right)
+-V\left( x,i\right) \right] dH_n\left( x^{\prime },i^{\prime }\right) \\
+\text{$EE$ Threat} &&+\left( 1-\phi \right)q(\theta)v\left( x\right)
+\int_{x\notin \mathcal{Q}^{E}\left( x^{\prime},i^{\prime}\right) }\left[
+\bm{V}\left( t_{E}\left( x^{\prime },i^{\prime },x\right) ,i\right)
+-V\left( x,i\right) \right] dH_n\left( x^{\prime },i^{\prime }\right) \\
+\text{Shock} &&+\Gamma _{z}\left[ \bm{V},V\right] \left( x,i\right)
+\end{eqnarray*}%
+where $t_{U}\left( x\right) $ updates $x$ when an
+unemployed worker is met and not hired, but could be possibly used as a
+threat in firm $x$. Similarly, $t_{E}(x^{\prime },i^{\prime },x)$ updates
+$x$ when worker $i^{\prime }$ employed at firm $x^{\prime }$
+is met, not hired, but could be used as a threat. And, with a slight abuse
+of notation, $H_n(x^\prime,i^\prime)$ gives the joint distribution of firms $%
+x^\prime$ and worker types within firms $i^\prime$.
+
+Finally, $\Gamma _{z}\left[ \bm{V},V\right] \left( x,i\right) $
+identifies the contribution of productivity shocks $z$ to the Bellman
+equation. At this stage we only require that the productivity process is
+Markovian with an infinitesimal generator. Later we will specialize this to
+a diffusion process $dz_t = \mu(z_t)dt + \sigma(z_t) dW_t$ such that
+\begin{eqnarray}
+\Gamma _{z}\left[ \bm{V},V\right] \left( x,i\right) &=&\mu \left( z\right)
+\lim_{dz\rightarrow 0}\frac{\bm{V}\left( \left( x,z+dz\right) ,i\right)
+-V\left( x,z,i\right) }{dz} \notag \\
+&+&\frac{\sigma ^{2}\left( z\right) }{2}%
+\lim_{dz\rightarrow 0}\frac{\bm{V}\left( \left( x,z+dz\right) ,i\right) +%
+\bm{V}\left( \left( x,z-dz\right) ,i\right) -2V\left( x,z,i\right) }{%
+dz^{2}}  \label{eq:D_diffusion}
+\end{eqnarray}
+In the case that $\bm{V}=V$, this becomes the standard expression for
+a diffusion featuring the first and second derivatives of $V$ with respect to $z$: $\Gamma_z[V](x,i) =
+\mu(z)V_z(x,z,i) + \frac{1}{2}\sigma(z)^2V_{zz}(x,z,i)$.\footnote{%
+Note that in $(\ref{eq:D_diffusion})$ we abuse notation and write the state
+as $(x,z)$ with some redundancy since $z$ is clearly a member of $x$. We
+also note that we are not constrained to a diffusion process. We could also
+consider a Poisson process where, at exogenous rate $\eta$, $z$ jumps
+according to the transition density $\Pi(z,z^\prime)$: $\Gamma _{z}\left[
+\bm{V},V\right] \left( x,i\right) = \eta[\sum_{z^{\prime }\in Z}\bm{V%
+}\left( \left( x,z^{\prime }\right) ,i\right) \Pi \left( z^{\prime
+},z\right) -V\left( x,z,i\right)] $.}
+
+In the event productivity changes or $n\left( x\right)$ changes because of
+exogenous labor market events, the worker will want to reassess whether to
+stay with the firm or not. Additionally, the firm may want to reassess
+whether to exit or fire some workers. Bold values $\bm{V}$ capture any
+case where the state changes.
+
+\subsection{Firm value function: $J$}
+
+Consistent with the notation we used for workers' values, let $\bm{J}(x)$
+and $J(x)$ be the values of the firm at the corresponding points of an interval $dt$.
+For now, we take the vacancy creation decision $v\left(
+x\right)$ as given. At the end of the section we describe the expected value
+of an entrant firm.
+
+\paragraph{Stage I.}
+Consistent with the first stage worker value function, we define the firm
+value before the exit/layoff/quit decision, where we recall that $\vartheta$ is the firm's value of exit, or scrap value:
+\begin{equation*}
+\bm{J}\left( x\right) =\epsilon \left( x\right)\vartheta + \left[
+1-\epsilon \left( x\right) \right] J\left( s\left( x,\kappa \left( x\right)
+\right) \right).
+\end{equation*}%
+
+\paragraph{Stage II.}
+Given a vacancy policy $v\left( x\right)$, let $J\left( x\right)$ be the
+value of a firm with state $x$ \emph{after} the layoff/quit, exit. It is
+convenient to split the value of the firm, as we did for the
+worker, into three components
+\begin{equation*}
+\rho J\left( x\right) = \underbrace{\Bigg.y\left( x\right)
+-\sum\limits_{i=1}^{n\left( x\right)}w_{i}\left( x,i\right)\Bigg.}_{\text{%
+Flow profits}} \quad+\quad \underbrace{\Bigg.\rho J_{W}\left( x\right)\Bigg.}%
+_{\text{Workforce events}} +\quad \underbrace{\Bigg.\rho J_{F}\left(
+x\right)-c\left( v\left( x\right) ,x\right)\Bigg.}_{\text{Firm events net of
+vacancy costs}}.
+\end{equation*}%
+
+For a given policy $v(x)$ there is a set of associated transfers between workers and the firm which, as for the worker value function, are implicit in the wage function $w(x,i)$.
+
+The component $J_{W}\left( x\right) $ is given by
+\begin{eqnarray*}
+\rho J_{W}\left( x\right) &=& \\
+\text{Destruction} &&\delta \sum\limits_{i=1}^{n\left( x\right) }\left[
+\bm{J}\left( d(x,i)\right) -J\left( x\right) \right] \\
+\text{$EE$ Quit} &&+\:\:\lambda^E(\theta)\sum\limits_{i=1}^{n\left( x\right)
+}\int_{x^{\prime }\in \mathcal{Q}^{E}\left( x,i\right) }\left[ \bm{J}%
+\left( q_{E}\left( x,i,x^{\prime }\right) \right) -J\left( x\right) \right]
+dH_v\left( x^{\prime }\right) \\
+\text{Retention} &&+\:\:\lambda^E(\theta)\sum\limits_{i=1}^{n\left( x\right)
+}\int_{x^{\prime }\notin \mathcal{Q}^{E}\left( x,i\right) }\left[ \bm{J}%
+\left( r\left( x,i,x^{\prime }\right) \right) -J\left( x\right) \right]
+dH_v\left( x^{\prime }\right).
+\end{eqnarray*}%
+The component $J_{F}\left( x\right) $ is given by
+\begin{eqnarray*}
+\rho J_{F}\left( x\right) &=& \\
+\text{$UE$ Hire} && \phi q(\theta)v\left( x\right) \left[ \bm{J}\left(
+h_{U}\left( x\right) \right) -J\left( x\right) \right] \cdot \mathbb{I}%
+_{\left\{ x\in \mathcal{A}\right\} } \\
+\text{$UE$ Threat} &&+\:\:\phi q(\theta)v\left( x\right) \left[ \bm{J}%
+\left( t_{U}\left( x\right) \right) -J\left( x\right) \right] \cdot \mathbb{I%
+}_{\left\{ x\notin \mathcal{A}\right\} } \\
+\text{$EE$ Hire} &&+\:\:\left( 1-\phi \right)q(\theta)v\left( x\right)
+\int_{x\in \mathcal{Q}^{E}\left( x^{\prime },i^{\prime }\right) }\left[
+\bm{J}\left( h_{E}\left( x^{\prime },i^{\prime },x\right) \right)
+-J\left( x\right) \right] dH_n\left( x^{\prime },i^{\prime }\right) \\
+\text{$EE$ Threat} &&+\:\:\left(1-\phi \right)q(\theta)v\left( x\right)
+\int_{x\notin \mathcal{Q}^{E}\left( x^{\prime },i^{\prime }\right) }\left[
+\bm{J}\left( t_{E}\left( x^{\prime },i^{\prime },x\right) \right)
+-J\left( x\right) \right] dH_n\left( x^{\prime },i^{\prime }\right) \\
+\text{Shock} &&+\:\Gamma _{z}\left[ \bm{J},J\right] \left( x\right)
+\end{eqnarray*}
+
+Recall that, in continuous time at most one contact is made
+per instant. Either one worker is exogenously separated, or one
+worker is contacted by another firm, or one worker is met by posting
+vacancies (at rate $q(\theta)v(x)$), or a shock hits the firm. We have bold $\bm{J}$'s in each line since after any of these events, the firm may want to layoff some workers or exit, and workers may want to quit.
+
+\paragraph{Entry.}
+The expected value of an entrant firm is
+\begin{equation}
+J_0=-c_{0}+\int \bm{J}\left( x_{0}\right) d\Pi _{0}\left( z_0\right)
+\label{eq:D_J0}
+\end{equation}%
+where $x_{0}$ is the state of the entrant firm which includes only the
+random productivity value $z_0$ drawn from $\Pi _{0}$ since we assumed the
+initial number of workers is $0$. The argument of the integral is $\bm{J}
+$, which incorporates the firm's decision to exit or operate after
+observing $z_0$. Entry occurs when $J_0 >0$.
+
+
+\section{Derivation of the joint value function $\Omega$}
+\label{appx:jointvalue_derivation}
+We define the \textbf{joint value} of the firm and
+its employed workers $\Omega \left( x\right) :=J\left( x\right) +\sum_{i=1}^{n\left(
+x\right)}V\left( x,i\right) $. We also define the joint value before exit/quit/layoff
+decisions: $\bm{\Omega }\left( x\right) :=\bm{J}\left(
+x\right)+\sum_{i=1}^{n\left( x\right) }\bm{V}\left( x,i\right) $.
+
+
+\subsection{Combinining worker and firm values}
+
+In this section, we show that summing firm and worker
+values, then applying these definitions delivers the following Bellman
+equation for the joint value:
+\begin{eqnarray}
+\rho \Omega \left( x\right) &=&y\left( x\right) -c\left( v\left( x\right)
+,x\right)  \label{eq:D_omega1} \\
+\text{Destruction} &&+\:\:\sum\limits_{i=1}^{n\left( x\right) }\delta \left[
+\bm{\Omega }\left( d(x,i)\right) +U-\Omega \left( x\right) \right]
+\notag \\
+\text{Retention} &&+\:\:\lambda^E(\theta)\sum\limits_{i=1}^{n\left( x\right)
+}\int_{x^{\prime }\notin \mathcal{Q}^{E}\left( x,i\right) }\left[ \bm{%
+\Omega }\left( r\left( x,i,x^{\prime }\right) \right) -\Omega \left(
+x\right) \right] dH_v\left( x^{\prime }\right)  \notag \\
+\text{$EE$ Quit} &&+\:\:\lambda^E(\theta)\sum\limits_{i=1}^{n\left( x\right)
+}\int_{x^{\prime }\in \mathcal{Q}^{E}\left( x,i\right) }\left[ \bm{%
+\Omega }\left( q_{E}\left( x,i,x^{\prime }\right) \right) +\bm{V}\left(
+h_{E}\left( x,i,x^{\prime }\right) ,i\right) -\Omega \left( x\right) \right]
+dH_v\left( x^{\prime }\right)  \notag \\
+\text{$UE$ Hire} &&+\:\:\phi q(\theta)v\left( x\right) \left[ \bm{\Omega
+}\left( h_{U}\left( x\right) \right) -U-\Omega \left( x\right) \right] \cdot
+\mathbb{I}_{\left\{ x\in \mathcal{A}\right\} }  \notag \\
+\text{$UE$ Threat} &&+\:\:\phi q(\theta)v\left( x\right) \left[ \bm{%
+\Omega }\left( t_{U}\left( x\right) \right) -\Omega \left( x\right) \right]
+\cdot \mathbb{I}_{\left\{ x\notin \mathcal{A}\right\} }  \notag \\
+\text{$EE$ Hire} &&+\:\:(1-\phi)q(\theta)v\left( x\right) \int_{x\in
+\mathcal{Q}^{E}\left( x^{\prime },i^{\prime }\right) }\left[ \bm{\Omega }%
+\left( h_{E}\left( x^{\prime },i^{\prime },x\right) \right) -\bm{V}%
+\left( h_{E}\left( x^{\prime },i^{\prime },x\right) ,i^{\prime }\right)
+-\Omega \left( x\right) \right] dH_n\left( x^{\prime },i^{\prime }\right)
+\notag \\
+\text{$EE$ Threat} &&+\:\:(1-\phi)q(\theta)v\left( x\right) \int_{x\notin
+\mathcal{Q}^{E}\left( x^{\prime },i^{\prime }\right) }\left[ \bm{\Omega }%
+\left( t_{E}\left( x^{\prime },i^{\prime },x\right) \right) -\Omega \left(
+x\right) \right] dH_n\left( x^{\prime },i^{\prime }\right)  \notag \\
+\text{Shock} &&+\:\:{\Gamma }_{z}\left[ \bm{\Omega },\Omega \right]
+\left( x\right) .  \notag
+\end{eqnarray}%
+This joint value is only written in terms of other joint values
+and worker values. However, it involves both firm and worker decisions
+through the sets $\mathcal{A}, \mathcal{Q}^{E}$ and the vacancy policy, $v(x)$.
+
+\paragraph{Derivation.}
+
+We start by computing the sum of the workers' values at a particular firm.
+Summing values of all the employed workers
+\begin{eqnarray*}
+\rho \sum\limits_{i=1}^{n\left( x\right) }V\left( x,i\right)
+&=&\sum\limits_{i=1}^{n\left( x\right) }w\left( x,i\right) \\
+\text{Destructions} &&+\sum\limits_{i=1}^{n\left( x\right) }\delta \left[
+U-V\left( x,i\right) \right] \\
+\text{Retentions} &&+\lambda ^{E}\sum\limits_{i=1}^{n\left( x\right)
+}\int_{x^{\prime }\notin \mathcal{Q}^{E}\left( x,i\right) }\left[ \boldsymbol{V}%
+\left( r\left( x,i,x^{\prime }\right) ,i\right) -V\left( x,i\right) \right]
+dH_v\left( x^{\prime }\right) \\
+\text{$EE$ Quits} &&+\lambda ^{E}\sum\limits_{i=1}^{n\left( x\right)
+}\int_{x^{\prime }\in \mathcal{Q}^{E}\left( x,i\right) }\left[ \boldsymbol{V}%
+\left( h_{E}\left( x,i,x^{\prime }\right) \right) -V\left( x,i\right) \right]
+dH_v\left( x^{\prime }\right) \\
+\text{Incumbents} &&+\sum\limits_{i=1}^{n\left( x\right) }\rho V_{I}(x,i) \\
+\text{Firm} &&+\sum\limits_{i=1}^{n\left( x\right) }\rho V_{D}(x,i)
+\end{eqnarray*}
+
+where the indirect terms due to incumbents and the firm can be written as:
+\begin{eqnarray*}
+\sum\limits_{i=1}^{n\left( x\right) }\rho V_{I}(x,i) &=& \\
+\text{Destructions} &&\sum\limits_{i=1}^{n\left( x\right) }\sum_{j\neq
+i}^{n\left( x\right) }\delta \left[ \boldsymbol{V}\left( d(x,j),i\right)
+-V\left( x,i\right) \right] \\
+\text{Retentions} &&+\sum\limits_{i=1}^{n\left( x\right) }\sum_{j\neq
+i}^{n\left( x\right) }\lambda ^{E}\int_{x^{\prime }\notin \mathcal{Q}%
+^{E}\left( x,j\right) }\left[ \boldsymbol{V}\left( r\left( x,j,x^{\prime
+}\right) ,i\right) -V\left( x,i\right) \right] dH_v\left( x^{\prime }\right) \\
+\text{$EE$ Quits} &&+\sum\limits_{i=1}^{n\left( x\right) }\sum_{j\neq
+i}^{n\left( x\right) }\lambda ^{E}\int_{x^{\prime }\in \mathcal{Q}^{E}\left(
+x,j\right) }\left[ \boldsymbol{V}\left( q_{E}\left( x,j,x^{\prime }\right)
+,i\right) -V\left( x,i\right) \right] dH_v\left( x^{\prime }\right) \ , \\
+\sum\limits_{i=1}^{n\left( x\right) }\rho V_{F}(x,i) &=& \\
+\text{$UE$ Hires} &&qv\left( x\right) \phi \sum\limits_{i=1}^{n\left(
+x\right) }\left[ \boldsymbol{V}\left( h_{U}\left( x\right) ,i\right) -V\left(
+x,i\right) \right] \cdot \mathbb{I}_{\left\{ x\in \mathcal{A}\right\} } \\
+\text{$UE$ Threats} &&+qv\left( x\right) \phi \sum\limits_{i=1}^{n\left(
+x\right) }\left[ \boldsymbol{V}\left( t_{U}\left( x\right) ,i\right) -V\left(
+x,i\right) \right] \cdot \mathbb{I}_{\left\{ x\notin \mathcal{A}\right\} } \\
+\text{$EE$ Hires} &&+qv\left( x\right) \left( 1-\phi \right)
+\sum\limits_{i=1}^{n\left( x\right) }\int_{x\in \mathcal{Q}^{E}\left(
+x^{\prime },i^{\prime }\right) }\left[ \boldsymbol{V}\left( h_{E}\left(
+x^{\prime },i^{\prime },x\right) ,i\right) -V\left( x,i\right) \right]
+dH_n\left( x^{\prime },i^{\prime }\right) \\
+\text{$EE$ Threats} &&+qv\left( x\right) \left( 1-\phi \right)
+\sum\limits_{i=1}^{n\left( x\right) }\int_{x\notin \mathcal{Q}^{E}\left(
+x^{\prime },i^{\prime }\right) }\left[ \boldsymbol{V}\left( t_{E}\left(
+x^{\prime },i^{\prime },x\right) ,i\right) -V\left( x,i\right) \right]
+dH_n\left( x^{\prime },i^{\prime }\right) \\
+\text{Shocks} &&+\sum\limits_{i=1}^{n\left( x\right) } \Gamma_z[\boldsymbol{V}%
+,V](x,i)
+\end{eqnarray*}%
+We now collect terms.
+
+\paragraph{Destructions.}
+
+When worker $i$ separates from firm $x$, the sum of the changes in values of
+all employed workers at its own firm is given by:
+\begin{eqnarray*}
+\text{Destructions} &=&\delta \left[ U-V\left( x,i\right) \right] +\delta
+\sum_{j\neq i}^{n\left( x\right) }\left[ \boldsymbol{V}\left( d(x,i),j\right)
+-V\left( x,j\right) \right] =\delta \left[ U+\sum_{j\neq i}^{n\left( x\right) }\boldsymbol{V}\left(
+d(x,i),j\right) -\sum_{j=1}^{n\left( x\right) }V\left( x,j\right) \right]
+\end{eqnarray*}
+
+\paragraph{Retentions.}
+
+When $i$ renegotiates at firm $x$, the sum of the changes in values of all
+employed workers at its own firm is given by:
+\begin{eqnarray*}
+\hspace*{-1cm}\text{Retentions} &=&\lambda ^{E}\int_{x^{\prime }\notin \mathcal{Q}%
+^{E}\left( x,i\right) }\left[ \mathbf{V}\left( r\left( x,i,x^{\prime
+}\right) ,i\right) -V\left( x,i\right) \right] dH_v\left( x^{\prime }\right) ++\lambda ^{E}\int_{x^{\prime }\notin \mathcal{Q}^{E}\left( x,i\right)
+}\sum_{j\neq i}^{n\left( x\right) }\left[ \mathbf{V}\left( r\left(
+x,i,x^{\prime }\right) ,j\right) -V\left( x,j\right) \right] dH_v\left(
+x^{\prime }\right) \\
+&=&\lambda ^{E}\int_{x^{\prime }\notin \mathcal{Q}^{E}\left( x,i\right) }%
+\left[ \mathbf{V}\left( r\left( x,i,x^{\prime }\right) ,i\right)
++\sum_{j\neq i}^{n\left( x\right) }\mathbf{V}\left( r\left( x,i,x^{\prime
+}\right) ,j\right) -\sum_{j=1}^{n\left( x\right) }V\left( x,j\right) \right]
+dH_v\left( x^{\prime }\right) \\
+&=&\lambda ^{E}\int_{x^{\prime }\notin \mathcal{Q}^{E}\left( x,i\right) }%
+\left[ \sum_{j=1}^{n\left( x\right) }\mathbf{V}\left( r\left( x,i,x^{\prime
+}\right) ,j\right) -\sum_{j=1}^{n\left( x\right) }V\left( x,j\right) \right]
+dH_v\left( x^{\prime }\right)
+\end{eqnarray*}
+
+\paragraph{Quits.}
+
+Similarly, when $i$ quits firm $x$, the sum of the changes in values of all
+employed workers at its own firm is given by:
+\begin{equation*}
+\text{$EE$ Quits}=\lambda ^{E}\int_{x^{\prime }\in Q\left( x,i\right) }\left[
+\boldsymbol{V}\left( h_{E}\left( x,i,x^{\prime }\right) ,i\right) +\sum_{j\neq
+i}^{n\left( x\right) }\boldsymbol{V}\left( q_{E}\left( x,i,x^{\prime }\right)
+,j\right) -\sum_{j=1}^{n\left( x\right) }V\left( x,j\right) \right] dH_v\left(
+x^{\prime }\right)
+\end{equation*}
+
+\paragraph{Combining terms.}
+
+Before summing up all these terms, define for convenience the total worker value:
+\begin{eqnarray*}
+\rho \overline{V}\left( x\right) &=&\sum\limits_{i=1}^{n\left( x\right) }w\left(
+x,i\right) \\
+\text{Destructions} &&+\sum\limits_{i=1}^{n\left( x\right) }\delta \left[
+U+\sum_{j\neq i}^{n\left( x\right) }\boldsymbol{V}\left( d(x,i),j\right)
+-\sum_{j=1}^{n\left( x\right) }V\left( x,j\right) \right] \\
+\text{Retentions} &&+\lambda ^{E}\sum\limits_{i=1}^{n\left( x\right)
+}\int_{x^{\prime }\notin \mathcal{Q}^{E}\left( x,i\right) }\left[
+\sum_{j=i}^{n\left( x\right) }\boldsymbol{V}\left( r\left( x,i,x^{\prime
+}\right) ,j\right) -\sum_{j=1}^{n\left( x\right) }V\left( x,j\right) \right]
+dH_v\left( x^{\prime }\right) \\
+\text{$EE$ Quits} &&+\lambda ^{E}\sum\limits_{i=1}^{n\left( x\right)
+}\int_{x^{\prime }\in \mathcal{Q}^{E}\left( x,i\right) }\left[ \boldsymbol{V}%
+\left( h_{E}\left( x,i,x^{\prime }\right) ,i\right) +\sum_{j\neq i}^{n\left(
+x\right) }\boldsymbol{V}\left( q_{E}\left( x,i,x^{\prime }\right) ,j\right)
+-\sum_{j=1}^{n\left( x\right) }V\left( x,j\right) \right] dH_v\left( x^{\prime
+}\right) \\
+\text{$UE$ Hires} &&+qv\left( x\right) \phi \sum\limits_{i=1}^{n\left(
+x\right) }\left[ \boldsymbol{V}\left( h_{U}\left( x\right) ,i\right) -V\left(
+x,i\right) \right] \cdot \mathbb{I}_{\left\{ x\in \mathcal{A}\right\} } \\
+\text{$UE$ Threats} &&+qv\left( x\right) \phi \sum\limits_{i=1}^{n\left(
+x\right) }\left[ \boldsymbol{V}\left( t_{U}\left( x\right) ,i\right) -V\left(
+x,i\right) \right] \cdot \mathbb{I}_{\left\{ x\notin \mathcal{A}\right\} } \\
+\text{$EE$ Hires} &&+qv\left( x\right) \left( 1-\phi \right)
+\sum\limits_{i=1}^{n\left( x\right) }\int_{x\in \mathcal{Q}^{E}\left(
+x^{\prime },i^{\prime }\right) }\left[ \boldsymbol{V}\left( h_{E}\left(
+x^{\prime },i^{\prime },x\right) ,i\right) -V\left( x,i\right) \right]
+dH_n\left( x^{\prime },i^{\prime }\right) \\
+\text{$EE$ Threats} &&+qv\left( x\right) \left( 1-\phi \right)
+\sum\limits_{i=1}^{n\left( x\right) }\int_{x\notin \mathcal{Q}^{E}\left(
+x^{\prime },i^{\prime }\right) }\left[ \boldsymbol{V}\left( t_{E}\left(
+x^{\prime },i^{\prime },x\right) ,i\right) -V\left( x,i\right) \right]
+dH_n\left( x^{\prime },i^{\prime }\right) \\
+\text{Shocks} &&+\sum\limits_{i=1}^{n\left( x\right) }\Gamma_z[\boldsymbol{V}%
+,V](x,i)
+\end{eqnarray*}%
+Now sum, up all the previous terms, collect terms and use the definition of $%
+\overline{V}\left( x\right) $:
+\begin{eqnarray*}
+\rho \overline{V}\left( x\right) &=&\sum\limits_{i=1}^{n\left( x\right) }w\left(
+x,i\right) \\
+\text{Destructions} &&+\sum\limits_{i=1}^{n\left( x\right) }\delta \left[
+U+\sum_{j\neq i}^{n\left( x\right) }\boldsymbol{V}\left( d(x,i),j\right) -\overline{V}%
+\left( x\right) \right] \\
+\text{Retentions} &&+\lambda ^{E}\sum\limits_{i=1}^{n\left( x\right)
+}\int_{x^{\prime }\notin \mathcal{Q}^{E}\left( x,i\right) }\left[
+\sum_{j=i}^{n\left( x\right) }\boldsymbol{V}\left( r\left( x,i,x^{\prime
+}\right) ,j\right) -\overline{V}\left( x\right) \right] dH_v\left( x^{\prime
+}\right) \\
+\text{$EE$ Quits} &&+\lambda ^{E}\sum\limits_{i=1}^{n\left( x\right)
+}\int_{x^{\prime }\in \mathcal{Q}^{E}\left( x,i\right) }\left[ \boldsymbol{V}%
+\left( h_{E}\left( x,i,x^{\prime }\right) ,i\right) +\sum_{j\neq i}^{n\left(
+x\right) }\boldsymbol{V}\left( q_{E}\left( x,i,x^{\prime }\right) ,j\right) -%
+\overline{V}\left( x\right) \right] dH_v\left( x^{\prime }\right) \\
+\text{$UE$ Hires} &&+qv\left( x\right) \phi \left[ \sum\limits_{i=1}^{n%
+\left( x\right) }\boldsymbol{V}\left( h_{U}\left( x\right) ,i\right) -\overline{V}%
+\left( x\right) \right] \cdot \mathbb{I}_{\left\{ x\in \mathcal{A}\right\} }
+\\
+\text{$UE$ Threats} &&+qv\left( x\right) \phi \left[ \sum\limits_{i=1}^{n%
+\left( x\right) }\boldsymbol{V}\left( t_{U}\left( x\right) ,i\right) -\overline{V}%
+\left( x\right) \right] \cdot \mathbb{I}_{\left\{ x\notin \mathcal{A}%
+\right\} } \\
+\text{$EE$ Hires} &&+qv\left( x\right) \left( 1-\phi \right) \int_{x\in
+\mathcal{Q}^{E}\left( x^{\prime },i^{\prime }\right) }\left[
+\sum\limits_{i=1}^{n\left( x\right) }\boldsymbol{V}\left( h_{E}\left( x^{\prime
+},i^{\prime },x\right) ,i\right) -\overline{V}\left( x\right) \right] dH_n\left(
+x^{\prime },i^{\prime }\right) \\
+\text{$EE$ Threats} &&+qv\left( x\right) \left( 1-\phi \right) \int_{x\notin
+\mathcal{Q}^{E}\left( x^{\prime },i^{\prime }\right) }\left[
+\sum\limits_{i=1}^{n\left( x\right) }\boldsymbol{V}\left( t_{E}\left( x^{\prime
+},i^{\prime },x\right) ,i\right) -\overline{V}\left( x\right) \right] dH_n\left(
+x^{\prime },i^{\prime }\right) \\
+\text{Shocks} &&+\Gamma_z[\boldsymbol{\overline{V}},\overline{V}](x)
+\end{eqnarray*}
+Adding this last equation to the Bellman equation for $J(x)$ yields
+{\small
+\begin{eqnarray*}
+\rho \Omega \left( x\right) &=&y\left( x\right) -c\left( v\left( x\right)
+,x\right) \\
+\text{Destructions} &&+\sum\limits_{i=1}^{n\left( x\right) }\delta \left[
+\boldsymbol{J}\left( d(x,i)\right) +U+\sum_{j\neq i}^{n\left( x\right) }\boldsymbol{V%
+}\left( d(x,i),j\right) -J\left( x\right) -\overline{V}\left( x\right) \right] \\
+\text{Retentions} &&+\lambda ^{E}\sum\limits_{i=1}^{n\left( x\right)
+}\int_{x^{\prime }\notin \mathcal{Q}^{E}\left( x,i\right) }\left[ \boldsymbol{J}%
+\left( r\left( x,i,x^{\prime }\right) \right) +\sum_{j=i}^{n\left( x\right) }%
+\boldsymbol{V}\left( r\left( x,i,x^{\prime }\right) ,j\right) -J\left( x\right) -%
+\overline{V}\left( x\right) \right] dH_v\left( x^{\prime }\right) \\
+\text{$EE$ Quits} &&+\lambda ^{E}\sum\limits_{i=1}^{n\left( x\right)
+}\int_{x^{\prime }\in \mathcal{Q}^{E}\left( x,i\right) }\Bigg[ \boldsymbol{J}%
+\left( q_{E}\left( x,i,x^{\prime }\right) \right) +\boldsymbol{V}\left(
+h_{E}\left( x,i,x^{\prime }\right) ,i\right) +\sum_{j\neq i}^{n\left(
+x\right) }\boldsymbol{V}\left( q_{E}\left( x,i,x^{\prime }\right) ,j\right)
+-J\left( x\right) -\overline{V}\left( x\right) \Bigg] dH_v\left( x^{\prime }\right)
+\\
+\text{$UE$ Hires} &&+qv\left( x\right) \phi \left[ \boldsymbol{J}\left(
+h_{U}\left( x\right) \right) +\sum\limits_{i=1}^{n\left( x\right) }\boldsymbol{V}%
+\left( h_{U}\left( x\right) ,i\right) -J\left( x\right) -\overline{V}\left(
+x\right) \right] \cdot \mathbb{I}_{\left\{ x\in \mathcal{A}\right\} } \\
+\text{$UE$ Threats} &&+qv\left( x\right) \phi \left[ \boldsymbol{J}\left(
+t_{U}\left( x\right) \right) +\sum\limits_{i=1}^{n\left( x\right) }\boldsymbol{V}%
+\left( t_{U}\left( x\right) ,i\right) -J\left( x\right) -\overline{V}\left(
+x\right) \right] \cdot \mathbb{I}_{\left\{ x\notin \mathcal{A}\right\} } \\
+\text{$EE$ Hires} &&+qv\left( x\right) \left( 1-\phi \right) \int_{x\in
+\mathcal{Q}^{E}\left( x^{\prime },i^{\prime }\right) }\left[ \boldsymbol{J}%
+\left( h_{E}\left( x^{\prime },i^{\prime },x\right) \right)
++\sum\limits_{i=1}^{n\left( x\right) }\boldsymbol{V}\left( h_{E}\left( x^{\prime
+},i^{\prime },x\right) ,i\right) -J\left( x\right) -\overline{V}\left( x\right) %
+\right] dH_n\left( x^{\prime },i^{\prime }\right) \\
+\text{$EE$ Threats} &&+qv\left( x\right) \left( 1-\phi \right) \int_{x\notin
+\mathcal{Q}^{E}\left( x^{\prime },i^{\prime }\right) }\left[ \boldsymbol{J}%
+\left( t_{E}\left( x^{\prime },i^{\prime },x\right) \right)
++\sum\limits_{i=1}^{n\left( x\right) }\boldsymbol{V}\left( t_{E}\left( x^{\prime
+},i^{\prime },x\right) ,i\right) -J\left( x\right) -\overline{V}\left( x\right) %
+\right] dH_n\left( x^{\prime },i^{\prime }\right) \\
+\text{Shocks} &&+\Gamma_z[\boldsymbol{J} + \boldsymbol{\overline{V}},J + \overline{V}](x)
+-J\left( x\right) -\overline{V}\left( x\right)
+\end{eqnarray*}}
+Collecting terms and using the definition of $\Omega$ :
+{\small
+\begin{eqnarray*}
+\rho \Omega \left( x\right) &=&y\left( x\right) -c\left( v\left( x\right)
+,x\right) \\
+\text{Destructions} &&+\sum\limits_{i=1}^{n\left( x\right) }\delta \left[
+\boldsymbol{\Omega}\left( d(x,i)\right) +U -\Omega \left( x\right) \right] \\
+\text{Retentions} &&+\lambda ^{E}\sum\limits_{i=1}^{n\left( x\right)
+}\int_{x^{\prime }\notin \mathcal{Q}^{E}\left( x,i\right) }\left[ \boldsymbol{%
+\Omega}\left( r\left( x,i,x^{\prime }\right) \right) -\Omega \left( x\right) %
+\right] dH_v\left( x^{\prime }\right) \\
+\text{$EE$ Quits} &&+\lambda ^{E}\sum\limits_{i=1}^{n\left( x\right)
+}\int_{x^{\prime }\in \mathcal{Q}^{E}\left( x,i\right) }\left[ \boldsymbol{\Omega%
+}\left( q_{E}\left( x,i,x^{\prime }\right) \right) +\boldsymbol{V}\left(
+h_{E}\left( x,i,x^{\prime }\right) ,i\right) -\Omega \left( x\right) \right]
+dH_v\left( x^{\prime }\right) \\
+\text{$UE$ Hires} &&+qv\left( x\right) \phi \left[ \boldsymbol{\Omega}\left(
+h_{U}\left( x\right) \right) - U -\Omega \left( x\right) \right] \cdot
+\mathbb{I}_{\left\{ x\in \mathcal{A}\right\} } \\
+\text{$UE$ Threats} &&+qv\left( x\right) \phi \left[ \boldsymbol{\Omega}\left(
+t_{U}\left( x\right) \right) -\Omega \left( x\right) \right] \cdot \mathbb{I}%
+_{\left\{ x\notin \mathcal{A}\right\} } \\
+\text{$EE$ Hires} &&+qv\left( x\right) \left( 1-\phi \right) \int_{x\in
+\mathcal{Q}^{E}\left( x^{\prime },i^{\prime }\right) }\left[ \boldsymbol{\Omega}%
+\left( h_{E}\left( x^{\prime },i^{\prime },x\right) \right) -\boldsymbol{V}%
+\left( h_{E}\left( x^{\prime },i^{\prime },x\right) ,i^{\prime}\right)
+-\Omega \left( x\right) \right] dH_n\left( x^{\prime },i^{\prime }\right) \\
+\text{$EE$ Threats} &&+qv\left( x\right) \left( 1-\phi \right) \int_{x\notin
+\mathcal{Q}^{E}\left( x^{\prime },i^{\prime }\right) }\left[ \boldsymbol{\Omega}%
+\left( t_{E}\left( x^{\prime },i^{\prime },x\right) \right) -\Omega \left(
+x\right) \right] dH_n\left( x^{\prime },i^{\prime }\right) \\
+\text{Shocks} &&+\Gamma_z[\boldsymbol{\overline{\Omega}},\overline{\Omega}](x)
+\end{eqnarray*}
+}
+
+
+\subsection{Value sharing}
+
+To make progress on $(\ref{eq:D_omega1})$, we begin by stating seven intermediate results, conditions \textbf{(C-RT)-(C-E)} which we prove from
+the assumptions listed in Section 2.2. These results establish how worker values \textbf{$\bm{V}$} in $(\ref{eq:D_omega1})$ evolve in the six cases of hiring, retention, layoff, quits, exit and vacancy creation. Next, we apply conditions \textbf{(C-RT)-(C-E)} to $(\ref{eq:D_omega1})$.
+
+To highlight the structure of the argument, we note a key implication our zero-sum game assumption \textbf{(A-IN)}: during internal negotiation, any value lost to one party must accrue to the other. This feature is obvious in the static model, and extends readily to our dynamic environment. 
+In other words, the joint value of the firm plus its incumbent workers is invariant during the negotiation. We use this property extensively in the proof. This generalizes pairwise efficient bargaining---commonly used in one-worker firm models with linear production---to an environment with multi-worker firms and decreasing returns in production.
+
+We now state the seven conditions that we apply to $(\ref{eq:D_omega1})$. In section \ref{sec:proofC} below, we prove how each of them is implied by the
+assumptions of Section $2.2$.
+
+\begin{enumerate}
+\item[\textbf{(C-RT)}] \textbf{Retentions and Threats.} First, if firm $x$
+meets an unemployed worker and the worker is not hired but only used as a
+threat, then the joint value of coalition $x$ does not change since threats
+only redistribute value within the coalition. Second, when firm $x$ uses employed worker $i^{\prime }$ from firm $x^{\prime }$ as a threat, the joint value of coalition $x$ does not change. Third, when firm $x$ meets worker $i^{\prime }$ at $x^{\prime }$ and the worker is retained by
+firm $x^{\prime }$, the joint value of coalition $x^{\prime }$ does not change. Formally,
+\begin{equation*}
+\bm{\Omega }\left( r\left( x^{\prime },i^{\prime },x\right)
+\right)=\Omega (x^{\prime })\quad,\quad \bm{\Omega }\left( t_{U}\left(
+x\right) \right) =\Omega (x)\quad,\quad \bm{\Omega }\left( t_{E}\left(
+x^{\prime },i^{\prime },x\right) \right)=\Omega (x).
+\end{equation*}
+Respectively, these imply that the \emph{Retention}, \emph{$UE$
+Threat} and \emph{$EE$ Threat} components of $(\ref{eq:D_omega1})$ are equal
+to zero.
+\item[\textbf{(C-UE)}] \textbf{$UE$ Hires.} An unemployed worker that meets
+firm $x$ is hired when $x\in\mathcal{A}$. This set consists of firms that
+have a joint value after hiring that is higher than the pre-hire joint value
+plus the outside value of the hired worker.
+Due to the take-leave offer, the new hire receives her outside value, which is the value of unemployment:
+\begin{equation*}
+\mathcal{A}=\{x|\bm{\Omega}(h_{U}(x))-\Omega(x)\geq U\}
+\quad,\quad
+\bm{V}\left( h_{U}\left( x\right) ,i\right) =U.
+\end{equation*}
+
+\item[\textbf{(C-EE)}] \textbf{$EE$ Hires.} An employed worker $i^{\prime }$
+at firm $x^{\prime }$ that meets firm $x$ is hired when $x\in \mathcal{Q}%
+^{E}\left(x^{\prime },i^{\prime }\right)$. This set consists of firms that
+have a higher marginal joint value than that of the current firm:
+\begin{equation*}
+\mathcal{Q}^{E}\left( x^{\prime },i^{\prime }\right) =\left\{ x\Big|\bm{%
+\Omega }\left( h_{E}\left( x^{\prime },i^{\prime },x\right) \right) -\Omega
+\left( x\right) \geq \Omega (x^{\prime })-\bm{\Omega }\left( q_{E}\left(
+x^{\prime },i^{\prime },x\right) \right) \right\}.
+\end{equation*}
+Due to the take-leave offer, the new hire receives her
+outside value, which is the
+marginal joint value at her current firm:
+\begin{equation*}
+\bm{V}\left( h_{E}\left( x^{\prime },i^{\prime },x\right) \right)
+=\Omega \left( x^{\prime }\right) -\bm{\Omega }\left( q_{E}\left(
+x^{\prime },i^{\prime },x\right) \right) .
+\end{equation*}
+
+\item[\textbf{(C-EU)}] $EU$\textbf{\ Quits and Layoffs.} An employed worker $%
+i$ at firm $x$ quits to unemployment when $\left( x,i\right) \in \mathcal{Q}%
+^{U}$. This set consist of states $x$ such that the marginal joint value is
+less than the value of unemployment:
+\begin{eqnarray*}
+\mathcal{Q}^{U}&=&\left\{ (x,i)\Big|\Omega \left( \widehat{s}_{q1}\left(
+x,i\right) \right) +U>\Omega \left( \widehat{s}_{q0}\left( x,i\right) \right)
+\right\}, \\
+%&& \\
+\text{where}\quad\quad\widehat{s}_{q1}\left( x,i\right) &=&s\left( x,\left( 1-\left[ q_{U,-i}\left(
+x\right) ;q_{U,i}\left( x\right) =1\right] \right) \circ \left( 1-\ell
+\left( x\right) \right) \right), \\
+\widehat{s}_{q0} \left( x,i\right) &=&s\left( x,\left( 1-\left[ q_{U,-i}\left(
+x\right) ;q_{U,i}\left( x\right) =0\right] \right) \circ\left( 1-\ell \left(
+x\right) \right)\right).
+\end{eqnarray*}%
+The first expression captures when worker $i$ quits, and the second where
+worker $i$ does not.
+Similarly, an $EU$ layoff will be chosen by the firm
+when $\left( x,i\right) \in \mathcal{L}$:
+\begin{eqnarray*}
+\mathcal{L}&=&\left\{ (x,i)\Big|\Omega \left( \widehat{s}_{\ell 1}\left(
+x,i\right) \right) +U>\Omega \left( \widehat{s}_{\ell 0}\left( x,i\right)
+\right) \right\}, \\
+%&& \\
+\text{where}\quad\quad\widehat{s}_{\ell 1}\left( x,i\right) &=&s\left( x,\left( 1-\left[ \ell \left(
+x\right) ;\ell _{i}\left( x\right) =1\right] \right) \circ \left(
+1-q_{U}\left( x\right) \right) \right) , \\
+\widehat{s}_{\ell 0}\left( x,i\right) &=&s\left( x,\left( 1-\left[ \ell \left(
+x\right) ;\ell _{i}\left( x\right) =0\right] \right) \circ \left(
+1-q_{U}\left( x\right) \right) \right) .
+\end{eqnarray*}%
+The first expression captures when worker $i$ is laid off, and the second
+when worker $i$ is not.
+
+\item[\textbf{(C-X)}] \textbf{Exit.} A firm $x$ exits when $x\in \mathcal{E}$%
+. This set consists of the states in which the total outside value of the
+firm and its workers is larger than the joint value of operation:
+\begin{equation*}
+\mathcal{E}=\left\{ x\Big|\vartheta +n\left( s\left( x,\kappa \left(
+x\right) \right) \right) \cdot U>\Omega \left( s\left( x,\kappa \left(
+x\right) \right) \right) \right\} .
+\end{equation*}
+
+\item[\textbf{(C-V)}] \textbf{Vacancies.} The expected return to a matched
+vacancy $R(x)$ depends only on the joint value, and so the firm's optimal
+vacancy policy $v(x)$ depends only on the joint value. The policy $v(x)$
+solves
+\begin{equation*}
+\max_{v}\:\:q(\theta)vR(x)-c\left( v,x\right),
+\end{equation*}
+where the expected return to a matched vacancy is
+\begin{eqnarray*}
+R(x) &=& \phi \underbrace{\Big.\left[ \bm{\Omega }\left( h_{U}\left( x\right)
+\right) -\Omega \left( x\right) -U\right] \cdot \mathbb{I}_{\left\{ x\in
+\mathcal{A}\right\} }}_{\text{Return from unemployed worker match}} \\
+&+&\left( 1-\phi \right)\underbrace{\Big.\int_{x\in \mathcal{Q}^{E}\left(
+x^{\prime },i^{\prime }\right) }\left\{ \left[ \bm{\Omega }\left(
+h_{E}\left( x^{\prime },i^{\prime },x\right) \right) -\Omega \left( x\right) %
+\right] -\left[ \Omega \left( x^{\prime }\right) -\bm{\Omega }\left(
+q_{E}\left( x^{\prime },i^{\prime },x\right) \right) \right] \right\}
+dH_n\left( x^{\prime },i^{\prime }\right)}_{\text{Expected return from
+employed worker match}} .
+\end{eqnarray*}
+
+\item[\textbf{(C-E)}] \textbf{Entry.} A firm enters if and only if
+\begin{equation*}
+\int \bm{\Omega }\left( x_{0}\right) d\Pi _{0}(z)\geq c_{0}+n_{0}U.
+\end{equation*}
+\end{enumerate}
+
+\paragraph{Summarizing (C).}
+
+The substantive result is that all firm and worker decisions and employed
+workers' values can be expressed in terms of joint value $\Omega$ and
+exogenous worker outside option $U$.
+
+\subsection{Proof of Conditions (C)}
+
+\label{sec:proofC}
+
+\subsubsection{Proof of C-UE and C-RT ($UE$ Hires and $UE$ Threats) \label{ue}}
+
+In this subsection, we consider a meeting between a firm $x$ and an
+unemployed worker. Following \textbf{A-IN} and \textbf{A-EN}, the firm internally renegotiates according to a zero-sum game with its incumbent workers and makes a take-leave offer  to the new worker. Intuitively, having the
+worker ``at the door'' is identical to having her hired at value $U$ for the
+firm and for all incumbent workers: the firm can always make new take-leave
+offers to its incumbents after hiring the new worker. Hence, we expect the
+firm to make one take-leave offer to the new worker and its incumbents at
+the time of the meeting, and not make a new, different offer to is
+incumbents afer hiring has taken place.
+
+We start by showing this equivalence formally. To do so, when meeting an
+unemployed worker, we let the firm conduct internal renegotiation with its
+incumbent workers and make an offer to the new worker. Then, we let a
+second round of internal offers take place after the hiring. We introduce
+some notation to keep track of values throughout the internal and external
+negotiations. To fix ideas, we denote by (IR1) the first round of internal
+negotiation, pre-external negotiation. We denote by (IR2) the second round
+of internal negotiation, post-hire.
+
+Post-hire and post-internal negotiation (IR2) values are denoted with double
+stars. Post-internal-negotiation (IR1) but pre-external-negotiation values
+are denoted with stars.
+\begin{align*}
+\Omega^{\ast\ast} &
+:=J^{\ast\ast}+\sum_{j=1}^{n(x)}V_{j}^{\ast\ast}+V_{i}^{\ast\ast} &
+\Omega^{\ast} & :=J^{\ast}+\sum_{j=1}^{n(x)}V_{j}^{\ast} &
+\Omega & :=J+\sum_{j=1}^{n\left(x\right)}V_{j}
+\end{align*}
+
+Proceeding by backward induction, under \textbf{A-EN} the firm makes a
+take-it-or-leave-it offer to the unemployed worker, therefore
+\begin{equation*}
+V_{i}^{\ast\ast}=U
+\end{equation*}
+
+We now divide the proof in several steps. We start by proving that for all incumbent workers $j=1...n(x)$, $V_{j}^{\ast\ast}=V_{j}^{\ast}$. We then use \textbf{A-IN} to argue that $\Omega^* = \Omega$. Once these claims have been proven, we move on
+to proving \textbf{C-UE} ($UE$ Hires) and the part of for threats from
+unemployment \textbf{C-RT} ($UE$ Threats). Finally, we show that our microfoundations for the renegotiation game deliver \textbf{A-IN}.
+
+\paragraph{Claim 1:}
+
+For all incumbents workers $j=1...n(x)$, we have $V_{j}^{\ast\ast}=V_{j}^{%
+\ast}$.\newline
+
+We proceed by backwards induction using our assumptions \textbf{A-EN} and \textbf{A-IN}. Immediately after (IR1) has taken place, only the following events can
+happen:
+
+\begin{enumerate}
+\item Hire/not-hire
+
+\begin{itemize}
+\item Either the worker is hired from unemployment (H),
+
+\item Or the worker is not hired from unemployment (NH)
+\end{itemize}
+
+\item Possible new round of internal negotiation (IR2). This possible second
+round of internal negotiation (now including the newly hired worker) leads
+to values $V_j^{**}$.
+\end{enumerate}
+
+We focus on subgame perfect equilibria in this multi-stage game. Therefore,
+after (IR1), workers perfectly anticipate what the outcome of the
+hire/not-hire stage will be. That is, after (IR1), they know perfectly what
+hiring decision (H or NH) the firm will make. Now suppose that internal
+renegotiation (IR2) actually happens after the hire/not-hire decision, that
+is, that for some incumbent worker $j \in \{1,...,n(x)\}$, $V_j^{**} \neq
+V_j^*$. The firm has no incentives to accept a change in the new
+worker's value to anything above $U$, so by \textbf{A-MC} her value does not
+change in the second round (IR2).
+
+We construct the rest of the proof by contradiction. Consider for a
+contradiction an incumbent worker $j$ whose value changed in (IR2). Because
+of \textbf{A-MC}, her value can change only in the following cases:
+
+\begin{itemize}
+\item The firm has a credible threat to fire worker $j$, in which case $%
+V_j^{**} < V_j^*$
+
+\item Worker $j$ has a credible threat to quit, in which case $V_j^{**} >
+V_j^*$
+\end{itemize}
+
+In addition, those credible threats can lead to a different outcome than in
+(IR1), and thus $V_j^{**} \neq V_j^*$, only if the threat on either side was
+not available in (IR1). If that same threat was available in the first round
+(IR1), then the outcome of the bargaining (IR1) would have been $V_j^{**}$.
+
+Recall that both incumbent worker $j$ and the firm understand and anticipate
+which hire/not-hire decision the firm will make after the first round (IR1).
+They also understand and anticipate that, in case of hire, the value of the
+new worker will remain $U$ in the second round (IR2).
+
+Therefore, the firm can \textit{credibly threaten} to hire the new worker in
+the first round \textit{if and only if} it actually hires her after the
+first round (IR1) is over. This implies that the firm can credibly threaten
+worker to fire $j$ in the second round (IR2), by \textbf{A-LC}, \textit{if
+and only if} it could credibly threaten her with hiring the new worker
+\textit{in the first round of internal renegotiation (IR1).} This in turn
+entails that any credible threat the firm can make in the second round
+(IR2) was already available in the first round.
+
+On the worker side, quitting into unemployment is a credible threat
+when her value is below the value of unemployment. So this threat does not
+change between the first round (IR1) and the second round (IR2), because the
+equilibrium value to that worker will always be above the value of
+unemployment.
+
+In sum, the set of credible threats both to the firm and to worker $j$ does
+not change between the initial round of internal renegotiation (IR1) and the
+post-hiring-decision round (IR2). This finally implies that the outcome of
+the initial round of internal renegotiation (IR1) for any incumbent $j$
+remains unchanged in the second round (IR2), that is:
+\begin{equation*}
+V_j^{**} = V_j^*
+\end{equation*}
+which proves \textbf{Claim 1}.
+
+We can now move on to proving \textbf{C-UE}.
+
+\paragraph{Proof of C-UE.}
+
+Using the definitions of $\Omega^{**}$ and $\Omega$, we can write
+\begin{align*}
+\Omega^{\ast\ast}-\Omega & =\left[J^{\ast\ast}+\sum_{j=1}^{n(x)}V_{j}^{\ast%
+\ast}+V_{i}^{\ast\ast}\right]-\left[J+\sum_{j=1}^{n\left(x\right)}V_{j}%
+\right]
+\end{align*}
+Now using $V_i^{**} =U$, we obtain
+\begin{align*}
+\Omega^{\ast\ast}-\Omega & =\left[J^{\ast\ast}+\sum_{j=1}^{n(x)}V_{j}^{\ast%
+\ast}\right]-\left[J+\sum_{j=1}^{n\left(x\right)}V_{j}\right]+U
+\end{align*}
+Using \textbf{Claim 1:} $V_{j}^{**} = V_j^*$, and adding and subtracting $J^\ast$ we obtain
+\begin{align*}
+\Omega^{\ast\ast}-\Omega & =\left[J^{\ast\ast}-J^{\ast}\right]
++\left[J^{\ast}+\sum_{j=1}^{n(x)}V_{j}^{\ast}\right]
+-\left[J+\sum_{j=1}^{n\left(x\right)}V_{j}\right]+U
+\end{align*}
+Subsituting in the definition of $\Omega$ and of $\Omega^*$,
+\begin{align*}
+\Omega^{\ast\ast}-\Omega & =\left[J^{\ast\ast}-J^{\ast}\right]%
++\left[\Omega^*-\Omega\right] +U
+\end{align*}
+Finally recall that internal renegotiation is (1) individually rational, and (2) is a zero-sum game, according to \textbf{A-IN}. Thus, all incumbent workers remain in the coalition after internal renegotiation, and the joint value is unchanged: $\Omega^* = \Omega$. Using $\Omega^* = \Omega$
+\begin{align*}
+\Omega^{\ast\ast}-\Omega & =\left[J^{\ast\ast}-J^{\ast}\right]+U
+\end{align*}
+which can be re-written
+\begin{align*}
+J^{\ast\ast}-J^{\ast} & =\left[\Omega^{\ast\ast}-\Omega\right]-U
+\end{align*}
+Now under \textbf{A-LC}, the firm will only hire if its value after hiring
+is higher than its value after internal renegotiation: $J^{\ast\ast}-J^{%
+\ast}\geq0$. This inequality requires
+\begin{align*}
+\Omega^{\ast\ast}-\Omega & \geq U \\
+\boldsymbol{\Omega}\left(h_{U}\left(x\right)\right)-\Omega\left(x\right) & \geq U
+\end{align*}
+The firm does not hire when its value of hiring is below its value of
+renegotiation $J^{**} < J^*$. This inequality implies
+\begin{equation*}
+\Omega^{\ast\ast}-\Omega < U
+\end{equation*}
+When the firm does not hire, we obtain using again \textbf{A-IN} and $\Omega^* = \Omega$:
+\begin{equation*}
+\Omega^{\ast\ast}-\Omega^* < U \newline
+\end{equation*}
+which finally implies
+\begin{equation*}
+\boldsymbol{\Omega}\left(h_{U}\left(x\right)\right)-\boldsymbol{\Omega}%
+\left(t_U(x)\right) < U
+\end{equation*}
+
+Now, we argue that conditional on not hiring, $\Omega^{**} = \Omega^* = \Omega$, where in this
+case $\Omega^{**}$ denotes the value of the coalition without hiring, and
+thus does not include the value of the unemployed worker. Just as before, this is a direct consequence from \textbf{A-IN} and that the internal renegotiation game is zero-sum.
+
+Therefore:
+\begin{equation*}
+\boldsymbol{\Omega}\left(t_U(x)\right) = \Omega(x)
+\end{equation*}
+We have therefore shown \textbf{C-UE} and part of \textbf{C-RT ($UE$ Hires
+and $UE$ Threats)}: An unemployed worker that meets $x$ is hired when$x\in%
+\mathcal{Q}^{U}$, where
+\begin{equation*}
+\mathcal{A}=\left\{ x\Big|\boldsymbol{\Omega}\left(h_{U}\left(x\right)\right)-%
+\Omega\left(x\right)\geq U\right\}
+\end{equation*}
+and upon joining the firm, has value
+\begin{equation*}
+\boldsymbol{V}\left(h_{U}\left(x,i\right)\right)=U.
+\end{equation*}
+and
+\begin{equation*}
+\boldsymbol{\Omega}(t_U(x)) = \Omega(x).
+\end{equation*}
+
+
+\subsubsection{Proof of C-EE and C-RT ($EE$ Hires, $EE$ Threats and Retentions)}
+
+The structure of the argument for EE hires, threats and retentions follows closely the steps of the argument for UE hires, threats and retentions. The only major difference is that the worker's outside option is endogenously determined when hired from employment. Consider firm $x$ that has met worker $i^{\prime}$ at firm $x^{\prime}$. We proceed in two steps.
+
+\paragraph{Maximum value at incumbent firm.} We first seek to determine the maximum value that $x'$ may offer to its worker when it may be poached by firm $x$. Under \textbf{A-IN} and \textbf{A-EN}, upon meeting an employed worker, internal negotiation
+may take place at the poaching firm $x$, and $x$ makes a
+take-it-or-leave-it offer. Internal negotiation may take place at $%
+x^{\prime}$ with all workers including $i^{\prime}$.
+
+Proceeding by backward induction, we again define intermediate values but
+here at $x^{\prime}$, noting that $q_E\left(x^{\prime},i^{\prime},x\right)$
+gives the number of employees in $x^{\prime}$ if the worker leaves:
+\begin{align*}
+\Omega &
+=J+\sum_{j=1}^{n\left(q_E\left(x^{\prime},i^{\prime},x\right)%
+\right)}V_{j}+V_{i^{\prime}} &
+\Omega^{\ast} &
+=J^{\ast}+\sum_{j=1}^{n\left(q_E\left(x^{\prime},i^{\prime},x\right)%
+\right)}V_{j}^{\ast}+V_{i^{\prime}}^{\ast} &
+\Omega^{\ast\ast} &
+=J^{\ast\ast}+\sum_{j=1}^{n\left(q_E\left(x^{\prime},i^{\prime},x\right)%
+\right)}V_{j}^{\ast\ast}
+\end{align*}
+In the second equation we are describing the values of the firm in
+renegotiation where $i^{\prime}$ stays with the firm, so $%
+V_{i^{\prime}}^{\ast}$ is the outcome of internal negotiation. In the third
+equation we consider the firm having lost the worker. Under \textbf{A-EN} the
+firm will respond to an offer $\overline{V}$ from $x$ with
+\begin{equation*}
+V_{i^{\prime}}^{\ast}=\overline{V}
+\end{equation*}
+Following the same arguments as in \textbf{Claim 1} from section \ref{ue}, the same result obtains: under
+\textbf{A-EN} and \textbf{A-IN}, the values accepted by the incumbent workers \emph{after the
+internal renegotiation $(V_{j}^{\ast})_j$ }will be equal to the
+values they receive \emph{after the} \emph{external negotiation $%
+(V_{j}^{\ast\ast})_j$, }that is
+\begin{equation*}
+V_{j}^{\ast\ast}=V_{j}^{\ast}
+\end{equation*}
+Then following the same steps as in section \ref{ue}, and using again that $\Omega^* = \Omega$, we obtain that:
+\begin{equation*}
+\Omega^{\ast\ast}-\Omega=\left[J^{\ast\ast}-J^{\ast}\right]-\overline{V}
+\end{equation*}
+Now under \textbf{A-LC}, the firm $x^{\prime }$ will only try to keep the
+worker if $J^{\ast }>J^{\ast \ast }$, which requires
+\begin{align*}
+\Omega -\Omega ^{\ast \ast }& \leq \overline{V} &
+\boldsymbol{\Omega} \left( r(x^{\prime },i^{\prime},x\right) -\boldsymbol{\Omega }%
+\left( q_{E}\left( x^{\prime },i^{\prime },x\right) \right) & \leq \overline{V}
+\end{align*}
+This determines the maximum value that $x^{\prime }$ can offer to the worker
+to retain them.
+
+\paragraph{Poaching.} Our second step is to check when worker $i'$ moves from $x'$ to $x$. The bargaining protocol implies that $x$ firm will offer $%
+\overline{V}$ if it is making an offer, since it need not offer more. For firm $x$
+the argument may proceed identically to the case of unemployment, simply
+replacing $U$ with $\overline{V}.$ The result is that the firm will hire only if and only if
+\begin{equation*}
+\boldsymbol{\Omega }\left( h_{E}\left( x^{\prime },i^{\prime },x\right) \right)
+-\Omega\left( x\right) \geq \overline{V}
+\end{equation*}%
+or, equivalently,
+\begin{equation*}
+\boldsymbol{\Omega }\left( h_{E}\left( x^{\prime },i^{\prime },x\right) \right)
+-\Omega \left( x\right) \geq \boldsymbol{\Omega} \left(
+r(x^{\prime},i^{\prime},x)\right) -\boldsymbol{\Omega }\left( q_{E}\left(
+x^{\prime },i^{\prime },x\right) \right)
+\end{equation*}
+When firm $x$ does not hire, \textbf{A-IN} applies, and so
+\begin{equation*}
+\boldsymbol{\Omega}(t_E(x^{\prime},i^{\prime},x)) = \Omega(x)
+\end{equation*}
+Similarly, when firm $x'$ is not poached, \textbf{A-IN} applies, and so
+\begin{equation*}
+\boldsymbol{\Omega}(r(x^{\prime},i^{\prime},x)) = \Omega(x^{\prime})
+\end{equation*}
+
+The combination of these conditions deliver \textbf{C-UE} and part of
+\textbf{C-RT} ($EE$ Hires, $EE$ Threats and Retention):
+
+\begin{enumerate}
+\item The quit set of an employed worker is determined by
+\begin{equation*}
+\mathcal{Q}^{E}\left( x^{\prime },i^{\prime }\right) =\left\{ x\Bigg|\boldsymbol{%
+\Omega }\left( h_{E}\left( x^{\prime },i^{\prime },x\right) \right) -\Omega
+\left( x\right) \geq \Omega \left( x^{\prime }\right) -\boldsymbol{\Omega }%
+\left( q_{E}\left( x^{\prime },i^{\prime },x\right) \right) \right\}
+\end{equation*}
+
+\item The worker's value of being hired from employment from firm $x^{\prime
+}$ is
+\begin{equation*}
+\boldsymbol{V}(h_{E}(x,x^{\prime },i^{\prime }))=\Omega \left( x^{\prime
+}\right) -\boldsymbol{\Omega }\left( q_{E}\left( x^{\prime },i^{\prime
+},x\right) \right)
+\end{equation*}
+
+\item Worker $i^{\prime }$s value of being retained at $x^{\prime }$ after
+meeting $x$ is\footnote{%
+Because offers are made at no cost, both firms always make an offer, even
+when they know that they cannot retain/hire the worker in equilibrium. This
+is exactly the same as in Postel-Vinay Robin (2002).}
+\begin{equation*}
+\boldsymbol{V}(r(x^{\prime },i^{\prime },x),i^{\prime })=\boldsymbol{\Omega }\left(
+h_{E}\left( x^{\prime },i^{\prime },x\right) \right) -\Omega \left( x\right)
+\end{equation*}
+
+\item The joint value of the potential poaching firm $x$ when the worker is
+not hired does not change:
+\begin{equation*}
+\boldsymbol{\Omega}(t_E(x^{\prime},i^{\prime},x)) = \Omega(x)
+\end{equation*}
+
+\item The joint value of the potential poached firm $x^{\prime}$ does not
+change when the worker stays:
+\begin{equation*}
+\boldsymbol{\Omega}(r(x^{\prime},i^{\prime},x)) = \Omega(x^{\prime})
+\end{equation*}
+\end{enumerate}
+
+\subsubsection{Proof of C-EU ($EU$ Quits and layoffs)}
+
+We first derive our expression for $\mathcal{L}$ on the firm side, and next our expression for $\mathcal{Q}^U$ on the worker side.
+
+\paragraph{Part 1: Firm side}
+
+Consider a firm $x$ who is considering laying off worker $i$ for whom $%
+q_{U,i}\left( x\right) =0$. As above, we start with definitions, noting that
+$n(s(\cdot)) \equiv n\left( s\left( x,\left( 1-\left[ \ell \left( x\right) ;\ell _{i}\left(
+x\right) =1\right] \right) \circ \left( 1-q_{U}\left( x\right) \right)
+\right) \right) $ is the number of workers if $i$ is laid off:
+\begin{align*}
+\Omega & =J+\sum_{j=1}^{n\left( s\left( \cdot \right) \right) }V_{j}+V_{i} &
+\Omega ^{\ast }& =J^{\ast }+\sum_{j=1}^{n\left( s\left( \cdot \right)
+\right) }V_{j}^{\ast }+V_{i}^{\ast } &
+\Omega ^{\ast \ast }& =J^{\ast \ast }+\sum_{j=1}^{n\left( s\left( \cdot
+\right) \right) }V_{j}^{\ast \ast }
+\end{align*}
+Note that in the first line the coalition has still worker $i$ in it. In the
+second line, the firm and the worker $i$ have negotiated (and internal
+negotiation has determined $V_{i}^{\ast }$ which is what $i$ will get if
+they stay in the firm). In the third line, the worker has been fired and
+another round of negotiation has occurred among incumbents.
+
+The same result as in \textbf{Claim 1} from section \ref{ue} obtains: under
+\textbf{A-BP}, $V_{j}^{\ast \ast }=V_{j}^{\ast }$. Using this result and the above definitions as before,
+\begin{align*}
+\Omega ^{\ast \ast }-\Omega &=\left[ J^{\ast \ast }-J^{\ast }\right] +\left[ \Omega ^{\ast }-\Omega %
+\right] -V_{i}^{\ast }
+\end{align*}
+Using again \textbf{A-IN} to conclude that $\Omega ^{\ast }=\Omega$, we obtain
+\begin{equation*}
+\Omega ^{\ast \ast }-\Omega =\left[ J^{\ast \ast }-J^{\ast }\right]
+-V_{i}^{\ast }
+\end{equation*}
+Now under \textbf{A-LC}, the firm $x$ will only layoff the worker if $%
+J^{\ast \ast }>J^{\ast }$, which requires
+\begin{equation*}
+\Omega -\Omega ^{\ast \ast }<V_{i}^{\ast }
+\end{equation*}
+As long as $V_{i}^{\ast }>U$ the worker would be willing to renegotiate and transfer value
+to the firm to avoid being laid off, implying
+\begin{equation*}
+\Omega -\Omega ^{\ast \ast }<U.
+\end{equation*}%
+which we can re-write%
+\begin{equation*}
+\Omega \left( s\left( x,\left( 1-\left[ \ell \left( x\right) ;\ell
+_{i}\left( x\right) =1\right] \right) \circ \left( 1-q_{U}\left( x\right)
+\right) \right) ,i\right) +U>\Omega \left( s\left( x,\left( 1-\left[ \ell
+\left( x\right) ;\ell _{i}\left( x\right) =0\right] \right) \circ \left(
+1-q_{U}\left( x\right) \right) \right) ,i\right)
+\end{equation*}%
+where the LHS is $\Omega ^{\ast \ast }+U$ (under the layoff) and the RHS is $%
+\Omega .$ This concludes the proof for the firm side.
+
+\paragraph{Part 2: Worker side}
+
+Consider worker $i$ in firm $x$ who is considering quitting to unemployment
+for whom $\ell _{i}\left( x\right) =0$. As above, we start with definitions,
+noting that $n(s(\cdot)) \equiv n\left( s\left( x,\left( 1-\ell \left( x\right) \right) \circ
+\left( 1-\left[ q_{U,-i}\left( x\right) ;q_{U,i}\left( x\right) =1\right]
+\right) \right) \right) $ is the number of workers if $i$ quits. As before, we define
+\begin{align*}
+\Omega & =J+\sum_{j=1}^{n\left( s\left( \cdot \right) \right) }V_{j}+V_{i} &
+\Omega ^{\ast }& =J^{\ast }+\sum_{j=1}^{n\left( s\left( \cdot \right)
+\right) }V_{j}^{\ast }+V_{i}^{\ast } &
+\Omega ^{\ast \ast }& =J^{\ast \ast }+\sum_{j=1}^{n\left( s\left( \cdot
+\right) \right) }V_{j}^{\ast \ast }
+\end{align*}
+The same result as in \textbf{Claim 1} from section \ref{ue} obtains $%
+V_{j}^{\ast \ast }=V_{j}^{\ast }$. Using this result and the above definitions,
+\begin{align*}
+\Omega ^{\ast \ast }-\Omega &=\left[ J^{\ast \ast }-J^{\ast }\right] +\left[ \Omega ^{\ast }-\Omega %
+\right] -V_{i}^{\ast }
+\end{align*}
+Again, $ \Omega ^{\ast }=\Omega $ from \textbf{A-IN}, so that
+\begin{equation*}
+\Omega ^{\ast \ast }-\Omega =\left[ J^{\ast \ast }-J^{\ast }\right]
+-V_{i}^{\ast }
+\end{equation*}
+Now under \textbf{A-LC}, worker $i$ will quit into unemployment iff $%
+V_{i}^{\ast }<U$, which requires
+\begin{equation*}
+J^{\ast \ast }-J^{\ast }+[\Omega -\Omega ^{\ast \ast }]<U
+\end{equation*}%
+As long as $J^{\ast \ast }<J^{\ast }$, the firm is willing to transfer value
+to worker $i$ to retain her. Therefore, worker $i$ quits into unemployment
+iff the previous inequality holds at $J^{\ast \ast }=J^{\ast }$, i.e.
+\begin{equation*}
+\Omega -\Omega ^{\ast \ast }<U
+\end{equation*}
+Therefore, the worker quits iff
+\begin{align*}
+& \Omega \left( s\left( x,\left( 1-\ell \left( x\right) \right) \circ \left(
+1- \left[ q_{U,-i}\left( x\right) ;q_{U,i}\left( x\right) =1\right] \right)
+\right) ,i\right) +U \\
+& > \Omega \left( s\left( x,\left( 1-\ell \left( x\right) \right) \circ
+\left( 1-\left[ q_{U,-i}\left( x\right) ;q_{U,i}\left( x\right) =0\right]
+\right) \right) ,i\right)
+\end{align*}%
+which concludes the proof of the worker side. This delivers \textbf{C-EU}.
+
+
+\subsubsection{Proof of C-X (Exit)}
+
+Consider a firm $x$ who contemplates exit after all endogenous quits and
+layoffs, thus when its employment is $n\left( s\left( x,\kappa \left(
+x\right) \right) \right) $. As before we define values conditional on
+exiting:
+\begin{align*}
+\Omega & =J+\sum_{j=1}^{n\left( s\left( \cdot \right) \right) }V_{j} &
+\Omega ^{\ast }& =J^{\ast }+\sum_{j=1}^{n\left( s\left( \cdot \right)
+\right) }V_{j}^{\ast } &
+\Omega ^{\ast \ast }& =J^{\ast \ast }+0
+\end{align*}%
+The joint value after exit is simply the value of the firm,
+since all other workers have left because of exit. Following similar calculations as before,
+\begin{eqnarray*}
+\Omega ^{\ast \ast }-\Omega&=&\left[ J^{\ast \ast
+}-J^{\ast }\right] +[\Omega ^{\ast }-\Omega ]-\sum_{j=1}^{n\left( s\left(
+\cdot \right) \right) }V_{j}^{\ast }
+\end{eqnarray*}
+Again, $ \Omega ^{\ast }=\Omega $ from \textbf{A-IN}, so that
+\begin{equation*}
+\Omega ^{\ast \ast }-\Omega =\left[ J^{\ast \ast }-J^{\ast }\right]
+-\sum_{j=1}^{n\left( s\left( \cdot \right) \right) }V_{j}^{\ast }
+\end{equation*}
+
+The firm exits iff $J^{\ast \ast }\geq J^{\ast }$, that is, $\vartheta \geq
+J^{\ast }$. This is equivalent to
+\begin{equation*}
+\Omega ^{\ast \ast }-\Omega \geq -\sum_{j=1}^{n\left( s\left( \cdot \right)
+\right) }V_{j}^{\ast }
+\end{equation*}
+
+Using again that $\Omega ^{\ast \ast }=J^{\ast \ast }=\vartheta $, the firm
+exits iff
+\begin{equation*}
+\vartheta +\sum_{j=1}^{n\left( s\left( \cdot \right) \right) }V_{j}^{\ast
+}\geq \Omega
+\end{equation*}
+
+Since any worker is better off under $V_{i}^{\ast }\geq U$ than unemployed, all workers are willing to take a value cut down to $U$
+if $\vartheta \geq \Omega - \sum_{j=1}^{n\left( s\left( \cdot \right) \right)}V_{j}^{\ast }$ because then the firm can credibly exit. This observation implies that the firm exits if and only if
+\begin{equation*}
+\vartheta -\Omega \left( s\left( x,\kappa \left( x\right) \right) \right)
++n\left( s\left( x,\kappa \left( x\right) \right) \right) U\geq 0
+\end{equation*}
+This last equality proves \textbf{C-X (Exit)}: the set of $x$ such that the firm exits is
+given by
+\begin{equation*}
+\mathcal{E}=\left\{ x\Big|\vartheta +n\left( s\left( x,\kappa \left(
+x\right) \right) \right) \cdot U\geq \Omega \left( s\left( x,\kappa \left(
+x\right) \right) \right) \right\}
+\end{equation*}
+
+
+\subsubsection{Proof of C-V (Vacancies) \label{app:vacancies}}
+
+We split the proof in two steps. First, we show that workers are collectively willing to transfer value to the firm in exchange for the joint value-maximizing vacancy policy function. Second, we show that a single worker can create a system of transfers that achieves the same outcome. These transfers are equivalent to wage renegotiation, which explains why we have subsumed them in the wage function $w(x,i)$ in the equations above. Similarly to wages, these transfers drop out from the expression for the joint value.
+
+\paragraph{Part 1: Collective transfers}
+
+In this step, we show that workers are collectively better off transferring
+value to the firm in exchange of the firm posting the joint value-maximizing
+amount of vacancies.
+
+The vacancy posting decision $v^{J}$ that maximizes firm value is:
+\begin{equation*}
+\frac{c_{v}\left( v^J\left( x\right) ,n\left( x\right) \right) }{q}=\phi %
+\left[ \boldsymbol{J}\left( h_{U}\left( x\right) \right) -J\left( x\right) %
+\right] \cdot \mathbb{I}_{\left\{ x\in \mathcal{A}\right\} }+\left( 1-\phi
+\right) \int_{x\in \mathcal{Q}^{E}\left( x^{\prime },i^{\prime }\right) }%
+\left[ \boldsymbol{J}\left( h_{E}\left( x^{\prime },i^{\prime },x\right) \right)
+-J\left( x\right) \right] dH_n\left( x^{\prime },i^{\prime }\right) .
+\end{equation*}
+Similarly, define $v^{\Omega}$ be the policy that maximizes the value of the
+coalition, and $v^{\overline{V}}$ be the policy that maximizes the value of all
+the employees. Let $\Omega^{\gamma}$,$J^{\gamma},\overline{V}^{\gamma}$ be the
+value of the coalition, firm and all workers under the $v^{\gamma}$, for $%
+\gamma\in\left\{ \Omega,J,\overline{V}\right\} $. We now prove our claim in
+several steps.
+
+\subparagraph{Part 1-(a) Collective value gains.}
+
+The policy $v^{\Omega}$ will lead to $\overline{V}%
+^{\Omega}\geq\overline{V}^{J} + [J^J - J^\Omega]$ where $J^J - J^\Omega \geq 0$.%
+\newline
+
+\textit{Proof:} By construction $\Omega^{\Omega}$ is greater than $\Omega^{J}
+$: $\Omega^{\Omega}\geq\Omega^{J}$. By definition: $\Omega^{\Omega}=J^{%
+\Omega}+\overline{V}^{\Omega}$, and $\Omega^{J}=J^{J}+\overline{V}^{J}$. Use those
+definitions to obtain inequality $J^{\Omega}+\overline{V}^{\Omega} \geq J^{J}+\overline{%
+V}^{J}$, which can be re-arranged into $\overline{V}^{\Omega}-\overline{V}^{J} \geq
+J^{J}-J^{\Omega} $. Since $J^{J}$ is the value under the optimal policy for $%
+J$, then $J^{J}\geq J^{\Omega}$. The above then implies that
+\begin{equation*}
+\overline{V}^{\Omega}-\overline{V}^{J}\geq J^{J}-J^{\Omega}\geq0
+\end{equation*}
+This inequality implies that workers would be prepared to transfer $T=J^{J}-J^{\Omega}
+\geq 0$ to the firm in order for the firm to pursue policy $v^{\Omega}$
+instead of $v^{J}$. This concludes the proof of \textbf{Part 1-(a).}
+
+\subparagraph{Part 1-(b) Infeasibility of $\overline{V}^{\overline{V}}$ .}
+
+There does not exist an incentive-compatible transfer from workers to firm
+that will lead to $\overline{V}^{\overline{V}}$.\newline
+
+\textit{Proof:} Suppose workers consider transferring even more to induce
+the firm to follow policy $v^{\overline{V}}$ that maximizes their value. By
+construction $\Omega^{\Omega}\geq\Omega^{\overline{V}}$. Using definitions for
+each of these, then $J^{\Omega}+\overline{V}^{\Omega}\geq J^{\overline{V}}+\overline{V}^{%
+\overline{V}}$ . Rearranging this: $ J^{\Omega}-J^{\overline{V}}\geq\overline{V}^{\overline{V}}-%
+\overline{V}^{\Omega}$. Since $\overline{V}^{\overline{V}}$ is the value under the optimal
+policy for $\overline{V}$, then $\overline{V}^{\overline{V}}\geq\overline{V}^{\Omega}$. The
+above then implies that
+\begin{equation*}
+J^{\Omega}-J^{\overline{V}}\geq\overline{V}^{\overline{V}}-\overline{V}^{\Omega}\geq0
+\end{equation*}
+Taking $v^{\Omega}$ as a baseline, the above implies that a change to $v^{%
+\overline{V}}$ causes a loss of $J^{\Omega}-J^{\overline{V}}$ to the firm, which is
+more than the gain of $\overline{V}^{\overline{V}}-\overline{V}^{\Omega}$ to the workers.
+This implies that workers could transfer all of their gains under $v^{\overline{V}}$ to the
+firm, but the firm would still not choose $v^{\overline{V}}$ over $v^{\Omega}$.
+This concludes the proof of \textbf{Part 1-(b).}
+
+\subparagraph{Part 1-(c) Optimality of $\overline{V}^\Omega$.}
+
+There does not exist an incentive-compatible transfer from workers to firm
+that will lead to $\overline{V}^{\ast}\in\left(\overline{V}^{\Omega},\overline{V}^{\overline{V}%
+}\right)$.\newline
+
+\textit{Proof:} Call such a policy $v^{\overline{V}\ast}.$ Then: $%
+\Omega^{\Omega}\geq\Omega^{\overline{V}\ast}$ , and by definition,
+\begin{eqnarray*}
+J^{\Omega}-J^{\overline{V}^{\ast}} & \geq & \overline{V}^{\overline{V}^{\ast}}-\overline{V}%
+^{\Omega}
+\end{eqnarray*}
+Since by definition $\overline{V}^{\ast}\in\left(\overline{V}^{\Omega},\overline{V}^{\overline{V}%
+}\right)$ , then $\overline{V}^{\overline{V}^{\ast}}-\overline{V}^{\Omega}\geq0$. Therefore
+\begin{equation*}
+J^{\Omega}-J^{\overline{V}^{\ast}}\geq\overline{V}^{\overline{V}^{\ast}}-\overline{V}%
+^{\Omega}\geq0
+\end{equation*}
+Taking $v^{\Omega}$ as a baseline, the above implies that a change to $v^{%
+\overline{V}^{\ast}}$ causes a loss of $J^{\Omega}-J^{\overline{V}^{\ast}}$ to the
+firm, which is more than the gain of $\overline{V}^{\overline{V}^{\ast}}-\overline{V}%
+^{\Omega}$ to the workers. This concludes the proof of \textbf{Part 1-(c).}
+
+\subparagraph{Part 1-(d) Conclusion.}
+
+In summary, it is optimal for workers to transfer exactly $T=J^{J}-J^{\Omega}
+$ to the firm, in order for the firm to pursue $v^{\Omega}$ instead of $v^J$%
+. Further transfers to the firm would be required to have the firm pursue a
+better policy for workers, but this is exceedingly costly to the firm and
+the workers are unwilling to make a transfer to cover these costs. This
+concludes the proof of \textbf{Step 1: Collective transfers.}
+
+\paragraph{Part 2: Individual transfers}
+
+In this step, we show that a single, randomly drawn worker can construct a
+system of transfers that induces the firm to post $v^\Omega$ instead of $v^J$%
+, while leaving all agents better off.
+
+Within $dt$, consider the single, randomly drawn worker $j_0$. Consider the
+following system of transfers. Worker $j_0$ makes a transfer $J^J-J^\Omega$
+to the firm, in exchange of what (i) the firm posts $v^\Omega$ instead of $%
+v^J$, and (ii) the worker gets a wage increase that gives her all the
+differential surplus $\overline{V}^\Omega-\overline{V}^J$.
+
+Following the same steps as in \textbf{Part 1: Collective transfers}, the
+firm gets $J^\Omega + [J^J-J^\Omega] = J^J$ and is hence indifferent.
+Similarly, workers $j \neq j_0$ do not get any value change, and are thus
+indifferent Finally, worker $j_0$ gets a value increase of
+\begin{equation*}
+[\overline{V}^\Omega-\overline{V}^J ]- [J^J-J^\Omega] \geq 0
+\end{equation*}
+where the inequality similarly follows from \textbf{Part 1: Collective
+transfers}. This concludes the proof of \textbf{Part 2: Individual transfers}%
+.
+
+\paragraph{Conclusion.}
+
+The previous arguments show that a single worker has an incentive to and can
+induce the firm to post $v^\Omega$. Notice also that the same argument holds
+starting from any vacancy policy function $\widetilde{v} \neq v^J$ together with
+a value of the firm $\widetilde{J}$. Thus, even if some worker induces the firm
+to post a different vacancy policy function which is not $v^\Omega$ any
+other worker has an incentive to induce the firm to post $v^\Omega$.
+Therefore, in equilibrium, the firm posts $v^\Omega$, which concludes the
+proof of \textbf{C-V}.
+
+
+\subsection{Applying Conditions (C)}
+
+Having established that \textbf{Assumption (A)} can be used to prove \textbf{%
+Conditions (C)}, we now apply conditions \textbf{(C)} to the Bellman
+equation for the joint value. The goal of this section is to show that for $x\in \mathcal{E}^c$ the complement of
+the exit set, we can considerably simplify the recursion for the joint
+value:
+\begin{eqnarray}
+\label{eq:JointValueArbitraryState}
+\rho \Omega \left( x\right) &=&y\left( z(x),n\left( x\right) \right)
+-c\left( v\left( x\right) ,n\left( x\right) ,z(x)\right) \nonumber \\
+\text{Destructions} &&-\delta \sum\limits_{i=1}^{n\left( x\right) }\left[
+\Omega \left( x\right) -\boldsymbol{\Omega }\left( d(x,i)\right) -U\right] \nonumber \\
+\text{$UE$ Hires} &&+qv\left( x\right) \phi \left[ \boldsymbol{\Omega }\left(
+h_{U}\left( x\right) \right) -\Omega \left( x\right) -U\right] \cdot \mathbb{%
+I}_{\left\{ x\in \mathcal{A}\right\} } \nonumber \\
+\text{$EE$ Hires} &&+qv\left( x\right) \left( 1-\phi \right) \int_{x\in
+\mathcal{Q}^{E}\left( x^{\prime },i^{\prime }\right) }\left[ \left[ \boldsymbol{%
+\Omega }\left( h_{E}\left( x^{\prime },i^{\prime },x\right) \right) -\Omega
+\left( x\right) \right] -\left[ \Omega \left( x^{\prime }\right) -\boldsymbol{%
+\Omega }\left( q_{E}\left( x^{\prime },i^{\prime },x\right) \right) \right] %
+\right] dH_n\left( x^{\prime },i^{\prime }\right) \nonumber \\
+\text{Shocks} &&+\Gamma[\boldsymbol{\Omega},\Omega]
+\end{eqnarray}
+with the sets
+\begin{align}
+\label{eq:SetsArbitraryState}
+\mathcal{Q}^{U} &=\Big\{ (x,i)\Big|\Omega \left( s\left( x,\left( 1-\ell
+\left( x\right) \right) \circ \left( 1-\left[ q_{U,-i}\left( x\right)
+;q_{U,i}\left( x\right) =1\right] \right) \right) ,i\right) +U  \nonumber \\
+& \hskip1.5cm >\Omega \left( s\left( x,\left( 1-\ell \left( x\right) \right)
+\circ \left( 1-\left[ q_{U,-i}\left( x\right) ;q_{U,i}\left( x\right) =0%
+\right] \right) \right) ,i\right) \Big\} \\
+\mathcal{L} &=\Big\{ (x,i)\Big|\Omega \left( s\left( x,\left( 1-\left[ \ell
+\left( x\right) ;\ell _{i}\left( x\right) =1\right] \right) \circ \left(
+1-q_{U}\left( x\right) \right) \right) ,i\right) +U  \nonumber \\
+& \hskip1.5cm >\Omega \left( s\left( x,\left( 1-\left[ \ell \left( x\right)
+;\ell _{i}\left( x\right) =0\right] \right) \circ \left( 1-q_{U}\left(
+x\right) \right) \right) ,i\right) \Big\} \\
+\mathcal{E} &=\left\{ x\Big|\vartheta +n\left( s(x,\kappa(x))\right) \cdot
+U\geq \Omega (s(x,\kappa(x)))\right\} \\
+\mathcal{A}& =\left\{ x\Big|\boldsymbol{\Omega }\left( h_{U}\left( x\right)
+\right) -\Omega \left( x\right) \geq U\right\} \\
+\mathcal{Q}^{E}\left( x^{\prime },i^{\prime }\right) & =\left\{ x\Bigg|%
+\boldsymbol{\Omega }\left( h_{E}\left( x^{\prime },i^{\prime },x\right) \right)
+-\Omega \left( x\right) \geq \Omega \left( x^{\prime }\right) -\boldsymbol{%
+\Omega }\left( q_{E}\left( x^{\prime },i^{\prime },x\right) \right) \right\}
+\end{align}%
+and---as per \textbf{(C-V)---}the vacancy policy $v\left( x\right) $ is
+given by the solution to the following:
+\begin{eqnarray}
+\label{eq:VacanciesArbitraryState}
+\frac{c_{v}\left( v\left( x\right) ,n\left( x\right) \right) }{q}&=&\phi %
+\left[ \boldsymbol{\Omega }\left( h_{U}\left( x\right) \right) -\Omega \left(
+x\right) \right] \cdot \mathbb{I}_{\left\{ x\in \mathcal{A}\right\} } \nonumber \\
+& +&\left( 1-\phi \right) \int_{x\in \mathcal{Q}^{E}\left( x^{\prime
+},i^{\prime }\right) }\left[ \left[ \boldsymbol{\Omega }\left( h_{E}\left(
+x^{\prime },i^{\prime },x\right) \right) -\Omega \left( x\right) \right] -%
+\left[ \Omega \left( x^{\prime }\right) -\boldsymbol{\Omega }\left( q_{E}\left(
+x^{\prime },i^{\prime },x\right) \right) \right] \right]dH_n\left( x^{\prime
+},i^{\prime }\right)
+\end{eqnarray}%
+In continuous time, the exit decision is captured by $x\in \mathcal{E}$. The
+Bellman equation above holds exactly for $x\in \mathcal{E}^{c}$. Exit is
+accounted for in the \textquotedblleft bold\textquotedblright\ continuation
+values, which all include the possible exit decision should the firm's state
+fall into $\mathcal{E}$ after an event.
+
+
+We first proceed one term at the time, working
+through (B.4.1) exogenous destructions, (B.4.2) retentions, (B.4.3) $EE$ (poached)
+quits, (B.4.4) $UE $ hires, (B.4.5) $UE$ threats, (B.4.6) $EE$ (poached) hires, and (B.4.7) $%
+EE$ threats.
+
+\subsubsection{Exogenous destructions}
+
+\begin{align*}
+\text{Destructions}
+& =\sum\limits _{i=1}^{n\left(x\right)}\delta\left[\boldsymbol{J}%
+\left(d(x,i)\right)+\sum_{j=1}^{n\left(d(x,i)\right)}\boldsymbol{V}%
+\left(d(x,i),j\right)+U-\Omega\left(x\right)\right] =\sum\limits _{i=1}^{n\left(x\right)}\delta\left[\boldsymbol{\Omega}%
+\left(d(x,i)\right)+U-\Omega\left(x\right)\right] \\
+\end{align*}
+where we simply have used the definition $\boldsymbol{\Omega}\left(d(x,i)%
+\right):=\boldsymbol{J}\left(d(x,i)\right)+\sum_{j=1}^{n\left(d(x,i)\right)}%
+\boldsymbol{V}\left(d(x,i),j\right)$.
+
+\subsubsection{Retentions}
+
+\begin{align*}
+\text{Retentions} & =\lambda^{E}\sum\limits
+_{i=1}^{n\left(x\right)}\int_{x^{\prime}\notin\mathcal{Q}^E\left(x,i\right)}%
+\left[\boldsymbol{J}\left(r\left(x,i,x^{\prime}\right)\right)+\sum_{j=i}^{n%
+\left(x\right)}\boldsymbol{V}\left(r\left(x,i,x^{\prime}\right),j\right)-\Omega%
+\left(x\right)\right]dH_v\left(x^{\prime}\right) \\
+& =\lambda^{E}\sum\limits _{i=1}^{n\left(x\right)}\int_{x^{\prime}\notin%
+\mathcal{Q}^E\left(x,i\right)}\left[\boldsymbol{\Omega}\left(r\left(x,i,x^{%
+\prime}\right)\right)-\Omega\left(x\right)\right]dH_v\left(x^{\prime}\right)
+\end{align*}
+where we simply have used the definition $\boldsymbol{\Omega}\left(r%
+\left(x,i,x^{\prime}\right)\right) =\boldsymbol{J}\left(r\left(x,i,x^{\prime}%
+\right)\right)+\sum_{j=i}^{n\left(x\right)}\boldsymbol{V}\left(r\left(x,i,x^{%
+\prime}\right),j\right)$. Now using the result in \textbf{C-RT} that
+\begin{equation*}
+\boldsymbol{\Omega}\left(r\left(x,i,x^{\prime}\right)\right) = \Omega(x^{\prime})
+\end{equation*}
+we obtain that
+\begin{equation*}
+\text{Retentions} = 0
+\end{equation*}
+
+\subsubsection{$EE$ Quits}
+
+\begin{equation*}
+\text{$EE$ Quits}=\lambda ^{E}\sum\limits_{i=1}^{n\left( x\right)
+}\int_{x^{\prime }\in \mathcal{Q}^{E}\left( x,i\right) }\left[ \boldsymbol{J}%
+\left( q_{E}\left( x,i,x^{\prime }\right) \right) +\boldsymbol{V}\left(
+q_{E}\left( x,i,x^{\prime }\right) ,i\right) +\sum_{j\neq i}^{n\left(
+x\right) }\boldsymbol{V}\left( q_{E}\left( x,i,x^{\prime }\right) ,j\right)
+-\Omega \left( x\right) \right] dH_v\left( x^{\prime }\right)
+\end{equation*}%
+Now by definition
+\begin{align*}
+\boldsymbol{\Omega }\left( q_{E}\left( x,i,x^{\prime }\right) \right) & =\boldsymbol{%
+J}\left( q_{E}\left( x,i,x^{\prime }\right) \right) +\sum_{j=1}^{n\left(
+q_{E}\left( x,i,x^{\prime }\right) \right) }\boldsymbol{V}\left( q_{E}\left(
+x,i,x^{\prime }\right) ,j\right)  =\boldsymbol{J}\left( q_{E}\left( x,i,x^{\prime }\right) \right) +\sum_{j\neq
+i}^{n\left( x\right) }\boldsymbol{V}\left( q_{E}\left( x,i,x^{\prime }\right)
+,j\right)
+\end{align*}%
+Using this last equality in the term in square brackets
+\begin{equation*}
+\text{$EE$ Quits}=\lambda ^{E}\sum\limits_{i=1}^{n\left( x\right)
+}\int_{x^{\prime }\in \mathcal{Q}^{E}\left( x,i\right) }\left[ \Omega \left(
+q_{E}\left( x,i,x^{\prime }\right) \right) -\Omega \left( x\right) +\boldsymbol{V%
+}\left( q_{E}\left( x,i,x^{\prime }\right) ,i\right) \right] dH_v\left(
+x^{\prime }\right)
+\end{equation*}%
+Using \textbf{C-EE}, the value going to the poached worker is \textbf{$%
+\boldsymbol{V}\left( q_{E}\left( x,i,x^{\prime }\right) \right) =\Omega \left(
+x\right) -\Omega \left( q_{E}\left( x,i,x^{\prime }\right) \right) $}.
+Substituting this into the last equation, we observe that the term in the
+square brackets is zero, and so
+\begin{equation*}
+\text{$EE$ Quits}=0
+\end{equation*}
+
+\subsubsection{$UE$ Hires}
+
+\begin{equation*}
+\text{$UE$ Hires}=qv\left( x\right) \phi \left[ \boldsymbol{J}\left( h_{U}\left(
+x\right) \right) +\sum\limits_{i=1}^{n\left( x\right) }\boldsymbol{V}\left(
+h_{U}\left( x\right) ,i\right) -\Omega \left( x\right) \right] \cdot \mathbb{%
+I}_{\left\{ x\in \mathcal{A}\right\} }
+\end{equation*}%
+Now, by definition
+\begin{align*}
+\boldsymbol{\Omega }\left( h_{U}\left( x\right) \right) & =\boldsymbol{J}\left(
+h_{U}\left( x\right) \right) +\sum\limits_{i=1}^{n\left( h_{U}\left(
+x\right) \right) }\boldsymbol{V}\left( h_{U}\left( x\right) ,i\right) =\boldsymbol{J}\left( h_{U}\left( x\right) \right) +\sum\limits_{i=1}^{n\left(
+x\right) }\boldsymbol{V}\left( h_{U}\left( x\right) ,i\right) +\boldsymbol{V}\left(
+h_{U}\left( x\right) ,i\right)
+\end{align*}
+and so, re-arranging,
+\begin{align*}
+\boldsymbol{J}\left( h_{U}\left( x\right) \right) +\sum\limits_{i=1}^{n\left(
+x\right) }\boldsymbol{V}\left( h_{U}\left( x\right) ,i\right) & =\boldsymbol{\Omega }%
+\left( h_{U}\left( x\right) \right) -\boldsymbol{V}\left( h_{U}\left( x\right)
+,i\right)
+\end{align*}%
+Substituting this last equation into the term in the square brackets of the
+first equation,
+\begin{equation*}
+\text{$UE$ Hires}=qv\left( x\right) \phi \left[ \boldsymbol{\Omega }\left(
+h_{U}\left( x\right) \right) -\Omega \left( x\right) -\boldsymbol{V}\left(
+h_{U}\left( x\right) ,i\right) \right] \cdot \mathbb{I}_{\left\{ x\in
+\mathcal{A}\right\} }
+\end{equation*}%
+Following \textbf{C-UE}, the value going to the hired worker is $\boldsymbol{V}%
+\left( h_{U}\left( x\right) ,i\right) =U$. Substituting in:
+\begin{equation*}
+\text{$UE$ Hires}=qv\left( x\right) \phi \left[ \boldsymbol{\Omega }\left(
+h_{U}\left( x\right) \right) -\Omega \left( x\right) -U\right] \cdot \mathbb{%
+I}_{\left\{ x\in \mathcal{A}\right\} }
+\end{equation*}
+
+\subsubsection{ $UE$ Threats}
+
+\begin{eqnarray*}
+\text{$UE$ Threats} & = & qv\left( x\right) \phi \left[ \boldsymbol{J}\left(
+t_{U}\left( x\right) \right) +\sum\limits_{i=1}^{n\left( x\right) }\boldsymbol{V}%
+\left( t_{U}\left( x\right) ,i\right) -\Omega \left( x\right) \right] \cdot
+\mathbb{I}_{\left\{ x\notin \mathcal{A}\right\}}
+\end{eqnarray*}
+Using the definition of $\boldsymbol{\Omega}(t_U(x))$, we can re-write this term
+as
+\begin{eqnarray*}
+\text{$UE$ Threats} & = & qv\left( x\right) \phi \left[ \boldsymbol{\Omega}%
+\left( t_{U}\left( x\right) \right) - \Omega(x) \right] \cdot \mathbb{I}%
+_{\left\{ x\notin \mathcal{A}\right\}}
+\end{eqnarray*}
+Now using our result in condition \textbf{C-UE} that $\boldsymbol{\Omega}\left(
+t_{U}\left( x\right) \right) = \Omega(x)$, we can conclude that
+\begin{equation*}
+\text{$UE$ Threats} = 0
+\end{equation*}
+
+\subsubsection{$EE$ Hires}
+
+\begin{equation*}
+\text{$EE$ Hires}=qv\left( x\right) \left( 1-\phi \right) \int_{x\in
+\mathcal{Q}^{E}\left( x^{\prime },i^{\prime }\right) }\left[ \boldsymbol{J}%
+\left( h_{E}\left( x^{\prime },i^{\prime },x\right) \right)
++\sum\limits_{i=1}^{n\left( x\right) }\boldsymbol{V}\left( h_{E}\left( x^{\prime
+},i^{\prime },x\right) ,i\right) -\Omega \left( x\right) \right] dH_n\left(
+x^{\prime },i^{\prime }\right)
+\end{equation*}%
+Now by definition
+\begin{align*}
+\boldsymbol{\Omega }\left( h_{E}\left( x^{\prime },i^{\prime },x\right) \right)
+& =\boldsymbol{J}\left( h_{E}\left( x^{\prime },i^{\prime },x\right) \right)
++\sum\limits_{i=1}^{n\left( h_{E}\left( x^{\prime },i^{\prime },x\right)
+\right) }\boldsymbol{V}\left( h_{E}\left( x^{\prime },i^{\prime },x\right)
+,i\right) \\
+& =\left[ \boldsymbol{J}\left( h_{E}\left( x^{\prime },i^{\prime },x\right)
+\right) +\sum\limits_{i=1}^{n\left( x\right) }\boldsymbol{V}\left( h_{E}\left(
+x^{\prime },i^{\prime },x\right) ,i\right) \right] +\boldsymbol{V}\left(
+h_{E}\left( x^{\prime },i^{\prime },x\right) ,i\right)
+\end{align*}
+which can be re-arranged into
+\begin{align*}
+\boldsymbol{J}\left( h_{E}\left( x^{\prime },i^{\prime },x\right) \right)
++\sum\limits_{i=1}^{n\left( x\right) }\boldsymbol{V}\left( h_{E}\left( x^{\prime
+},i^{\prime },x\right) ,i\right) & =\boldsymbol{\Omega }\left( h_{E}\left(
+x^{\prime },i^{\prime },x\right) \right) -\boldsymbol{V}\left( h_{E}\left(
+x^{\prime },i^{\prime },x\right) ,i\right)
+\end{align*}%
+Using this in the term in the square brackets
+\begin{equation*}
+\text{$EE$ Hires}=qv\left( x\right) \left( 1-\phi \right) \int_{x\in
+\mathcal{Q}^{E}\left( x^{\prime },i^{\prime }\right) }\left[ \boldsymbol{\Omega }%
+\left( h_{E}\left( x^{\prime },i^{\prime },x\right) \right) -\Omega \left(
+x\right) -\boldsymbol{V}\left( h_{E}\left( x^{\prime },i^{\prime },x\right)
+,i\right) \right] dH_n\left( x^{\prime },i^{\prime }\right)
+\end{equation*}%
+Under \textbf{C-EE}, the value going to the hired worker is $\boldsymbol{V}%
+\left( h_{E}\left( x^{\prime },i^{\prime },x\right) ,i\right) =\Omega \left(
+x^{\prime }\right) -\boldsymbol{\Omega }\left( q_{E}\left( x^{\prime },i^{\prime
+},x\right) \right) $. Substituting this in:
+\begin{equation*}
+\text{$EE$ Hires}=qv\left( x\right) \left( 1-\phi \right) \int_{x\in
+\mathcal{Q}^{E}\left( x^{\prime },i^{\prime }\right) }\left[ \left[ \boldsymbol{%
+\Omega }\left( h_{E}\left( x^{\prime },i^{\prime },x\right) \right) -\Omega
+\left( x\right) \right] -\left[ \Omega \left( x^{\prime }\right) -\boldsymbol{%
+\Omega }\left( q_{E}\left( x^{\prime },i^{\prime },x\right) \right) \right] %
+\right] dH_n\left( x^{\prime },i^{\prime }\right)
+\end{equation*}
+
+\subsubsection{$EE$ Threats}
+
+\begin{eqnarray*}
+\text{$EE$ Threats} &=&qv\left( x\right) \left( 1-\phi \right) \int_{x\notin
+\mathcal{Q}^{E}\left( x^{\prime },i^{\prime }\right) }\left[ \boldsymbol{J}%
+\left( t_{E}\left( x^{\prime },i^{\prime },x\right) \right)
++\sum\limits_{i=1}^{n\left( x\right) }\boldsymbol{V}\left( t_{E}\left( x^{\prime
+},i^{\prime },x\right) ,i\right) -J\left( x\right) -\overline{V}\left( x\right) %
+\right] dH_n\left( x^{\prime },i^{\prime }\right)
+\end{eqnarray*}
+Using the definition of $\boldsymbol{\Omega}(t_E(x^{\prime},i^{\prime},x))$, we
+obtain
+\begin{eqnarray*}
+\text{$EE$ Threats} &=&qv\left( x\right) \left( 1-\phi \right) \int_{x\notin
+\mathcal{Q}^{E}\left( x^{\prime },i^{\prime }\right) }\left[ \boldsymbol{\Omega}%
+\left( t_{E}\left( x^{\prime },i^{\prime },x\right) \right) - \Omega(x) %
+\right] dH_n\left( x^{\prime },i^{\prime }\right)
+\end{eqnarray*}
+Now using the result in condition \text{C-RT} that $\boldsymbol{\Omega}\left(
+t_{E}\left( x^{\prime },i^{\prime },x\right) \right) = \Omega(x) $, we
+obtain that
+\begin{equation*}
+\text{$EE$ Threats} = 0
+\end{equation*}
+
+
+\subsection{Reducing the state space}
+
+We have obtained the simplified recursion \eqref{eq:JointValueArbitraryState}-\eqref{eq:VacanciesArbitraryState}. Inspection of the system \eqref{eq:JointValueArbitraryState}-\eqref{eq:VacanciesArbitraryState} reveals that the only payoff-relevant states are $(z,n)$, and the details of the within-firm contractual structure do not affect allocations. Any extra information contained in $x$ beyond $(z,n)$ would be redundant given $(z,n)$.
+
+Therefore, it is straightforward to see that we may express the exit and separation decisions as
+\begin{eqnarray}
+\bm{\Omega }(z,n)&=& \mathbb{I}_{\{(z,n)\in\mathcal{E}\}} \bigg\{%
+\:\vartheta +nU \bigg\} + \mathbb{I}_{\{(z,n)\in\mathcal{Q}^U\}}\bigg\{\:%
+\bm{\Omega}(z,n-1)+U\bigg\} +  \mathbb{I}_{\{(z,n)\notin \mathcal{Q}^U\cup%
+\mathcal{E}\}}\Omega(z,n),  \label{eq:D_omegabold} \\
+\text{where}\quad\mathcal{E} &=&\big\{n,z\big|\vartheta +nU> {\Omega }(z,n)%
+\big\},  \notag \\
+\mathcal{Q}^{U}&=&\big\{ z,n\big|\bm{\Omega }\left(z,n-1\right)+U
+>\Omega\left( z,n\right)\big\}.  \notag
+\end{eqnarray}
+The first expression is the value of exit. A firm that does not exit,
+chooses whether to separate with a worker or not. If separating with a
+worker, the firm re-enters $(\ref{eq:D_omegabold})$ with $\bm{\Omega}%
+(z,n-1)$, having dispatched with a worker with value $U$, and again choosing
+whether to exit, fire another worker, or continue. Iterating on this
+procedure delivers
+\begin{equation}  \label{eq:D_omegabold2}
+\bm{\Omega }(z,n)= \max \bigg\{\vartheta +nU\:, \max_{s\in[0,\dots,n]%
+}\Omega(z,n-s)+sU \bigg\}.
+\end{equation}
+
+Second, the post-exit/separation decision joint value is given by the
+Bellman equation
+\begin{eqnarray*}
+\rho \Omega \left( z,n\right) &=& \max_{v\geq 0} y\left( z,n\right) -c\left(
+v,n,z\right)  \label{eq:D_omega2} \\
+\text{Destruction} &+&\:\:\delta n\Big\{ \big(\bm{\Omega }\left(
+z,n-1\right) +U\big) - \Omega\left(z,n\right)\Big\}  \notag \\
+\text{$UE$ Hire} &+&\:\:\phi q(\theta)v \cdot\mathbb{I}_{\left\{ \left(
+z,n\right) \in \mathcal{A}\right\} }\cdot\Big\{ \bm{\Omega }\left(
+z,n+1\right) -\big(\Omega \left( z,n\right)+U\big)\Big\}  \notag \\
+\text{$EE$ Hire} &+&\:\:\left( 1-\phi \right)q(\theta)v \int_{\left(
+z,n\right) \in \mathcal{Q}^E\left( z^{\prime },n^{\prime }\right) }\Big\{%
+\left[ \bm{\Omega }\left(z, n+1\right) -\Omega \left( z,n\right) \right]
+-\left[ \Omega \left( z^{\prime },n^{\prime }\right) -\bm{\Omega }\left(
+z^{\prime },n^{\prime }-1\right) \right] \Big\}dH_n\left( z^{\prime
+},n^{\prime }\right)  \notag \\
+\text{Shock} &+&\:\:{\Gamma}_{z}\left[ \bm{\Omega },\Omega \right]
+\left( z,n\right),  \notag  \\
+%\end{eqnarray*}
+%\begin{eqnarray*}
+\text{where}\quad\mathcal{A}&=&\left\{ z,n\big|\bm{\Omega }\left(
+z,n+1\right) \geq \Omega \left( z,n\right)+U\right\},  \notag \\
+\mathcal{Q}^{E}\left( z^{\prime },n^{\prime }\right) &=&\big\{ z,n\big|%
+\bm{\Omega }\left(z, n+1\right) -\Omega \left( z,n\right) \geq \Omega
+\left( z^{\prime },n^{\prime }\right) -\bm{\Omega }\left( z^{\prime
+},n^{\prime }-1\right) \big\} .  \notag
+\end{eqnarray*}
+Finally, firms enter if and only if
+\begin{equation}  \label{eq:entry-Omega}
+\int \bm{\Omega }\left( z,0\right) d\Pi _{0}(z)\geq c_e.
+\end{equation}%
+This condition pins down the entry rate per unit of time.\footnote{%
+Recall that $J_0 = -c_e + \int \bm{J}(x_0)d\Pi(z_0)$. Given $%
+\Omega(z_0,0) = J(z_0,0)$, we have $J_0 = -c_e + \int \bm{\Omega}%
+(z_0,0)d\Pi(z_0)$. Free-entry implies $J_0=0$, which delivers $(\ref%
+{eq:entry-Omega})$.} Details of the proof are available upon request.
+
+\subsection{Continuous workforce limit}
+
+Up to this point the economy has featured a continuum of firms, but an
+integer-valued workforce. We now take the continuous workforce limit by
+defining the `size' of a worker---which is 1 in the integer case---and
+taking the limit as this approaches zero. Specifically, denote the ``size''
+of a worker by $\Delta$, such that $n= N \Delta$ where $N$ is the old
+integer number of workers. Now define ${\Omega}^\Delta(z,n) :=
+\Omega(z,n/\Delta)$, and likewise define $y^{\Delta}(z,n):=y(z,n/\Delta)$ and
+$c^\Delta(v,n,z):=c(v/\Delta,n/\Delta,z)$. We also define ${b}^\Delta:=b/\Delta
+$ and ${\vartheta}^{\Delta}:=\vartheta/\Delta$. These imply, for example,
+that $\Omega(z,N)={\Omega}^\Delta(z,N\Delta)$. Substituting these terms into
+$(\ref{eq:D_omegabold2})$ and $(\ref{eq:D_omega2})$, and taking the limit $%
+\Delta\rightarrow 0$, while holding $n=N\Delta$ fixed, we would obtain a
+version of $(\ref{eq:finalBellman})$ in which all functions have the $\Delta$
+super-script notation. We also specialize the productivity to a diffusion
+process $dz_t=\mu(z_t)dt+\sigma(z_t)dW_t$.
+
+The result is the joint value representation of Section 3: a Hamilton-Jacobi-Bellman (HJB) equation for the joint value \emph{conditional on the firm and its workers operating}:
+\begin{eqnarray}  \label{eq:finalBellman}
+\rho \Omega\left(z,n\right) =\max_{v \geq 0} && y\left(z,n\right) -c\left(
+v,n,z\right) \\
+\text{Destruction} &&-\delta n [\Omega_n(z,n) - U]  \notag \\
+\text{$UE$ Hire} &&+\phi q(\theta)v \left[ \Omega_n(z,n) -U \right]  \notag
+\\
+\text{$EE$ Hire} &&+(1-\phi)q(\theta) v \int \max\bigg\{\Omega_n(z,n) -
+\Omega_n(n^{\prime},z^{\prime}) \ , \ 0 \bigg\}d{H_n}\left( z^{\prime
+},n^{\prime}\right)  \notag \\
+\text{Shock} &&+\mu(z) \Omega_z(z,n) + \frac{\sigma(z)^2}{2}
+\Omega_{zz}(z,n).  \notag
+\end{eqnarray}
+Boundary conditions for the firm and its workers operating require the state to be interior to the exit and separation boundaries:
+\begin{eqnarray*}
+\text{Exit boundary:}&& \Omega(z,n) \geq \vartheta + n U,
+\quad\quad\quad\quad\quad\quad\quad  \notag \\
+\text{Layoff boundary:}&& \Omega_n(z,n) \geq U
+\quad\quad\quad\quad\quad\quad\quad  \notag
+\end{eqnarray*}
+Note the absence of $\bm{\Omega}$ terms. Since the value we
+ track is that of a hiring firm subject to boundary conditions, then $%
+\bm{\Omega}=\Omega$. This admits the simplification of `Shock' terms
+we noted when discussing $(\ref{eq:D_diffusion})$.\\
+
+We proceed in three steps:
+
+\begin{enumerate}
+\item[(B.6.1)] Define worker size and the renormalization
+
+\item[(B.6.2)] Take the limit as worker size goes to zero
+
+\item[(B.6.3)] Introduce a continuous productivity process.
+\end{enumerate}
+
+\subsubsection{Define worker size and the renormalization}
+
+We denote the ``size'' of a worker by $\Delta$.
+That is, we currently have an integer work-force $n\in \{1,2,3,\dots\}$.
+We now consider $m \in \{\Delta,2\Delta,3\Delta,\dots\}$.
+So then $n = m/\Delta$.
+We use this to make the following normalizations:
+\begin{align*}
+\omega(z,m) &= \Omega \left( \frac{m}{\Delta}, z \right) & \mathcal{Y}(z,m) &= y \left( \frac{m}{\Delta}, z \right) & \mathcal{C}(z,m) &= c \left( \frac{v}{\Delta} ,\frac{m}{\Delta}, z \right)
+\end{align*}
+These definition imply
+\begin{align*}
+\Omega(z,n) &= \omega(n\Delta,z) &
+y(z,n) &= \mathcal{Y}(n\Delta,z) &
+c(v,z,n) &= \mathcal{C}(v\Delta,n\Delta,z)
+\end{align*}
+In addition, the value of unemployment solves $\rho U = b$. Define
+\begin{equation*}
+\mathcal{U} = \frac{b}{\rho \Delta} = \frac{U}{\Delta}
+\end{equation*}
+and
+\begin{equation*}
+\theta = \frac{\vartheta}{\Delta}
+\end{equation*}
+
+\noindent Substituting these definitions into the Bellman equation, we
+obtain
+{\small
+\begin{eqnarray*}
+\hspace*{-1.9cm}\rho \omega \left( n\Delta ,z\right) =\max_{v\Delta\geq 0} && \mathcal{Y}
+\left( n\Delta,z\right) -\mathcal{C}\left( v\Delta,n\Delta,z\right) \\
+\text{Destructions} &&-\delta n\Delta \left[ \frac{\omega \left(
+n\Delta,z\right) -\pmb{\omega}\left( n\Delta-\Delta,z\right)}{\Delta} -
+\mathcal{U}\right] \\
+\text{$UE$ Hires} &&+qv\Delta \phi \left[ \frac{\pmb{\omega}\left(
+n\Delta+\Delta,z\right) -\omega \left( n\Delta,z\right)}{\Delta} -\mathcal{U}%
+\right] \cdot \mathbb{I}_{\left\{ \left( n\Delta,z\right) \in \mathcal{A}%
+\right\} } \\
+\text{$EE$ Hires} &&+qv\Delta \left( 1-\phi \right) \int_{\left(
+n\Delta,z\right) \in \mathcal{Q}^E\left( n^{\prime }\Delta,z^{\prime }\right) }%
+\Bigg[\frac{ \pmb{\omega}\left( n\Delta+\Delta,z\right) -\omega \left(
+n\Delta,z\right) }{\Delta} -\frac{ \omega \left( n^{\prime }\Delta,z^{\prime
+}\right) -\pmb{\omega}\left( n^{\prime }\Delta-\Delta,z^{\prime }\right)%
+}{\Delta} \Bigg]d\widetilde{H_n}\left( n^{\prime}\Delta,z^{\prime }\right) \\
+\text{Shocks} &&+\Gamma_z\left[ \pmb{\omega},\omega \right]\left(
+n\Delta,z\right)
+\end{eqnarray*}}
+with the set definitions
+\begin{align*}
+\mathcal{E} & =\Bigg\{ n\Delta,z\Bigg| \max_{k\Delta \in
+\{0,...,n\Delta\}}\omega (k\Delta,z) +(n\Delta-k\Delta) \mathcal{U} < \theta
++ n \Delta \mathcal{U} \Bigg\} \\
+\mathcal{A}& =\left\{ n \Delta,z\Bigg| \frac{\pmb{\omega}\left(
+n\Delta+\Delta,z\right) -\omega \left( n\Delta,z\right)}{\Delta} \geq
+\mathcal{U}\right\} \\
+\mathcal{Q}^U & =\left\{ n\Delta,z\Bigg| \frac{\omega \left(
+n\Delta,z\right) - \pmb{\omega}\left( n\Delta-\Delta,z\right)}{\Delta} \leq
+\mathcal{U}\right\} \\
+\mathcal{Q}^{E}\left( n^{\prime }\Delta,z^{\prime }\right) & =\left\{
+n\Delta,z\Bigg|\frac{\pmb{\omega}\left( n\Delta+\Delta,z\right) -\omega
+\left( n\Delta,z\right)}{\Delta} \geq \frac{\omega \left( n^{\prime
+}\Delta,z^{\prime }\right) -\pmb{\omega}\left( n^{\prime
+}\Delta-\Delta,z^{\prime }\right)}{\Delta} \right\}
+\end{align*}%
+and the definition:
+\begin{eqnarray*}
+\pmb{\omega}(n\Delta,z) &=& \max \Bigg\{ \max_{k\Delta \in
+\{0,...,n\Delta\}} \omega(k\Delta,z) + (n\Delta-k\Delta) \mathcal{U} \ , \
+\theta + n \Delta\mathcal{U} \Bigg\}
+\end{eqnarray*}
+
+\subsubsection{Continuous limit as worker size goes to zero}
+
+Now we take the limit $\Delta \to 0$, holding $m = n \Delta$ fixed. We note $%
+\widehat{v} = \lim_{\Delta \to 0} v \Delta$. We see derivatives appear. We
+denote $\omega_m(z,m) = \frac{\partial \omega}{\partial m}(z,m)$. \newline
+
+First, we note that the following limit obtains:
+\begin{eqnarray*}
+\pmb{\omega}(z,m) &=& \max \Bigg\{ \max_{k \in [0,m]} \omega(k,z) + (m-k)
+\mathcal{U} \ , \ \theta + m \Delta\mathcal{U} \Bigg\}
+\end{eqnarray*}
+In particular, the exit set limits to
+\begin{align*}
+\mathcal{E} & =\Bigg\{ z,m\Bigg| \max_{k \in [0,m]} \omega(k,z) + (m-k)
+\mathcal{U} < \theta + m \mathcal{U} \Bigg\}
+\end{align*}
+In equilibrium, the $\pmb{\omega}(z,m)$ terns on the right-hand-side of
+the Bellman equation are the result of endogenous quits, layoffs and hires.
+Because our continuous time assumption has been made \textit{before} we take
+the limit to a continuous workforce limit, we need only consider those
+changes in the workforce one at a time. Hence, for any $(z,m) \in \text{%
+Interior}(\mathcal{E}^c \cap \mathcal{A})$, the \emph{interior} of the
+continuation set, there is always $\overline{ \Delta} > 0$: such that for any $%
+\Delta \leq \overline{\Delta}$:
+\begin{equation*}
+\pmb{\omega}(m\pm \Delta,z) = \omega(m\pm \Delta,z)
+\end{equation*}
+Using this observation in the Bellman equation, we can obtain derivatives on
+the right-hand-side. We obtain, for pairs $(z,n)$ in the interior of the
+continuation set $(z,n) \in \text{Interior}(\mathcal{E}^c \cap \mathcal{A})$%
+:
+\begin{eqnarray*}
+\rho \omega \left( z,m\right) =\max_{\widehat{v}\geq 0} && \mathcal{Y} \left(
+z,m\right) -\mathcal{C}\left( \widehat{v},z,m\right) \\
+\text{Destructions} &&-\delta m [\omega_m(z,m) - \mathcal{U}] \\
+\text{$UE$ Hires} &&+q\widehat{v} \phi \left[ \omega_m(z,m) -\mathcal{U}\right]
+\cdot \mathbb{I}_{\left\{ \left( z,m\right) \in \mathcal{A}\right\} } \\
+\text{$EE$ Hires} &&+q\widehat{v} \left( 1-\phi \right) \int_{\left( z,m\right)
+\in \mathcal{Q}^E\left( m^{\prime},z^{\prime }\right) }\Bigg[\omega_m(z,m) -
+\omega_m(m^{\prime},z^{\prime}) \Bigg]d\widetilde{H_n}\left( m^{\prime},z^{\prime
+}\right) \\
+\text{Shocks} &&+\Gamma_z\left[\pmb{\omega},\omega\right](z,n)
+\end{eqnarray*}%
+with the set definitions
+\begin{align*}
+\mathcal{E} & =\Bigg\{ z,m\Bigg| \max_{k \in [0,m]} \omega(k,z) + (n-k)
+\mathcal{U} < \theta + m \mathcal{U} \Bigg\} &
+\mathcal{A}& =\left\{ z,m\Bigg| \omega_m(z,m) \geq \mathcal{U}\right\} \\
+\mathcal{Q}^U & =\left\{ z,m\Bigg| \omega_m(z,m) \leq \mathcal{U}\right\} =
+\overline{A} \text{ , the complement of $\mathcal{A}$} \\
+\mathcal{Q}^{E}\left( z^\prime,m^{\prime }\right) & =\left\{ z,m\Bigg|\omega_m(z,m)
+-  \omega_m(m^{\prime},z^{\prime}) \geq 0\right\}
+\end{align*}%
+and the definition
+\begin{eqnarray*}
+\pmb{\omega}(z,m) = \max \Bigg\{ \max_{k\in [0,m]} \omega(k,z) + (m-k)%
+\mathcal{U} \ , \ \theta + m\mathcal{U} \Bigg\}
+\end{eqnarray*}
+Note that now, the only place where $\pmb{\omega}$ enters in the Bellman
+equation is the contribution of shocks. To replace it with $\omega$, we need
+to apply the same argument to $z$ as the one we applied to $n$. We thus need
+to specialize to a continuous productivity process.
+
+\subsubsection{Continuous productivity process}
+
+We now specialize to a continuous productivity process, as this makes the
+formulation of the problem very economical. It allows to simplify the
+contribution of productivity shocks and get rid of the remaining ``bold''
+notation. We suppose that productivity follows a diffusion process:
+\begin{equation*}
+dz_t = \mu(z_t) dt + \sigma(z_t) dW_t
+\end{equation*}
+In this case, for any $(z,m)$ in the interior of the continuation set,
+productivity shocks in the interval $[t,t+dt]$ cannot move the firm
+towards a region in which it would endogenously separate or exit, when $dt$
+is small enough. In this case, we can write the following, where we have also replaced the $\mathcal{Q}^E$ set with the max operator:
+\begin{eqnarray*}
+\rho \omega \left( z,m\right) =\max_{v \geq 0} && \mathcal{Y} \left(
+z,m\right) -\mathcal{C}\left( v,z,m\right) \\
+\text{Destructions} &&-\delta m [\omega_m(z,m) - \mathcal{U}] \\
+\text{$UE$ Hires} &&+qv \phi \left[ \omega_m(z,m) -\mathcal{U}\right] \\
+\text{$EE$ Hires} &&+q v \left( 1-\phi \right) \int \max\Bigg\{\omega_m(z,m)
+- \omega_m(z^{\prime},m^{\prime}) \ , \ 0 \Bigg\}d\widetilde{H_n}\left(
+m^{\prime},z^{\prime }\right) \\
+\text{Shocks} &&+\mu(z) \omega_z(z,m) + \frac{\sigma(z)^2}{2}
+\omega_{zz}(z,m) \\
+&\text{s.t.}& \\
+\text{No Exit}&& \omega(z,m) \geq \theta + m \mathcal{U} \\
+\text{No Separations}&& \omega_m(z,m) \geq \mathcal{U}
+\end{eqnarray*}
+To make the notation more comparable, we slightly abuse notation and use the
+same letters as before, but now for the continuous workforce case. We obtain
+finally:
+\begin{eqnarray*}
+\rho \Omega \left(z,n\right) =\max_{v \geq 0} && y\left(z,n\right) -c\left(
+v,z,n\right) \\
+\text{Destructions} &&-\delta n [\Omega_n(z,n) - U] \\
+\text{$UE$ Hires} &&+q v \phi \left[ \Omega_n(z,n) -U \right] \\
+\text{$EE$ Hires} &&+q v \left( 1-\phi \right) \int \max\Bigg[\Omega_n(z,n)
+- \Omega_n(z^{\prime},n^{\prime}) \ , \ 0 \Bigg]d\widetilde{H_n}\left(
+z^{\prime},n^{\prime}\right) \\
+\text{Shocks} &&+\mu(z) \Omega_z(z,n) + \frac{\sigma(z)^2}{2}
+\Omega_{zz}(z,n) \\
+&\text{s.t.}& \\
+\text{No Exit}&& \Omega(z,n) \geq \vartheta + n U \\
+\text{No Separations}&& \Omega_n(z,n) \geq U
+\end{eqnarray*}
+When the coalition hits $\Omega_n(z,n) = U$, it endogenous separates worker
+to stay on that frontier. It exits when it hits the frontier $\Omega(z,n) =
+\vartheta + n U$.
+
+In addition to these ``value-pasting'' boundary conditions, optimality
+implies necessary ``smooth-pasting'' boundary conditions (see Stokey 2009): $%
+\Omega_z(z,n) = 0$ if the firm actually exits at $(z,n)$ following
+productivity shocks, and $\Omega_n(z,n) = 0$ if the firm actually exits at $%
+(z,n)$ following changes in size. These are necessary and sufficient for the
+definition of our problem (Brekke and {\O}ksendal 1991). Its general formulation
+terms of optimal switching between three regimes (operation, layoffs, exit)
+on the entire positive quadrant, can be made as a system of
+Hamilton-Jacobi-Bellman-Variational-Inequality (see Pham 2009), which we
+present here for completeness :
+\begin{eqnarray*}
+&& \max \Bigg\{ - \rho \Omega \left(z,n\right) + \max_{v \geq 0} -\delta n
+[\Omega_n(z,n) - U] +q v \phi \left[ \Omega_n(z,n) -U \right] \\
+&& \hskip1.2cm +q v \left( 1-\phi \right) \int \max\Bigg[\Omega_n(z,n) -
+\Omega_n(z^{\prime},n^{\prime}) \ , \ 0 \Bigg]d\widetilde{H_n}\left(
+z^{\prime},n^{\prime}\right) +\mu(z) \Omega_z(z,n) + \frac{\sigma(z)^2}{2}
+\Omega_{zz}(z,n) \ ; \\
+&& \hskip1.3cm \vartheta + n U - \Omega(z,n) \ ; \ \max_{k \in [0,n]}
+\Omega(z,k) + (n-k) U - \Omega(z,n) \Bigg\} = 0 \hskip5mm , \hskip5mm
+\forall (z,n) \in \mathbb{R}_+^2
+\end{eqnarray*}\vspace{.7cm}
+
+\newpage
+\section{Computational details}\label{appx:computation}
+
+\input{BEMV_ECTA_Computational_Appendix.tex}
+
+\bigskip\bigskip
+
+\noindent \textbf{\Large References}\bigskip
+
+\noindent \textsc{Brekke K., and B. {\O}ksendal (1991):} ``The High Contact Principle as a Sufficiency Condition for Optimal Stopping,'' in  D. Lund, B. {\O}ksendal (Eds.), \emph{Stochastic Models and Option Values: Applications to Resources, Environment, and Investment Problems}. Contributions to Economic Analysis, Vol. 200. North-Holland, Amsterdam.\medskip
+
+\noindent \textsc{Pham, H. (2009):} \emph{Continuous-time Stochastic Control and Optimization with Financial Applications.} Springer. \medskip
+
+\noindent \textsc{Stokey, N. (2009):} \emph{The Economics of Inaction: Stochastic Control Models with Fixed Costs.} Princeton University Press.\medskip
+
+
+
+\end{document}
+

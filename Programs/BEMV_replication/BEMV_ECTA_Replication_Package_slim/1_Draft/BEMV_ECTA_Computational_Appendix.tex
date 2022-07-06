@@ -1,0 +1,435 @@
+%%% LyX 2.2.3 created this file.  For more info, see http://www.lyx.org/.
+%%% Do not edit unless you really know what you are doing.
+%\documentclass[english]{article}
+%\usepackage[OT1]{fontenc}
+%\usepackage[latin9]{inputenc}
+%\usepackage{geometry}
+%\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+%\usepackage{units}
+%\usepackage{amsmath}
+%\usepackage{babel}
+%\begin{document}
+
+\subsection{Numerical Solution to Surplus HJB Equation}
+
+\subsubsection{Simplifying the Bellman equation}
+\begin{itemize}
+\item Recall that the stochastic process for $z_{t}$ is
+\[
+dz_{t}=\mu\left(z_{t}\right)dt+\sigma\left(z_{t}\right)dW_{t}
+\]
+\item We want to solve:
+\[
+\begin{aligned}\widetilde{\rho}S(z,n) & =\max_{v\geq0}\:y(z,n)-nb-c_{f}-\delta nS_{n}\left(z,n\right)\\
+ & \hfill+\underbrace{q\left[\phi S_{n}\left(z,n\right)+(1-\phi)\int_{0}^{S_{n}\left(z,n\right)}\left[S_{n}\left(z,n\right)-S_{n}^{\prime}\right]dH_{n}\left(S_{n}^{\prime}\right)\right]}_{\text{Expected benefit per vacancy :=\ensuremath{\mathcal{H}\left(S_{n}\right)}}}v-c\left(v,n\right)\\
+ & \hfill+\mu(z)S_{z}(z,n)+\frac{\sigma^{2}(z)}{2}S_{zz}(z,n)
+\end{aligned}
+\]
+where $\widetilde{\rho}=\left(\rho+\delta_{x}\right)$ to account
+for exogneous exit at rate $\delta_{x}$, which we use in the quantitative
+model.
+\item The expected benefit per vacancy, $\mathcal{H}\left(S_{n}\right)$
+is a function only of marginal surplus $S_{n}$, and integrating by
+parts is:
+\[
+\begin{aligned}\mathcal{H}\left(S_{n}\right) & =q\left[\phi S_{n}+\left(1-\phi\right)\widehat{H}_{n}\left(S_{n}\right)\right]\end{aligned}
+\]
+where
+\[
+\widehat{H}_{n}\left(S_{n}\right)=\int_{0}^{S_{n}}H_{n}(s)ds\quad,\quad H_{n}\left(S_{n}\right)=\int_{0}^{S_{n}}h_{n}\left(s\right)ds\quad,\quad h_{n}\left(S_{n}\right)=\frac{n\left(S_{n}\right)}{\texttt{n}}h\left(S_{n}\right)
+\]
+\item As in our quantitative exercise, let $c(v,n)=\frac{\bar{c}}{1+\gamma}\left(\frac{v}{n}\right)^{\gamma}v$.
+\item The first order condition for vacancies is then as follows, with associated
+vacancy rate:
+\begin{eqnarray*}
+\mathcal{H}\left(S_{n}\right) & = & \bar{c}\left(\frac{v}{n}\right)^{\gamma}\\
+\frac{v\left(z,n\right)}{n} & = & \frac{1}{\overline{c}^{1/\gamma}}\mathcal{H}\left(S_{n}\left(z,n\right)\right)^{\frac{1}{\gamma}}.
+\end{eqnarray*}
+\item The terms that depend on vacancies in the Bellman equation can therefore
+be simplified:
+\begin{align*}
+\mathcal{H}\left(S_{n}\left(z,n\right)\right)v-c(v,n) & =\xi\mathcal{H}\left(S_{n}\left(z,n\right)\right)^{\frac{1+\gamma}{\gamma}}n\:,\\
+\xi & :=\frac{1}{\overline{c}^{1/\gamma}}\frac{\gamma}{1+\gamma}.
+\end{align*}
+\item Substituting this back into the Bellman equation, and re-arranging
+we have flow payoffs, terms that depend on the drift of $n$ and terms
+that depend on the dynamics of $z$:
+\begin{equation}
+\begin{aligned}\widetilde{\rho}S\left(z,n\right) & =y\left(z,n\right)-nb-c_{f}\\
+ & \qquad+\left[\xi\frac{\mathcal{H}\left(S_{n}\left(z,n\right)\right)^{\frac{1+\gamma}{\gamma}}}{S_{n}\left(z,n\right)}-\delta\right]nS_{n}\left(z,n\right)\\
+ & \qquad+\mu(z)S_{z}(z,n)+\frac{\sigma^{2}(z)}{2}S_{zz}(z,n).
+\end{aligned}
+\label{eq:Surplus}
+\end{equation}
+\item This is subject to boundary conditions and the previous definitions:
+\[
+\begin{aligned}S\left(z,n\right) & \geq0\\
+S_{n}\left(z,n\right) & \geq0\\
+\mathcal{H}\left(S_{n}\left(z,n\right)\right) & =q\left[\phi S_{n}\left(z,n\right)+(1-\phi)\widehat{H}_{n}\left(S_{n}\left(z,n\right)\right)\right]\\
+\widehat{H}_{n}\left(S_{n}\left(z,n\right)\right) & =\int_{0}^{S_{n}(z,n)}H_{n}(s)ds
+\end{aligned}
+\]
+\end{itemize}
+
+\subsubsection{Change of variables}
+\begin{itemize}
+\item Define the following objects
+\begin{eqnarray*}
+\mu_{n}\left(z,n\right) & := & \xi\frac{\mathcal{H}\left(S_{n}\left(z,n\right)\right)^{\frac{1+\gamma}{\gamma}}}{S_{n}\left(z,n\right)}-\delta\\
+\pi\left(z,n\right) & := & y\left(z,n\right)-nb-c_{f}
+\end{eqnarray*}
+\item Up to this point, the stochastic process for $z_{t}$ has been a general
+geometric Brownian motion with drift and volatility $\mu\left(z_{t}\right)$and
+$\sigma\left(z_{t}\right)$, respectively:
+\[
+dz_{t}=\mu\left(z_{t}\right)dt+\sigma\left(z_{t}\right)dW_{t}
+\]
+\item In the quantitative model, we consider a random walk in logs:
+\begin{align*}
+d\log z_{t} & =\mu dt+\sigma dW_{t}
+\end{align*}
+\item Ito's Lemma implies that
+\begin{align*}
+dz_{t} & =\underbrace{\left[\mu+\frac{\sigma^{2}}{2}\right]z_{t}}_{\mu\left(z_{t}\right)}dt+\underbrace{\sigma z_{t}}_{\sigma\left(z_{t}\right)}dW_{t}
+\end{align*}
+\item Substituting these into the Bellman equation
+\begin{align*}
+\widetilde{\rho}S\left(z,n\right) & =\pi\left(z,n\right)+\mu_{n}\left(z,n\right)nS_{n}\left(z,n\right)+\mu(z)S_{z}(z,n)+\frac{\sigma^{2}(z)}{2}S_{zz}(z,n)\\
+\widetilde{\rho}S\left(z,n\right) & =\pi\left(z,n\right)+\mu_{n}\left(z,n\right)nS_{n}\left(z,n\right)+\left[\mu+\frac{\sigma^{2}}{2}\right]zS_{z}(z,n)+\frac{\sigma^{2}}{2}z^{2}S_{zz}(z,n)
+\end{align*}
+\item Now consider a change of variables. Let $\widetilde{z}=\log z$, $\widetilde{n}=\log n$.
+Now define $\widetilde{S}\left(\widetilde{z},\widetilde{n}\right)=S\left(e^{\widetilde{z}},e^{\widetilde{n}}\right)=S\left(z,n\right)$,
+$\widetilde{\pi}\left(\widetilde{z},\widetilde{n}\right)=\pi\left(e^{\widetilde{z}},e^{\widetilde{n}}\right)$
+, and $\widetilde{\mu}_{n}\left(\widetilde{z},\widetilde{n}\right)=\mu_{n}\left(e^{\widetilde{z}},e^{\widetilde{n}}\right)$
+\item Note that
+\begin{align*}
+\widetilde{\pi}\left(\widetilde{z},\widetilde{n}\right) & =y\left(e^{\widetilde{z}},e^{\widetilde{n}}\right)-e^{\widetilde{n}}b-c_{f}=\widetilde{y}\left(\widetilde{z},\widetilde{n}\right)-e^{\widetilde{n}}b-c_{f}\\
+\widetilde{y}\left(\widetilde{z},\widetilde{n}\right) & =\left(e^{\widetilde{z}}\right)\times\left(e^{\alpha\widetilde{n}}\right)
+\end{align*}
+\item Applying the chain rule to $S\left(z,n\right)=\widetilde{S}\left(\log z,\log n\right)$,
+and re-arranging:
+\begin{align*}
+S_{n}\left(z,n\right)n & =\widetilde{S}_{\widetilde{n}}\left(\widetilde{z},\widetilde{n}\right)\\
+S_{z}\left(z,n\right)z & =\widetilde{S}_{\widetilde{z}}\left(\widetilde{z},\widetilde{n}\right)\\
+z^{2}S_{zz}\left(z,n\right) & =\widetilde{S}_{\widetilde{z}\widetilde{z}}\left(\widetilde{z},\widetilde{n}\right)-\widetilde{S}_{\widetilde{z}}\left(\widetilde{z},\widetilde{n}\right)
+\end{align*}
+\item Substituting these into the Bellman equation
+\begin{equation}
+\widetilde{\rho}\widetilde{S}\left(\widetilde{z},\widetilde{n}\right)=\widetilde{\pi}\left(\widetilde{z},\widetilde{n}\right)+\mu_{n}\left(S_{n}\left(e^{\widetilde{z}},e^{\widetilde{n}}\right)\right)\widetilde{S}_{\widetilde{n}}\left(\widetilde{z},\widetilde{n}\right)+\mu\widetilde{S}_{\widetilde{z}}\left(\widetilde{z},\widetilde{n}\right)+\frac{\sigma^{2}}{2}\widetilde{S}_{\widetilde{z}\widetilde{z}}\left(\widetilde{z},\widetilde{n}\right)\label{eq:SurplusTilde}
+\end{equation}
+\item The boundary conditions are the same, since $S\left(z,n\right)=\widetilde{S}\left(\widetilde{z},\widetilde{n}\right)$,
+and $S_{n}\left(z,n\right)\geq0$, which since $n\geq0$, is true
+if and only if $S_{n}\left(z,n\right)n\geq0$, which is equivalent
+to $\widetilde{S}_{\widetilde{n}}\left(\widetilde{z},\widetilde{n}\right)\geq0$.
+\end{itemize}
+
+\subsubsection{Implicit method}
+\begin{itemize}
+\item We solve (\ref{eq:SurplusTilde}) using an implicit method.
+\item Let $\Delta$ denote step-size and $\tau$ the iteration of the algorithm.
+\item Then given $\widetilde{S}^{\tau-1}\left(\widetilde{z},\widetilde{n}\right)$,
+the implicit method gives an update:
+\[
+\frac{1}{\Delta}\left[\widetilde{S}^{\tau}\left(\widetilde{z},\widetilde{n}\right)-\widetilde{S}^{\tau-1}\left(\widetilde{z},\widetilde{n}\right)\right]+\widetilde{\rho}S^{\tau}\left(\widetilde{z},\widetilde{n}\right)=\widetilde{\pi}\left(\widetilde{z},\widetilde{n}\right)+\mu_{n}\left(S_{n}\left(e^{\widetilde{z}},e^{\widetilde{n}}\right)\right)\widetilde{S}_{\widetilde{n}}^{\tau}\left(\widetilde{z},\widetilde{n}\right)+\mu\widetilde{S}_{\widetilde{z}}^{\tau}\left(\widetilde{z},\widetilde{n}\right)+\frac{\sigma^{2}}{2}\widetilde{S}_{\widetilde{z}\widetilde{z}}^{\tau}\left(\widetilde{z},\widetilde{n}\right)
+\]
+\item Rearranging this expression:
+\begin{equation}
+\left(\frac{1}{\Delta}+\widetilde{\rho}\right)\widetilde{S}^{\tau}\left(\widetilde{z},\widetilde{n}\right)-\mu_{n}\left(S_{n}\left(e^{\widetilde{z}},e^{\widetilde{n}}\right)\right)\widetilde{S}_{\widetilde{n}}^{\tau}\left(\widetilde{z},\widetilde{n}\right)-\mu\widetilde{S}_{\widetilde{z}}^{\tau}\left(\widetilde{z},\widetilde{n}\right)-\frac{\sigma^{2}}{2}\widetilde{S}_{\widetilde{z}\widetilde{z}}^{\tau}\left(\widetilde{z},\widetilde{n}\right)=\widetilde{\pi}\left(\widetilde{z},\widetilde{n}\right)+\frac{1}{\Delta}\widetilde{S}^{\tau-1}\left(\widetilde{z},\widetilde{n}\right)\label{eq:implicit2}
+\end{equation}
+\item We now discretize $\widetilde{n}$ on an evenly spaced $N_{\widetilde{n}}\times1$
+grid, $\widetilde{\boldsymbol{n}}=\left(\widetilde{n}_{0},\widetilde{n}_{0}+\Delta_{\widetilde{n}},\widetilde{n}_{0}+2\Delta_{\widetilde{n}},\widetilde{n}_{0}+\left(N_{\widetilde{n}}-1\right)\Delta_{\widetilde{n}}\right)$,
+and $\widetilde{z}$ on an evenly spaced $N_{\widetilde{z}}\times1$
+grid, $\widetilde{\boldsymbol{z}}=\left(\widetilde{z}_{0},\widetilde{z}_{0}+\Delta_{\widetilde{z}},\widetilde{z}_{0}+2\Delta_{\widetilde{z}},\widetilde{z}_{0}+\left(N_{\widetilde{z}}-1\right)\Delta_{\widetilde{z}}\right)$.
+\item Stack these according to:
+\[
+\widetilde{\boldsymbol{s}}=\left[\boldsymbol{i}_{N_{\widetilde{n}}}\otimes\widetilde{\boldsymbol{z}},\widetilde{\boldsymbol{n}}\otimes\boldsymbol{i}_{N_{\widetilde{z}}}\right]=\left(\begin{array}{c}
+\widetilde{z}_{1},\tilde{n}_{1}\\
+\widetilde{z}_{2},\tilde{n}_{1}\\
+\vdots\\
+\widetilde{z}_{N_{\widetilde{z}}},\tilde{n}_{1}\\
+\vdots\\
+\widetilde{z}_{1},\tilde{n}_{N_{\widetilde{n}}}\\
+\vdots\\
+\widetilde{z}_{N_{\widetilde{z}}},\tilde{n}_{N_{\widetilde{n}}}
+\end{array}\right).
+\]
+\item Discretized, we can write (\ref{eq:implicit2}) as $N_{\widetilde{z}}\times N_{\widetilde{n}}$
+equations:
+\begin{equation}
+\left(\frac{1}{\Delta}+\widetilde{\rho}\right)\widetilde{S}^{\tau}-\mu_{n}\widetilde{S}_{\widetilde{n}}^{\tau}-\mu\widetilde{S}_{\widetilde{z}}^{\tau}-\frac{\sigma^{2}}{2}\widetilde{S}_{\widetilde{z}\widetilde{z}}^{\tau}=\widetilde{\pi}+\frac{1}{\Delta}\widetilde{S}^{\tau-1}\label{eq:surplusiteration5}
+\end{equation}
+\item Let $D_{\tilde{n}}$ be the $\left(N_{\widetilde{z}}\times N_{\widetilde{n}}\right)\times\left(N_{\widetilde{z}}\times N_{\widetilde{n}}\right)$
+square matrix that, when pre-multiplying $\widetilde{S}^{\tau}$,
+gives an approximation of $\widetilde{S}_{\widetilde{n}}^{\tau}$.
+Analogously, define $D_{\widetilde{z}}$ and $D_{\widetilde{z}\widetilde{z}}$:
+\begin{align*}
+\widetilde{S}_{\widetilde{n}}^{\tau} & =D_{\tilde{n}}\widetilde{S}^{\tau}\\
+\widetilde{S}_{\widetilde{z}}^{\tau} & =D_{\widetilde{z}}\widetilde{S}^{\tau}\\
+\widetilde{S}_{\widetilde{z}\widetilde{z}}^{\tau} & =D_{\widetilde{z}\widetilde{z}}\widetilde{S}^{\tau}
+\end{align*}
+\item Using these we can write (\ref{eq:surplusiteration5}) as
+\[
+\left[\left(\frac{1}{\Delta}+\widetilde{\rho}\right)-\widetilde{\mu}_{n}D_{\tilde{n}}-\left(\mu D_{\widetilde{z}}+\frac{\sigma^{2}}{2}D_{\widetilde{z}\widetilde{z}}\right)\right]\widetilde{S}^{\tau}=\widetilde{\pi}+\frac{1}{\Delta}\widetilde{S}^{\tau-1}
+\]
+\item Define
+\begin{align*}
+\mathcal{N}^{v} & =\widetilde{\mu}_{n}D_{\tilde{n}}\\
+\mathcal{Z}^{v} & =\mu D_{\widetilde{z}}+\frac{\sigma^{2}}{2}D_{\widetilde{z}\widetilde{z}}
+\end{align*}
+\item Then we have
+\[
+\left[\left(\frac{1}{\Delta}+\widetilde{\rho}\right)-\mathcal{N}^{v}-\mathcal{Z}^{v}\right]\widetilde{S}^{\tau}=\widetilde{\pi}+\frac{1}{\Delta}\widetilde{S}^{\tau-1}
+\]
+\item Therefore the implicit method works by updating $S^{\tau}$ through
+\begin{align}
+\mathbf{B}S^{\tau} & =\Pi+\frac{1}{\Delta}S^{\tau-1}\nonumber \\
+\mathbf{B} & =\left(\frac{1}{\Delta}+\widetilde{\rho}\right)-\mathcal{N}^{v}-\mathcal{Z}^{v}\label{eq:surplusiteration3}
+\end{align}
+\end{itemize}
+
+\subsubsection{Derivative matrices}
+\begin{itemize}
+\item To compute the derivative matrices $D_{\tilde{n}}$, $D_{\tilde{z}}$,
+and $D_{\tilde{z}\tilde{z}}$, we follow an upwind scheme.
+\item That is, we use a forward approximation when the drift of the state
+variable is positive, and a backward approximation when the drift
+of the state is negative.
+\item In the simple case of $D_{\tilde{z}}$, since our estimation delivers
+$\mu<0$, $D_{\tilde{z}}$ is built considering a backward difference
+such that, for example, the derivative at point $S_{z}\left(z_{3},n_{2}\right)$
+is computed as
+\[
+\widetilde{S}_{z}\left(\tilde{z}_{3},\widetilde{n}_{2}\right)=\frac{\widetilde{S}_{z}\left(\tilde{z}_{3},\widetilde{n}_{2}\right)-\widetilde{S}_{z}\left(\tilde{z}_{2},\widetilde{n}_{2}\right)}{\Delta_{\widetilde{z}}}.
+\]
+\item This requires that $D_{\tilde{z}}$ is as follows, where $\boldsymbol{I}_{N_{\widetilde{n}}}$
+is an $N_{\widetilde{n}}\times N_{\widetilde{n}}$ identity matrix:
+\[
+D_{\tilde{z}}=\left(\begin{array}{cccccc}
+\nicefrac{-1}{\Delta_{\widetilde{z}}} & \nicefrac{1}{\Delta_{\widetilde{z}}} & 0 & \cdots & \cdots & 0\\
+\nicefrac{-1}{\Delta_{\widetilde{z}}} & \nicefrac{1}{\Delta_{\widetilde{z}}} & 0 & \ddots & \ddots & \vdots\\
+0 & \nicefrac{-1}{\Delta_{\widetilde{z}}} & \nicefrac{1}{\Delta_{\widetilde{z}}} & 0 & \ddots & \vdots\\
+\vdots & 0 & \nicefrac{-1}{\Delta_{\widetilde{z}}} & \nicefrac{1}{\Delta_{\widetilde{z}}} & \ddots & \vdots\\
+\vdots & \ddots & \ddots & \ddots & \ddots & 0\\
+0 & \cdots & \cdots & 0 & \nicefrac{-1}{\Delta_{\widetilde{z}}} & \nicefrac{1}{\Delta_{\widetilde{z}}}
+\end{array}\right)_{N_{\widetilde{z}}\times N_{\widetilde{z}}}\otimes\boldsymbol{I}_{N_{\widetilde{n}}}
+\]
+which gives a backward approximation for any $i$ except for $i=1$
+in which case it uses a forward approximation.
+\item For the case of the second derivative with respect to $z$, we use
+a central approximation by building the following matrix\footnote{For any $j$ the $\left(i,j\right)$ entry of $\widetilde{S}_{\widetilde{z}\widetilde{z}}=D_{\widetilde{z}}\widetilde{S}$
+reads $\frac{\left[\widetilde{S}\left(\widetilde{z}_{i+1},\widetilde{n}_{j}\right)-\widetilde{S}\left(z_{i},\widetilde{n}_{j}\right)\right]-\left[\widetilde{S}\left(\widetilde{z}_{i},\widetilde{n}_{j}\right)-\widetilde{S}\left(\widetilde{z}_{i-1},\widetilde{n}_{j}\right)\right]}{\Delta_{\widetilde{z}}^{2}}$
+for any $i$ except for $i=1$ in which case it reads $\frac{\widetilde{S}\left(\widetilde{z}_{2},\widetilde{n}_{j}\right)-\widetilde{S}\left(\widetilde{z}_{1},\widetilde{n}_{j}\right)}{\Delta_{\widetilde{z}}^{2}}$
+and for $i=N_{\tilde{z}}$ in which case it reads $\frac{\widetilde{S}\left(\widetilde{z}_{N_{z}},\widetilde{n}_{j}\right)-\widetilde{S}\left(\widetilde{z}_{N_{\widetilde{z}}-1},\widetilde{n}_{j}\right)}{\Delta_{\widetilde{z}}^{2}}$.}
+\[
+D_{\tilde{z}\tilde{z}}=\left(\begin{array}{cccccc}
+\nicefrac{-1}{\Delta_{\widetilde{z}}^{2}} & \nicefrac{1}{\Delta_{\widetilde{z}}^{2}} & 0 & \cdots & \cdots & 0\\
+\nicefrac{1}{\Delta_{\tilde{z}}^{2}} & \nicefrac{-2}{\Delta_{\tilde{z}}^{2}} & \nicefrac{1}{\Delta_{\tilde{z}}^{2}} & 0 & \ddots & \vdots\\
+0 & \nicefrac{1}{\Delta_{\tilde{z}}^{2}} & \nicefrac{-2}{\Delta_{\tilde{z}}^{2}} & \ddots & \ddots & \vdots\\
+\vdots & 0 & \ddots & \ddots & \nicefrac{1}{\Delta_{\tilde{z}}^{2}} & 0\\
+\vdots & \ddots & \ddots & \nicefrac{1}{\Delta_{\tilde{z}}^{2}} & \nicefrac{-2}{\Delta_{\tilde{z}}^{2}} & \nicefrac{1}{\Delta_{\tilde{z}}^{2}}\\
+0 & \cdots & \cdots & 0 & \nicefrac{1}{\Delta_{\tilde{z}}^{2}} & \nicefrac{-1}{\Delta_{\tilde{z}}^{2}}
+\end{array}\right)_{N_{\widetilde{z}}\times N_{\widetilde{z}}}\otimes\boldsymbol{I}_{N_{\widetilde{n}}}
+\]
+\item Finally, care must be taken in the case of $D_{\tilde{n}}$ since
+the drift of $n$ endogenously depends on $\left(\widetilde{z},\widetilde{n}\right)$,
+and thus the upwind scheme dictates that the direction of the finite
+difference depends on $\left(\widetilde{z},\widetilde{n}\right)$.
+We construct both $D_{\tilde{n}}^{f}$ that considers a forward approximation,
+$D_{\tilde{n}}^{b}$ for a backward approximation, and use the former
+for positive values of $\widetilde{\mu}_{n}\left(\widetilde{z},\widetilde{n}\right)$
+and the latter for negative values,
+\end{itemize}
+
+\subsection*{F.2 Numerical Solution to Kolmogorov Forward Equation \label{subsec:F.2-KFE}}
+\begin{itemize}
+\item Substituting these into the Bellman equation
+\begin{equation}
+\widetilde{\rho}\widetilde{S}\left(\widetilde{z},\widetilde{n}\right)=\widetilde{\pi}\left(\widetilde{z},\widetilde{n}\right)+\widetilde{\mu}_{n}\left(\widetilde{z},\widetilde{n}\right)\widetilde{S}_{\widetilde{n}}\left(\widetilde{z},\widetilde{n}\right)+\mu\widetilde{S}_{\widetilde{z}}\left(\widetilde{z},\widetilde{n}\right)+\frac{\sigma^{2}}{2}\widetilde{S}_{\widetilde{z}\widetilde{z}}\left(\widetilde{z},\widetilde{n}\right)\label{eq:SurplusTilde-1}
+\end{equation}
+\item We continue to work in the transformed variables.
+\item Note that
+\[
+\frac{dn/n}{dt}=\frac{d\log n}{dt}=\frac{d\widetilde{n}}{dt}
+\]
+\item Let $h\left(\widetilde{z},\widetilde{n}\right)$ be the stationary
+distribution of firms in the economy.
+\item Recall $\widetilde{S}\left(\widetilde{z},\widetilde{n}\right)=S\left(z,n\right)$,
+so operating firms have $\widetilde{S}\left(\widetilde{z},\widetilde{n}\right)\geq0$.
+\item Then $h\left(\widetilde{z},\widetilde{n}\right)$ satisfies
+\begin{align*}
+0 & =-\frac{\partial}{\partial\widetilde{n}}\left(\frac{d\widetilde{n}\left(\widetilde{z},\widetilde{n}\right)}{dt}\Bigg|_{\widetilde{S}\left(\widetilde{z},\widetilde{n}\right)\geq0}h\left(\widetilde{z},\widetilde{n}\right)\right)+\left(\frac{d\widetilde{n}\left(\widetilde{z},\widetilde{n}\right)}{dt}\Bigg|_{\widetilde{S}\left(\widetilde{z},\widetilde{n}\right)<0}h\left(\widetilde{z},\widetilde{n}\right)\right)\\
+ & \quad\qquad-\mu h_{\widetilde{z}}\left(\widetilde{z},\widetilde{n}\right)+\frac{\sigma^{2}}{2}h_{\widetilde{z}\widetilde{z}}\left(\widetilde{z},\widetilde{n}\right)-\delta_{x}h\left(\widetilde{z},\widetilde{n}\right)+\texttt{m}_{0}\pi_{0}\left(\widetilde{z}\right)\Delta\left(\widetilde{n}\right)
+\end{align*}
+Note that firm exit from negative surplus is not treated as part of
+the drift in $n$, hence two $\frac{d\widetilde{n}}{dt}$ terms: firm
+exit takes mass away from certain states without returning it anywhere
+in particular, while layoffs shift mass from one state to another.
+\item We can vectorize this in the same way as above, and obtain
+\begin{align*}
+0 & =-D_{\widetilde{n}}\dot{\widetilde{n}}h-\mu D_{\tilde{z}}h+\frac{\sigma{}^{2}}{2}D_{\tilde{z}\tilde{z}}h-\mathcal{X}h-\delta_{x}h+h_{0}
+\end{align*}
+\item Where (i) $h$ is the stacked as above, (ii) $\dot{\widetilde{n}}$
+is a $\left(N_{\widetilde{z}}\times N_{\widetilde{n}}\right)\times\left(N_{\widetilde{z}}\times N_{\widetilde{n}}\right)$
+diagonal matrix with $\left.\frac{d\widetilde{n}\left(\widetilde{z},\widetilde{n}\right)}{dt}\right|_{\widetilde{S}\left(\widetilde{z},\widetilde{n}\right)\geq0}$
+as its entries, (iii) $\mathcal{X}$ is a $\left(N_{\widetilde{z}}\times N_{\widetilde{n}}\right)\times\left(N_{\widetilde{z}}\times N_{\widetilde{n}}\right)$
+diagonal matrix with $-\frac{d\widetilde{n}\left(\widetilde{z},\widetilde{n}\right)}{dt}\Bigg|_{\widetilde{S}\left(\widetilde{z},\widetilde{n}\right)<0}$
+as its entries, and $h_{0}$ is the stacked $\left(N_{\widetilde{z}}\times N_{\widetilde{n}}\right)\times1$
+vector version of $\texttt{m}_{0}\pi_{0}\left(z\right)\Delta\left(n\right)$.
+\item The derivative matrices follow the same purpose as before, however
+note that $D_{\tilde{z}}$ must use a \emph{forward difference} and
+$D_{\widetilde{n}}$ must use upwinding to determine the approximation,
+depending on the sign of $\dot{\widetilde{n}}$ (forward approximation
+for negative drift and backward approximation for negative drift).
+\item This expression can be rearranged to yield
+\begin{equation}
+\underbrace{\left(\underbrace{\left(-D_{\widetilde{n}}\dot{\widetilde{n}}\right)}_{\mathcal{N}^{d}}+\underbrace{\left(-\mu D_{\tilde{z}}+\frac{\sigma{}^{2}}{2}D_{zz}\right)}_{\mathcal{Z}^{d}}-\mathcal{X}-\delta_{x}\boldsymbol{I}_{N_{\widetilde{z}}\times N_{\widetilde{n}}}\right)}_{\mathbf{L}}h=-h_{0}.\label{eq:KFEnumerical}
+\end{equation}
+\end{itemize}
+
+\subsection*{F.3 Stationary equilibrium algorithm}
+\begin{itemize}
+\item The algorithm consists of three steps, implemented in MATLAB by \texttt{SolveBEMV.m},
+which is called by the master file \texttt{MAIN.m}.
+\end{itemize}
+
+\subsubsection*{Step 0 - Construct initial guess}
+\begin{itemize}
+\item Start by constructing a $N_{\widetilde{z}}\times N_{\widetilde{n}}$
+grid for log productivity and log size.
+\item Let $\pi\left(\widetilde{z},\widetilde{n}\right)=y\left(e^{\widetilde{z}},e^{\widetilde{n}}\right)-e^{\widetilde{n}}b-c_{f}$
+denote the stacked $\left(N_{\widetilde{z}}\times N_{\widetilde{n}}\right)\times1$
+vector of flow payoffs on this grid.
+\item Guess an initial surplus $\widetilde{S}^{0}$ on this grid (a $\left(N_{\widetilde{z}}\times N_{\widetilde{n}}\right)\times1$
+column vector); a distribution of firms over productivity and size
+$h^{0}$ (a $\left(N_{\widetilde{z}}\times N_{\widetilde{n}}\right)\times1$
+column vector); aggregate finding rates $q^{0}$ and $\lambda^{0};$
+and an efficiency-weighted share of unemployed searchers, $\theta^{0}.$
+\item Bundle together these aggregates $X^{0}=\left\{ q^{0},\phi^{0},h^{0},S^{0}\right\} $.
+\item Construct marginal surplus. Construct exit regions, separation regions
+and the vacancy policy. File \texttt{InitialGuess.m} does this.
+\item Set $t=1$.
+\end{itemize}
+
+\subsubsection*{Step I - Given aggregate states, iterate to convergence on the coalition's
+problem}
+\begin{itemize}
+\item Given $X^{t-1}=\left\{ q^{t-1},\phi^{t-1},h^{t-1},S^{t-1}\right\} $,
+solve the coalition's problem to obtain $S^{t}.$
+\item The equation we use is
+\item We compute $\mathbf{B}$\textemdash which depends on the distribution
+of marginal surplus, and other elements of $X^{t-1}$\textemdash using
+$X^{t-1}$ and keep it fixed. Denote this $\mathbf{B}_{t-1}$.
+\item Set $\tau=0$. Set $S^{t,\tau}=S^{t-1}$. Iterate using (\ref{eq:surplusiteration3}),
+until convergence to $S^{t\ast}$, where $||S^{t,\tau}-S^{t,\tau-1}||<\varepsilon_{S}$.
+\[
+S^{t,\tau+1}=\mathbf{B}^{-1}\left(\Pi+\frac{1}{\Delta}S^{t,\tau}\right)
+\]
+These iterations are performed using \texttt{IndividualBehavior.m},
+and the solution is assigned as the updated $S^{t}.$ At each step
+we update $S_{n}^{t,\tau+1}$ using $S_{n}=D_{n}S$.
+\item We also obtain from the converged solution the updated separation,
+exit and vacancy policies.
+\item Note that the step size $\Delta$ cannot be too large, otherwise the
+problem will not converge.
+\end{itemize}
+
+\subsubsection*{Step II - Given individual behavior, iterate to convergence on aggregate
+states}
+\begin{itemize}
+\item Given updated individual behavior in outer iteration $t$, obtain
+through iteration in an inner loop $\tau$ the distribution of firms
+$h^{t}$, the aggregate finding rates $q^{t}$ and $p^{t}$, the share
+$\phi^{t}$, the distribution of workers over marginal surplus $H_{n}^{t}$,
+the distribution of vacancies over marginal surplus $H_{v}^{t}$ and
+the entry rate of firms $m_{0}^{t}$
+\item File \texttt{AggregateBehavior.m} proceeds to do this in four steps.
+\item Initiate each aggregate object with the previous outer iteration solution,
+$x^{t-1,0}=x^{t-1}$. Then:
+\item \textit{Step II-a. }Update the distribution of workers over marginal
+surplus to $H_{n}^{t-1,\tau}$ and its integral $\hat{H}_{n}^{t-1,\tau}$
+given a distribution of firms $h^{t-1,\tau-1}$ and marginal surplus
+$S_{n^{\prime}}^{t}$ where the latter was obtained in \textbf{Step
+I} above. This is done by file \texttt{Cdf\_Gn.m}.
+\begin{itemize}
+\item First consider the employment-weighted pdf:
+\[
+h_{n}^{t-1,\tau}\left(z,n\right)=\frac{n}{\texttt{n}}h^{t-1,\tau-1}\left(z,n\right)
+\]
+Where aggregate employment $\texttt{n}$ can be normalized so that
+$h_{n}^{t-1,\tau}\left(z,n\right)$ integrates to 1.
+\item We then sort $h_{n}$ by marginal surplus. Note that $S_{n}\left(z,n\right)n=\widetilde{S}_{\widetilde{n}}\left(\widetilde{z},\widetilde{n}\right)$,
+and that we solved the Bellman equation in $\widetilde{S}_{\widetilde{n}}\left(\widetilde{z},\widetilde{n}\right)$,
+therefore we have to obtain $S_{n}\left(z,n\right)$ by
+\[
+S_{n}\left(z,n\right)=\widetilde{S}_{\widetilde{n}}\left(\widetilde{z},\widetilde{n}\right)/n=\widetilde{S}_{\widetilde{n}}\left(\widetilde{z},\widetilde{n}\right)/e^{\widetilde{n}}.
+\]
+\item Then sort $h_{n}$ by marginal surplus and compute
+\begin{eqnarray*}
+H_{n}^{t-1,\tau}\left(S_{n}^{t}\left(z,n\right)\right) & = & \int_{0}^{S_{n}^{t}\left(z,n\right)}h_{n}^{t-1,\tau}\left(s\right)ds\\
+\hat{H}_{n}^{t-1,\tau}\left(S_{n}^{t}(z,n)\right) & = & \int_{0}^{S_{n}^{t}(z,n)}H_{n}^{1-t,\tau}(s)ds
+\end{eqnarray*}
+\end{itemize}
+\item \textit{Step II-b.} Update the distribution of vacancies over marginal
+surplus $H_{v}^{t-1,\tau}$ given the vacancy policy $v^{t}$, $h^{t-1,\tau-1}$,
+$H_{n}^{t-1,\tau},\ q^{t-1,\tau-1}$, $\phi^{t-1,\tau-1}$ and the
+entry rate $m_{0}^{t-1,\tau}$. This is done by file \texttt{Cdf\_Gv.m}.
+\begin{itemize}
+\item First construct vacancies per worker for the entrants, which is the
+necessary amount of vacancies you need to post to get $n_{0}$ workers:
+\[
+v_{e}^{t-1,\tau}\left(z,n\right)=\frac{n}{q^{t-1,\tau-1}\left[\phi^{t-1,\tau-1}+\left(1-\phi^{t-1,\tau-1}\right)H_{n}^{t-1,\tau}\left(S_{n}^{t}\left(z,n\right)\right)\right]}m_{0}^{t-1,\tau-1}\pi_{0}\left(z\right)\Delta\left(n\right)
+\]
+\item Now consider the distribution weighted by vacancies, both of incumbents
+(using the policy function) and entrants:
+\begin{align*}
+h_{v}^{t-1,\tau}\left(z,n\right) & =\frac{v^{t}\left(z,n\right)h^{t-1,\tau-1}\left(z,n\right)+v_{e}^{t-1,\tau}\left(z,n\right)}{\texttt{v}}
+\end{align*}
+Where aggregate vacancies $\texttt{v}$ can be normalized so that
+$h_{v}^{t-1,\tau}\left(z,n\right)$ integrates to 1.
+\item Then simply, sort $h_{v}$ by marginal surplus and
+\[
+H_{v}^{t-1,\tau}\left(S_{n}^{t}\left(z,n\right)\right)=\int_{0}^{S_{n}^{t}\left(z,n\right)}h_{v}^{t-1,\tau}\left(s\right)ds
+\]
+\end{itemize}
+\item \textit{Step II-c.} Update the distribution of firms $h^{t-1,\tau}$
+and get the entry rate $m_{0}^{t-1,\tau}$ following the Kolmogorov
+forward equation in steady-state given $H_{n}^{t-1,\tau},\ H_{v}^{t-1,\tau},\ q^{t-1,\tau-1},\ p^{t-1,\tau-1},\ \phi^{t-1,\tau-1}$
+and $m_{0}^{t-1,\tau}$. This is executed by file \texttt{Distribution.m}.
+\begin{itemize}
+\item Using (\ref{eq:KFEnumerical}), this can be solved in one line.
+\[
+h^{t-1,\tau}=-\mathbf{L}^{-1}h_{0}
+\]
+\item To compute the entry rate, note that in the stationary equilibrium,
+the entry rate must be equal to the exit rate of firms, which can
+be obtained from $m_{0}^{t-1,\tau}=\mathbf{L}h^{t-1,\tau}$.
+\end{itemize}
+\item \textit{Step II-d.} Update the finding rates $q^{t-1,\tau},p^{t-1,\tau}$
+and share $\phi^{t-1,\tau}$ that are consistent with the vacancy
+policy $v^{t}$ and the distribution of firms $h^{t-1,\tau}$. This
+is done by file \texttt{FindingRates.m}.
+\begin{itemize}
+\item First get the total units of search efficiency in the labor market
+and total vacancies to construct:
+\begin{eqnarray*}
+\texttt{u}^{t-1,\tau} & = & \bar{\texttt{n}}-\texttt{m}\int\int ndH^{t-1,\tau}\left(z,n\right)\\
+\texttt{s}^{t-1,\tau} & = & \texttt{u}^{t-1,\tau}+\xi\texttt{u}^{t-1,\tau}\\
+\phi^{t-1,\tau} & = & \frac{\texttt{u}^{t-1,\tau}}{\texttt{s}^{t-1,\tau}}
+\end{eqnarray*}
+\item Then, get total vacancies and use the matching function:
+\begin{eqnarray*}
+\texttt{v}^{t-1,\tau} & = & \texttt{m}\int\int v^{t}\left(z,n\right)+v_{e}^{t-1,\tau}\left(z,n\right)dH^{t-1,\tau}\left(z,n\right)\\
+\theta^{t-1,\tau} & = & \frac{\texttt{v}^{t-1,\tau}}{\texttt{s}^{t-1,\tau}}\\
+q^{t-1,\tau} & = & A\left(\theta^{t-1,\tau}\right)^{\beta-1}\\
+p^{t-1,\tau} & = & A\left(\theta^{t-1,\tau}\right)^{\beta}
+\end{eqnarray*}
+\end{itemize}
+\item Iterate over the four sub-steps \textit{Step II-a} - \textit{Step
+II-d} until convergence and assign the updated aggregate states $q^{t},\ p^{t},\ \phi^{t},\ h^{t},\ H_{n}^{t}$
+and $H_{v}^{t}$.
+\end{itemize}
+\medskip{}
+
+We subsequently iterate on \textbf{Step I - Step II} until both the
+surplus function and the aggregate states have converged.
+%\end{document}

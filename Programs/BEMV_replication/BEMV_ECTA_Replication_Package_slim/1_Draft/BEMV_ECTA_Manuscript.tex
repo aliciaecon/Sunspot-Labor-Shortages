@@ -1,0 +1,1324 @@
+\input{BEMV_ECTA_preamble.tex}
+
+\begin{document}
+
+\title{\vspace*{-2.5cm}Firm and Worker Dynamics in a Frictional Labor Market %
+\thanks{%
+The view included are those of the authors and do not represent those of the Federal Reserve System.
+We thank our discussants Bj\"{o}rn Br\"{u}gemann, Nir Jaimovich and Thibault Lamadon.
+We also thank Pierre Cahuc, V.V. Chari, Steven Davis, Nobu Kiyotaki, Per Krusell, John Moore, Giuseppe Moscarini, and Jean-Marc Robin, and many other seminar participants for their useful feedback.
+We thank Sebastian Guarda, Hugo Lhuillier and Alex Weinberg for excellent research assistance.
+The views expressed in this study are those of the authors and do not necessarily reflect the position of the Federal Reserve Bank of Minneapolis or the Federal Reserve System.
+}
+}
+\author{\textit{\ Adrien Bilal\thanks{%
+Harvard University and NBER},\hspace{.2cm} Niklas Engbom\thanks{%
+New York University, CEPR and NBER},\hspace{.2cm} Simon Mongey\thanks{%
+Federal Reserve Bank of Minneapolis, University of Chicago and NBER},\hspace{.2cm} and \hspace{.2cm} Giovanni L.
+Violante\thanks{%
+Princeton University, CEBI, CEPR, IFS, IZA, and NBER}}\vspace*{0.7cm}}
+\maketitle
+
+\begin{center}
+\textbf{Abstract}
+\end{center}
+
+\noindent
+This paper integrates the classic theory of firm boundaries, through span of control or taste for variety, into a model of the labor market with random matching and on-the-job search. Firms choose when to enter and exit, whether to create vacancies or destroy jobs in response to shocks, and Bertrand-compete to hire and retain workers. Tractability is obtained by proving that, under a parsimonious set of assumptions, all worker and firm decisions are characterized by their joint surplus, which in turn only depends on firm productivity and size. The job ladder in marginal surplus that emerges in equilibrium determines net poaching patterns by firm characteristics that are in line with the data. As frictions vanish, the model converges to a standard competitive model of firm dynamics. The combination of firm dynamics and search frictions allows the model to: (i) quantify the misallocation cost of frictions; (ii) replicate elusive life-cycle growth profiles of superstar firms; and (iii) make sense of the failure of the job ladder around the Great Recession as a result of the collapse of firm entry.
+
+\vspace*{1.cm}
+
+\noindent \textbf{Keywords:} Diminishing Returns to Scale, Firm Dynamics, Frictional Misallocation, Great Recession, Job Turnover, Marginal Surplus, Net Poaching, On the Job Search, Unemployment, Vacancies,
+Worker Flows.\vspace*{0.5cm}
+
+\noindent \textbf{JEL Classification:} D22, E23, E24, E32, J23, J63, J64, J69.
+
+\thispagestyle{empty} 
+\newpage \addtocounter{page}{-1}
+
+
+\section{Introduction}
+
+\sloppy \label{sec:introduction}
+
+Aggregate production in the economy is divided into millions of firms, each facing idiosyncratic fluctuations in its productivity and demand.
+Understanding the process of labor reallocation across these production units is important for several reasons.
+In the long run, reallocating labor away from unproductive firms toward more productive firms enhances aggregate productivity and growth.
+In the short run, the propagation of sectoral and aggregate shocks depends on how quickly labor flows across firms and between unemployment and employment.
+From a normative perspective, understanding the potential welfare losses or gains due to reallocation is necessary for assessing the efficacy of policies that subsidize jobless workers, protect employment, or advantage particular sectors or firms.
+
+The labor reallocation process has three key properties.
+First, it has distinct layers: the entry and exit of firms, the creation and destruction of jobs at existing firms, and the turnover of workers across existing jobs.
+Second, it is intermediated by labor markets that are frictional, as revealed by the coexistence of vacancies and job seekers.
+Third, around half of worker turnover occurs through direct job-to-job transitions: most new hires come from another firm rather than from unemployment.
+
+Therefore, addressing labor reallocation requires a framework with two central elements.
+First,  a theory of the firm (i.e., its boundaries) and of firm dynamics (entry, growth, separations, exit).
+Second, a theory of worker flows intermediated by frictional labor markets that allows for on-the-job search and job-to-job mobility (i.e., poaching).
+Quantitatively, such a framework should account for a new body of time series and cross-sectional evidence---emerging from matched employer-employee data---that describes the relationship between firm characteristics and the direction and composition of worker flows.\footnote{
+    If we consider hires for a particular firm type (e.g., young, small and fast-growing), by \emph{composition} we mean the split between hires from unemployment and those from employment.
+    Within hires from employment, \emph{direction} refers to the characteristics of the employers between which workers are reallocated.}
+
+This paper presents a new model with these features.
+A firm is a profit maximizing owner of a technology with decreasing returns to scale and stochastic productivity that chooses optimally whether to enter and when to exit the market.
+Equivalently, the firm could be a monopolistic producer facing a downward sloping demand curve with a stochastic shifter, with an isomorphic interpretation in our model.
+Firms grow by posting costly vacancies that are randomly matched to either unemployed or employed workers.
+Worker flows occur when matched workers determine that the value of working at the newly matched firm exceeds their value of unemployment or employment in their current firm.
+In general, with decreasing returns to scale in production, these values are a complicated function of a high dimensional state vector that includes distributions of wages or worker values inside the firm.
+This makes the problem seem intractable.
+
+Our first contribution is to set out a parsimonious set of assumptions that are \emph{sufficient} for tractability.
+Our assumptions place a minimal structure on the contractual environment such that the state vector becomes manageable.
+Three assumptions on bargaining and surplus sharing are common to many single-worker firm environments:
+(i) lack of commitment;
+(ii) wage contract renegotiation by mutual consent;
+(iii) Bertrand competition among employers for employed jobseekers.
+Two further assumptions are required in our new multi-worker firm environment:
+(iv) no value is lost in internal wage renegotiations between a firm and its incumbent workers; and
+(v) vacancy policies maximize combined firm and worker value---for which we offer an explicit microfoundation.
+Under these assumptions, firm and workers' decisions are privately efficient, as if the firm and incumbent workers maximize their \emph{total value}.
+The state variables of the total value function are only two: firm size $\left(n\right)$ and productivity $\left(z\right)$. 
+
+Two other ingredients are vital to achieve tractability.
+First, we work in continuous time.
+In a small interval of time only one random event may occur.
+For example, a firm only needs to deal with one of its employee meeting another firm, not all combinations of its employees meeting other firms.
+Second, we take the continuous limit of a discrete workforce.
+Worker flows are determined by comparing the change in total value that would arise if a worker joins or leaves a firm.
+With a continuous measure of workers, this \emph{marginal value} can be conveniently expressed as a partial derivative of total value.
+
+We show that total and marginal value are sufficient for characterizing firm and worker dynamics.
+Marginal value pins down hiring: facing a convex vacancy cost, firms post vacancies until the marginal cost of a vacancy is equal to the expected marginal value of hiring.\footnote{
+    Convex adjustment costs are among the solutions proposed by \citet{ElsbyMichaelsRatner} to obtain empirically plausible sluggish adjustment of labor market aggregates, which is difficult to generate in models with fixed or linear costs.
+}
+Marginal value also pins down separations: facing a decreasing marginal product of labor, firms fire workers until the marginal value of a worker equals the value of unemployment.
+When total value is less (more) than the firm owner's outside option, the firm exits (enters).
+Finally, in equilibrium, marginal values determine the direction of worker flows.
+Workers climb a \emph{job ladder} in marginal value, quitting when on-the-job search delivers a match with a higher marginal value firm.
+An intuitive Bellman equation accounts for the evolution of the total value, while a law of motion reflecting frictional labor reallocation accounts for the evolution of the firm size and productivity distribution.\footnote{
+    This representation uniquely pins down firm and worker dynamics, the subject of this paper, but is consistent with multiple wage determination mechanisms that determine how this joint value is split.
+    Wages, therefore, are not allocative in that the distribution of firms and flows of workers across firms is independent of wage dynamics.
+    In order to study the model's implication for wage dynamics, one has to make additional assumptions. We return on this point in Section \ref{sec:environment}.}
+
+Our second contribution exploits the mathematical tractability of our framework to analytically characterize equilibrium firm and worker reallocation.
+First, we analyze firm dynamics and job turnover graphically in $\left(n,z\right)$-space by describing the regions in which a firm exits, fires and hires.
+Firms that exit and fire always destroy jobs.
+Hiring firms may either grow on net (creating jobs) or shrink on net (destroying jobs) because some of their workers quit to firms with a higher rank on the marginal value ladder.
+Second, we decompose sources of net employment growth for hiring firms into the different types of gross flows: hires and separation from/to unemployment and from/to employment via poaching.
+This decomposition varies systematically with the firm states $\left(n,z\right)$ that determine marginal surplus.
+Third, we establish that our framework generalizes existing work by studying the limiting behaviors of our economy.
+As \emph{decreasing returns to scale} vanish, the economy converges to one in which single-worker firms operate in a frictional labor market \`{a} la \citet{postelvinayrobin2002}.
+As \emph{frictions} vanish, the economy converges to one in which multi-worker firms operate in a competitive labor market \`{a} la \citet{HopenhaynEMET}.
+Surprisingly, on the job search is necessary for this result, as it provides the mechanism that equates the marginal products of labor across firms in the limit.
+As in \citet{HopenhaynEMET}, the limit features a non-degenerate firm size distribution.
+This is in sharp contrast to the frictionless limit of an economy with constant returns which would see one firm hire all workers in the economy.
+
+Our third contribution exploits the computational tractability of our framework to quantitatively analyze equilibrium firm and worker reallocation.
+We estimate the model by Simulated Method of Moments, targeting cross-sectional moments of the size distribution of firms, firm dynamics, job flows and worker flows for the U.S. economy.
+We argue that parameters are well-identified.
+
+As a test of the model, we show that our theory is quantitatively consistent with new facts from US employer-employee match data \citep{HHKM2018}.
+In the data, job-to-job flows vary systematically across firms: young firms poach workers from older firms, but firm size is only weakly correlated with net poaching.
+In our model, with decreasing returns, a small, young, high productivity firm that is yet to grow, has a high marginal value of a worker which places it near the top of the job ladder.
+Meanwhile, older firms that are small have reached that size because of low productivity, which places them at the opposite end of the ladder.
+Both are small, but the young firms' vacancies are more likely to attract workers from competitors.
+To guide future measurement we show that average labor productivity and firm growth are observables that are strongly positively correlated with marginal surplus, so predictive of net poaching and job ladder rank.
+
+We then consider three applications of our model in which we highlight the misallocation effects of labor market frictions along three dimensions of the data: cross-section, firm life-cycle, and time-series.
+
+First, we show that an increase in match efficiency that, by alleviating search frictions, drives unemployment close to zero also accelerates worker reallocation to more productive firms, and in doing so reduces the cross-sectional misallocation of labor across firms and raises TFP by nearly 5 percent.
+
+In our second application, we argue that allowing for misallocation via labor market frictions overcomes a shortcoming of competitive firm dynamics models first identified by \cite{luttmer2011}.
+In these environments, jointly matching the volatility of firm growth and the size of young firms requires, respectively,  small shocks and very low productivity of entrants.
+Consequently, firms take several hundreds of years to reach the tail of the size distribution, in contrast to the data where this transition is much faster.
+In our environment, labor market frictions impede to reach the optimal size instantaneously and allow a distribution of young firms that are all small in size, but in which some have very high productivity. With decreasing returns and on the job search these firms are at the very top of the job ladder, and move quickly toward the tail of the size distribution.
+
+Third, our model offers an intuitive interpretation for firm and worker dynamics around the Great Recession, and links them to the observed decline in TFP through a worsening in the degree of frictional misallocation of labor.
+The recession featured a sharp drop in firm entry and a decline in job-to-job reallocation of workers, which has been characterized as a `failure of the job ladder' \citep{Siemer,moscapv}.
+Theoretically, our model offers a unifying explanation.
+A transitory shock to the discount rate, which is a commonly used stand-in for worsening financial frictions \citep{hall2017high}, lowers the value of entry and shrinks the population of young, high marginal surplus firms with high equilibrium net poaching rates.
+Vacancy posting collapses among these firms and labor reallocation up the ladder breaks down.
+Quantitatively, the shock generates the empirical contractions in aggregate employment, job-to-job mobility, firm entry, vacancies and output.
+In the cross-section, the model matches the decline in net poaching at high productivity firms, and increase in net poaching at low productivity firms \citep{haltiwanger2021}.
+The resulting rise in frictional misallocation of labor causes a slump in total factor productivity that accounts for a quarter of the large decline in output.
+
+Collectively, these applications demonstrate that our new theoretical framework is a useful platform to jointly analyze the microeconomic dynamics of firms and workers in a frictional labor market, and how these shape macroeconomic outcomes.
+
+\subsubsection*{Literature}
+Our paper connects two literatures that share an idea going back to \citet{Lucas1978}: the dominant force that delivers a non-degenerate firm-size distribution is the combination of diminishing returns in production and heterogeneity in productivity.
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% FIRM DYNAMICS
+The first literature studies equilibrium models of single-product firm dynamics with competitive labor markets.
+Classic examples are \citet{HopenhaynEMET}, \citet{HopenhaynRogersonJPE}, and \citet{luttmer2011}.\footnote{%
+    For a review of the literature see also \citet{luttmer2010}.}
+Recent examples, with applications to the Great Recession, are \citet{arellanobaikehoe2019}, \citet{ClementiPalazzoWP} and \citet{sedlacek2020}.
+Like these models, our framework features entry, exit, and non degenerate distributions of firm size and age.
+Unlike these models, the employment adjustment costs that firms face are endogenous.
+They depend on the firm's likelihood of poaching workers from competitors and the expected transfers this requires.
+Both are a function of the firm rank on the marginal surplus ladder, which is an equilibrium object.
+
+The second literature comprises a number of papers that model multi-worker firms in frictional labor markets.
+Here, two approaches have been taken: directed search and random search.
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% DIRECTED SEARCH
+Under the directed search approach, \citet{KassKircher} and \citet{schaal2017uncertainty} generate firm employment dynamics resembling those in the micro data.\footnote{
+    It is worth remarking that these two papers had very different objectives to ours.
+    \citet{KassKircher} illustrate that a key advantage of directed search, the efficiency and block-recursivity properties of equilibrium, extends to models with `large' firms.
+    \citet{schaal2017uncertainty} proves this property is also robust to the addition of on-the-job-search and studies aggregate uncertainty shocks in the context of the Great Recession.}
+Building on \citet{menzio2011efficient}, \citet{schaal2017uncertainty} allows for on the job search, and thus is the closest counterpart to our framework.
+A drawback of directed search is that the probability that a firm hires from a competitor versus from unemployment is not determined.\footnote{
+    In the equilibrium of directed search models, net hiring costs are equated across firms through free entry, which implies that firms are indifferent across the markets in which they search for workers.
+    The probability that a separation from a firm is to employment or unemployment, however, is determined.
+}
+As a result, this class of models cannot speak to the systematic variation across firm types in net poaching rates or the composition of hires.
+A model consistent with these facts is one of the objectives of our analysis.
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% RANDOM SEARCH
+Under the random search approach, \citet{ElsbyMichaelsAEJ} and \citet{acemogluhawkins} solve models where firms face decreasing returns in production, stochastic productivity, linear vacancy costs, and wages determined by Nash bargaining.\footnote{
+    \citet{BertolaCaballero1994} derive closed form results under a linear approximation to both marginal product and convex vacancy costs, and a two state Markov process for productivity.
+}
+Both generate employment relationships with a large average surplus and small marginal surplus.
+\citet{ElsbyMichaelsAEJ} demonstrate that the latter yields a volatile job-finding rate over the cycle, while the former avoids a high separation rate.
+This resolves the tension identified by \citet{ShimerAER} in the Diamond-Mortensen-Pissarides framework.
+\citet{Gavazza2018} introduce recruiting intensity and financial constraints to account for the sharp drop in aggregate match efficiency around the Great Recession.
+All of these models abstract from search on the job.\footnote{
+    \citet{fujitanakajimaworker2016} introduce on-the-job search and study the dynamics of job-job flows over the business cycle.
+    However, solving their equilibrium requires worker's outside option to always equal value of unemployment.
+    Hence workers are always indifferent between searching/working and staying/moving.}
+
+Random search models with wage posting feature both on-the-job search and a firm-size distribution.
+\citet{BilalOutsource} introduce decreasing returns in the steady-state \citet{burdettmortensen1998} environment, but handling productivity shocks remains out of reach.
+With constant returns to scale, out of steady-state dynamics in the \citet{burdettmortensen1998} model are studied by \citet{moscarini2013stochastic,moscapv}, \citet{colemortensen2016}, \citet{engbom2017firm}, \citet{gouin2018productivity} and \citet{audoly2019firmdynamics}.
+In these models the size distribution is non degenerate only because of the existence of search frictions: as frictions disappear, all workers become employed at the most productive firm.
+Instead, as explained, the frictionless limit of our model is a version of \citet{HopenhaynEMET}.
+Another implication of such environments is that large firms, which pay higher wages in the model, should systematically poach from small firms, while the data suggest otherwise.
+
+Within the random search literature, we build on the set-up developed by \citet{postelvinayrobin2002}: Bertrand competition between employers for workers and wage renegotiation under mutual consent.
+This environment has become another workhorse of the literature due to its tractability and empirically plausible wage dynamics.\footnote{
+    Recent examples are \citet{pvtearnings2010,Jaroschnber,lindenlaub2016multidimensional,borovickova2016job,LiseRobinAER}.}
+As opposed to the \citet{postelvinayrobin2002} framework, the probability of filling a vacancy in our model is not a function of the exogenous distribution of firms' productivity, but a function of the \emph{endogenous} distribution of firms' marginal surpluses, which itself depends on how the equilibrium of the frictional labor market allocates workers across heterogeneous firms.
+\citet{kiyotaki2007model} develop a version that is a step closer to us.
+Their firms have a capacity of one position---an extreme version of decreasing returns--- and when an occupied firm meets another worker, it engages in renegotiation with its incumbent worker.
+Our contribution is to generalize this sequential auction protocol to multi-worker firms, show how one can still solve the model's equilibrium through the notion of joint surplus, and do so in a tractable way.
+
+The final expression for joint surplus that features among our equilibrium conditions is reminiscent of that in \citet{LentzMortensenWP}: a version of \citet{klettekortum2004} with on-the-job search in which a firm's demand for labor is limited by demand for its portfolio of products.
+While they {assume} that all decisions are based on joint firm-workers values, we derive this result from primitives, provide a characterization of the equilibrium and illustrate how to use the model for a quantitative analysis of newly documented empirical patterns.
+Our central finding that a job ladder in marginal surplus arises in equilibrium is closely related to contemporaneous work by \citet{elsbygottfries2021} who elegantly characterize a special case of our environment with linear vacancy costs and no endogenous entry and exit. In their setting, firm value and policies are a function of a single state variable, the marginal product of labor. In our theory, marginal surplus is related to the current and future marginal products of labor, and also depends on average surplus through the exit decision. Nevertheless, in our calibrated model, the correlation between marginal surplus and the current marginal product of labor is high. Finally, the endogenous entry decision, not in \citet{elsbygottfries2021}, is at the heart of three main applications of our model.
+
+\paragraph{Outline.}
+Section \ref{sec:environment} establishes the physical and contractual environment.
+Section \ref{sec:jointvalue} states our joint value representation and its key properties.
+Section \ref{sec:comparativestatics} defines an equilibrium and characterizes firm dynamics and worker flows.
+Section \ref{sec:calibration} estimates the model on US data and discusses the model's fit.
+Section \ref{sec:misallocation} uses the estimated model to examine, under different angles, how search frictions impede reallocation of labor across firms.
+Section \ref{sec:conclusion} concludes. The Appendix contains all proofs and a discussion of identification.
+
+
+\section{Model}\label{sec:environment}
+
+\subsection{Physical environment}
+Time is continuous and there is no aggregate uncertainty.
+There are two types of agents.
+An exogenous mass $\mathtt{\overline{n}}$ of ex-ante identical, infinitely-lived \emph{workers} that are risk neutral, discount the future at rate $\rho$ and are endowed with one unit of time each period which is inelastically supplied to production.
+An infinite mass of homogeneous \emph{potential firms}, of which an endogenous mass become \emph{operating firms}.
+
+\vspace*{-.3cm}
+\paragraph{Production technology.}
+There is a single homogeneous good.
+Workers may either be employed or unemployed.
+Unemployed workers produce $b$ units of the final good.
+A firm with productivity $z\in Z$ employing $n$ workers produces $y(z,n)$ units of the final good, where $y(z,n)$ is strictly increasing in $z$ and $n$ and concave in $n$, i.e. $y_{nn}(z,n)\leq0$.\footnote{
+    In addition, we assume that for any $z$ the Inada conditions hold with respect to $n$: (i) $y(z,0)=0$, (ii) $\lim_{n\rightarrow 0}y_n(z,n) =+\infty$, and (iii) $\lim_{n\rightarrow +\infty}y_n(z,n) = 0$.}$^,$
+
+
+\paragraph{Firm demographics.}
+A potential firm becomes an operating firm by paying a fixed cost $c_0$.
+This cost entitles the firm to a draw of productivity $z$ from the distribution $\Pi_{0}\left( z\right)$ and to $n_0$ workers, taken from unemployment.
+After entry, $z$ evolves stochastically.
+At any point in time a firm may exit, at which point all of its workers become unemployed and the firm produces $\vartheta>0$ units of the final good which we refer to as its \emph{scrap value}.
+Denote the mass of entrants $\mathtt{m}_0$ and the mass of operating firms $\mathtt{m}$.
+
+\vspace*{-.3cm}
+\paragraph{Matching technology.}
+Hiring firms and job-seekers meet in a frictional labor market.
+The total number of meetings is given by the CRS aggregate matching technology $m(\mathtt{s},\mathtt{v})$.
+Inputs to this function are total vacancies $\mathtt{v}$ and total units of search efficiency $\mathtt{s} = \mathtt{u} + \xi(\overline{\mathtt{n}}-\mathtt{u})$,
+where the parameter $\xi$ determines the relative search efficiency of employed workers (labor force minus the unemployed).
+Search is random in the following sense.
+A firm pays a cost $c(v;z,n)$ to post $v$ vacancies, where $c$ is increasing and convex in $v$.
+Each vacancy is matched with a worker at rate $q(\mathtt{s},\mathtt{v}) = m(\mathtt{s},\mathtt{v})/\mathtt{v}$.
+The worker is unemployed with probability $\phi = (\mathtt{u}/\mathtt{s})$ , and employed with probability $(1-\phi)$.
+A worker faces no cost of search.
+An unemployed worker meets a firm at rate $\lambda^U(\mathtt{s},\mathtt{v}) = m(\mathtt{s},\mathtt{v})/\mathtt{s}$.
+An employed worker meets a firm at rate $\lambda^E(\mathtt{s},\mathtt{v}) = \xi \lambda^U(\mathtt{s},\mathtt{v})$.
+The rates $q$ and $\lambda^U$ can be expressed in terms of \emph{market tightness} $\theta=(\mathtt{v}/\mathtt{s})$.
+If constituted, the match of a worker to a firm exogenously expires at rate $\delta$, and the worker becomes unemployed.
+
+\vspace*{-.3cm}
+\paragraph{States.}
+Let $x$ be the vector of state-variables for the firm.
+This vector includes all individual state variables of all workers at the firm.
+For now, we do not specify exactly what is in $x$ and, along the way, define a number of functions that map $x$ at instant $t$ into a new state vector at $t+dt$.
+Let $H\left(x\right)$ be the measure of $x$ across firms in the economy, $v(x)$ the number of vacancies created by a firm with state $x$, and $n(x)$ employment at firm $x$.
+The total mass of vacancies and employed workers in the economy are
+\vspace*{-.2cm}\begin{equation*}
+\mathtt{v}= \int v\left( x\right) dH\left( x\right) \quad ,\quad
+\mathtt{n}=\overline{\mathtt{n}}-\mathtt{u}= \int n\left( x\right) dH\left( x\right) .
+\vspace*{-.2cm}\end{equation*}%
+Densities that appear in agents' problems describe vacancy- and employment-weighted distributions:
+\vspace*{-.2cm}\begin{equation*}
+h_v\left( x\right) =\frac{v(x)h(x)}{\mathtt{v}}\quad ,\quad h_n\left(x\right) =\frac{n(x)h(x)}{\mathtt{n}}.
+\end{equation*}
+
+\vspace*{-.3cm}
+\paragraph{Timing.}
+We separate the within-$dt$ timing of events in the model into two parts.
+
+First, events up to the opening of the labor market are described in Figure \ref{fig:Timeline1}.
+A firm's productivity $z$ is first realized.
+Next, incumbent workers are fired, choose whether to quit the firm, or their employment contracts are renegotiated.
+Next, the firm decides whether to stay in operation or exit.
+An operating firm produces $y(z,n)$, pays wages according to contracts with its workers, and posts vacancies.
+
+Second, the mutually exclusive events that may occur to a worker or firm are described in Figure \ref{fig:Timeline2}.\footnote{
+    The mutual exclusivity property is a consequence of continuous time.}
+The first branch in Figure \ref{fig:Timeline2} describes events that may occur to an unemployed worker.
+The second and third branch distinguish between direct and indirect events that may affect the value of incumbent worker $i$.
+\emph{Direct} events involve worker $i$ meeting with another firm, or the destruction of the worker's job.
+\emph{Indirect} events involve worker $i$'s co-worker $j$ meeting with another firm, or the destruction of a co-worker's job.
+The final branch describes events that directly impact the firm.
+The firm may meet an employed or unemployed worker, emerge either with a new hire or not and new allocation of values to its workers, reflected in updates to the state $x$.
+Following any of these events, the state vector $x$ changes, potentially affecting the value of the match to worker $i$.
+Through the following assumptions, we put structure on the states in which these events occur and how values evolve in each case.
+
+\begin{figure}[t!]
+\begin{center}
+\scalebox{0.88}{\input{\DRAWNfigureDir/Timeline1.tex}}
+\caption{Timing of events prior to the opening of the labor market}\label{fig:Timeline1}\vspace*{-.4cm}
+\scalebox{0.88}{\input{\DRAWNfigureDir/Timeline2.tex}}
+\caption{Labor market: Set of mutually exclusive possible labor market events }\label{fig:Timeline2}
+\vspace*{-.3cm}
+\end{center}
+\end{figure}
+
+\subsection{Information and contractual environment}\label{sec:assumptions}
+
+The information structure is such that everything that is payoff relevant is observable by both firms and workers, and thus we rule out private information by assumption.\footnote{
+    For example, the number of vacancies posted by the firm is observable to workers, and whether a particular incumbent worker has an outside offer (as well as the identity of the competing firm) is observable to the current firm and other incumbent workers.
+    See \citet{Lentz2015} for an environment where on-the-job search behavior, including the identity of firms in outside meetings, is unobservable to the firm and cannot be directly contracted upon.}
+The contractual environment is rooted in incomplete contract theory, where there is a key distinction between the information available to firm and workers, and what is verifiable by a third party, e.g. a court, and hence contractible.
+The only verifiable and hence contractible objects are the wage, whether the firm made the wage payment, and whether the worker provided labor services.
+Therefore, a contract between the firm and one of its workers is a binding agreement that specifies a constant wage, i.e. a fixed payment from the firm to the worker, in exchange for labor services.
+This contract satisfies five assumptions:
+
+\begin{enumerate}
+\item[(A-LC)] \textbf{Limited commitment.} All parties are subject to limited commitment. In particular,
+\begin{enumerate}
+\item \textbf{Layoffs - } Firms can fire workers at will.
+\item \textbf{Quits -} Workers can always quit into unemployment or to another firm when they meet one.
+\item \textbf{Collective agreements -} Workers cannot commit to any other worker inside the firm. \emph{De facto} this assumption rules out transfers among workers.
+\end{enumerate}
+\item[(A-MC)] \textbf{Mutual consent.} The wage (contract) can be renegotiated only by mutual consent, i.e. only if one party can credibly threaten to dissolve the match (the firm by firing, the worker by quitting). A threat is credible
+when one of the two parties has an outside option that provides her with a value that is higher than the value under the current contract.
+\item[(A-EN)] \textbf{External negotiation.} An \textit{external negotiation} is a situation where, through search, the firm comes into contact with an external job seeker or an incumbent worker comes into contact with another firm. In external negotiations, all offers are \emph{take-it-or-leave-it}.
+\begin{itemize}
+\item In a meeting with an unemployed worker, the firm makes a take-leave offer to the worker.
+\item In a meeting with an employed worker, the two firms Bertrand compete through a \textit{sequential auction}. First, the poaching firm makes the take-leave wage offer. Second, the target firm makes a take-leave counteroffer to the worker. Third, the worker decides.
+\end{itemize}
+\item[(A-IN)] \textbf{Internal negotiation.}
+    An \emph{internal negotiation} is any other situation where contracts between firm and any incumbent workers are modified (following \textbf{(A-MC)}, an internal negotiation takes place when any party has a credible threat).
+    The only parties involved in an internal negotiation are those that have a threat and those that are under that threat.
+    We assume that---with respect to worker and firm values---the internal negotiation is a \emph{zero-sum game} and that participation is individually rational for all parties.\footnote{
+        We adopt the standard definition of a zero-sum game: each individual's gain or loss is exactly offset by losses and gains of other participants.
+        We also adopt the standard definition of individual rationality: after internal negotiation each player who remains employed at the firm receives at least the outside option that was present before internal negotiation.}
+    Apart from these assumptions we leave internal negotiation unrestricted.
+\item[(A-VP)] \textbf{Vacancy posting.} The firm posts the privately efficient amount of vacancies, which is the one that maximizes the sum of the values of the firm and its workers. Below we propose one possible micro-foundation for \textbf{(A-VP)}.
+\end{enumerate}
+
+\paragraph{Discussion of assumptions.}
+
+Assumption \textbf{(A-LC)} implies an environment with at-will employment. \textbf{(A-MC)} is common under incomplete contracts and in the terminology of \citet{macleod1989implicit} yields \emph{self-enforcing contracts}, a feature consistent with most legal frameworks. \textbf{(A-EN)} is a particular protocol to resolve the game between two firms competing for a worker. Combined, these three assumptions amount to the contractual environment of \citet{postelvinayrobin2002}. The authors show that they lead to a joint value representation in the one-worker-one-firm model. We now discuss how \textbf{(A-IN)} and \textbf{(A-VP)} are sufficient to extend this convenient representation to an environment with multi-worker firms and diminishing marginal product of labor.
+
+\textbf{(A-IN)} is a standard assumption in virtually all bargaining protocols. As such, it allows for a large class of possible micro-foundations for the internal renegotiation game.
+Each would imply different wage dynamics.
+The central takeaway is that, no matter the details of such a game and the ensuing wages, if \textbf{(A-IN)} is satisfied then \textit{allocations} are uniquely determined by joint value dynamics.
+This paper focuses on \textit{allocations}, i.e. firm and worker dynamics. We leave for future research an investigation of what different internal renegotiation games imply for wage dynamics at the firm and worker level, and which is most consistent with data on wages.
+
+\textbf{(A-VP)} is admittedly a strong assumption, but necessary to simplify the environment for analytical characterization and quantitative analysis.
+Absent \textbf{(A-VP)}, the firm would over-post vacancies relative to the privately efficient amount.
+The incentive to over-post comes from credible threats to layoff incumbents and hence lower their wages.
+First, \emph{over-hiring} threatens layoffs by lowering the marginal product of labor, as extensively discussed by  \citet{StoleZwiebelRESTUD} and \citet{brugemann2018intra}.
+Second, if a posted vacancy matches with a job seeker with a low outside option, the firm may have no intention of hiring but the match nonetheless generates a threat to \emph{swap} the incumbent worker.
+Proceeding under either would require the full distribution of wages as a state variable, ruling out tractability.
+Assumption \textbf{(A-VP)} resolves these issues.\footnote{
+    In a different environment \citet{hawkins2015bargaining} allows full commitment to a fixed wage.
+    This assumes away wage cuts, and hence delivers efficient vacancy posting.}
+
+The presence of these inefficiencies and the need for an assumption like \textbf{(A-VP)} is unique to an environment with DRS, on-the-job search and endogenous vacancy posting. With DRS and on-the-job-search, but exogenous contact rates \citep[as in][]{kiyotaki2007model}, there is no endogenous vacancy choice and these inefficiencies do not arise.
+With on-the-job search and constant returns, over-hiring does not occur due to a constant marginal product of labor \citep{postelvinayrobin2002},
+and hiring a worker that matches with a vacancy is always profitable leaving the swap threat hollow.
+Without on-the-job search but with decreasing returns, incumbents are all hired from unemployment and with the same outside option are paid the same wage \citep{ElsbyMichaelsAEJ,acemogluhawkins}.
+Over-hiring occurs, but with a degenerate distribution of wages within the firm this does not impede tractability, and swapping is not a threat because the job seeker and incumbent are paid the same wage.
+If not addressed, both inefficiencies would render the model intractable.
+
+We propose one possible micro-foundation for assumption {\bf(A-VP)}.
+The idea is to ex-ante remove any gains to the firm from expected future wage cuts that would otherwise encourage excess vacancy posting.
+We assume that workers anticipate that firm's behavior and offer a preemptive wage cut that leaves the firm indifferent between the efficient vacancy policy and the firm's privately optimal policy.\footnote{
+    Alternative implementations could be based on the introduction of `social norms' that prevent firms from cutting the wage of a worker and swapping an incumbent worker with a new worker.
+    Because they would involve deviations from lack of commitment {\bf(A-LC)}, we do not emphasize these alternative implementations in this paper.}
+\begin{itemize}
+    \item[(A-VPI)] After the firm announces its proposed vacancies for $dt$, a randomly selected incumbent worker has the opportunity to make a take-leave counter-offer to the firm.
+    The counter-offer specifies acceptable wages for incumbents in exchange for an alternative spot vacancy policy.\footnote{
+            This assumption does not require commitment because it is not state-contingent.
+            It is a `spot contract' between the parties involved: a transfer in exchange for an immediate action.}
+\end{itemize}
+
+We conclude by noting that that in directed search environments, full state-contingent contracts and one-sided commitment by firms deliver bilateral efficiency between a one-worker-one-firm pair \citep{menzio2011efficient}, and private efficiency between a firm and its many workers \citep{schaal2017uncertainty}. We extend this literature by showing that a similar joint value representation can also be achieved in an environment with random search, incomplete contracts, and no commitment.
+
+\section{Joint value representation}\label{sec:jointvalue}
+Having described the economy's environment and the contract space, we now describe the main theoretical result of the paper.
+For presentation purposes, the environment is specialized in two ways.
+First, each firm employs a continuum of workers $n$.
+Second, productivity follows a diffusion $dz_t = \mu(z_t) dt + \sigma(z_t) dW_t$.\footnote{
+As we show in the Appendix of \citet{BEMVworkingpaper}, our results also hold with an integer-valued workforce and when the productivity process is a jump-diffusion.}
+
+\paragraph{Result.}
+All \emph{allocative decisions} in the economy---entry, exit, vacancy posting and mobility of workers between firms---are determined by the \emph{joint value}, $\Omega(z,n)$.
+The {joint value} equals the present discounted value of an operating firm's profits plus the present discounted value of lifetime utility of its incumbent workers, and satisfies the following, where $U$ is lifetime utility of an unemployed worker:
+\vspace{-.2cm}\begin{eqnarray}  \label{eq:JointValue}
+\rho \Omega\left(z,n\right) = && \max_{v \geq 0}\:y\left(z,n\right) -c\left(
+v;z,n\right) \\
+\text{\emph{$EU$ job destruction}:} &&\quad +\:\:\:\:\:\:\:\:\:\:\:\,\delta n \Big[U-\Omega_n\big(z,n\big)\Big]  \notag \\
+\text{\emph{$UE$ unemployed hire}:} &&\quad +\:\:\phi q(\theta)v \Big[\Omega_n\big(z,n\big) -U \Big]  \notag
+\\
+\text{\emph{$EE$ poaching hire}:} &&\quad +\:\:(1-\phi)q(\theta) v \int \max\Big\{\Omega_n\big(z,n\big) -
+\Omega_n\big(z^{\prime},n^{\prime}\big) \ , \ 0 \Big\}d{H_n}\left( z^{\prime
+},n^{\prime}\right)  \notag \\
+\text{\emph{Shock}:} &&\quad +\:\:\mu(z) \Omega_z\big(z,n\big) + \frac{\sigma(z)^2}{2}
+\Omega_{zz}\big(z,n\big).  \notag
+\vspace{-.3cm}\end{eqnarray}
+Firms' operation requires $(z,n)$ to be interior to an \emph{exit boundary}, and an additional \emph{layoff boundary} determines when separations occur:
+\vspace{-.2cm}\begin{equation}\label{eq:Boundaries}
+\text{\emph{Exit boundary}:}\quad\quad\Omega(z,n) \geq \vartheta + n U,
+\quad\quad,\quad  \quad
+\text{\emph{Layoff boundary}:}\quad\quad \Omega_n(z,n) \geq U.
+\vspace{-.2cm}\end{equation}
+Conditions \eqref{eq:JointValue} and \eqref{eq:Boundaries} represent the solution of the Hamilton-Jacobi-Bellman variational inequality, which we include for completeness in Appendix \ref{appx:S_characterization}, equation \eqref{eq:AppHJBVI}, along with a discussion on the derivation of the boundary conditions.
+The entry decision can be written in terms of joint value as:
+\begin{equation}\label{eq:EntryDecision}
+\text{\emph{Entry condition}:}\quad\quad \int\Omega(z,n_0)d\Pi_0(z) \geq c_0 + { n_0U}
+\end{equation}
+The first term in \eqref{eq:JointValue} is simply output net of vacancy costs.
+Next, the firm exogenously loses one of its $n$ workers to unemployment at rate $\delta$.
+The separated worker receives the value of unemployment $U$, and the remaining workers and firm see their joint value decline by the marginal value of the lost worker.
+
+The firm hires by posting vacancies which are matched to a worker at rate $q(\theta)$.
+The probability that this worker is unemployed is $\phi$, and the firm always hires unemployed workers.
+This investment increases the value of the firm and incumbents by $\Omega_n$ but dilutes their equity, as $U$ is pledged to the new worker.
+The firm also hires from other firms by poaching.
+Workers at other firms are met according to the employment-weighted distribution of productivity and size, $H_n$.
+Upon meeting, the total value increases by $\Omega_n(z,n)-\Omega_n(z',n')$.
+The first term is the gain in value to the firm and incumbent workers due to the new hire.
+The second term is the value that the firm and incumbent workers pledge to the new worker, which is equal to the highest value its former employer would pay to retain them.
+Hence poaching is successful if this difference is positive and workers flow to the highest marginal value firm.\footnote{
+    This term reads as if the poaching coalition induces a breach of contract between worker and former employer, and compensates the latter exactly for the associated loss of value.
+    This scheme is reminiscent of the result in \citet{diamond1979equilibrium} and \citet{kiyotaki2007model} that compensatory damages in breach of contracts restore efficiency.}
+
+Conversely, an incumbent worker may quit to a higher marginal value firm.
+The firm and remaining workers will lose $\Omega_n(z,n)$ and so are prepared to increase the worker's value by $\Omega_n(z,n)$ to retain them.
+Knowing this, the external firm hires the worker by offering the worker exactly $\Omega_n(z,n)$.
+The joint value of the firm, remaining workers and poached worker are therefore unchanged and, as in \citet{postelvinayrobin2002}, no \emph{`$EE$ Quit'} term appears in \eqref{eq:JointValue}.\footnote{This result implies that if workers' search effort was costly and endogenous, its privately efficient level would be zero, and thus workers' job to job transitions would only occur through exogenous contacts. To make search effort salient, one needs to modify (A-EN) and introduce positive bargaining power for workers in the contractual environment.}
+
+Boundary conditions \eqref{eq:Boundaries} describe firm exit and layoffs.
+First, firms operate if the value of doing so exceeds the joint value of exit: the scrap value $\vartheta$ plus unemployment for its $n$ workers.
+Second, if productivity falls, the marginal value of a worker will fall, but must remain above the opportunity cost of employment.
+To ensure this, firms layoff workers to sustain $\Omega_n(z,n)\geq U$.
+Finally, \eqref{eq:EntryDecision} states that firms enter if the joint value of operating $\Omega(z,n_0)$ net of the entry cost $c_0$ exceeds the joint outside value for the $n_0$ initial employees. \medskip
+
+The joint value representation has three appealing properties.
+
+\subsection{Properties of the joint value representation}
+
+\vspace*{-.1cm}
+\paragraph{(1) Parsimony.}
+Firm and worker policies are characterized by a low-dimensional state vector: productivity and size.
+Given decreasing returns to scale in production and on-the-job search, this simplification is a contribution.
+First, with decreasing returns spillovers exist as bargaining moves from one worker to the next.
+This problem has been addressed in environments where workers have homogeneous outside options, which restricts attention to labor market transitions between employment and unemployment.\footnote{See \citet{StoleZwiebelRESTUD}, recently revisited by \citet{brugemann2018intra}.}
+With on the job search, however, past offers create heterogeneous outside options within the firm, precluding these approaches.
+Second, in models with on-the-job search these bargaining spillovers are assumed away either by (i) constant returns to scale, which reduces decision making units to one-worker-one-firm pairs and impedes a proper study of firm dynamics; or (ii) the combination of full commitment to complex state-contingent contracts and directed search.
+Our contribution is to prove that a plausible set of minimal assumptions on the contractual environment is sufficient to micro-found a parsimonious representation of allocations.
+
+\vspace*{-.3cm}
+\paragraph{(2) Private efficiency.}
+All agents’ decisions (entry, exit, separations, vacancies, and hires) maximize their joint value.
+Put differently, in external and internal negotiations all privately attainable gains from trade are exploited such that no transfer could yield a Pareto improvement.
+Crucially, our assumptions on bargaining do not directly imply this result.
+Instead, these assumptions provide the basis upon which decentralized negotiation decisions lead to a privately efficient outcome in all scenarios that matter for allocations: when the firm negotiates internally with its incumbent workers, when the firm negotiates with a potential new hire, and when the firm decides how many vacancies to open.
+We have therefore shown how the Coase theorem arises in our context without the need to assume full commitment and complex state contingency in contracting.\footnote{
+    We leave the characterization of the socially efficient allocations to future work, but note that the decentralized and planner's allocations will not coincide.
+    Besides the standard congestion externality \`a la Hosios, an additional composition externality arises.
+    As in \citet{acemoglu2001good}, low-productivity firms do not internalize that their vacancies divert workers away from high-productivity firms.
+    These distorted vacancy decisions affect the equilibrium distribution of workers across firms $H_n(n,z)$ which, in turn, influences the hiring opportunities of all other firms and distorts output.}
+
+\vspace*{-.3cm}
+\paragraph{(3) Endogenous job ladder.}
+In one-worker-one-firm models, it is the firm's \textit{exogenous} productivity that fully determines its position on the job ladder.
+Here the ladder is in \emph{endogenous marginal values} of labor $\Omega_n(z,n)$.
+These equilibrium objects are determined by the current marginal product of labor together with expectations of future productivity, worker mobility, exit, market tightness and composition of vacancies and workers across firms and unemployment.
+
+\paragraph{Proof.}
+To convey the economics of how our assumptions lead to this result, we use a static model in Appendix \ref{appx:staticexample}.
+One by one, we cover the construction of each term in \eqref{eq:JointValue}.
+The approach and arguments for the proof in the case of the dynamic model are extensions of the proof of the static model.
+While the proof for the static model is compact, the complete proof of the joint value representation for the dynamic model requires much additional notation and is contained in the Appendix of the working paper version \citep{BEMVworkingpaper}.
+
+\subsection{Surplus formulation}
+A convenient formulation of $(\ref{eq:JointValue})$ is in terms of \emph{joint surplus}, defined $S(z,n):= \Omega(z,n)-nU$, such that
+\vspace*{-.3cm}\begin{equation*}
+S_n(z,n) = \Omega_n(z,n) - U
+\quad,\quad
+S_z(z,n) = \Omega_z(z,n)
+\quad,\quad S_{zz}(z,n) = \Omega_{zz}(z,n).
+\vspace*{-.3cm}\end{equation*}
+Hence the marginal (joint) surplus $S'_n=S_n(z^\prime,n^\prime)$ at a competitor is sufficient to characterize how surplus changes over an $EE$ hire.
+With these definitions, along with the value of unemployment $\rho U = b$, the joint value \eqref{eq:JointValue} becomes joint surplus:
+\vspace*{-.3cm}\begin{eqnarray}\label{eq:finalBellmanS}
+\rho S\left(z,n\right) & = & \max_{v\geq0}\quad y\left(z,n\right)\:-\:nb\:-
+\:\delta nS_{n}\left(z,n\right) + \mu(z)S_{z}\left(z,n\right)\:+\:\frac{\sigma^{2}(z)}{2}S_{zz}\left(z,n\right)\\
+&& \quad\quad\quad+\:q(\theta)v
+\Bigg[
+\phi S_{n}\left(z,n\right)\:+\:\left(1-\phi\right)\int_{0}^{S_{n}\left(z,n\right)} \Big( S_{n}\left(z,n\right)-S_{n}^{\prime} \Big) \:\:dH_n\left(S_{n}^{\prime}\right)
+\Bigg] - c\Big(v;z,n\Big)  \notag %\\
+\vspace*{-.3cm}\end{eqnarray}
+subject to the same two boundary conditions now expressed in terms of surplus:
+\vspace*{-.3cm}\begin{equation}\label{eq:BoundariesS}
+\text{$S(z,n)\geq \vartheta\quad$ for exit, and $\quad S_n(z,n)\geq 0\quad$ for layoffs.}
+\vspace*{-.3cm}\end{equation}
+
+\paragraph{Properties of $S(z,n)$.}
+To analyze worker and firm dynamics we first establish some properties of the joint surplus function under standard assumptions on technology.
+Suppose
+(i) productivity follows a geometric Brownian motion with $\mu(z) = \mu\cdot z$, $\sigma(z) =\sigma \cdot z$,
+(ii) the vacancy cost function is isoelastic in vacancies only $c(v) = \bar{c} v^{1+\gamma}$, and
+(iii) the production function satisfies $y_z > 0, y_n >0, y_{nn} < 0, y_{zn} > 0$.\footnote{
+    The functional form assumed in our quantitative analysis satisfies these assumptions: $y(z,n) = zn^\alpha$ with $\alpha \in(0,1)$.}
+In Appendix \ref{appx:S_characterization} we show that under these assumptions the following Properties hold inside the boundaries:
+\textbf{(P1)} $S$ is increasing and concave in employment: $S_n > 0$, $S_{nn} < 0$;
+\textbf{(P2)} $S$ is increasing in productivity: $S_z > 0$;
+\textbf{(P3)} $S$ is supermodular in productivity and labor: $S_{zn}> 0$.
+We now combine these with the surplus formulation to characterize firm optimal polices.
+
+\subsection{Vacancy policy}
+From $(\ref{eq:finalBellmanS})$, the first order condition for the firm's vacancy decision gives
+\vspace*{-.3cm}\begin{equation}\label{eq:voptimality}
+c_v\big(v;z,n\big) = q(\theta)R\big(S_n(z,n)\big)
+\quad,\quad\text{where}\quad R(S_n) = \phi
+S_n+\left(1-\phi\right)\int_{0}^{S_n} \Big( S_n-S_n^{\prime} \Big) \:dH_n\left(S_n^{\prime}%
+\right)
+\vspace*{-.3cm}\end{equation}
+The return on a vacancy $R$ is independent of $v$, and is a strictly increasing and strictly convex function of only marginal surplus:
+\vspace*{-.3cm}\begin{equation}\label{eq:Rprime}
+R^\prime(S_n) = \underbrace{\Big.\left[\phi + (1-\phi)H_n(S_n)\right]\cdot 1\Big.}_{\text{Higher surplus on each hire}} \:\:+ \underbrace{\Big.(1-\phi)h_n(S_n)\cdot 0\Big.}_{\text{Surplus on additional hires}=\:0}
+\quad\quad,\quad\quad
+R^{\prime\prime}(S_n) = (1-\phi)h_n(S_n) \notag
+\vspace*{-.3cm}\end{equation}
+On the \emph{intensive margin}, an increase in $S_n$ increases the return to hiring an unemployed or employed worker one-for-one.
+On the \emph{extensive margin}, an increase in $S_n$ widens the set of firms from which the firm will poach, increasing the probability of a hire by $(1-\phi)h_n(S_n)$, but hiring from these additional firms yields zero additional value as the target firm's marginal surplus associated with the worker is close to that of the poaching firm.
+
+\paragraph{Endogenous hiring cost.}
+The literature on firm dynamics models exogenous employment adjustment costs.
+Instead, search frictions and the job ladder induce an endogenous firm-specific \emph{hiring cost function} that depends on both equilibrium market tightness and on the firm rank on the job ladder.
+
+The vacancy yield of a firm with marginal surplus $S_n(z,n)$ is $q(\theta)[\phi+(1-\phi)H_n(S_n)]$.
+Attaining ${h}$ hires costs $\mathcal{C}({h},n,z,S_n)$, due to the ${v}(h,S_n)$ vacancies required:
+\vspace*{-.3cm}\begin{equation}\label{eq:CostFunction}
+\mathcal{C}\Big({h},z,n,S_n\Big) = c\Big(v\Big({h},S_n\Big);\:z,\:n\Big)
+= c\left(\frac{{h}}{q(\theta)\big[\phi + (1-\phi)H_n(S_n)\big]};z,n\right).
+\vspace*{-.3cm}\end{equation}
+This reduced form hiring cost function is increasing and convex in ${h}$ and decreasing in marginal surplus, and
+is also determined by two equilibrium objects: the aggregate distribution of marginal surplus $H_n(S_n)$ and overall market tightness via $q(\theta)$.
+The cost function \eqref{eq:CostFunction} makes clear the role of frictions and on-the-job search as endogenous sources of adjustment cost: the cost is low for firms at the top of the job ladder, and for all firms under a slack labor market.\footnote{%
+    To draw a comparison, the standard convex adjustment cost in firm dynamics models is independent of equilibrium objects and depends only on firm employment growth.
+    In the directed search model of \citet{KassKircher} or random search model of \citet{Gavazza2018} the equilibrium meeting rate $q(\theta)$ enters, but without on the job search there
+    is no additional role for the distribution of firms.}
+
+\subsection{Hire and separation policies}
+
+Figure \ref{fig:CompStat1} characterizes the firm's hiring and separation choices for alternative pairs $(z,n)$.
+Consider panel (a).
+The red dashed line is the value of hiring net of the scrap value: $\Omega(z,n)-\vartheta$.
+The lower blue dashed line extending from the origin gives the total value of unemployment to the firms' employees: $U\times n$.
+The exit threshold $n^\ast_E(z)$ is determined by their intersection, at which point the per-worker value net of $\vartheta$ is equal to the value unemployment: $\left(\Omega(z,n^\ast_E(z))-\vartheta\right)/n=U$.
+If $n<n^\ast_E(z)$, the firm fires its $n$ workers.
+As opposed to this condition on \emph{average values}, the layoff threshold $n^\ast_L(z)$ equates the \emph{marginal value}, i.e. the slope of $\Omega(z,n)$, to $U$.
+If $n>n^\ast_L(z)$, the firm fires $\left(n-n^\ast_L(z)\right)$ incumbents who each receive $U$, and the joint value is $\Omega(z,n^\ast_L(z)) + \left(n-n^\ast_L(z)\right)U$.
+The upper envelope of these choices is given by the solid red line.
+
+Panel (b) and (c) describe these policy regions for lower productivity firms.
+Under a lower productivity, the exit and layoff regions extend, while the hiring region shrinks (Panel b).
+At an even lower productivity it is optimal for the firm to exit for all $n$ (Panel c).
+
+\begin{figure}[ttt]
+\begin{center}
+\begin{subfigure}{0.30\textwidth}
+\scalebox{0.75}{\input{\DRAWNfigureDir/Illustration_zh.tex}}
+\caption{High productivity}
+\end{subfigure}
+\begin{subfigure}{0.30\textwidth}
+\scalebox{0.75}{\input{\DRAWNfigureDir/Illustration_zm.tex}}
+\caption{Medium productivity}
+\end{subfigure}
+\begin{subfigure}{0.30\textwidth}
+\scalebox{0.75}{\input{\DRAWNfigureDir/Illustration_zl.tex}}
+\caption{Low productivity}
+\end{subfigure}
+\caption{Values of exit, hiring and layoff for fixed levels of productivity $z$}\label{fig:CompStat1}
+\end{center}
+\end{figure}
+
+\subsection{The gross worker flow composition of net employment growth}
+\label{sec:worker_reall}
+The model decomposes firms' net job growth into the four worker flows discussed in the introduction: hires from unemployment $(UE)$, poaching inflows $(EE^{+})$, separations into unemployment $(EU)$, and poaching outflows $(EE^{-})$.
+Firm's net job growth in the hiring region is given by
+\vspace*{-.3cm}
+\begin{equation}\label{eq:growth_decomp}
+\frac{dn}{n} = \underbrace{\Big.q(\theta)\frac{v(z,n)}{n}\Big[\phi +
+(1-\phi)H_n(S_n(z,n))\Big]}_{\text{Inflows: }(UE)\text{ and }(EE^{+})} - \underbrace{\Big.\Big[\delta +
+\lambda^E(\theta)\overline{H}_v(S_n(z,n))\Big]}_{\text{Outflows: }(EU)\text{ and }(EE^{-})}.
+\vspace*{-.3cm}
+\end{equation}\medskip
+
+Under assumptions (i)-(iii) stated above, we can also prove an additional property: \textbf{(P4)}
+Net employment growth $dn/n$ is increasing with productivity $z$ and decreasing with size $n$.
+See Appendix \ref{appx:S_characterization}.
+
+Figure \ref{fig:GrossFlows} illustrates how the four worker flows vary with $n$ for a given level of $z$.
+Consider a firm that is at the layoff frontier: $n=n^\ast_L(z)$.
+Marginal surplus is zero so the firm posts zero vacancies and shrinks due to exogenous separations and poaching.
+Conditional on a meeting, any worker employed in that firm leaves $(\overline{H}_v(0)=1)$, so separations occur at rate $\delta+\lambda^E(\theta)$.
+As the firm shrinks, decreasing returns in production cause the firm's marginal surplus to increase \textbf{(P1)}.
+In terms of outflows, the firm loses fewer workers to competitors.
+In terms of inflows, the firm posts vacancies which always generate hires from unemployment and, as marginal surplus increases further, hires from employment too.
+Firms shrink towards $n^\ast_{ZG}(z)$ where there is zero growth but gross flows in both directions are still positive.
+For any given productivity $z$, the firm with the highest marginal surplus has the smallest size compatible with operating, i.e. size $n_{E}^\ast(z)$, and grows quickly away from $n_{E}^\ast(z)$ with high vacancy posting and net poaching.
+
+Moreover, if $c(v;z,n)=c(v,S_n)$, then faster growing firms have:\vspace*{-.3cm}
+\begin{itemize}
+\item[(1)] Higher rates of $EE^{+}$, lower rates of $EE^{-}$ and higher rates of net-poaching: $(EE^{+}-EE^{-})$\vspace*{-.3cm}
+\item[(2)] Higher shares of hires from employment $EE^{+}$ and lower shares from unemployment $UE$\vspace*{-.3cm}
+\item[(3)] Higher shares of separations to unemployment $EU$ and lower shares to employment $EE^{-}$.
+\end{itemize}
+The intuition is simply that fast growing firms have high marginal surplus.
+For example, the pattern in (2) can be observed from Figure \ref{fig:GrossFlows}.
+As one moves leftward along the $x$-axis, $S_n$ increases, the firm's growth rate increases, and $EE^{+}$ as a share of total hires increases as well.
+
+\begin{figure}[ttt]
+\begin{center}
+\hspace*{-3.5cm} \scalebox{0.90}{\input{\DRAWNfigureDir/GrossFlows_Q.tex}}
+\caption{Gross worker flows by employment level, for given productivity}\label{fig:GrossFlows}\vspace*{-.3cm}
+\end{center}
+{\footnotesize {\underline{Notes:} The solid red curve represents total
+separations $(EU+EE^{-})$ and the dashed red horizontal line exogenous quits
+$EU$. The green curve represents total hires $(UE+EE^{+})$ and the dashed
+green curve hires from unemployment $(UE$).} }
+\end{figure}
+
+We conclude by noting that this type of analysis on the composition of hires by firm size and productivity cannot be performed in current directed search models.
+As explained in the Introduction, in that class of models, the composition of hires at the firm level is indeterminate.
+
+\section{Equilibrium}\label{sec:comparativestatics}
+We formally define an equilibrium, and employ a phase diagram to characterize firm and worker dynamics in $(n,z)$-space.
+We also study two limiting equilibria, one where decreasing returns in production vanish, and another where matching frictions vanish.
+
+\subsection{Equilibrium}
+A stationary equilibrium with positive entry is:
+(i) a joint surplus function $S(z,n)$;
+(ii) a vacancy policy $v(z,n)$;
+(iii) a law of motion for firm level employment $\frac{dn}{dt}(z,n)$;
+(iv) a stationary distribution of firms $H(z,n)$;
+(v) vacancy- and employment-weighted distributions of marginal surplus $H_v(S_n) $ and $H_n(S_n)$;
+(vi) a positive mass of entrants $\mathtt{m}_0$,
+(vii) a vacancy meeting rate $q(\theta)$ and conditional probability of meeting an unemployed worker $\phi$, such that:
+\begin{itemize}
+\item[(i)] Total surplus $S(z,n)$ satisfies the HJB equation $(\ref{eq:finalBellmanS})$ and associated boundary conditions.
+\item[(ii)] The vacancy policy $v(z,n)$ satisfies the first order condition:
+\vspace*{-.3cm}\begin{equation*}
+c_v(v(z,n);z,n) = q(\theta)\left[\phi S_n(z,n) + (1-\phi)\int_0^{S_n(z,n)} \Big(S_n(z,n)-S_n^\prime\Big) \:\:dH_n(S_n^\prime)\right].
+\vspace*{-.3cm}\end{equation*}
+\item[(iii)] The law of motion for firm level employment is
+\vspace*{-.3cm}{\small\begin{equation*}
+\frac{dn}{dt}(z,n) =
+\begin{cases}
+-\frac{n}{dt} & n<n_{E}^{\ast}(z) \\
+q(\theta)v(z,n)\Big[\phi+(1-\phi)H_n(S_{n}(z,n))\Big]
+- n\Big[\delta + \lambda^E(\theta)(1-H_v(S_n(z,n)))\Big] & n\in\Big[n_{E}^{\ast}(z),n_{L}^{\ast}(z)\Big) \\
+\frac{n^{\ast}_L(z)-n}{dt} & n\geq n_L^{\ast}(z),%
+\end{cases}%
+\vspace*{-.3cm}\end{equation*}}%
+where the notation $\frac{n}{dt}$ denotes a jump of size $n$, and where the exit threshold satisfies value-matching consistent with \eqref{eq:finalBellmanS},
+and the exit and layoff boundaries satisfy smooth-pasting conditions in productivity and employment:\footnote{
+Smooth pasting conditions obtain only when firms are actually crossing the exit or layoff boundaries. Firms may then choose the exit or layoff boundaries by taking an interior first-order optimality condition.  For additional details and discussion see Appendix \ref{appx:HJBVI}.
+}
+\vspace*{-.3cm}\begin{equation*}
+\underbrace{\Big.S\big(z,n^\ast_E(z)\big)=\vartheta\Big.}_{\text{Value-matching from \eqref{eq:finalBellmanS}}}
+\:,\:
+\underbrace{\Big.
+S_z\big(z,n^\ast_E(z)\big) = 0 \:,\:
+S_n\big(z,n^\ast_E(z)\big) = 0 \: \quad \text{if}\: \frac{dn}{dt}\big(z,n^\ast_E(z)\big) < 0\:,\:
+S_n\big(z,n^\ast_L(z)\big) = 0 \Big.}_{
+\text{Smooth-pasting conditions from \eqref{eq:finalBellmanS}}}
+\vspace*{-.3cm}\end{equation*}
+\item[(iv)] Vacancy- and employment-weighted distributions of marginal surplus are consistent:
+\begin{eqnarray*}
+H_v(S_n) = \int \mathbb{1}_{[S_n(z,n)\leq S_n]}\frac{v(z,n)}{\mathtt{v}}dH(z,n)\quad,\quad \mathtt{v} = \int v(z,n)dH(z,n) \\
+H_n(S_n) = \int \mathbb{1}_{[S_n(z,n)\leq  S_n]} \frac{n}{\mathtt{n}}dH(z,n)\quad,\quad \mathtt{n} = \int n\,dH(z,n)
+\end{eqnarray*}
+\item[(v)] The measure of firms $H(z,n)$ is stationary, and admits a density function $h(z,n)$ that satisfies:
+\vspace*{-.3cm}\begin{equation*}
+0=
+-\:     \frac{\partial}{\partial n} \left( \frac{dn}{dt}\left(z,n\right)h\left(z,n\right) \right)
+\:-\:   \frac{\partial}{\partial z} \Bigg(\mu\left(z\right)h\left(z,n\right) \Bigg)
+\:+\:   \frac{\partial^2}{\partial z^2}\left(\frac{\sigma\left(z\right)^{2}}{2}h\left(z,n\right)\right)\:
+\:+\:   \mathtt{m}_0\:\pi_0(z)\:\bm{\Delta}(n)
+\vspace*{-.3cm}\end{equation*}
+where $\bm{\Delta}$ is the Dirac delta ``function'' which is zero everywhere except $n=n_0$ where it is infinite.
+\item[(vi)] Entry $\mathtt{m}_0$ is such that the expected value of a new entrant is zero:
+\vspace*{-.3cm}\begin{equation*}
+c_0 = \small\int S(z,n_0)d\Pi_0(z),
+\vspace*{-.3cm}\end{equation*}
+\item[(vii)] Vacancy meeting rate $q(\theta)$ and conditional probability of meeting an unemployed worker $\phi$ are consistent with the aggregate matching function given employment $\mathtt{n}$, unemployment $\left(\mathtt{u} = \overline{\mathtt{n}} - \mathtt{n}\right)$, and vacancies $\mathtt{v}$.
+\end{itemize}
+\noindent
+The numerical procedure to compute the equilibrium of the model is described in the Appendix of \citet{BEMVworkingpaper}.
+
+\subsection{Firm dynamics, job reallocation and worker turnover: a phase diagram}
+We now can represent firm dynamics (entry and exit), job reallocation (net growth), and worker reallocation (hires and separations) in the $(n,z)$-space.
+Figure \ref{fig:CompStat3} describes the functions that determine the stay/exit frontier $n^\ast_E(z)$, hire/layoff frontier $n^\ast_L(z)$, and the zero growth locus $n^{\ast}_{ZG}(z)$.
+
+First, Panel (a) considers the model without a scrap value such that there is no endogenous exit.
+From  \eqref{eq:BoundariesS} the layoff frontier has slope ${dz}/{dn} = -{S_{nn}}/{S_{zn}}$.
+Therefore properties \textbf{(P1)} $(S_{nn}<0)$ and \textbf{(P3)} $(S_{zn}>0)$, imply the layoff frontier is positively sloped.
+Recall from Figure \ref{fig:CompStat1} that, fractionally to the left of the layoff frontier $n^\ast_L(z)$, $S_n\approx 0$, so vacancy posting is low and the firm shrinks due to $EE^{-}$ and $EU$ flows.
+Therefore the zero growth locus along which $dn=0$ must be located strictly to the left of the layoff frontier.
+Between the zero-growth locus and the layoff frontier, firms hire but lose even more workers, and so experience job destruction $(JD)$.
+To the left of the zero-growth locus, marginal surplus is sufficiently large that firms are successful in hiring and retaining workers, and so experience job creation $(JC)$.
+In all cases some endogenous separations through quits also occur, thus the model generates both hires for shrinking firms and endogenous separations for growing firms.
+To the right of the layoff frontier, firms fire workers, destroying jobs en masse, and in doing so jump back to the frontier.
+
+\begin{figure}[ttt]
+\begin{center}
+\begin{subfigure}{0.33\textwidth}
+\scalebox{0.75}{\input{\DRAWNfigureDir/DynamicsWithoutExitWithDots.tex}}
+\caption{No endogenous exit $(\vartheta=0)$}
+\end{subfigure}
+\hspace{1cm}
+\begin{subfigure}{0.33\textwidth}
+\scalebox{0.75}{\input{\DRAWNfigureDir/DynamicsWithExitWithDots.tex}}
+\caption{Endogenous exit $(\vartheta>0)$}
+\end{subfigure}
+\caption{Exit, layoff and zero-growth frontiers in the $(n,z)$-space}\label{fig:CompStat3}
+\vspace*{-.3cm}
+\end{center}
+{\footnotesize{
+\underline{Notes:}
+This figure plots exit, layoff and zero-growth frontiers for two cases: without and with positive scrap value.
+It also includes examples of hypothetical firm paths, in each case keeping productivity fixed.
+A firm (black dot) that begins in the layoff region jumps to the layoff frontier, firing $n-n^\ast_{S}(z)$ workers.
+Subsequent declines in productivity smoothly move the firm along the layoff frontier until, possibly, exit.
+A firm that is located in the hiring region smoothly converges toward the $dn=0$ line by growing or shrinking.}}
+\end{figure}
+
+Panel (b) introduces a positive scrap value which induces endogenous exit.
+First, let us ignore the smooth-pasting conditions.
+From  \eqref{eq:BoundariesS} the exit frontier would have slope ${dz}/{dn}= -{S_{n}}/{S_{z}}$.
+Therefore properties \textbf{(P1)} $(S_{n}>0,\:S_{nn}<0)$ and \textbf{(P2)} $(S_{z}>0)$, imply the exit frontier would have a minimum at $S_n=0$, where it crosses the layoff frontier, increasing on either side.
+
+The smooth pasting conditions modify this frontier.
+A necessary condition for optimal exit is that $S_n=0$: if marginal surplus was positive on the exit boundary $(S=\vartheta)$, then the firm could post vacancies and increase $S>\vartheta$, and hence would not want to exit.
+Now recall that by Property \textbf{(P1)}, $S$ is strictly concave in $n$, but optimal layoffs imply $S_n=0$ on the layoff boundary, implying that $S_n$ is not zero again away from the layoff frontier.
+Combined, these observations have two implications.
+First, firms do not exit along the downward sloping section of the exit frontier in the \emph{Hire \& $JC$} region.
+Indeed, firms in this region have very high marginal surplus and drift to the right.
+Second, firms cannot be located in the part of the \emph{Hire \& $JD$} region with a red $\times$-mark.
+A firm located here would be headed toward exit with $S_n>0$, which violates optimality.
+As a result, to the right of the intersection of the zero-growth locus and the $S(z,n)=\vartheta$ locus, the exit frontier is flat.
+
+The stationary distribution of firms in the economy has support along the layoff frontier, and to its left, with
+zero mass along the left exit frontier.
+Growing firms do not exit, but shrinking firms may experience productivity shocks that force them over the horizontal section of the exit frontier.
+All firms---except those on the layoff frontier---post vacancies, and hire workers from employment and unemployment, and lose workers to employment and unemployment.\footnote{The results derived in Section \ref{sec:worker_reall} regarding gross flows fully describe employment dynamics of the firm when interior to these boundaries. In particular, one can think of Figure \ref{fig:GrossFlows} as describing gross firm hiring along a straight horizontal line drawn in the $(n,z)$ space of Figure \ref{fig:CompStat3} and running from the exit to the layoff frontier.} Finally, not depicted in the figure, the mass $\texttt{m}_0$ of entrants is distributed according to $\Pi_0(z)$, along a vertical line at $n=n_0$.
+Only those with a high enough value of $z$ keep operating.
+
+\subsection{Limiting economies}\label{sec:limits_theory}
+
+Our economy includes as special cases two well known frameworks for worker flows on the one hand, and firm dynamics on the other.
+
+\subsubsection{Vanishing decreasing returns in production}
+\label{sec:vanish_DRS}
+In traditional search and matching models with random, on the job search, the constant returns to scale assumption
+implies an indeterminate firm size distribution.
+These are models of \emph{jobs} rather than \emph{firms}, with each job having match output $y(z)$.
+Here we show that the Bellman equation \eqref{eq:finalBellmanS} is a natural generalization of expressions of firm value found in these settings.
+
+Consider the limiting case of \eqref{eq:finalBellmanS} when the function $y$ is linear in $n$, $y(z,n) = zn$.
+Depending on the form of the recruiting cost function, we obtain either the surplus representation in \citet{LiseRobinAER} or a slight variant thereof.
+The formulation in \citet{LiseRobinAER} arises when vacancy costs are independent of $n$, $c(v,n) = c(v)$, and the scrap value is zero (no endogenous exit).
+Under these assumptions \eqref{eq:finalBellmanS} becomes affine in size, where the slope gives the value of an existing match and the intercept gives the value of a vacancy:
+{\small
+\begin{equation*}
+\rho S(z,n) = S_0(z) + n\times \rho\widehat{S}(z)\quad\text{where}\quad
+\begin{cases}
+\:\:\rho\widehat{S}(z) = y(z) - b - \delta\widehat{S}(z) + \mu(z)\widehat{S}_z(z) + \frac{\sigma^2(z)}{2}\widehat{S}_{zz}(z) \\
+\:\: S_0(z) = \max_v q(\theta)v \left[ \phi \widehat{S}(z) + (1-\phi) \int_0^{\widehat{S}(z)} \Big( \widehat{S}(z) - S'\Big) dH_n(S')\right]- c(v) %\\
+\end{cases}
+\end{equation*}}%
+These correspond to equations (3), (6) and (7) in \citet{LiseRobinAER}.
+Since $\widehat{S}$ is independent of $n$, $H_n(S') = H(z)$.
+The rank of a firm on the job ladder is determined only by its exogenous productivity $z$.
+The value of new jobs therefore depends block-recursively on the value of existing ones.
+In this limit, firm size is irrelevant for joint surplus and the distribution of marginal surplus.
+
+A similar limiting economy arises when the production function is linear, but vacancy costs are homogeneous of degree one in $(v,n)$ and, again, the scrap value is zero. See Appendix \ref{appx:CRS_limit} for details.
+
+\subsubsection{Vanishing frictions}
+We first consider the limit as matching efficiency goes to infinity in the absence of on the job search.
+We then add on-the-job search and show that this is key for obtaining a version of \citet{HopenhaynEMET} in the limit.
+Formal proofs are in Appendix \ref{appx:limiting_economies}.
+
+\paragraph{Frictionless limit without on-the-job-search.}
+Let $A$ be a scalar in front of the matching function, and take this parameter to infinity in an economy without on-the-job search $(\xi=0)$.
+Now consider the  free-entry condition $\int S(n_0,z)d\Pi_0(z) = c_0$ and the Bellman equation for joint surplus,
+{
+\begin{equation}
+\rho S(n,z) = \max_v \:y(n,z) - bn - c(v) - \delta nS(n,z) + qvS_n(n,z) + \mu(z) S_z(n,z) + \frac{\sigma(z)^2}{2} S_{zz}(n,z)
+\end{equation}}%
+The only general equilibrium object in total surplus is $q$.
+Therefore there is a unique value of $q$, independent of $A$, such that the free-entry condition holds.
+With $q$ unaffected by the increase in $A$, firm vacancy policies $v(n,z)$ and firm dynamics conditional on entry remain the same, while the measure of firms adjusts such that $q$ remains constant.
+Since there exists dispersion in the marginal product of labor for any arbitrary $A$, then this dispersion continues to exist even in the limit.
+This limiting result differs from the competitive equilibrium of a frictionless model in which all firms' marginal products of labor are equal and equated to the wage.\footnote{To draw an analogy, consider a comparative statics in the \citet{HopenhaynEMET} model with respect to a parameter that does not directly enter the free entry condition. The effect is a change in the aggregate supply of labor and, thus, the mass of firms, but not their distribution. See also \citet{kaas2020block}.}
+
+\vspace*{-.3cm}
+\paragraph{Frictionless limit with on-the-job search.}
+On-the-job search breaks this result, allowing equilibrium $q$ to increase.
+As $A$ increases unemployment $\mathtt{u}$ still goes to zero but, with on-the-job search total units of search efficiency remain positive $\mathtt{s}_\infty=\xi\overline{\mathtt{n}}$.
+Meanwhile aggregate feasibility ensures that vacancies $\mathtt{v}_\infty$  remain finite.
+Hence in the limit $\theta_\infty = \mathtt{s}_\infty/\mathtt{v}_\infty$ is constant, and $q=A\theta_\infty^{-(1-\beta)}$ increases in $A$.
+As $q$ increases, reallocation of labor via job-to-job quits accelerates.
+These quits cause marginal surplus to increase at low-$S_n$ origin firms and decline at high-$S_n$ poaching firms, compressing the distribution of $S_n$ to a point.
+
+Our main result, shown in Appendix \ref{appx:limiting_economies}, is that in the limit as $q$ goes to infinity, firm behavior is described by the following Bellman equation, employment policy function and boundary condition:
+\vspace*{-.3cm}\begin{equation}\label{eq:hopenhayn}
+\rho {S}(z) = \max_n\: y(z,n) - nb + \mu(z) S_z(z)+ \frac{\sigma^2(z)}{2} S_{zz}(z)
+\quad,\quad
+y_n\big(z,n^\ast(z)\big) = b
+\quad,\quad
+\Big.{S}(z)  \geq  \vartheta
+\quad,\quad
+\vspace*{-.1cm}\end{equation}
+This characterization contains three results.
+First, with infinitely fast reallocation, there is no dispersion in marginal surplus in equilibrium and hence no surplus gained from on-the-job search.
+Second, behavior is \emph{as if} firms choose their optimal size each instant, with all hires realized through immediate job-to-job reallocation.
+Third, this implies the only state variable is $z$ and the productivity-size distribution is degenerate on $(z,n^*(z))$, along which marginal products are equalized.
+Thus the limit of our model is isomorphic to \citet{HopenhaynEMET} with respect to job reallocation, firm exit, and the expected profits of entrants, which are zero net of entry costs.
+
+We conclude by noting that this natural limiting behavior of our economy stands in stark contrast to traditional search models with constant returns to scale.
+In bargaining and wage posting models, all employment would go to the most productive firm.
+
+\section{Estimation}\label{sec:calibration}
+
+Having provided a qualitative discussion of the model, we now turn to its quantitative implications.
+To that end, we estimate the model on U.S. data.
+Because the model is set and solved in continuous time, we can construct correctly time-aggregated measures at any desired frequency.
+
+\subsection{Methodology}
+We make the following functional form assumptions.
+The production function is $y(z,n)=zn^\alpha$.
+The vacancy cost function is $c(v,n) = \frac{\overline{c}}{1+\gamma}\left(\frac{v}{n}\right)^{\gamma}v$, as in \citet{KassKircher}, such that the per-vacancy cost is increasing in the vacancy rate.
+The matching function is Cobb-Douglas with vacancy elasticity $\beta$: a worker meets a vacancy at rate $f(\theta)=A\theta^{\beta}$ and a vacancy meets a worker at rate $q(\theta)=A\theta^{-(1-\beta)}$.
+The distribution of entrant productivity draws is Pareto with a minimum of one and shape parameter $\zeta$.
+Log productivity follows a random walk, $d \log z(t) = \mu dt + \sigma dW(t)$.
+We add exogenous firm exit at rate $d$.
+These assumptions leave 16 parameters to determine. We proceed in three steps.
+
+\paragraph{Externally set or normalized.}
+We normalize or set to standard values five parameters, as summarized in Table \ref{table: estimated parameters}A.
+The discount rate $\rho$ implies an annual real interest rate of five percent.
+The elasticity of the matching function $\beta=0.50$ is based on standard values in the literature \citep{Petrongolo2001}.
+When solving the model we add a fixed cost of operation $c_f$ and set the scrap value $\vartheta$ to zero; the two are isomorphic.
+Without loss of generality we are then able to normalize $c_f$.\footnote{
+    The argument that we can normalize $c_f$ to one has two pieces.
+    First, for a given fixed cost $c_f$, we can always choose an entry cost $c_0$ that generates the desired mass of firms $\mathtt{m}$, see below.
+    Second, with Pareto initial draws of productivity followed by a random walk, a higher fixed cost simply scales the economy up.}
+From the first order condition for vacancies \eqref{eq:voptimality} it is clear that we cannot identify $\overline{c}$ and $A$ separately, so we normalize $\overline{c}$.
+Finally, we set employment of entering firms, $n_0$, to one which we interpret as the labor input of the entrepreneur or founder.
+
+\begin{table}[ttt]
+\begin{center}
+\scalebox{0.7}{
+\input{"\MATLABtableDir/Table1_ParametersMoments".tex}
+}
+\caption{Estimated parameters and targeted moments} \label{table: estimated parameters}
+\vspace*{-.3cm}
+\end{center}
+\footnotesize{\underline{Notes}:
+Annual firm dynamics moments are from HP-filtered Census BDS data between 2011--2016, with the exception of the standard deviation of annual growth rates, which is from \citet{ElsbyMichaelsAEJ}. Quarterly worker flows are from HP-filtered Census J2J data between 2011--2016.}
+\end{table}
+
+\paragraph{Estimated offline.}
+We set three parameters to target directly three moments in the data, as summarized in Table \ref{table: estimated parameters}B.
+First, the entry cost $c_0$ is pinned down by an average firm size of $23$.
+The measure of active firms $\mathtt{m}$ that delivers an average firm size of $23$ when there is a unit measure of workers and a non-employment rate of 10 percent is $0.90/23$.
+While $\mathtt{m}$ is an equilibrium outcome, the fact that a higher $\mathtt{m}$ decreases the value of entry through a tighter labor market implies a unique $c_0$ that satisfies the free-entry condition under a given $\mathtt{m}$.
+Here, and throughout, we use a broader definition of the pool of job-seekers than in the standard unemployment definition in the CPS.
+This accounts for the fact that a significant number of hires come directly from out of the labor force and some of our data sources (JOLTS and Census J2J) do not identify whether the origin of hires or destination of separations is unemployment or non-participation.\footnote{
+    Our definition of the non-employment rate is constructed as follows.
+    The numerator equals the sum of the unemployed (FRED series UNEMPLOY) plus those out-of-the-labor-force who answer that they `currently want a job' in the CPS (NILFWJN).
+    The denominator equals the sum of the civilian labor force (CLF16OV) plus the same subgroup of those out-of-the-labor-force (NILFWJN).
+    From 2011-2016 this ratio is, on average, just above 10 percent.}
+
+Second, the exogenous exit rate $d$ is pinned down by an annual exit rate of firms with 1000--2499 employees of 0.2 percent.
+Such firms may layoff workers, but never exit endogenously in the model, as total surplus is far from the exit frontier.
+
+Third, the vacancy cost elasticity $\gamma$ is pinned down by the cross-sectional relationship between vacancy- and vacancy-filling rates.
+In JOLTS microdata, \citet{DFH} document a nearly log-linear relationship between each of these and the hiring rate, which implies a log-linear relation between them.
+In the model, these relationships are driven by marginal surplus.
+The following cross-sectional relationship can be derived from the firm's optimality condition, using a log linear approximation that is valid for firms with small growth rates:
+\begin{equation}
+\label{eq:GammaRegression}
+\log \frac{v^*(z,n)}{n} \approx \kappa_0 + \kappa_1 \log  \left( \frac{h^*(z,n)}{v} - \kappa_2 \right)\quad\text{, where}\quad \gamma = \frac{1}{\kappa_1}
+\end{equation}
+Firms with high marginal surplus post more vacancies per worker, and fill them more quickly as they can poach labor from more firms.
+We compute these objects in JOLTS microdata in narrow monthly growth rate bins, then estimate \eqref{eq:GammaRegression} by non-linear least squares.\footnote{
+    We use establishment-month observations in JOLTS microdata 2002--2018  \citep[see][]{MongeyViolante}.
+    As in \citet{DFH}, we pool all vacancies, hires and employment in net monthly growth rate bins of one percent width.
+    We then use these to compute the vacancy rate and vacancy yield at the bin level.
+    To be consistent with our approximation we use growth rate bins between 2.5 and 9.5 percent when estimating \eqref{eq:GammaRegression}.}
+Our estimates imply $\gamma=3.45$.
+Figure \ref{figure:_VacDec} shows this value for the vacancy cost elasticity provides a good fit to the microdata.
+
+
+\begin{figure}[t]
+\vspace*{-0.1cm}
+\begin{center}
+\hspace*{-.5cm}
+\includegraphics[width=15cm]{\MATLABfigureDir/Fig6_VacancyRatesYields_eps}
+\caption{Vacancy rates by firm gross hiring rate}\label{figure:_VacDec}\vspace*{-0.3cm}
+\end{center}
+{\footnotesize \underline{Notes}
+\textbf{Data}: Establishment-month observations in JOLTS microdata 2002-2018 are pooled in bins,
+where bins are determined by net monthly growth rate, and have a width of 1 percent.
+Growth rates computed as in \citet{DFH}.
+Within bin $b$, total hires $h_b$, total vacancies $v_b$, total employment $n_b$ are computed.
+From these, the gross hiring rate $h_b/n_b$, and implied daily vacancy posting rate $vr_b = v_b/(n_b)$ are computed using the daily recruiting model of \citet{DFH}.
+\textbf{Model}: The variables are constructed in the same way as in the data.
+Points plotted are logs of these variables, differenced about the bin representing a one percent net growth rate.
+}
+\end{figure}
+
+\paragraph{Internally estimated.}
+The remaining parameters are estimated by minimizing the objective function
+\vspace*{-.3cm}\begin{equation*}
+\mathcal{G}(\bm{\psi})=\Big(\bm{\widehat{m}}-\bm{m(\psi)}\Big)'\mathbf{W}^{-1}
+\Big(\bm{\widehat{m}}-\bm{m(\psi)}\Big)
+\quad,\quad
+\bm{\psi} = \Big\{\mu,\sigma,\alpha,\zeta,A,\xi,\delta,b\Big\}\:,
+\vspace*{-.3cm}\end{equation*}
+where $\bm{\widehat{m}}$ is a vector of empirical moments and $\bm{m(\psi)}$ are their model counterpart.
+The matrix $\mathbf{W}$ contains squares of the data moments on the main diagonal and zeros elsewhere.\footnote{
+    Our moments are taken from various data sources and in most instances we cannot compute variances of the moments, let alone covariances with other moments.}
+We target eight moments that are relatively standard to firm dynamics and frictional labor market literatures.
+While this remaining subset of parameters is jointly estimated, some moments are particularly informative about some parameters. Next, we briefly outline our logic.
+
+The drift of productivity, $\mu$, is informed by the (unweighted) firm exit rate.
+The more negative the drift, the faster firms exit.
+The standard deviation of productivity shocks, $\sigma$, is informed by the standard deviation of annual log employment growth.
+If shocks are larger, employment is more volatile.
+Decreasing returns, $\alpha$, is informed by the employment share of firms with more than 500 employees.
+A smaller span of control allows for fewer large firms.
+The thickness of the tail of the productivity distribution of entrants, $\zeta$, is informed by job creation among young firms \citep{decker2020}.\footnote{
+    A natural alternative would have been to target the productivity gap between entrants (younger than 1 year old) and incumbents. The model does well in this respect. At the estimated parameter vector, this gap is 27 (35) percent in the model (data) \citep{Gavazza2018}.}
+Matching efficiency, $A$, is informed by the nonemployment rate, as a more efficient labor market reduces nonemployment.
+Relative search efficiency of employed workers, $\xi$, and the exogenous separation rate, $\delta$, are informed by quarterly $EE$ and $EN$ rates.
+Finally, the flow value of leisure, $b$, is informed by the job destruction rate of incumbent firms.
+The direct effect of $b$ on marginal surplus $S_n(n,z)$ is one-for-one, so under a higher $b$, a productivity shocks is more likely to lead a firm to hit the layoff frontier $S_n(n,z)=0$, and destroy jobs.
+Table \ref{table: estimated parameters}C summarizes the parameters estimated by minimum distance.
+In Appendix \ref{appx:identification} we discuss identification more formally, and plot the marginal effect of each parameter on its associated target moment and on the objective function.
+
+
+\subsection{Model fit}\label{sec: nontargeted}
+The estimated model is consistent with micro data that was not directly targeted by the estimation.
+This data sits at the intersection of firm and worker dynamics:
+(i) the distribution of firms and employment, (ii) job and worker flows across the distribution, and (iii) patterns of net poaching across the distribution.
+
+
+% DISTRIBUTION OF FIRMS AND EMPLOYMENT BY AGE AND SIZE
+\begin{figure}[t!]
+\begin{center}
+\hspace*{-0.5cm}\includegraphics[width=16cm]{\MATLABfigureDir/Fig7_DistributionSizeAge_eps}
+\caption{Distribution of firms and employment by firm age and size in data and model}\label{figure:_AgeSize}\vspace*{-.3cm}
+\end{center}
+{\footnotesize \underline{Source:}
+Census BDS
+}
+\end{figure}
+%C:\Users\Simon Mongey\Dropbox\34_Bilal Engbom Mongey Violante\5_Draft\TablesFiguresRevision\Table2Figures.m
+
+\paragraph{1. Distribution of firms and employment.}
+Figure \ref{figure:_AgeSize} shows that the model reproduces the skewed firm size and age distributions.
+In both data and model, around 90 percent of firms are small (less than 20 employees), but these firms account for only around 20 percent of employment.
+Symmetrically, firms with more than 500 employees represent less than 1 percent of firms, but more than 50 percent of employment.
+By age, around half of firms are older than 10 years, but these account for 80 percent of employment in the data, and somewhat more in the model.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% NET POACHING AND MARGINAL SURPLUS
+\begin{figure}[t]
+\begin{center}
+\small{A. Job, worker and firm reallocation by age}\vspace{.2cm}
+\hspace*{-0.5cm}\includegraphics[width=16cm]{\MATLABfigureDir/Fig8A_ReallocationAge_eps}\vspace{.2cm}
+
+\small{B. Job, worker and firm reallocation by size}\vspace{.2cm}
+\hspace*{-0.5cm}\includegraphics[width=16cm]{\MATLABfigureDir/Fig8B_ReallocationSize_eps}
+\caption{Job, worker and firm reallocation by size and age}\label{figure:Reallocation}\vspace*{-0.3cm}
+\end{center}
+\footnotesize{
+\underline{Notes}:
+\textbf{Data}:
+Census BDS firm data for annual job creation, job destruction and exit.
+Quarterly rates constructed by dividing by four.
+Census J2J firm data for quarterly hiring and separation rates.
+Authors aggregate data into bins given in table which reflect the granularity of J2J data.
+Census J2J separations (hires) include separations to (hires from) non-employment.
+\textbf{Model}:
+Time aggregated to a quarterly frequency.
+}
+\end{figure}
+%C:\Users\Simon Mongey\Dropbox\34_Bilal Engbom Mongey Violante\5_Draft\TablesFiguresRevision\Table3Figures.m
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{2. Firm, job and worker reallocation.}
+Figure \ref{figure:Reallocation} examines turnover at the level of firms, jobs and workers.
+As in the data the rate of job creation peaks for young firms and then declines with age, while job destruction rates are relatively flat.
+The model is also consistent with the mild decline in job turnover by size.
+Not shown in the figure, in the data (model) 16 percent (15 percent) of all jobs are created by new firm births and 28 percent (26 percent) by firms less than 10 years old.
+In terms of worker flows,  EE transitions allow the model to account for the key fact that worker reallocation rates are around three times as large as job reallocation rates, thus generating the right amount of churning.
+In the cross-section, the model can reproduce the stark negative empirical relationship between hiring rates and firm age, but struggles to match the gradient at which the separation rate declines with age in the data after age 3.
+The model is also in line with the mild decline in worker turnover by size.
+The model reproduces the negative gradient for firm exit with respect to age observed in the data.
+Absent jumps in the productivity process, firms slowly shrink before exiting, and so every firm  above medium size only exits exogenously: as a result, the model matches small and very large firm exit rates, but not those of intermediate size firms.\footnote{
+    Note that the fact that the model slightly overestimates both (i) the hiring and separation rates at old firms (Figure \ref{figure:Reallocation}A), and (ii) the employment share at old firms (Figure \ref{figure:_AgeSize}B), implies that the total share of hires and separations at old firms is larger than in the data (e.g. 15 ppt higher for age 11+ firms).
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% NET POACHING AND MARGINAL SURPLUS
+\begin{figure}[t]
+\begin{center}
+\hspace*{-0.5cm}\includegraphics[width=18cm]{\MATLABfigureDir/Fig9_PoachingSurplusDistribution_eps}
+\caption{Net poaching and marginal surplus distribution}\label{figure:PoachingSnDecomposition}\vspace*{-0.3cm}
+\end{center}
+{\footnotesize \underline{Notes:}
+\textbf{Panel A.} Net poaching rate $p(S_n)$ by log marginal surplus $S_n$ and the CDF of log marginal surplus.
+\textbf{Panel B.} Decomposition of the change in net poaching rate as $S_n$ rises into three components: (i) higher vacancies (red line), (ii) more poaching hires due to higher rank on the job ladder (green line), and (iii) lower poaching separations due to higher rank on the job ladder (blue line).
+}
+\end{figure}
+%C:\Users\Simon Mongey\Dropbox\34_Bilal Engbom Mongey Violante\3_NewCode\NikToSimon\Figure_PoachingSnDecomposition2.m
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{3. Net poaching by firm characteristics.}
+Figure \ref{figure:PoachingSnDecomposition}A plots the distribution of marginal surplus $H(S_n)$ together with the net poaching rate as a function of marginal surplus.
+The CDF reveals that the equilibrium density $h(S_n)$ is quite dispersed.
+Net poaching is flat and negative at the low end of the distribution of $S_n$, after which it starts increasing steadily.
+What explains this particular shape?
+Under our assumptions on vacancy costs, the vacancy rate of the firm $(\widetilde{v}=v/n)$ depends only on marginal surplus.\footnote{
+    To see this note that the marginal cost of a vacancy is $c_v(v,n) \propto (v/n)^\gamma$ and, as characterized in Section \ref{sec:comparativestatics}, the marginal benefit of a vacancy depends only on $S_n$.
+}
+The net poaching rate $p(S_n)$ is therefore:
+\vspace*{-.3cm}\begin{equation*}
+p(S_n) = \widetilde{v}(S_n)q(\theta)(1-\phi)H_n(S_n) - \lambda^E(\theta)\overline{H}_v(S_n).
+\vspace*{-.3cm}\end{equation*}
+Higher marginal surplus increases net poaching through three channels:
+(i) a higher return to vacancies leads to higher vacancy posting, increasing $EE$ hires $(\uparrow \widetilde{v}(S_n))$;
+(ii) conditional on a vacancy, a greater fraction of meetings result in a hire $(\uparrow H_n(S_n))$;
+(iii) firm incumbents match with fewer competitors that result in an $EE$ quit $(\downarrow \overline{H}_v(S_n))$.
+Figure \ref{figure:PoachingSnDecomposition}B plots these three forces using the following decomposition:
+\vspace*{-.2cm}\begin{equation*}
+p(S_n) =
+\underbrace{\bigg.\int^{S_n}_0\frac{\partial \widetilde{v}(u)}{\partial u}q(\theta)(1-\phi)H_n(u)du}_{\text{Increasing $\uparrow \widetilde{v}(S_n)$}}
++ \underbrace{\bigg.\int^{S_n}_0 \widetilde{v}(u)q(\theta)(1-\phi)h_n(u)du}_{\text{Increasing $\uparrow H_n(S_n)$}}
+- \underbrace{\bigg.\lambda^E(\theta)\overline{H}_v(S_n)}_{\text{Decreasing $\downarrow \overline{H}_v(S_n)$}}
+\end{equation*}
+Firms with very low marginal surplus do not hire and lose all their employees who meet other firms, so net poaching for them approaches $-\lambda^{E}(\theta)$.
+In the middle range of $\log{S_n}$ a rise in marginal surplus increases firms' net poaching mostly through changes in its marginal surplus rank which, in turn, expands hires from other firms $(EE^{+})$ and reduces quits $(EE^{-})$.
+The vacancy rate initially rises slowly, but as firms get toward the top of the job ladder, vacancies are the only way to keep growing.
+This explains why net poaching keeps rising even in the region where the CDF is flattening out, over which poaching translates into negligible jumps up the ladder.
+
+We now project this relationship between net poaching and marginal surplus onto observables in order to compare model and data.
+\citet{HHKM2018} document two key empirical patterns: (i) a negligible gradient of net poaching by size, which is inconsistent with wage posting models, and (ii) a steeper negative gradient by age, as young poach from old.
+Panels A and B of Figure \ref{figure:J2J2} show that the model matches these patterns quite well, albeit the slope by age is somewhat more pronounced in the model relative to the data.
+Size is not a particularly good predictor of where a firm sits on the marginal surplus job ladder.
+Consider a vertical slice of Figure \ref{fig:CompStat3}.
+At a given size some firms are highly productive, have a high $S_n$, have positive net poaching and create jobs on net.
+Meanwhile, other firms are less productive, have a low $S_n$, negative net poaching and destroy jobs on net.
+In contrast, young firms are on average small and productive: they sit to the left of $dn=0$ and, having not yet grown, are high on the marginal surplus job ladder.
+They therefore display large and positive net poaching rates.\footnote{Put differently, the reason why small firms do not have high net poaching rates on average is because some of them are young and highly productive, but did not have had time to grow yet, while others are small simply because they are unproductive.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% NO AGGREGATION ACROSS AGE GROUPS
+\begin{figure}[ttt]
+\begin{center}
+\hspace*{-0.5cm}\includegraphics[width=16cm]{\MATLABfigureDir/Fig10_PoachingByCharacteristics_eps}
+\caption{Net poaching rates by size, age, labor productivity and net employment growth rate}\label{figure:J2J2}\vspace*{-0.1cm}
+\end{center}
+\footnotesize{\underline{Notes}:
+In panels C and D, firms are ranked according to the employment weighted distribution of labor productivity (C) and employment growth (D).
+}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Panels C and D of Figure \ref{figure:J2J2} plots net poaching rates as a function of two other, potentially, observable firm characteristics, labor productivity and net employment growth rate.
+The model predicts a much higher gradient between these two variables and net poaching rates compared to size and age.
+First, marginal surplus is highly correlated with the static marginal product of labor, and the latter is proportional to the average product under our functional form for $y(z,n)$.\footnote{
+    One generalization of the model that would weaken this relation is the addition of heterogeneity in the scale of production parameter $\alpha$, as in \citet{Gavazza2018}.
+    This would create an additional source of cross-sectional variation in marginal surplus that is orthogonal to $z$. Another one is the addition to the model of forced EE moves (`godfather shocks').}
+Second, both in the data and in the model, hires from employment account for much of firm employment growth.
+This implies a tight positive relation between net growth rate and net poaching rate.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[ttt]
+\begin{center}
+\includegraphics[width=10cm]{\MATLABfigureDir/Fig11_FrictionlessLimit_eps}\vspace*{-.3cm}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\caption{Frictionless limit: the effect of increasing match efficiency}\label{figure:Hopenhayn}\vspace*{-.6cm}
+\end{center}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Search frictions and labor misallocation}\label{sec:misallocation}
+
+It is search and matching frictions, in our model, that impede the instantaneous reallocation of labor across firms. In this section we analyze and quantify the implications of this source of misallocation along three dimensions of the data: cross-section, firm life-cycle and the aggregate business cycle. Because our model is consistent with micro data on both the speed and the direction of the poaching flows across firms that resolve such \textit{frictional misallocation}, it offers a credible platform for these three exercises.
+
+\subsection{Misallocation cost of labor market frictions}
+Our model puts us in a unique position to quantify such misallocation by computing the limit as search frictions vanish.
+This exercise would not make sense in a model without decreasing returns since it would predict that the most productive firm would hire the entire labor force.
+Conversely, we have shown that our economy converges to a competitive equilibrium with a non-degenerate firm size distribution.
+
+Our counterfactual experiment shifts the value of matching efficiency $A$ holding all other parameters fixed at our baseline calibration.
+Figure \ref{figure:Hopenhayn} plots model outcomes for a wide range of values for $A$.
+As frictions vanish, non-employment falls, the dispersion of marginal products across firms shrinks toward zero, the correlation between size and productivity rises toward one, and aggregate TFP and output grow.\footnote{
+    Output is net of vacancy costs. Note that the relationship between frictions and output is concave because the non-employment rate is convex in match efficiency.}
+
+To isolate the role of frictional misallocation, we decompose the change in output into a component due to the allocation of workers across firms, and a component due to higher employment in the economy as a whole, the scale effect.
+Imposing an aggregate production function $Y=Z\mathtt{{n}}^\alpha$, then across steady states
+\vspace*{-.1cm}\begin{equation*}
+\Delta\log{Y} = \Delta\log{Z} + \alpha\Delta\log{\mathtt{{n}}}\quad,\quad Z := \int_{\mathcal{N}\times\mathcal{Z}} z\left(\frac{n}{\mathtt{{n}}}\right)^\alpha\:dH(n,z).
+\vspace*{-.1cm}\end{equation*}
+The \emph{TFP} term $Z$ captures misallocation and is constant if the distribution of employment across firms is unchanged.\footnote{
+    In a constant returns to scale economy, the frictionless limit would be $Z=\max {z}$, since all employment would be at the firm with the highest productivity. Gains from eliminating search frictions would be implausibly large.
+}
+The misallocation from labor market frictions is sizable in our model.
+For example, reducing frictions to an extent that cuts the non-employment rate by half (from 10 to 5 percent) raises aggregate TFP by 3 percent and output by 7 percent. Thus reallocation accounts for nearly half the gains in output. To put this finding in context, the $NE$ rate increases from 0.49 to 0.94 and the $EE$-rate increases from 0.04 to 0.07 (all at quarterly frequency). A five-fold rise in match efficiency relative to the benchmark would virtually eliminate frictional non-employment and boost TFP permanently by 5 percent.
+
+\subsection{Frictional misallocation and the life cycle of superstar firms}
+The addition of labor market frictions to a firm dynamics model overcomes a notable shortcoming of competitive environments first identified by \citet{luttmer2011}.
+When these models are calibrated to generate the correct cross-sectional variation in firm employment growth rates and the empirical size distribution of firms, they imply that the median age of `superstar' firms ($n>10,000$ workers) is 750 years.
+In the data, the median age of such firms is only about 75 years.\footnote{For description of data see \cite{luttmer2011}, Appendix A.
+    The data in \cite{luttmer2011} was collected for 2008, on 813 firms with 10,000 or more workers.
+    To compute firm age, \cite{luttmer2011} collected data on incorporation taken from a variety of historical sources, for example \textit{Mergent Online}.
+}
+
+The root of the problem is that in the data young firms are almost uniformly small and firm employment volatility is not that large.
+Viewed through the lens of a frictionless model where size and productivity are perfectly correlated, young firms must be low productivity.
+This moment is therefore matched by young firms being way out in the left tail of the productivity distribution.
+If shocks are driven by a geometric Brownian motion and chosen to match the empirical volatility of firm growth, then only small shocks are required.
+Initially low productivity and small shocks means that it takes a very long time for any firm to get from the left to the very right tail of the productivity distribution.
+Since productivity is the only determinant of firm size, then it also takes a very long time for a firm to become a superstar firm.
+
+In our environment, instead, labor market frictions imply that some young firms can be extremely productive but still small as frictions have prevented them from immediately growing large.
+Because their initial productivity is already near the upper tail, they remain at the top of the job ladder even after hiring many workers.
+This makes expansion cheap, and accommodates rapid growth.
+They can therefore move relatively quickly to the tail of the size distribution.
+When we simulate firm life cycles in the model, we find that the median age of firms with more than 10,000 workers is 110 years, and hence much closer to the data.
+It is thus the existence of frictional labor misallocation---high productivity, but small size firms---that allows the model to be consistent with the cross-sectional size distribution, volatility of firm growth rates, and life-cycle growth trajectories.\footnote{
+    Recall that we target the dispersion of firm employment growth in our estimation exercise (Table \ref{table: estimated parameters}).
+    The model reproduces quite well the distribution of firms and employment by firm age (Figure \ref{figure:_AgeSize}), and average firm size (Table \ref{table: estimated parameters}).
+    Together these imply that we match average size by age and hence average lifecycle growth of firms.
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LUTTMER FIGURE
+\begin{figure}[ttt]
+\begin{center}
+\hspace*{-0.5cm}\includegraphics[width=18cm]{\MATLABfigureDir/Fig12_FirmLifecycleSuperstars_eps}
+\caption{Comparing the average firm lifecycle to the lifecycle of superstars}\label{figure:Luttmer}\vspace*{-0.1cm}
+\end{center}
+\footnotesize{\underline{Notes}:
+\textbf{Panel A.} plots the average firm size by age, $\overline{n}_a$, (black) which grows at rate $g_a = \overline{n}_{a}/\overline{n}_{a-1}-1$.
+The red dashed line plots a counterfactual under which $n_0$ grows at rates $\lambda\times g_a$, where $\lambda=2.05$.
+This delivers a firm size of $10,000$ at 110 years, which is the median age of a $10,000$ employee firm in the model.
+In \textbf{Panel B.} we take all entering firms (blue dotted), and plot the 99.8$^{th}$ percentile of the firm size distribution at each age.
+The blue dashed line takes a mass of firms that enter at the $99^{th}$ percentile of the entrant productivity distribution, and plots the 99.8$^{th}$ percentile of the firm size distribution at each age for this mass of firms.
+\textbf{Panel C.} uses the data made publicly available by \cite{luttmer2011} to re-create Figure 1 of that paper.
+It plots the employment histories of 25 of the $1,000$ firms that had more than $10,000$ employees in 2008.
+% Sentence paraphrased from Luttmer (2011, p 1044).
+}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Figure \ref{figure:Luttmer} sheds further light on the mechanism behind this finding. Panel A shows than in the model, on average, firms achieve much smaller sizes conditional on surviving for 110 years (black line). One would need a growth rate permanently twice as large in order for the expected firm size at age 110 to exceed 10,000 employees (red line). Instead, from the perspective of the model, being a superstar firm after a century of activity is an extreme tail event both in terms of initial productivity at entry and in terms of sequence of realized productivity shocks along the life cycle (Panel B). Finally, note that the employment trajectory of firms destined to stardom is highly concave both in the data (panel C) and in the model (panel B), and especially so for those firms that already start in the tail (dashed line in panel B).
+
+\subsection{Frictional misallocation in the Great Recession}\label{sec:applications}
+
+The Great Recession provided a raft of new facts regarding the cyclical reallocation of workers across firms.
+In particular the two key mechanisms through which labor gets reallocated across productive units are
+(i) the entry of new firms which replace unproductive exiting firms and
+(ii) the upward movement of workers up the job ladder toward more productive firms.
+During the Great Recession both mechanisms slowed considerably.
+Firm entry (measured as the number of firms less than 1 year old in the BDS) dropped by almost 30 percent between 2007 and 2009 and has since recovered very slowly. Even allowing for the secular decline in firm entry documented by \citet{pugsley2019grown}, the drop around the Great Recession would be at least 20 percent.\footnote{The entry rate in Figure \ref{figure: j2jdata}A is for establishments for consistency with panel B which is constructed at the city level for which there are no firm-level data. The percentage fall in entry rates of firms and establishments in 2008-2009 is very similar and over the last 40 years the correlation between the two series is 0.98.} The $EE$ rate also fell markedly over the same period (Figure \ref{figure: j2jdata}A).\footnote{
+    The exact size of this decline is still debated.
+    \citet{HHKM2018} use Census $J2J$ data and report a decline around 30 percent, which Figure \ref{figure: j2jdata} replicates.
+    \citet{fujitameasuring2019} argue that Census data overestimate this drop because employment status is only measured quarterly and spurious
+poaching transitions (EE from quarter to quarter, but with an `invisible' non-employment spell in between) were much less likely during the
+recession, when unemployment spells were quite long.
+When they reassess measurement error in CPS data, these authors estimate a drop in the EE rate around 15 percent.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% GREAT RECESSION
+\begin{figure}[t]
+\begin{center}
+\hspace*{-0.5cm}\includegraphics[width=16cm]{\MATLABfigureDir/Fig13_HiringRatesGreatRecession_eps}
+\caption{Entry and job-to-job hiring rates over the Great Recession: Aggregate and Cross-section}\label{figure: j2jdata}\vspace*{-0.3cm}
+\end{center}
+{\footnotesize \underline{Notes:}
+Both panels are constructed from the same data at the metro level.
+Establishment entry and number of establishments are from the Census BDS data, and used to construct \emph{establishment entry rate}.
+Job-to-job hires and employment are from the Census J2J data, and used to construct \emph{$EE$ hire rate}.
+The data cover the subset of states that participate in these Census data release programs. These cover more than half of the US population.
+}
+\end{figure}
+%C:\Users\Simon Mongey\Dropbox\Mongey_Park_Williams_HAM\Alex_Firm_Panel\usa\src\plotTS_fmpv_bds_SM.m
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The decline in job-to-job transitions implied a tapering in the process of upgrading from low- to high-rank firms.
+\citet{HHKM2018} document a fall in net poaching of high wage firms, those who are presumably at the top of the job ladder.
+Similarly, \citet{moscapv} use a structural model to rank firms on the job ladder and estimate that high-rank firms disproportionately curtailed their demand for new labor in the recession.
+In short, as they put it: \emph {the job ladder failed, starting from the upper rungs.}
+
+To date, these two facts have not been connected in the literature, since there is a paucity of quantitative structural models that can integrate firm dynamics with on-the-job search.
+Theoretically, our environment suggests a natural link between the two, and since our model matches key data on firm and worker dynamics we can also test this link quantitatively.
+
+Theoretically, the mechanism is as follows.
+New entrants and young firms account for a sizable share of vacancies and have higher marginal surplus than other firms in the economy.
+Following a shock that leads to a drop in the number of entrants, poaching would fall at the top of the ladder which reduces worker reallocation through the middle of the ladder, and so on down to unemployment.
+
+Empirically, this idea is consistent with the correlation observed across cities.
+Figure \ref{figure: j2jdata}B combines newly released Census $J2J$ data with Census $BDS$ data at the metro level.
+The time-series decline in entry and job-to-job mobility is mirrored in the cross-section of labor markets: cities with larger declines in establishment entry also display larger declines in job-to-job mobility.
+
+We now simulate the Great Recession in our model.
+The aggregate shock that best describes the Great Recession is one that worsens financial conditions.
+To proxy for a financial shock in our framework, we solve the model under an unexpected temporary increase in the discount rate $\rho$ \citep[as in][]{hall2017high}.
+We calibrate the initial jump and the rate of convergence of $\rho$ to match the 5 ppt increase in the unemployment rate and the seven years it took to return to pre-recession levels.\footnote{We calibrate the discount rate shock as follows. We feed in an AR(1) path for $\rho_t$ with a half-life of two years, starting above its steady-state value. To generate a 5 ppt increase in unemployment, the model requires a twenty-fold initial decline in the discount factor. While this value may seem large at first sight, it actually represents a plausible reduction in the stochastic discount factor of firms' shareholders. Indeed, in a `large family' model with curvature in the utility function and consumption equal to output every period, the initial 6\% monthly decline in output that follows from our shock translates into a twenty-fold decline in the stochastic discount factor provided risk aversion is around 10. Values in this range are not uncommon in macro-finance, especially in in the long-run risk \citep{bansal2004risks} and the countercyclical idiosyncratic risk \citep{constantinides2017asset} literatures.}
+
+Because the focus is on short-run dynamics, we replace the long-run free-entry condition with a simple imperfectly elastic entry rule. We posit that every instant, a measure 1 (a normalization) of entrepreneurs contemplate entering. They draw preference shocks for opening a new firm ($\epsilon_1$) and for taking an outside option ($\epsilon_2$) normalized to deliver a payoff of 1. Thus, entrepreneurs solve
+\begin{align*}
+\max \Big\{ \epsilon_1 \times \frac{\overline{S}_t}{c_0} \ , \ \epsilon_2 \times 1 \Big\}
+\end{align*}
+where $\overline{S}_t = \int S_t(z,n_0) d\Pi_0(z)$ denotes the expected surplus at firm entry. We assume that $\epsilon_i$ are Frechet distributed with shape parameter $\chi$ and scale normalized to 1. The measure of new firms at $t$ satisfies:
+\begin{align*}
+M_t = \frac{\bar{S}_t^\chi}{\bar{S}_t^\chi + c_0^\chi}
+\end{align*}
+We set {$\chi = 0.05$} to match the observed decline in firm entry (-30 percent) following the discount rate shock.
+
+Figure \ref{fig:GRag} describes the response of the model economy to the shock.
+The shock lowers the valuation of future revenues at all firms, and as a result, average surplus falls.
+Young firms have a disproportionate fraction of their revenues in the future so are especially hard hit, causing entry to collapse (Panel B).
+Marginal surplus also falls, which causes an endogenous spike in $EU$ separations (Panel C).
+Both lead to a jump in unemployment (Panel A).
+Furthermore, declining marginal surplus reduces the return on vacancies \eqref{eq:Rprime}, so aggregate vacancies collapse, job creation contracts, and $UE$ hires decline (Panels D and E).
+This leads the jump in unemployment to persist.
+With less vacancies and more unemployed workers, the aggregate vacancy yield rises (Panel F).
+As in the data, the rise in the vacancy yield is more pronounced for small firms \citep{moscapv}.
+For small unproductive firms at the bottom of the ladder, unemployment is the main source of hiring, so as the pool of unemployed job seekers expands, the vacancy filling rate of these firms jumps (Figure \ref{fig:GRag}F).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[ttt]
+\begin{center}
+\vspace*{-1cm}
+\hspace*{-1cm}
+\includegraphics[width=17cm]{\MATLABfigureDir/Fig14_DiscountRateIRF_eps}
+\vspace*{-0.5cm}
+\caption{Response of the economy following a discount rate shock}\label{fig:GRag}
+\vspace*{-.5cm}
+\end{center}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+Quantitatively, the experiment matches key non-targeted moments: the $EE$ rate falls about one third (Panel G) and vacancies contract by 50 percent \citep{Gavazza2018}.
+The decline in output is 6.5 percent and 9 percent in the data \citep{fernald_NBERannual}.
+
+We now turn to the dynamics of the job ladder.
+In the aggregate, the job-to-job mobility rate drops upon impact and slowly recovers (Panel \ref{fig:GRag}G).
+In the cross-section, the shift in the vacancy distribution away from high marginal surplus firms---whose poaching rates were most sensitive to their vacancy rates (recall Figure \ref{figure:PoachingSnDecomposition}B)---causes poaching rates to collapse at high marginal surplus firms and, symmetrically, grow at low-marginal surplus firms (Panel H).
+This compositional effect reduces the probability that a worker moves from a low- to a high-marginal surplus firm, causing the observed `failure' of the job ladder.
+
+Throughout the recession and its protracted recovery, the slowdown of worker flows towards high-marginal surplus firms exacerbates the misallocation that arises from labor market frictions.
+This force grinds down aggregate TFP, and is responsible for about a quarter of the decline in output (Panel I).
+The recovery of aggregate productivity is sluggish, with the scars of the recession encoded in the slow moving dynamics of the distribution of employment across firms.
+
+\section{Conclusion}\label{sec:conclusion}
+We have set out a new framework to jointly study firm entry and exit, job reallocation, and worker turnover, both through non-employment and through direct job-to-job transitions, in a frictional labor market. The novel feature of the environment, which makes the problem challenging in the presence of random on-the-job search, is diminishing returns to scale in the firm's technology --the hallmark of classic theories of the firm size distribution based on the idea of `span of control'. By extending the contractual environment of \citet{postelvinayrobin2002}, we obtain a tractable `joint value' representation that reduces a potentially unmanageable state space to a very parsimonious one. In contrast with search existing models with linear technology that display a job ladder in exogenous productivity, our model features an endogenous job ladder in \emph{marginal surplus}. Canonical search models and competitive firm dynamics models are special cases of our environment.
+
+We illustrated how to use a calibrated version of the model as a laboratory to shed light on the role of labor misallocation due to search and matching frictions in the cross-section, firm life cycle, and aggregate time series dimension.
+
+Our framework is quite flexible and can be extended in a number of directions while retaining tractability (i.e., a parsimonious state space).
+For example, an isomorphic representation of our firm problem is \emph{constant returns to scale} in production of a differentiated final good, which would yield a \emph{decreasing marginal revenue} as under monopolistic competition.
+We can therefore easily accommodate imperfect substitutability in the goods market which is a key ingredient of trade models and macroeconomic models with nominal rigidities in goods markets.
+
+The model can also integrate heterogeneity in the scale of production across firms (e.g. to allow for fast-growing `gazelle' firms) and fixed heterogeneity in worker types to address sorting within and across firms.
+It is also straightforward to introduce firm-level amenities which have been documented to be important to describe sorting patterns in the data \citep{sorkin2018ranking}.
+Once wage determination is incorporated into the model ---a task we left to future work--- shocks to firm-specific or general human capital can also be accommodated to study earnings dynamics within firms and along worker careers.
+
+In all these cases the joint-value representation remains valid and, as long as heterogeneity is discrete and of moderate dimension, the cardinality of the state vector remains manageable.
+As is, the model can be used to study the effect of most labor market policies (e.g., unemployment benefits, severance payments, firing taxes and hiring subsidies) on firm dynamics, worker reallocation and aggregate employment and output.
+
+Stationary equilibrium and transitional dynamics can be computed very efficiently and, albeit not in the paper, incorporating aggregate shocks using the approach of \citet{boppart2018exploiting} is straightforward which makes business cycles analysis possible.
+
+In ongoing work \citep{BEMV2021growth}, we show how one can combine this framework with a creative-destruction model of endogenous growth and revisit the nexus between the speed of technical change and aggregate employment \citep{aghion1994growth} in the context of the recent growth slowdown and decline in labor market dynamism. Differently from the canonical models in the endogenous growth literature where optimal size is reached instantaneously, in this hybrid model building to the optimal productive capacity and replacing less productive incumbents is a slow process for an innovator, which requires poaching workers away from other firms. As a result, creative destruction can induce more labor misallocation.
+
+In sum, with the introduction of a well defined notion of firm boundaries (through decreasing returns in technology or downward sloping demand) into a  comprehensive model of frictional labor reallocation across firms, our framework can be potentially useful to study a number of questions in growth, business cycle analysis, labor and trade.
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%
+%%BIBLIO
+%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\baselinestretch}{1.04} {\small
+\bibliographystyle{econometrica}
+\bibliography{MV_bibtex_update}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%APPENDIX
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\setcounter{page}{1}
+\clearpage\newpage
+\input{BEMV_ECTA_Appendix.tex}
+
+%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\setcounter{page}{1}
+\clearpage\newpage
+\input{BEMV_ECTA_ONLINE_appendix.tex}
+
+
+%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+%%%%%%%%%%%%%%%%%%%%% 
