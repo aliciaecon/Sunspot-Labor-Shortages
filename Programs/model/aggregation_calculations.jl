@@ -129,18 +129,19 @@ xlabel!("Share of Firms Understaffed")
 ylabel!("Employment")
 savefig("plots/ub_industry_firm.pdf")
 
-# Now, we compute some different "elasticity" measures.
+## Now, we compute some different "elasticity" measures.
 # Define the Market.
 e_len   = 1000 # Market size (large)
 e_Mkt   = Mkt(J = e_len, w = 1, χ = 0.9) # Aggregate
 #e_Mkt   = Mkt(J = e_len, w = w, χ = χ, unrate = 0.96, Lbar = 0.7*(1 - 0.96)/e_len) # Industry
 e_nonemp, e_pgrid, e_sgrid, e_shares = checkProbs(e_Mkt)
 
+# Index of first market where eq. is defined
+first_defined = isempty(findall(isnan, e_shares)) ? 2 : findmax(findall(isnan, e_shares))[1] + 1
+
 #= For each entry where the understaffed share leads to a defined eq,
 Calculate the % change in the employment of an understaffed firm as 
 the share of understaffed firms increases in the economy. =#
-
-first_defined = isempty(findall(isnan, e_shares)) ? 2 : findmax(findall(isnan, e_shares))[1] + 1
 pchange       = zeros(e_len - first_defined + 1)
 for f = first_defined:e_len
     emp1      = e_pgrid[f, f]       # less understaffed economy
@@ -258,3 +259,5 @@ plot!(over_g[2:end-1], label="overstaffed emp growth")
 
 # should equal 1
 e_pgrid[:,1] + e_pgrid[:,2].*e_shares*e_len + e_pgrid[:,end].*(1 .- e_shares)*e_len
+
+
