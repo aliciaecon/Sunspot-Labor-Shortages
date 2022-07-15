@@ -41,7 +41,7 @@ options.HopenhaynNumerical  = 0;
 options.Transition          = 0;
 
 % Solve Steady State
-[~,~,~, SUntrunc_znmat, SnUntrunc_znmat, S_znmat, Sn_znmat, v_znmat, ...
+[error_Ind,error_Agg,error, SUntrunc_znmat, SnUntrunc_znmat, S_znmat, Sn_znmat, v_znmat, ...
     g_znmat, Gn_znmat, Gv_znmat, q, phi, p, u, L, pi0Trunc_zn, NumGrids, Derivatives]...
     = SolveBEMV( Params, ExogParams, options ) ;
 
@@ -69,7 +69,8 @@ xS              = 1:1:5;
     gndzdn_znmat, gdzdn_znamat, gndzdn_znamat, Na, AgeGridLevels, SizeGridLevels ) ;
 
     % Save results
-save Created_mat_files/SS_results.mat
+file = ['Created_mat_files/SS_results_chi_' num2str(ExogParams.chi) '.mat'];
+save(file)
 
 
 disp('... done!')

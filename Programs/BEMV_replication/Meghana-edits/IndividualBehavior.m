@@ -25,6 +25,8 @@ y_znmat = PerPeriod.y_znmat;  % Flow output
 DnForw  = Derivatives.DnForw; % Forward approximation to derivative w.r.t. logn, for value function
 DnBack  = Derivatives.DnBack; % Backward approximation to derivative w.r.t. logn, for value function
 Zv      = MatExog.Zv ;        % Matrix for value function updating considering derivatives w.r.t. logz
+chi     = ExogParams.chi;     % disutility of understaffing
+tot     = ExogParams.tot;     % understaffing indicators
 
 %%  SETUP
 %__________________________________________________________________________
@@ -78,10 +80,10 @@ B                           = (rho + d + 1/Delta) * speye(Nz*Nn) - Nv - Zv ;    
 
 %%  UPDATE SURPLUS FUNCTION - IMPLICIT SCHEME
 %__________________________________________________________________________
-
+% Incorporate undertsaffed disutility in surplus calculation
 y_zn    = reshape ( y_znmat , Nz*Nn , 1 );                      % Vector form
 n_zn    = reshape ( n_znmat , Nz*Nn , 1 );                      % Vector form
-pi_zn   = y_zn - b*exp(n_zn) - c_f;                             % Vector form
+pi_zn   = y_zn - b*exp(n_zn) - c_f - chi*tot;                   % Vector form
 S_zn    = B \ ( pi_zn + 1/Delta * S_zn ) ;                      % Update Surplus Function
 Sn_zn   = 0.5 * ( DnBack * S_zn + DnForw * S_zn ) ;             % Update marginal surlplus: average of backward and forward differentiation w.r.t. log n
 

@@ -25,8 +25,8 @@ rho         = ExogParams.rho;       % Time discount rate
 MF          = ExogParams.MF;        % Fixed mass of firms
 chi         = ExogParams.chi;       % disutility of understaffing
 nbar        = ExogParams.nbar;      % max support
-mu_u        = ExogParams.mu_under;  % mean of support
-sigma_u     = ExogParams.sigma_under; % st dev of support
+mu_u        = ExogParams.mu_u;      % mean of support
+sigma_u     = ExogParams.sigma_u;   % st dev of support
 Zd          = MatExog.Zd ;          % Matrix for distribution updating
 
 %%  UNWEIGHTED DISTRIBUTION g(z,n)
@@ -68,7 +68,7 @@ S_znmat     = S_znmat - FixedCost ;             % Incorporate fixed cost in surp
 % Incorporate undertsaffed disutility in surplus calculation
 tot  = zeros(size(S_znmat));
 marg = zeros(size(S_znmat));
-[tot2,marg2] = understaff(exp(n_znmat),  mu_u, sigma_u, nbar);
+[tot2, marg2] = understaff(exp(n_znmat),  mu_u, sigma_u, nbar);
 
 for j = 1:size(S_znmat,2)
         tot(:,j)  = tot2(:,j);
@@ -76,10 +76,10 @@ for j = 1:size(S_znmat,2)
 end
 
  % Incorporate undertsaffed disutility in surplus calculation
-S_znmat     = S_znmat -  chi*tot;
+S_znmat     = S_znmat -  chi*double(tot);
 
 % Marginal surplus = Present value of constant marginal product minus un. benefit
-Sn_znmat    = (yn_znmat -  chi*marg - b) / rho ;            
+Sn_znmat    = (yn_znmat -  chi*double(marg) - b) / rho ;            
 
     % Impose boundary conditions
 S_znmat     = max( S_znmat , 0 ) ;              % No firm in exit region

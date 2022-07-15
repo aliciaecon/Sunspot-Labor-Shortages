@@ -47,6 +47,7 @@ alpha       = Params.alpha ;       % Labor exponent in production function
 z           = NumGrids.z;          % z grid in log space    (1 x Nz)
 n           = NumGrids.n;          % n grid in log space    (1 x Nn)
 n_znmat     = NumGrids.n_znmat;    % Replica of the n grid
+n_zn        = NumGrids.n_zn;    % Replica of the n grid
 dzdn_znmat  = NumGrids.dzdn_znmat; % Measure (dz*dn in a matrix of size Nz * Nn)
 tol         = Numerical.tol;       % Tolerance for overall convergence
 maxiter     = Numerical.maxiter;   % Max total number of iterations
@@ -62,6 +63,9 @@ maxtime     = Numerical.maxtime;   % Max time in seconds
 
 PerPeriod.y_znmat  = kron( exp(z)' , exp(alpha*n) ) ;               % Flow output in levels, recall z and n are in logs
 PerPeriod.yn_znmat = alpha * kron( exp(z)', exp((alpha-1)*n) ) ;    % Marginal product
+
+[tot, ~]       = understaff(exp(n_zn), ExogParams.mu_u, ExogParams.sigma_u, ExogParams.nbar);
+ExogParams.tot = double(tot);
 
     % Initialize distribution and surplus functions
 if options.Hopenhayn == 0
