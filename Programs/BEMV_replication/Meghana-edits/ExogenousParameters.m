@@ -21,8 +21,8 @@ xgrid=linspace(0,ExogParams.nbar/2,250);
 for i=1:size(xgrid,2)
     [x(i), y(i)] = understaff(xgrid(i), ExogParams.mu_u, ExogParams.sigma_u, ExogParams.nbar);
 end
-plot(xgrid,x)
+plot(xgrid,ExogParams.chi*x)
 hold on
-plot(xgrid,y)
+plot(xgrid,ExogParams.chi*y)
 
 
