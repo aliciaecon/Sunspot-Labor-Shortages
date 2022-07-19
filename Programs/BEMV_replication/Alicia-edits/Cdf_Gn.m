@@ -15,6 +15,7 @@ Nz          = NumGrids.Nz ;         % number of points in z grid
 Nn          = NumGrids.Nn ;         % number of points in n grid
 n_znmat     = NumGrids.n_znmat;     % Replica of the n grid, in logs
 dzdn_znmat  = NumGrids.dzdn_znmat;  % Measure (dz*dn as matrix, where d is log difference)
+dn_znmat = NumGrids.dn_znmat; % NEW
 
     % Sort marginal surpluses
     % Ranks depend on S(n,z) in levels, not Stilde(ntilde,ztilde) which is
@@ -26,8 +27,12 @@ Sn_zn               = reshape( Sn_znmat , Nz*Nn , 1 ) ; % Vector form
 [ ~ , inds_inv ]    = sort( inds , 'ascend' ) ;         % Unsort mapping
 
     % Compute GnSort, employment-weighted CDF of marginal surpluses, in sorted space
-gdzdn_znmat     = g_znmat .* dzdn_znmat ;                   % Integrate against g(z,n)dz*dn
-ngdzdn_znmat    = exp(n_znmat) .* gdzdn_znmat;              % Employment times pdf
+%gdzdn_znmat     = g_znmat .* dzdn_znmat ;                   % Integrate against g(z,n)dz*dn
+%ngdzdn_znmat    = exp(n_znmat) .* gdzdn_znmat;              % Employment times pdf
+% NEW
+gdzdn_znmat     = g_znmat .* dn_znmat ; 
+ngdzdn_znmat    = exp(n_znmat) .* gdzdn_znmat; 
+
 ngdzdn_zn       = reshape( ngdzdn_znmat , Nz*Nn , 1 ) ;     % Vector
 GnSort_zn       = cumsum( ngdzdn_zn(inds) ) ;               % Get cdf by integrating employment weighted pdf, sorted by marginal surplus
 GnSort_zn       = [ 0 ; GnSort_zn(1:end-1) ] ;              % Hiring from those strictly below

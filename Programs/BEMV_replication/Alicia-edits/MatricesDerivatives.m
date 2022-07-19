@@ -37,7 +37,7 @@ DnForwd = -DnBack' ;
 
 %%  DERIVATIVES W.R.T. LOG Z
 %__________________________________________________________________________
-
+%{
     % Backward approximation for value function
 Diag    = 1./dz_z' ;
 Diag(1) = -1/dz_z(1) ; % approximate backward derivative with forward derivative at bottom 
@@ -85,7 +85,7 @@ Dzz             = kron(speye(Nn),sparse(base)) ;
 
     % Second derivative for distribution
 Dzzd            = Dzz' ;
-
+%}
 %%  BUILD STRUCT
 %__________________________________________________________________________
 
@@ -93,7 +93,7 @@ Derivatives.DnBack  = DnBack ;
 Derivatives.DnForw  = DnForw ;
 Derivatives.DnBackd = DnBackd ;
 Derivatives.DnForwd = DnForwd ;
-
+%{
 Derivatives.DzBack  = DzBack ;
 Derivatives.DzForw  = DzForw ;
 Derivatives.DzBackd = DzBackd ;
@@ -101,5 +101,15 @@ Derivatives.DzForwd = DzForwd ;
 
 Derivatives.Dzz     = Dzz ;
 Derivatives.Dzzd    = Dzzd ;
+%}
+
+Derivatives.DzBack  = sparse(50, 50) ;
+Derivatives.DzForw  = sparse(50, 50) ;
+Derivatives.DzBackd = sparse(50, 50) ;
+Derivatives.DzForwd = sparse(50, 50) ;
+
+Derivatives.Dzz     = sparse(50, 50) ;
+Derivatives.Dzzd    = sparse(50, 50) ;
+
 
 end

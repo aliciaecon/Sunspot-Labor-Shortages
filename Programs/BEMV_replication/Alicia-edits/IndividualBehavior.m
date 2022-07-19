@@ -40,6 +40,7 @@ Sn_zn       = reshape( Sn_znmat , Nz*Nn , 1 ) ;
 [ iBot, iTop, ~,~, frac ]   = Brackets2fast( SnGrid_zn, Sn_zn.*exp(-n_zn), Nz*Nn, 1, Nz*Nn ) ; % Locate indices on SnGrid such that Sn lies in between, and specify position (frac)
 frac                        = min( frac , 1 ) ; % Sanity check
 frac                        = max( frac , 0 ) ; % Sanity check
+frac = frac'; %NEW
 Ghatn_zn                    = (1-frac) .* GhatnSort_zn(iBot) + frac .* GhatnSort_zn(iTop) ; % Recover unsorted integral from sorted one
 Ghatn_znmat                 = reshape( Ghatn_zn , Nz , Nn ) ; % Matrix form
 Ghatn_znmat                 = min( Ghatn_znmat , Sn_znmat ) ; % Sanity check
@@ -75,7 +76,6 @@ mu_n_znmat(0 < Sn_znmat & Sn_znmat < 1e-4) = mu_n1_znmat(0 < Sn_znmat & Sn_znmat
 mu_n_zn                     = reshape ( mu_n_znmat, Nz*Nn , 1 ) ;               % Vector form
 [ mu_nForw, mu_nBack, ~,~ ] = FillSparse( mu_n_zn , NumGrids ) ;                % Reshape mu_n into sparse matrices
 Nv                          = mu_nForw .* DnForw + mu_nBack .* DnBack ;         % Employment drift matrix. Note that differentiation is w.r.t. log n
-%display(Nv);
 B                           = (rho + d + 1/Delta) * speye(Nz*Nn) - Nv - Zv ;  % Key matrix in scheme
 
 
@@ -84,8 +84,8 @@ B                           = (rho + d + 1/Delta) * speye(Nz*Nn) - Nv - Zv ;  % 
 
 y_zn    = reshape ( y_znmat , Nz*Nn , 1 );                      % Vector form
 n_zn    = reshape ( n_znmat , Nz*Nn , 1 );                      % Vector form
-pi_zn   = y_zn - b*exp(n_zn) - c_f +1-logncdf(n_zn);             % Vector form (NEW)
-%pi_zn   = y_zn - b*exp(n_zn) - c_f;                             % Vector form
+%pi_zn   = y_zn - b*exp(n_zn) - c_f +1-logncdf(n_zn);             % Vector form (NEW)
+pi_zn   = y_zn - b*exp(n_zn) - c_f;                             % Vector form
 S_zn    = B \ ( pi_zn + 1/Delta * S_zn ) ;                      % Update Surplus Function
 Sn_zn   = 0.5 * ( DnBack * S_zn + DnForw * S_zn ) ;             % Update marginal surlplus: average of backward and forward differentiation w.r.t. log n
 

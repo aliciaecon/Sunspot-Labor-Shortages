@@ -28,16 +28,19 @@ Zd          = MatExog.Zd ;          % Matrix for distribution updating
 %__________________________________________________________________________
 
     % Fix one entry
+    
 ifix2 = 2;                   % Normalization index
 ifixn = ifix2+(0:(Nn-1))*Nz; % Replicate normalization index
 g0_zn = zeros(Nz*Nn,1);      % Initialize right-hand-side
-Zd2   = Zd;                  % Initialize matrix
-for i = 1:Nn % Correct matrix for non-degeneracy
+%Zd2   = Zd;                  % Initialize matrix
+for i = 1:Nn-1 % Correct matrix for non-degeneracy
     ifixloc         = ifixn(i);
     g0_zn(ifixloc)  = 0.1;
-    Zd2(ifixloc,:)  = [ zeros(1,ifixloc-1) , 1 , zeros(1,Nz*Nn-ifixloc) ];
+    %Zd2(ifixloc,:)  = [ zeros(1,ifixloc-1) , 1 , zeros(1,Nz*Nn-ifixloc) ];
 end
-g_zn = Zd2 \ g0_zn; % Compute distribution
+%g_zn = Zd2 \ g0_zn; % Compute distribution
+    
+g_zn = 1\g0_zn; % NEW
 
     % To construct an initial guess, multiply the productivity distribution
 % by a lognormal distribution in firm size: a normal in log size, with 
@@ -48,7 +51,7 @@ g1_znmat= 1 / sqrt(2*pi) / s0 .* exp( -(n_znmat-mm0).^2 / 2 / s0^2 );
 g1_zn   = reshape( g1_znmat , Nz*Nn , 1 );
 g_zn    = g_zn .* g1_zn;
 g_znmat = reshape( g_zn , Nz , Nn );
-g_znmat = g_znmat / sum(sum( g_znmat .* dzdn_znmat)); % Normalize to unit mass
+g_znmat = g_znmat / sum(g_znmat); %sum(sum( g_znmat .* dzdn_znmat)); % Normalize to unit mass
 
 %%  SURPLUS FUNCTIONS
 %__________________________________________________________________________

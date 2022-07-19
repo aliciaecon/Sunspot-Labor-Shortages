@@ -61,6 +61,10 @@ iTopStack = iTop + baseindex;
 SolBot = BracketingPoints(iBotStack);
 SolTop = BracketingPoints(iTopStack);
 
+% NEW
+SolBot = SolBot';
+SolTop = SolTop';
+
 frac = ( repmat(BracketedPoints,N2,1) - SolBot )./(SolTop-SolBot) ;
 frac(isnan(frac)) = 0.5;
 

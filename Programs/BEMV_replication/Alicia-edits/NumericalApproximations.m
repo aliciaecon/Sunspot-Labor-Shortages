@@ -64,9 +64,9 @@ if options.HopenhaynNumerical == 1
 end
 
 % New additions
-%Numerical.Nz = 0;
-%Numerical.zmin = 0;
-%Numerical.zmax = 0;
+Numerical.Nz = 1;
+Numerical.zmin = 1;
+Numerical.zmax = 1;
 
 %%  TRANSITION SETTINGS
 %__________________________________________________________________________

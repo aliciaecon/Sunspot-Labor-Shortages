@@ -11,15 +11,16 @@ function Gv_znmat = Cdf_Gv( inds, inds_inv, v_znmat, g_znmat, SUntrunc_znmat,...
 Nz          = NumGrids.Nz ;         % number of points in z grid
 Nn          = NumGrids.Nn ;         % number of points in n grid
 n_znmat     = NumGrids.n_znmat;     % Replica of the n grid, in logs
-dzdn_znmat  = NumGrids.dzdn_znmat;  % Measure (dz*dn as matrix, where d is log difference)
+%dzdn_znmat  = NumGrids.dzdn_znmat;  % Measure (dz*dn as matrix, where d is log difference)
 in0         = NumGrids.in0;         % index of n gridpoint closest to n_0
 pi0_z       = NumGrids.pi0_z;       % Distribution of entering firms in z grid
+dzdn_znmat = NumGrids.dn_znmat; % NEW
 
     % Distribution of entrants
 pi0_znmat                   = zeros( Nz , Nn ) ; % Distribution of entering firms
 pi0_znmat(:,in0)            = pi0_z ;
 pi0_znmat(SUntrunc_znmat<=0)= 0 ; % Truncate by negative surplus
-pi0Trunc_znmat              = pi0_znmat / sum(sum( pi0_znmat .* dzdn_znmat)) ; % Ensure integration to 1 
+pi0Trunc_znmat              = pi0_znmat / sum(sum( pi0_znmat)); %.* dzdn_znmat)) ; % Ensure integration to 1 
 
     % Entrant vacancies
 HirePerVacancy_znmat = q * ( phi + (1-phi) * Gn_znmat ) ;

@@ -38,7 +38,7 @@ Params.zbar = 0; % normalization
 % New additions
 Params.mu = 0;
 Params.sigma = 0;
-Params.zeta = 1;
+Params.ze
 
     % Options
 options.Hopenhayn           = 0;
