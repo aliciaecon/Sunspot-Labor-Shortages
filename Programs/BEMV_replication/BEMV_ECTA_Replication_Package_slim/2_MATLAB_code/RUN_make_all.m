@@ -20,9 +20,9 @@ clc
 
     % Choose which parts of replication to execute
 execute.SS          = 1; % Solve Steady State
-execute.CompStatics = 1; % Solve Comparative Statics
-execute.Transition  = 1; % Solve Transition
-execute.Figures     = 1; % Plot all Figures and Tables
+execute.CompStatics = 0; % Solve Comparative Statics
+execute.Transition  = 0; % Solve Transition
+execute.Figures     = 0; % Plot all Figures and Tables
 
 %% A. SOLVE MODEL STEADY STATE
 %__________________________________________________________________________
