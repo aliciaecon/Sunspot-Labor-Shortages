@@ -29,7 +29,8 @@ Nz          = NumGrids.Nz;          % Number of points in z grid
 Nn          = NumGrids.Nn;          % Number of points in n grid
 n_znmat     = NumGrids.n_znmat;     % Replica of the n grid
 z_znmat     = NumGrids.z_znmat;     % Replica of the z grid
-dzdn_znmat  = NumGrids.dzdn_znmat;  % Measure (dz*dn in a matrix of size Nz * Nn)
+%dzdn_znmat  = NumGrids.dzdn_znmat;  % Measure (dz*dn in a matrix of size Nz * Nn)
+dzdn_znmat = NumGrids.dn_znmat;
 ExitDrift   = Numerical.ExitDrift; 	% Drift at exit boundary
 LayoffDrift = Numerical.LayoffDrift;% Drift at layoff boundary
 
