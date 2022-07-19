@@ -690,6 +690,7 @@ TFPOldFirm  = repmat( z_zn' , Nz*Nn , 1 ) ; % Useful to calculate productivity c
 dlogn       = T12 .* ( SizeNewFirm - SizeOldFirm ) ; % Change in log size
 dlogz       = T12 .* ( TFPNewFirm  - TFPOldFirm  ) ; % Change in log productivity
 W           = repmat( gdzdn_zn' , Nz*Nn , 1 ) ; % Repeated distribution, weights in regression
+%{
 beta        = lscov( [ ones(Nz^2*Nn^2,1) , dlogz(:) ] , dlogn(:) , W(:) ) ; % Weighted Least Squares of dlogz over dlogn
 
 % (X) Moment, Change in log size over change in log productivity, weighted
@@ -701,5 +702,5 @@ Moments.dLogSizedLogZFirm = beta(2) ;
 W                           = repmat( gnden_zn' , Nz*Nn , 1 ) ;
 beta                        = lscov( [ ones(Nz^2*Nn^2,1) , dlogz(:) ] , dlogn(:) , W(:) ) ;
 Moments.dLogSizedLogZEmp    = beta(2) ;
-
+%}
 end

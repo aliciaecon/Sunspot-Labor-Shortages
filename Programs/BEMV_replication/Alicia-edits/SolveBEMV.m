@@ -107,7 +107,7 @@ while error > tol && it < maxiter % In the paper, each of these iterations is "t
     
         % Loop until individual behavior (value function problem) converges
     while error_v > tol_v && it_v < maxiter_v
-        
+
             % Iterate once over surplus function (in the paper, iteration "tau")
         [ error_v , S_znmat , Sn_znmat , SUntrunc_znmat , SnUntrunc_znmat , v_znmat ] = ...
             IndividualBehavior( S_znmat, Sn_znmat, q, phi, GhatnSort_zn, SnGrid_zn, Delta, NumGrids,...
