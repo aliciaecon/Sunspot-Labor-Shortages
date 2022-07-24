@@ -64,8 +64,9 @@ maxtime     = Numerical.maxtime;   % Max time in seconds
 PerPeriod.y_znmat  = kron( exp(z)' , exp(alpha*n) ) ;               % Flow output in levels, recall z and n are in logs
 PerPeriod.yn_znmat = alpha * kron( exp(z)', exp((alpha-1)*n) ) ;    % Marginal product
 
-[tot, ~]       = understaff(exp(n_zn), ExogParams.mu_u, ExogParams.sigma_u, ExogParams.nbar);
-ExogParams.tot = double(tot);
+[tot, marg]     = understaff(exp(n_zn), ExogParams.mu_u, ExogParams.sigma_u, ExogParams.nbar);
+ExogParams.tot  = double(tot);
+ExogParams.marg = double(marg);
 
     % Initialize distribution and surplus functions
 if options.Hopenhayn == 0
@@ -194,6 +195,8 @@ while error > tol && it < maxiter % In the paper, each of these iterations is "t
     if time > maxtime
         error = - 1 ;
     end
+    
+    disp(['iter: ' num2str(it)] )
 end
 
 end

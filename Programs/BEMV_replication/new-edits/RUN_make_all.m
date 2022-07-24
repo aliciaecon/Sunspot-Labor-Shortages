@@ -58,6 +58,7 @@ end
 legend('Location','southeast')
 xlabel("n")
 ylabel("S")
+saveas(gcf,['figures/s_chi_' num2str(ExogParams.chi) '.png'])
 
 % plot marginal surplus (sn/exp(n))
 sn = Sn_znmat.*exp(-NumGrids.n_znmat);
@@ -76,7 +77,7 @@ xlabel("n")
 % the above is difficult to see, so let's plot against log n
 figure
 str = ['z = ' num2str(exp(NumGrids.z(1)))]; 
-plot(NumGrids.n_znmat(1,:),sn(10,:),'DisplayName',str)
+plot(NumGrids.n_znmat(1,:),sn(1,:),'DisplayName',str)
 hold on
 for i =5:5:50
     str = ['z = ' num2str(exp(NumGrids.z(i)))]; 
@@ -85,8 +86,46 @@ end
 legend
 xlabel("log n")
 ylabel("S_n")
+saveas(gcf,['figures/s_n_chi_' num2str(ExogParams.chi) '.png'])
 
 % now plot the distribution 
+figure
+
+iter = 1;
+for i = 1:5:30
+    subplot(2,3,iter);
+    str = ['z = ' num2str(exp(NumGrids.z(i)))]; 
+    plot(NumGrids.n_znmat(i,:), g_znmat(i,:),'DisplayName',str)
+    hold on
+    for j = i+1:i+4
+        str = ['z = ' num2str(exp(NumGrids.z(j)))]; 
+        plot(NumGrids.n_znmat(j,:), g_znmat(j,:),'DisplayName',str)
+    end
+    legend('Location', 'NorthEast')
+    xlabel("log n")
+    ylabel("g")
+    iter = iter+1; 
+end
+saveas(gcf,['figures/g1_chi_' num2str(ExogParams.chi) '.png'])
+
+figure
+
+iter = 1;
+for i = 31:5:50
+    subplot(2,2,iter);
+    str = ['z = ' num2str(exp(NumGrids.z(i)))]; 
+    plot(NumGrids.n_znmat(i,:), g_znmat(i,:),'DisplayName',str)
+    hold on
+    for j = i+1:i+4
+        str = ['z = ' num2str(exp(NumGrids.z(j)))]; 
+        plot(NumGrids.n_znmat(j,:), g_znmat(j,:),'DisplayName',str)
+    end
+    legend('Location', 'NorthWest')
+    xlabel("log n")
+    ylabel("g")
+    iter = iter+1; 
+end
+saveas(gcf,['figures/g2_chi_' num2str(ExogParams.chi) '.png'])
 
 % Compute Moments
 disp('...solved steady state, now computing moments...')
@@ -118,6 +157,9 @@ save(file)
 
 disp('... done!')
 toc
+
+close all
+
 end
 
 %% B. SOLVE COMPARATIVE STATICS FOR FIGURE 11
