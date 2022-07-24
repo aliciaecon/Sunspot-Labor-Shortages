@@ -11,7 +11,7 @@ ExogParams.cbar  = 100 ;           % Scalar in vacancy posting cost
 ExogParams.gamma = 3.45 ;          % Curvature of vacancy post cost
 ExogParams.d     = 0.0002 ;        % Exogenous firm exit rate
 
-ExogParams.chi         = 6 ;      % Exogenous disutility
+ExogParams.chi         = 0 ;      % Exogenous disutility
 ExogParams.nbar        = 1000 ;    % Upper bound of truncated normal 
 ExogParams.mu_u        = 0;        % Mean of truncated normal 
 ExogParams.sigma_u     = 10 ;      % St dev of truncated normal 

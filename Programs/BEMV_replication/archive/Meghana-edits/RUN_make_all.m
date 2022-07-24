@@ -17,6 +17,7 @@
 clear
 close all
 clc
+set(0, 'DefaultLineLineWidth', 2);
 
     % Choose which parts of replication to execute
 execute.SS          = 1; % Solve Steady State
@@ -44,6 +45,48 @@ options.Transition          = 0;
 [error_Ind,error_Agg,error, SUntrunc_znmat, SnUntrunc_znmat, S_znmat, Sn_znmat, v_znmat, ...
     g_znmat, Gn_znmat, Gv_znmat, q, phi, p, u, L, pi0Trunc_zn, NumGrids, Derivatives]...
     = SolveBEMV( Params, ExogParams, options ) ;
+
+% surplus function
+figure
+str = ['z = ' num2str(exp(NumGrids.z(1)))]; 
+plot(exp(NumGrids.n_znmat(1,:)),S_znmat(1,:),'DisplayName',str)
+hold on
+for i = 5:5:50
+    str = ['z = ' num2str(exp(NumGrids.z(i)))]; 
+    plot(exp(NumGrids.n_znmat(i,:)),S_znmat(i,:),'DisplayName',str)
+end
+legend('Location','southeast')
+xlabel("n")
+ylabel("S")
+
+% plot marginal surplus (sn/exp(n))
+sn = Sn_znmat.*exp(-NumGrids.n_znmat);
+
+figure
+str = ['z = ' num2str(exp(NumGrids.z(1)))]; 
+plot(exp(NumGrids.n_znmat(1,:)),sn(1,:),'DisplayName',str)
+hold on
+for i =5:5:50
+    str = ['z = ' num2str(exp(NumGrids.z(i)))]; 
+    plot(exp(NumGrids.n_znmat(i,:)),sn(i,:),'DisplayName',str)
+end
+legend('Location','southeast')
+xlabel("n")
+
+% the above is difficult to see, so let's plot against log n
+figure
+str = ['z = ' num2str(exp(NumGrids.z(1)))]; 
+plot(NumGrids.n_znmat(1,:),sn(10,:),'DisplayName',str)
+hold on
+for i =5:5:50
+    str = ['z = ' num2str(exp(NumGrids.z(i)))]; 
+    plot(NumGrids.n_znmat(i,:),sn(i,:),'DisplayName',str)
+end
+legend
+xlabel("log n")
+ylabel("S_n")
+
+% now plot the distribution 
 
 % Compute Moments
 disp('...solved steady state, now computing moments...')
@@ -77,9 +120,9 @@ disp('... done!')
 toc
 end
 
-%{
 %% B. SOLVE COMPARATIVE STATICS FOR FIGURE 11
 %__________________________________________________________________________
+%{
 if execute.CompStatics
 disp('Solving model comparative statics...')
 tic
@@ -280,8 +323,12 @@ save('Created_mat_files/Hopenhayn','gridA','MOM','MOMex','Distrib');
 disp('... done!')
 toc
 end
+%}
+
+
 %% C. SOLVE TRANSITION DYNAMICS FOR FIGURE 13
 %__________________________________________________________________________
+%{
 if execute.Transition
 disp('Solving model transition dynamics...')
 tic
@@ -383,9 +430,13 @@ save Created_mat_files/Transition.mat TransitionMoments TransitionNum
 
 disp('... done!')
 toc
+
 end
+%}
+
 %% D. FIGURES AND TABLES
 %__________________________________________________________________________
+%{
 if execute.Figures 
 disp('Producing figures and tables...')
     
